@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/InteractionDef[defName = &quot;Chitchat&quot;]/logRulesInitiator/rulesStrings</xpath>
+		<value>  <!-- ===ApparelDamaged=== --> <li>r_logentry(INITIATOR_thoughtDefName==ApparelDamaged,tag=ReactToThought_ApparelDamaged)-&gt;[apparel_damaged]</li>
+					<li>apparel_damaged(INITIATOR_thoughtLabel==ratty apparel)-&gt;내 옷 여기저기에 구멍이 나기 시작했어. [apparel_damaged_comment]</li>
+					<li>apparel_damaged(INITIATOR_thoughtLabel==ratty apparel)-&gt;내 옷에 또 구멍이 났어. [apparel_damaged_comment]</li>
+					<li>apparel_damaged(INITIATOR_thoughtLabel==tattered apparel)-&gt;내 옷 지금 당장이라도 찣어져 버릴 것 같은걸. [apparel_damaged_comment]</li>
+					<li>apparel_damaged(INITIATOR_thoughtLabel==tattered apparel)-&gt;옷이 있었는데요, 없었습니다! [apparel_damaged_comment]</li>  <!-- ===WILDCARDS=== --> <li>apparel_damaged_comment-&gt;</li>
+							<li>apparel_damaged_comment(INITIATOR_social_level&gt;=5)-&gt; 이런건 두고볼 수 없지 — 사람들이 날 뭐라고 생각하겠어?</li>
+							<li>apparel_damaged_comment(INITIATOR_crafting_level&gt;=5)-&gt; 옷하나 새로 해입어야 겠어— 이런 꼴로 돌아다닐 순 없지.</li> <!-- ===Ate a special meal=== --> <!-- ===AteLavishMeal=== --> <li>r_logentry(INITIATOR_thoughtDefName==AteLavishMeal,tag=ReactToThought_AteMeal)-&gt;[meal_lavish]</li>
+							<li>meal_lavish-&gt;우리 식사가 정말 마음에 들어 — 맛있고 다양한데다 호화로워.</li>
+							<li>meal_lavish-&gt;우리 식사는 정말 최고야! 종류도 많고 맛도좋아.</li>
+							<li>meal_lavish-&gt;식사하고 나면 정말 기분이 좋아. 엄청 맛있거든!</li>
+							<li>meal_lavish(INITIATOR_trait==gourmand)-&gt;훌륭한 식사는 인생에서 가장 큰 기쁨이지 — 우리가 먹는 식사는 더더욱. 내 생각은 그래!</li>  <!-- ===AteFineMeal=== --> <li>r_logentry(INITIATOR_thoughtDefName==AteFineMeal,tag=ReactToThought_AteMeal)-&gt;[meal_fine]</li>
+								<li>meal_fine-&gt;우리 식사가 정말 마음에 들어 — 맛있고 다양해.</li>
+								<li>meal_fine-&gt;최근에 꽤 괜찮은 식사를 했어.</li>
+								<li>meal_fine-&gt;우리 식사는 [intensifier] 맛있어.</li>
+								<li>meal_fine(INITIATOR_trait==gourmand)-&gt;꽤 먹어줄만한 음식이야.</li>  <!-- ===AteAwfulMeal=== --> <li>r_logentry(INITIATOR_thoughtDefName==AteAwfulMeal,tag=ReactToThought_AteMeal)-&gt;[meal_awful]</li>
+								<li>meal_awful-&gt;우리 식사는 좀 [disgusting] 것 같아!</li>
+								<li>meal_awful-&gt;더 나은 밥을 먹고싶은걸.</li>
+								<li>meal_awful-&gt;왜 우리 식사는 이렇게 [disgusting]거지? 못먹겠어!</li>
+								<li>meal_awful(INITIATOR_trait==gourmand)-&gt;우리 식사는 [disgusting]것 같아 - 정말 짜증나네! 못먹겠어!</li>  <!-- ===AteRawFood=== --> <li>r_logentry(INITIATOR_thoughtDefName==AteRawFood,tag=ReactToThought_AteMeal)-&gt;[meal_raw]</li>
+								<li>meal_raw-&gt;난 날 음식을 먹어야 했어. 좀 조리해서 주면 덧나나?!</li>
+								<li>meal_raw-&gt;난 날 음식을 먹어야 했어. 정말 [disgusting] 짓이야...</li>  <!-- ===AteKibble=== --> <li>r_logentry(INITIATOR_thoughtDefName==AteKibble,tag=ReactToThought_AteMeal)-&gt;[meal_kibble]</li>
+								<li>meal_kibble-&gt;사료를 먹어야 했어. I[intensifier][humiliating]걸 — 난 더이상 인간이 아닌걸까.</li>  <!-- ===AteCorpse=== --> <li>r_logentry(INITIATOR_thoughtDefName==AteCorpse,tag=ReactToThought_AteMeal)-&gt;[meal_corpse]</li>
+								<li>meal_corpse-&gt;나는 도축도 안한 생고기를 뜯어 먹었어. [intensifier] [humiliating]데다가 [disgusting]걸.</li>  <!-- ===AteWithoutTable // AteInImpressiveDiningRoom=== --> <li>r_logentry(INITIATOR_faction==PlayerColony)-&gt;[thought_diningroom]</li>
+						<li>r_logentry(INITIATOR_faction==PlayerTribe)-&gt;[thought_diningroom]</li>  <!-- ===AteInImpressiveDiningRoom=== --> <li>thought_diningroom(INITIATOR_thoughtDefName==AteInImpressiveDiningRoom,tag=ReactToThought_DiningRoom,priority=2)-&gt;[thought_diningroom_good]</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==decent dining room)-&gt;저번 식사시간에는, 난 [proper] 식당에 있었어.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==slightly impressive dining room)-&gt;저번 식사시간에는, 꽤나 괜찮은 식당에서 밥을 먹었어.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==somewhat impressive dining room)-&gt;저번 식사시간에는, 난 인상적인 식당에서 밥을 먹었어.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==very impressive dining room)-&gt;저번 식사시간에는, 정말 인상깊은 곳에서 식사를 했지.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==extremely impressive dining room)-&gt;저번 식사시간에는, 정말 극도로 인상적인 식당에서 밥을 먹었어. 거기 평생있으래도 있겠더라.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==unbelievably impressive dining room)-&gt;저번 식사시간에는, 믿을 수 없을 정도로 인상적인 식당에서 식사를 했어. 거기 평생있으래도 있겠더라.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==wondrously impressive dining room)-&gt;저번 식사시간에는, 최고의 식당에서 밥을 먹었어. 거기 평생있으래도 있겠더라.</li>  <!-- ===AteWithoutTable=== --> <li>thought_diningroom(INITIATOR_thoughtDefName==AteWithoutTable,priority=1)-&gt;[thought_atewotable]</li>  <!-- ===Stressed || abrasive=== --> <li>thought_atewotable(INITIATOR_mood&lt;=0.4,tag=ReactToThought_AteWithoutTable)-&gt;[thought_atewotable_stressed]</li>
+									<li>thought_atewotable(INITIATOR_trait==abrasive,tag=ReactToThought_AteWithoutTable)-&gt;[thought_atewotable_stressed]</li>
+									<li>thought_atewotable_stressed-&gt;나는 [swearword] 테이블 하나 없이 밥을 먹어야 했다고! [hope_wont_happen_again_table]</li>  <!-- ===Initiator is not skilled in construction=== --> <li>hope_wont_happen_again_table(INITIATOR_construction_level&lt;4)-&gt;[thought_atewotable_construction_unskilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>thought_atewotable_construction_unskilled(RECIPIENT_construction_level&lt;4)-&gt;</li>  <!-- ===Recipient is skilled in construction=== --> <li>thought_atewotable_construction_unskilled(RECIPIENT_construction_level&gt;=4)-&gt;이런 일 다시는 없길 바라, [recipient].</li>								
+												<li>thought_atewotable_construction_unskilled(RECIPIENT_construction_level&gt;=4)-&gt;우리를 위해 하나 만들어 주는건 어때, [recipient].</li>  <!-- ===Initiator is skilled in construction=== --> <li>hope_wont_happen_again_table(INITIATOR_construction_level&gt;=4)-&gt;[thought_atewotable_construction_skilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>thought_atewotable_construction_skilled(RECIPIENT_construction_level&lt;4)-&gt;I 이런 일 일어나지 않을수 있었는데 - 미리 하나 지었어야 했어.</li>  <!-- ===Recipient is skilled in construction=== --> <li>thought_atewotable_construction_skilled(RECIPIENT_construction_level&gt;=4)-&gt;이런 일 일어나지 않을 수 있었는데 - 미리 하나 지었어야 했어.</li>  <!-- ===Calm=== --> <li>thought_atewotable(INITIATOR_mood&gt;0.4)-&gt;[mood_calm]</li>  <!-- ===Almost decent dining room (default)=== --> <li>thought_diningroom-&gt;[thought_diningroom_default]</li>  <!-- ===Stressed || abrasive=== --> <li>thought_diningroom_default(INITIATOR_mood&lt;=0.4,tag=ReactToThought_AteWithoutTable)-&gt;[thought_diningroom_stressed]</li>
+									<li>thought_diningroom_default(INITIATOR_trait==abrasive,tag=ReactToThought_AteWithoutTable)-&gt;[thought_diningroom_stressed]</li>
+										<li>thought_diningroom_stressed-&gt;저번 식사시간에는, 식당의 상태가 좋지않았어  — 약간 [annoying].</li>  <!-- ===Calm=== --> <li>thought_diningroom_default(INITIATOR_mood&gt;0.4)-&gt;[mood_calm]</li>  <!-- ===DefeatedMechCluster=== --> <li>r_logentry(INITIATOR_thoughtDefName==DefeatedMechCluster,tag=ReactToThought_DefeatedMechCluster)-&gt;[thought_defeatcluster]</li>
+					<li>thought_defeatcluster-&gt;메카 기지를 상대로 거둔 승리는 정말이지 영광스러웠어!</li>  <!-- ===EnvironmentCold=== --> <li>r_logentry(INITIATOR_thoughtDefName==EnvironmentCold,tag=ReactToThought_EnvironmentCold)-&gt;[thought_environmentcold]</li>
+					<li>thought_environmentcold(p=0.5)-&gt;Brr! *몸을 떰*</li>
+					<li>thought_environmentcold(INITIATOR_thoughtLabel==chilly)-&gt;나 좀 불편할 정도로 추워.</li>
+					<li>thought_environmentcold(INITIATOR_thoughtLabel==cold)-&gt;나 [swearword_adverb]몸이 어는거 같아!</li>
+					<li>thought_environmentcold(INITIATOR_thoughtLabel==numbing cold)-&gt; [swearword_adverb], 몸이 떨리는게 안멈춰!</li>
+					<li>thought_environmentcold(INITIATOR_thoughtLabel==absolutely freezing)-&gt;내 [swearword_adverb] 이가 미친듯이 떨려서 말하기도 힘드네!</li>  <!-- ===EnvironmentDark=== --> <li>r_logentry(INITIATOR_thoughtDefName==EnvironmentDark,tag=ReactToThought_EnvironmentDark)-&gt;[thought_environmentdark]</li>  <!-- ===Special trait — undergrounder=== --> <li>thought_environmentdark(INITIATOR_trait==undergrounder,priority=1)-&gt;[thought_environmentdark_undergrounder]</li>  <!-- ===OUTDOORS=== --> <li>thought_environmentdark_undergrounder(OUTDOORS==No)-&gt;빛 한줌없는... 실내... 정말 최고의 장소야.</li>
+								<li>thought_environmentdark_undergrounder(OUTDOORS==Yes)-&gt;이 어둠은 나를 편하게 해줘. 마치 나를 지켜주는 것 같아.</li>  <!-- ===Special traits — night owl=== --> <li>thought_environmentdark(INITIATOR_trait==night owl,priority=1)-&gt;난 어둠이 정말 좋아 — 마음이 편안해진다구...</li>  <!-- ===Other traits=== --> <li>thought_environmentdark-&gt;어둡군 — [extra]</li>  <!-- ===WILDCARDS=== --> <li>extra-&gt;난 어두운게 싫어.</li>
+							<li>extra-&gt;길 안잃어버리게 조심해야겠어.</li>
+							<li>extra-&gt;앞이 잘안보여서 작업하기가 힘든걸.</li>
+							<li>extra-&gt;아무것도 안보여.</li>
+							<li>extra-&gt;마음에 안들어.</li>
+							<li>extra(INITIATOR_trait==pyromaniac)-&gt;이 주변에 최소한 횃불이라도 설치해야겠어.</li>
+							<li>extra(INITIATOR_trait==depressive)-&gt;마치 내 삶의 앞날같네...</li>  <!-- ===EnvironmentHot=== --> <li>r_logentry(INITIATOR_thoughtDefName==EnvironmentHot,tag=ReactToThought_EnvironmentHot)-&gt;[thought_environmenthot]</li>
+					<li>thought_environmenthot(INITIATOR_thoughtLabel==sweaty)-&gt;꽤나 더운 곳이야.</li>
+					<li>thought_environmenthot(INITIATOR_thoughtLabel==hot)-&gt;이 [swearword_adverb] 곳 존나게 덥네!</li>
+					<li>thought_environmenthot(INITIATOR_thoughtLabel==sweltering hot)-&gt;여기 무슨 [swearword] 용광로야? — 시원한게 필요해!</li>
+					<li>thought_environmenthot(INITIATOR_thoughtLabel==blistering hot)-&gt;타는듯이 덥군 —이대로 가다간 [swearword_adverb] 더위때문에 죽겠어!</li> <!-- ===Expectations=== --> <!-- ===Freed from slavery=== --> <li>r_logentry(INITIATOR_thoughtDefName==FreedFromSlavery,tag=ReactToThought_ExSlave)-&gt;[thought_freed]</li>
+					<li>thought_freed-&gt;노예 생활은 정말 악몽과도 같았지... 노예의 삶 끝내줘서 감사해! </li>
+					<li>thought_freed-&gt;날 해방시켜준건 정말 고귀한 일이야. 평생 고마워하면서 살거야.</li>
+					<li>thought_freed-&gt;자유란 정말 소중한거야. 내가 자유를 찾게 해줘서 고마워.</li>  <!-- ===JoyActivityInImpressiveRecRoom=== --> <li>r_logentry(INITIATOR_thoughtDefName==JoyActivityInImpressiveRecRoom,tag=ReactToThought_JoyRoom)-&gt;[thought_joyroom]</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==decent rec room)-&gt;우리, 꽤 적당한 휴게실이 있는 것 같아.</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==slightly impressive rec room)-&gt;우리 꽤 좋은 휴게실이 있는 것 같아.</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==somewhat impressive rec room)-&gt;우리에겐 정말 멋진 휴게실이 있는 것 같아.</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==very impressive rec room)-&gt;우리 휴게실은 정말 인상적이야!</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==extremely impressive rec room)-&gt;우리 휴게실은 극도로 인상적이야!</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==unbelievably impressive rec room)-&gt;이렇게 어마어마한 휴게실이라니, 우린 정말 운이 좋아!</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==wondrously impressive rec room)-&gt;우리 휴게실 좀 봐, 정말 최고야! 나 여기서 살으래도 살 수 있어! [wondrously_impressive_comment]</li>  <!-- ===comment === --> <li>wondrously_impressive_comment-&gt;평생 살래도 살겠다!</li>
+						<li>wondrously_impressive_comment-&gt;여기 있는게 너무 좋아!</li>
+						<li>wondrously_impressive_comment-&gt;세계 최고의 장소야!</li>
+						<li>wondrously_impressive_comment(INITIATOR_social_level&gt;=4)-&gt;여긴 정말 마음에 드는걸!</li>  <!-- ===KnowPrisonerSold (PlayerColony or PlayerTribe only)=== --> <li>r_logentry(INITIATOR_faction==PlayerColony,INITIATOR_thoughtDefName==KnowPrisonerSold,tag=ReactToThought_PrisonerSold)-&gt;[thought_prisonersold]</li>
+					<li>r_logentry(INITIATOR_faction==PlayerTribe,INITIATOR_thoughtDefName==KnowPrisonerSold,tag=ReactToThought_PrisonerSold)-&gt;[thought_prisonersold]</li>
+					<li>thought_prisonersold-&gt;우리 그 불쌍한 [prisoner]를 팔았어. [prisonersold_comment]</li>  <!-- ===comment=== --> <li>prisonersold_comment-&gt;그거 좀 걱정되는 걸...</li>
+						<li>prisonersold_comment-&gt;우리가 다시는 그런 비인간적인 일을 하지 않았으면 좋겠어...</li>
+						<li>prisonersold_comment-&gt;우리가 이정도 수준까지 떨어지다니...</li>
+					<li>thought_prisonersold(INITIATOR_trait==kind,priority=2)-&gt;그 불쌍한 [prisoner]를 노예상에게 팔아넘기는건 해서는 안될 일이었어!</li>
+					<li>thought_prisonersold(INITIATOR_trait==bloodlust,priority=1)-&gt;[prisoner_sold_canniblood]</li>
+					<li>thought_prisonersold(INITIATOR_trait==cannibal,priority=1)-&gt;[prisoner_sold_canniblood]</li>
+					<li>prisoner_sold_canniblood-&gt;정말 그 [prisoner]를 팔아치워야했어? 인력 낭비잖아!</li>
+					<li>thought_prisonersold(INITIATOR_trait==greedy,priority=1)-&gt; [prisoner]를 노예상에게 팔아넘기는게 고귀한 일은 아니지만, 그래도 말야 — 돈을 준다는데, 어떻게 안팔겠어!</li> <!-- ===NeedBeauty=== --> <!-- ===hideous=== --> <li>r_logentry(INITIATOR_thoughtLabel==hideous environment,tag=ReactToThought_NeedBeauty_hideous)-&gt;[thought_needbeauty_hideous]</li>
+						<li>thought_needbeauty_hideous-&gt;참기 힘들정도로 [ugly] 곳이군. 더이상 보고있기도 힘들어.</li>
+						<li>thought_needbeauty_hideous-&gt;이딴 곳에 있는건 정말 싫은데. 너무 [ugly] 곳이잖아 ...</li>
+						<li>thought_needbeauty_hideous-&gt;참기 힘들 정도로 [ugly] 곳이네...</li>
+						<li>thought_needbeauty_hideous(INITIATOR_trait==depressive)-&gt;암울하고 우울한 곳 — 우리의 미래를 정말 잘 표현해주고 있는것 같아.</li>
+						<li>thought_needbeauty_hideous(INITIATOR_trait==pyromaniac)-&gt;이 장소 너무 음산하잖아! 다 태워버리자고!  — 그러는 편이 보기에도 더 좋을걸!</li>  <!-- ===ugly=== --> <li>r_logentry(INITIATOR_thoughtLabel==ugly environment,tag=ReactToThought_NeedBeauty_ugly)-&gt;[thought_needbeauty_ugly]</li>
+						<li>thought_needbeauty_ugly-&gt;여긴 정말 [ugly] 곳이야. 더이상 이런 건 보고싶지 않아.</li>
+						<li>thought_needbeauty_ugly-&gt;여긴 [intensifier] [ugly] 곳이야.</li>
+						<li>thought_needbeauty_ugly-&gt;이따위 [ugly] 곳에 더 있고 싶지 않아.</li>
+						<li>thought_needbeauty_ugly(INITIATOR_trait==depressive)-&gt;정말 [ugly] 곳이네... 그래도 생각해보면 —나쁘진 않아, 나같은 놈이 것보다 좋은 방을 가질 기회가 어디 있겠어.</li>
+						<li>thought_needbeauty_ugly(INITIATOR_trait==pyromaniac)-&gt;진짜 답도없이 [ugly] 곳이네. 다 태워버리고 새로 짓는게 낫겠다!</li>  <!-- ===unsightly=== --> <li>r_logentry(INITIATOR_thoughtLabel==unsightly environment,tag=ReactToThought_NeedBeauty_unsightly)-&gt;[thought_needbeauty_unsightly]</li>
+						<li>thought_needbeauty_unsightly-&gt;여기 좀 [unsightly] 곳이네. 더이상 봐주기 힘든걸.</li>
+						<li>thought_needbeauty_unsightly-&gt;좀 더 [moderately_attractive_obj] 곳이 되었으면 좋겠네. 좀 [unsightly] 곳 같아.</li>  <!-- ===pretty=== --> <li>r_logentry(INITIATOR_thoughtLabel==pretty environment,tag=ReactToThought_NeedBeauty_pretty)-&gt;[thought_needbeauty_pretty]</li>
+						<li>thought_needbeauty_pretty-&gt;여긴 꽤나 멋진 곳인걸.</li>
+						<li>thought_needbeauty_pretty-&gt;꽤 [moderately_attractive_obj] 장소야.</li>  <!-- ===beautiful=== --> <li>r_logentry(INITIATOR_thoughtLabel==beautiful environment,tag=ReactToThought_NeedBeauty_beautiful)-&gt;[thought_needbeauty_beautiful]</li>
+						<li>thought_needbeauty_pretty-&gt;난 이곳이 정말 좋아. [intensifier] 아름다워</li>
+						<li>thought_needbeauty_pretty-&gt;여기 있는게 좋아 [intensifier] 아름다워</li>
+						<li>thought_needbeauty_pretty-&gt;이 장소는 [intensifier] 아름다워.</li>  <!-- ===gorgeous=== --> <li>r_logentry(INITIATOR_thoughtLabel==gorgeous environment,tag=ReactToThought_NeedBeauty_gorgeous)-&gt;[thought_needbeauty_gorgeous]</li>
+						<li>thought_needbeauty_gorgeous-&gt;이 장소는 정말 아름다워. 내 삶의 활력소야!</li>
+						<li>thought_needbeauty_gorgeous-&gt;내가 꿈에서나 그리던 곳이 여기있네. 여기 있는게 [intensifier] 행복해!</li>
+						<li>thought_needbeauty_gorgeous(INITIATOR_artistic_level&gt;=5)-&gt;세계 어디에도 이곳만한 걸작은 없을거야!</li> <!-- ===NeedComfort=== --> <!-- ===uncomfortable=== --> <li>r_logentry(INITIATOR_thoughtLabel==uncomfortable,tag=ReactToThought_NeedComfort)-&gt;[thought_need_comfort1]</li>
+						<li>thought_need_comfort1-&gt;허리가 아파. 우리 가구는 부족한 부분이 좀 많은걸.</li>
+						<li>thought_need_comfort1-&gt;아이고 허리야! 자세를 잘못 잡아서 그런가. 그냥 가구가 문제인 것 같기도...</li>
+						<li>thought_need_comfort1-&gt;가구 질이 영 좋지 않아. [intensifier] 불편해.</li>
+						<li>thought_need_comfort1(INITIATOR_trait==ascetic,priority=1)-&gt;불평하는건 아니지만, 가구때문에 몸이 좀 쑤시네.</li>  <!-- ===comfortable=== --> <li>r_logentry(INITIATOR_thoughtLabel==comfortable,tag=ReactToThought_NeedComfort)-&gt;[thought_need_comfort2]</li>
+						<li>thought_need_comfort2-&gt;안락한 가구가 있어서 다행이야.</li>
+						<li>thought_need_comfort2-&gt;꽤 쓸만한 가구야. 쓰기 좋은걸!</li>
+						<li>thought_need_comfort2-&gt;가구 수준이 딱 내게 필요한 정도야.</li>  <!-- ===quite comfortable=== --> <li>r_logentry(INITIATOR_thoughtLabel==quite comfortable,tag=ReactToThought_NeedComfort)-&gt;[thought_need_comfort3]</li>
+						<li>thought_need_comfort3-&gt;멋지고 편안한 가구가 있어서 정말 좋아!</li>
+						<li>thought_need_comfort3-&gt;여기 앉으니 편한걸. 꽤 기분 좋아.</li>
+						<li>thought_need_comfort3-&gt;우리 가구가 마음에 들어. [intensifier] 멋지고 편안하기까지 해</li>  <!-- ===extremely comfortable=== --> <li>r_logentry(INITIATOR_thoughtLabel==extremely comfortable,tag=ReactToThought_NeedComfort)-&gt;[thought_need_comfort4]</li>
+						<li>thought_need_comfort4-&gt;여긴 정말 안락한걸 — 이보다 완벽한 가구는 없을거야!</li>
+						<li>thought_need_comfort4-&gt;이 가구는 [intensifier] 잘 만들었어. 완전 편안해!</li>
+						<li>thought_need_comfort4-&gt;정말 멋진데, 좋은 가구가 많네.</li>  <!-- ===luxuriantly comfortable=== --> <li>r_logentry(INITIATOR_thoughtLabel==luxuriantly comfortable,tag=ReactToThought_NeedComfort)-&gt;[thought_need_comfort5]</li>
+						<li>thought_need_comfort5-&gt;마치 천국에 있는 것 같아! 가구들이 정말 안락해!</li>
+						<li>thought_need_comfort5-&gt;이보다 좋은 가구가 있을까!</li>
+						<li>thought_need_comfort5-&gt;이거보다 편한 가구는 없을걸!</li>
+						<li>thought_need_comfort5-&gt;이 가구를 만든 사람은 신인가 - 정말 완벽해!</li> <!-- ===NeedFood===--> <!-- ===hungry or worse , eating and seated (priority 5)=== --> <li>r_logentry(INITIATOR_thoughtDefName==NeedFood,INITIATOR_jobDefName==Ingest,INITIATOR_jobText!=Drinking beer.,INITIATOR_moving==No,priority=5,tag=StarvingEating)-&gt;[starving_eating]</li>
+							<li>starving_eating-&gt;음! 맛있어! 굶어 죽을 뻔 했는데 다행이야!</li>
+							<li>starving_eating-&gt;굶주림은 최고의 [seasoning]지.</li>
+							<li>starving_eating(INITIATOR_trait==ascetic)-&gt;일용할 양식을 내려주셔서 감사합니다, 어머니 자연이시여.</li>
+							<li>starving_eating-&gt;역시 굶주림이 최고의 [seasoning]야 </li>
+								<li>seasoning-&gt;앙념이</li>
+								<li>seasoning-&gt;향신료</li>
+								<li>seasoning-&gt;소스</li>  <!-- ===hungry or worse , going to eat or eating standing (priority 5)=== --> <li>r_logentry(INITIATOR_thoughtDefName==NeedFood,INITIATOR_jobDefName==Ingest,INITIATOR_jobText!=Drinking beer.,INITIATOR_moving==Yes,priority=5,tag=StarvingEating)-&gt;[starving_eating_go]</li>
+							<li>starving_eating_go-&gt;[thought_needfood_hungry0] 뭐든 [devour]!</li>
+								<li>devour-&gt;한입에 다 먹어치울거야</li>
+								<li>devour-&gt;다먹어치울거야</li>
+								<li>devour-&gt;한번에 먹어버릴거야</li>
+								<li>devour-&gt;입안에 쓸어담을거야</li>
+								<li>devour-&gt;배에 퍼넣을거야</li>
+								<li>devour-&gt;먹어치울거야</li>
+								<li>devour-&gt;다 집어먹을거야</li>
+								<li>devour-&gt;배에 쑤셔넣을거야</li>
+								<li>devour-&gt;배터질때까지 먹을거야</li>
+							<li>starving_eating_go(INITIATOR_trait==ascetic,priority=1)-&gt;뭐라도 먹어야겠어.</li>
+							<li>starving_eating_go(INITIATOR_trait==gourmand)-&gt;너무 배고파! 근사한 식사가 있으면 좋겠는데.</li>  <!-- ===recipient is cooking=== --> <li>r_logentry(RECIPIENT_jobText==Cooking simple meal.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking 4 simple meals.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking fine meal.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking 4 fine meals.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking carnivore fine meal.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking 4 carnivore fine meals.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking vegetarian fine meal.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking 4 vegetarian fine meals.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking lavish meal.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking 4 lavish meals.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking vegetarian lavish meal.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking 4 vegetarian lavish meals.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking carnivore lavish meal.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking 4 carnivore lavish meals.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking survival meal.)-&gt;[recipient_is_cooking]</li>
+						<li>r_logentry(RECIPIENT_jobText==Cooking 4 survival meals.)-&gt;[recipient_is_cooking]</li>  <!-- ===recipient is actually cooking=== --> <li>recipient_is_cooking(RECIPIENT_moving==No,tag=IsCooking)-&gt;[recipient_is_cooking_actual]</li>
+								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level&gt;=6)-&gt;으음... 냄새 좋은걸, [recipient] — 너같은 셰프가 있어서 정말 다행이야!</li>
+								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level&gt;2,RECIPIENT_cooking_level&lt;6)-&gt;별로 맛있을거 같진 않네, [recipient] — 그래도 없는 것보단 낫지!</li>
+								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level&lt;2)-&gt;네가 뭘 하고 있는지 알고 있길 바라, [recipient] — 와갤 요리 같은건 안돼...</li>
+								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level&lt;2,INITIATOR_trait==kind)-&gt;지금... 요리하고 있는거야, [recipient]? 오... 그... 내, 냄새 좋네... 잘되길 빌어...</li>  <!-- ===recipient is going to cook=== --> <li>recipient_is_cooking(RECIPIENT_moving==Yes)-&gt;[recipient_is_going_to_cook]</li>
+								<li>recipient_is_going_to_cook-&gt;[mood]</li>  <!-- ===hungry or worse=== --> <li>recipient_is_cooking(INITIATOR_thoughtDefName==NeedFood,tag=ReactToThought_NeedFood_RecipientCooking,priority=1)-&gt;[thought_needfood_hungry0]</li>  <!-- ===hungry or worse , recipient is a professional cook (priority 4)=== --> <li>r_logentry(RECIPIENT_faction==PlayerColony,INITIATOR_jobDefName!=StandAndBeSociallyActive,INITIATOR_jobDefName!=Ingest,INITIATOR_thoughtDefName==NeedFood,RECIPIENT_cooking_level&gt;=6,tag=ReactToThought_NeedFood_CookRecipient,priority=4)-&gt;[thought_needfood_cookrecipient]</li>
+						<li>r_logentry(RECIPIENT_faction==PlayerTribe,INITIATOR_jobDefName!=StandAndBeSociallyActive,INITIATOR_jobDefName!=Ingest,INITIATOR_thoughtDefName==NeedFood,RECIPIENT_cooking_level&gt;=6,tag=ReactToThought_NeedFood_CookRecipient,priority=4)-&gt;[thought_needfood_cookrecipient]</li>
+						<li>thought_needfood_cookrecipient(INITIATOR_trait==brawler,INITIATOR_mood&lt;0.4,priority=1)-&gt;[damn_it], [recipient] — 당장 먹을거 안내오면 네 [ugly] 면상부터 씹어먹어 버릴거야!</li>
+						<li>thought_needfood_cookrecipient(INITIATOR_mood&lt;0.4)-&gt;여기서 먹을 걸 구하려면 어떻게 해야 하는거야?</li>
+						<li>thought_needfood_cookrecipient(INITIATOR_mood&lt;0.4)-&gt;아니, [recipient] — 밥하는게 왜이리 늦어?!</li>
+						<li>thought_needfood_cookrecipient(INITIATOR_jobText==resting.)-&gt;[thought_needfood_hungry0] 먹을 것 좀 해줄 수 있어?</li>
+						<li>thought_needfood_cookrecipient(priority=-1)-&gt;저기, [recipient] — 이 근처에 뭐 먹을만한거 있어?</li>  <!-- ===just hungry=== --> <li>r_logentry(INITIATOR_thoughtLabel==hungry,tag=ReactToThought_NeedFood)-&gt;[thought_needfood_hungry0]</li>
+						<li>thought_needfood_hungry0-&gt;나 너무 배고파.</li>
+						<li>thought_needfood_hungry0-&gt;나 [intensifier] 배고파.</li>
+						<li>thought_needfood_hungry0-&gt;나 좀 출출해.</li>
+						<li>thought_needfood_hungry0-&gt; [animal_large] 한마리도 뚝딱 할 수 있겠어!</li>
+						<li>thought_needfood_hungry0-&gt;배고파 죽을 지경이야!</li>
+						<li>thought_needfood_hungry0-&gt;뱃가죽이 등에 붙겠어!</li>
+						<li>thought_needfood_hungry0-&gt;굶어 죽을 것 같아!</li>
+						<li>thought_needfood_hungry0-&gt;뭐라도 먹을 수 있으면 무슨 짓이든 하겠어!</li>
+						<li>thought_needfood_hungry0(INITIATOR_trait==cannibal)-&gt;너무 배고파, 내 팔이라도 먹어 버리고 싶을 정도로!</li>  <!-- ===ravenously hungry=== --> <li>r_logentry(INITIATOR_thoughtLabel==ravenously hungry,tag=ReactToThought_NeedFood)-&gt;[thought_needfood_hungry1]</li>
+						<li>thought_needfood_hungry1-&gt;배고파서 참기 힘들 정도로 속이 쓰려.</li>  <!-- ===malnourished=== --> <li>r_logentry(INITIATOR_thoughtLabel==malnourished,tag=ReactToThought_NeedFood)-&gt;[thought_needfood_hungry2]</li>
+						<li>thought_needfood_hungry2-&gt;뭘 먹어본지 한참 된 것 같아. 좀 어지럽고 집중하기가 힘드네.</li>  <!-- ===badly malnourished=== --> <li>r_logentry(INITIATOR_thoughtLabel==badly malnourished,tag=ReactToThought_NeedFood)-&gt;[thought_needfood_hungry3]</li>
+						<li>thought_needfood_hungry3-&gt;몸이 쇠약해지는게 느껴져... 뭐라도 먹어야 몸이 괜찮아질거야...</li>  <!-- ===starving=== --> <li>r_logentry(INITIATOR_thoughtLabel==starving,tag=ReactToThought_NeedFood)-&gt;[thought_needfood_hungry4]</li>
+						<li>thought_needfood_hungry4-&gt;먹을거 말고는 아무 생각도 못하겠어. 음식이 필요해. 당장.</li>  <!-- ===advanced starvation=== --> <li>r_logentry(INITIATOR_thoughtLabel==advanced starvation,tag=ReactToThought_NeedFood)-&gt;[thought_needfood_hungry5]</li>
+						<li>thought_needfood_hungry5-&gt;배고파서 못움직이겠어. 몸이 허해...</li>  <!-- ===extreme starvation=== --> <li>r_logentry(INITIATOR_thoughtLabel==extreme starvation,tag=ReactToThought_NeedFood)-&gt;[thought_needfood_hungry6]</li>
+						<li>thought_needfood_hungry6-&gt;음식... 을줘... 제발... 뭐라도...</li> <!-- ===NeedJoy=== --> <!-- ===recreation-starved=== --> <li>r_logentry(INITIATOR_thoughtLabel==recreation-starved,tag=ReactToThought_NeedJoy)-&gt;[thought_need_joy1]</li>
+						<li>thought_need_joy1-&gt;뭘 하며 놀아본지가 한참 된것 같아.</li>
+						<li>thought_need_joy1-&gt;재미가 뭔지 기억도 안나.</li>
+						<li>thought_need_joy1-&gt;나 [intensifier] 지루해. 삶이 원래 이렇게 심심한거야?</li>  <!-- ===recreation-deprived=== --> <li>r_logentry(INITIATOR_thoughtLabel==recreation-deprived,tag=ReactToThought_NeedJoy)-&gt;[thought_need_joy2]</li>
+						<li>thought_need_joy2-&gt;즐길 오락거리가 더많이 필요해, 그걸 즐길 시간도 말이야.</li>
+						<li>thought_need_joy2-&gt;뭔가 부족한데... 즐길거리가 더 있었으면 좋겠어.</li>  <!-- ===recreation unfulfilled=== --> <li>r_logentry(INITIATOR_thoughtLabel==recreation unfulfilled,tag=ReactToThought_NeedJoy)-&gt;[thought_need_joy3]</li>
+						<li>thought_need_joy3-&gt;즐길 오락거리가 더 많이 필요해, 그걸 즐길 시간도 말이야.</li>
+						<li>thought_need_joy3-&gt;이근처에선 뭐하고 놀아야하지?</li>
+						<li>thought_need_joy3-&gt;뭔가 잊어버린거 같은데... 맞아, 휴식이야!</li>  <!-- ===recreation satisfied=== --> <li>r_logentry(INITIATOR_thoughtLabel==recreation satisfied,tag=ReactToThought_NeedJoy)-&gt;[thought_need_joy4]</li>
+						<li>thought_need_joy4-&gt;내가 하고싶은 오락을 즐기며 최고의 시간을 보내고 있어.</li>
+						<li>thought_need_joy4-&gt;꽤 재미좀본 거 같지 않아?</li>
+						<li>thought_need_joy4-&gt;최근에 꽤나 즐거운 시간을 보냈어!</li>  <!-- ===recreation fully satisfied=== --> <li>r_logentry(INITIATOR_thoughtLabel==recreation fully satisfied,tag=ReactToThought_NeedJoy)-&gt;[thought_need_joy5]</li>
+						<li>thought_need_joy5-&gt;오랜만에 재미 좀 제대로 봤군. 최고야!</li>
+						<li>thought_need_joy5-&gt;여기 정말 재밌는걸! 즐거운 삶이야!</li>
+						<li>thought_need_joy5-&gt;너무 즐겁게 살았나봐, 지루함이 뭔지 모르겠어.</li>  <!-- ===NeedRest=== --> <li>r_logentry(INITIATOR_thoughtDefName==NeedRest,tag=ReactToThought_NeedRest)-&gt;[thought_need_rest]</li>  <!-- ===drowsy=== --> <li>thought_need_rest(INITIATOR_thoughtLabel==drowsy)-&gt;[thought_need_rest1]</li>
+						<li>thought_need_rest1-&gt;한동안 잠을 못잤어. 머리가 멍하네.</li>  <!-- ===tired=== --> <li>thought_need_rest(INITIATOR_thoughtLabel==tired)-&gt;[thought_need_rest2]</li>
+						<li>thought_need_rest2-&gt;나 너무 피곤해. 잠깐만이라도 눈 좀 붙이고 싶어...</li>  <!-- ===exhausted=== --> <li>thought_need_rest(INITIATOR_thoughtLabel==exhausted)-&gt;[thought_need_rest3]</li>
+						<li>thought_need_rest3-&gt;서있기도 힘드네. 잠 좀 자고 싶어...</li> <!-- ===NeedRoomSize=== --> <!-- ===confined interior=== --> <li>r_logentry(INITIATOR_thoughtLabel==confined interior,tag=ReactToThought_NeedSpace)-&gt;[thought_need_space1]</li>
+						<li>thought_need_space1-&gt;우리 생활공간 너무 좁아터졌어, 숨쉬기도 힘들다구! [ask_for_larger_rooms]</li>
+						<li>thought_need_space1(INITIATOR_construction_level&gt;=5,priority=1)-&gt;좀 더 큰 방을 지어야겠어 - 여긴 너무 좁아터졌어!</li>  <!-- ===cramped interior=== --> <li>r_logentry(INITIATOR_thoughtLabel==cramped interior,tag=ReactToThought_NeedSpace)-&gt;[thought_need_space2]</li>
+						<li>thought_need_space2-&gt;더 넓은 방을 지을 순 없어? 여기 너무 비좁아! [ask_for_larger_rooms]</li>
+						<li>thought_need_space2(INITIATOR_construction_level&gt;=5,priority=1)-&gt;더 넓은 생활공간을 지어야 겠어 — 여긴 좀 비좁은 것 같아.</li> <!-- ===spacious interior [not implemented]=== --> <!-- ===LOCAL WILDCARDS=== --> <li>ask_for_larger_rooms(RECIPIENT_construction_level&lt;5)-&gt;</li>
+						<li>ask_for_larger_rooms(RECIPIENT_construction_level&gt;=5)-&gt;저기, [recipient]! 방 좀 지어줄 수 있어?</li>  <!-- ===NewColonyHope=== --> <li>r_logentry(INITIATOR_thoughtDefName==NewColonyHope,tag=ReactToThought_NewColony)-&gt;[thought_newcolhope]</li>
+					<li>thought_newcolhope-&gt;이제 새로운 생활에 슬슬 익숙해지는 것 같지만, 그래도 여전히 흥미로워. 모든게 잘풀렸으면 좋겠다...</li>  <!-- ===Special cases=== --> <li>thought_newcolhope(INITIATOR_trait==ascetic)-&gt;겸허한 자세로 세상을 돌아보며 배우면, 우리는 모든 역경을 이겨내고 생존해서 잘 지낼 수 있을거야.</li>  <!-- ===Other cases=== --> <li>thought_newcolhope(INITIATOR_trait==hard worker)-&gt;지금까지의 노력이 우리를 안전하게 했지. 계속 열심히 일하자구, 그럼 다 괜찮을거야!</li>
+							<li>thought_newcolhope(INITIATOR_trait==industrious)-&gt;지금까지의 노력이 우리를 안전하게했지. 계속 열심히 일하자구, 그럼 다 괜찮을거야!</li>
+							<li>thought_newcolhope(INITIATOR_trait==iron-willed)-&gt;우리는 결코 포기하지 않았고, 이자리까지 오게 됐지. 우린 우리 앞을 막는게 무엇이든 준비되어 있어.</li>
+							<li>thought_newcolhope(INITIATOR_trait==optimist)-&gt;아직까지는 잘해내고 있어 — 그렇지? 우리는 시련을 이겨냈고, 앞으로도 그럴거야! </li>
+							<li>thought_newcolhope(INITIATOR_trait==sanguine)-&gt;아직까지는 잘해내고 있어 — 그렇지? 우리는 시련을 이겨냈고, 앞으로도 그럴거야!</li>
+							<li>thought_newcolhope(INITIATOR_trait==steadfast)-&gt;우리는 결코 포기하지않았고, 이자리까지 왔어. 우린 우리앞을 막는게 무엇이든 준비돼어있어.</li>
+							<li>thought_newcolhope(INITIATOR_trait==tough)-&gt;우린 지금까지 모든 좌절과 고난을 이겨냈어. 어떤 역경이든 우린 완벽하게 이겨낼거야!</li>  <!-- ===NewColonyOptimism=== --> <li>r_logentry(INITIATOR_thoughtDefName==NewColonyOptimism,tag=ReactToThought_NewColony)-&gt;[thought_newcolopt]</li>
+						<li>thought_newcolopt-&gt;꽤나 힘든 상황이지만 — 이정도는 감당할 수 있어.</li>  <!-- ===Special cases=== --> <li>thought_newcolopt(INITIATOR_trait==ascetic)-&gt;우리가 길을 잃고 버려진거라고? 아니 — 우린 우리의 진정한 모습을 찾을 수 있는 어머니같은 황무지에 있는거야.</li>  <!-- ===Other cases=== --> <li>thought_newcolopt(INITIATOR_trait==fast learner)-&gt;우리가 힘든 상황에 처한건 맞아, 그래도 우린 빠르게 적응하고 해결할 수 있어.</li>
+						<li>thought_newcolopt(INITIATOR_trait==hard worker)-&gt;좋아. 몸과 마음을 다해 일하자고. 우린 할 수 있어!</li>
+						<li>thought_newcolopt(INITIATOR_trait==industrious)-&gt;좋아. 몸과 마음을 다해 일하자고. 우린 할 수 있어!</li>
+						<li>thought_newcolopt(INITIATOR_trait==iron-willed)-&gt;의지만 있다면 우린 해낼수 있어. 내 말 명심해!</li>
+						<li>thought_newcolopt(INITIATOR_trait==optimist)-&gt;꽤나 큰 시련이 되겠지만 — 우린 [surely] 이겨낼거야!</li>
+						<li>thought_newcolopt(INITIATOR_trait==sanguine)-&gt;꽤나 흥미로운 도전이 되겠어 — 그리고 우린 [surely] 이겨낼거고!</li>
+						<li>thought_newcolopt(INITIATOR_trait==steadfast)-&gt;의지만 있다면 우린 해낼수 있어! 확실해!</li>
+						<li>thought_newcolopt(INITIATOR_trait==tough)-&gt;무엇이 닥치든, 우릴 꺾을 순 없어! 한번 해보자고!</li>
+						<li>thought_newcolopt(INITIATOR_construction_level&gt;=4)-&gt;기초공사부터 튼실히 해놓으면 — 아무 문제 없을거야.</li>
+						<li>thought_newcolopt(INITIATOR_medical_level&gt;=4)-&gt;건강에 문제있으면 말해, 내가 도와줄게. 걱정마 — 우린 괜찮을거야.</li>
+						<li>thought_newcolopt(INITIATOR_plants_level&gt;=5)-&gt;여기서 우리가 먹을 작물을 기를 수 있겠는걸 — 그리고 그건 [surely] 좋은 시작이 될거야!</li>
+						<li>thought_newcolopt(INITIATOR_animals_level&gt;=5,INITIATOR_shooting_level&gt;=5)-&gt;사냥해서 먹을 걸 좀 구해오지 —그러면 [surely] 도움이 될거야!</li>  <!-- ===ObservedLayingCorpse=== --> <li>r_logentry(INITIATOR_thoughtDefName==ObservedLayingCorpse,tag=ReactToThought_ObservedLayingCorpse)-&gt;[thought_corpse]</li>
+					<li>thought_corpse-&gt;[saw_a_body] [intensifier] [disturbing].</li>
+					<li>thought_corpse(INITIATOR_trait==kind)-&gt;[saw_a_body]  [intensifier] [disturbing]. 누가 그 불쌍한 사람들을 쉴 수 있게 해주면 좋으련만.</li>
+					<li>thought_corpse(INITIATOR_trait==psychopath,priority=1)-&gt;[saw_a_body]</li>
+					<li>thought_corpse(INITIATOR_trait==bloodlust,priority=1)-&gt;[saw_a_body]</li>
+					<li>thought_corpse(INITIATOR_trait==cannibal,priority=1)-&gt;[saw_a_body]</li>
+					<li>saw_a_body-&gt;땅에 대충 널부러진 시신을 봤어.</li>
+					<li>saw_a_body-&gt;매장되지않은 시신을 봤어.</li>
+					<li>saw_a_body-&gt;누군가의 시체를 봤어.</li>
+					<li>saw_a_body-&gt;말이 없는 그냥 시체인듯 한게 있었어.</li>  <!-- ===ObservedLayingRottingCorpse=== --> <li>r_logentry(INITIATOR_thoughtDefName==ObservedLayingRottingCorpse,tag=ReactToThought_ObservedLayingRottingCorpse)-&gt;[thought_rotting_corpse]</li>
+					<li>thought_rotting_corpse-&gt;[saw_a_rotting_body]  [intensifier] [disgusting].</li>
+					<li>thought_rotting_corpse(INITIATOR_trait==kind)-&gt;[saw_a_rotting_body]  [intensifier] [disgusting]. 어째서 아무도 그들의 영면을 돕지 않은거지?</li>
+					<li>thought_rotting_corpse(INITIATOR_trait==psychopath,priority=1)-&gt;[saw_a_rotting_body]</li>
+					<li>thought_rotting_corpse(INITIATOR_trait==bloodlust,priority=1)-&gt;[saw_a_rotting_body]</li>
+					<li>thought_rotting_corpse(INITIATOR_trait==cannibal,priority=1)-&gt;[saw_a_rotting_body]</li>
+					<li>saw_a_rotting_body-&gt;썩어가는 시체를 봤어.</li>
+					<li>saw_a_rotting_body-&gt;매장되지 않아 썩어가는 시신을 봤어.</li>
+					<li>saw_a_rotting_body-&gt;좀 전에 시체를 봤어. 대충 널부러져 썩어가고 있었다고.</li>
+					<li>saw_a_rotting_body-&gt;다썩어문드러진 시체를 봤어.</li>  <!-- ===ReleasedHealthyPrisoner (playerfaction only)=== --> <li>r_logentry(INITIATOR_faction==PlayerColony,INITIATOR_thoughtDefName==ReleasedHealthyPrisoner,tag=ReactToThought_ReleasedPrisoner)-&gt;[thought_releasedprisoner]</li>
+					<li>r_logentry(INITIATOR_faction==PlayerTribe,INITIATOR_thoughtDefName==ReleasedHealthyPrisoner,tag=ReactToThought_ReleasedPrisoner)-&gt;[thought_releasedprisoner]</li>
+					<li>thought_releasedprisoner-&gt;최근에 [prisoner]를 해방시켰어. [took_care_prisoner]</li>
+					<li>thought_releasedprisoner-&gt;마침내 우리가 그 불쌍한 [prisoner]를 석방시켰어. [took_care_prisoner]</li>
+					<li>thought_releasedprisoner-&gt;최근엔 계속 우리가 풀어준 [prisoner] 생각만 해. [took_care_prisoner]</li>  <!-- ===took care of prisoner=== --> <li>took_care_prisoner-&gt;우리가 그들을 형편없이 대한 것 같지 않아서 다행이야.</li>
+							<li>took_care_prisoner-&gt;우리가 죄수들에게도 잘 대해줬다니 다행이야.</li>
+							<li>took_care_prisoner-&gt;우리를 해햐려했던 자들에게도 자비를 베푼다는건 좋은 일이야.</li>
+							<li>took_care_prisoner-&gt;우리가 계속 따듯한 마음을 갖고 살 수 있길 바랄 뿐이야.</li>
+					<li>thought_releasedprisoner(INITIATOR_trait==kind,priority=2)-&gt;그 불쌍한  [prisoner] 를 풀어주는건 정말 옳은 일이야!</li>
+					<li>thought_releasedprisoner(INITIATOR_trait==bloodlust,priority=1)-&gt;[prisoner_canniblood]</li>
+					<li>thought_releasedprisoner(INITIATOR_trait==cannibal,priority=1)-&gt;[prisoner_canniblood]</li>
+					<li>prisoner_canniblood-&gt;굳이 [prisoner]를 풀어줄 필요가 있었어? 인력 낭비잖아!</li>  <!-- ===Rescued=== --> <li>r_logentry(INITIATOR_thoughtDefName==Rescued,tag=ReactToThought_Rescued)-&gt;[thought_rescued]</li>
+					<li>thought_rescued-&gt;날 구해줘서 정말 고마워. 너희가 없었다면, 난 지금 여기있을 수 없었을거야.</li>
+					<li>thought_rescued-&gt;날 구해준건 정말 고귀한 일이야, 절대 이 은혜 잊지 않을게. 평생 고마워하면서 살거야.</li>
+					<li>thought_rescued-&gt;네 도움을 절대 잊지 않을거야. 날 구해준걸 평생 감사하며 살게.</li>  <!-- ===Sick=== --> <li>r_logentry(INITIATOR_thoughtDefName==Sick,tag=ReactToThought_Sick)-&gt;[thought_sick]</li>
+					<li>thought_sick-&gt;나.. 나 몸이 별로 안좋아...</li>
+					<li>thought_sick-&gt;좀 더 건강했더라면...</li>
+					<li>thought_sick-&gt;으윽... 이 [swearword] 병은 언제쯤 낫는거야!?</li>
+					<li>thought_sick-&gt;몸이 좋지 않은걸..</li>
+					<li>thought_sick-&gt;영 좋지 않네... 병에 걸렸나봐...</li>
+					<li>thought_sick(INITIATOR_trait==wimp)-&gt;아, 기분이 정말 끔찍해... 나... 나 정신 나갈 것 가테!</li>
+					<li>thought_sick(INITIATOR_trait==tortured artist)-&gt;질병 : 내 창의력에는 좋은 밑거름이지만, 몸이 받아주질 않는군.</li>
+					<li>thought_sick(INITIATOR_trait==sickly)-&gt;[damn_it], 또 병걸렸네... 난 늘 이래...</li>
+					<li>thought_sick(INITIATOR_trait==super-immune)-&gt;아 — 이 [swearword] 병. 난 면역체질인데 왜 병에 걸리는거야! 안아파야 정상인데!</li>
+					<li>thought_sick(INITIATOR_trait==body modder)-&gt;또— 병걸렸어! 이 [swearword] 인간의 신체는 정말 나약하구나...</li>  <!-- ===SleepDisturbed=== --> <li>r_logentry(INITIATOR_thoughtDefName==SleepDisturbed)-&gt;[thought_sleepdisturbed]</li>  <!-- ===Kind (priority)=== --> <li>thought_sleepdisturbed(INITIATOR_trait==kind,priority=1)-&gt;[thought_sleepdisturbed_calm]</li>  <!-- ===Stressed=== --> <li>thought_sleepdisturbed(INITIATOR_mood&lt;0.4,tag=ReactToThought_SleepDisturbed)-&gt;[thought_sleepdisturbed_stressed]</li>
+							<li>thought_sleepdisturbed_stressed-&gt;어떤 [accuse_gender_someone]  내 [swearword]잠을 방해했어. [damn_it] —  [intensifier] [swearword_adverb] [annoying]!</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==abrasive)-&gt;왜 난 [swearword_adverb] 잠좀 편하게 이 [swearword] 곳에서 잘수 없는거야!?</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==bloodlust)-&gt;어떤  [accuse_gender_who] 이 내 [swearword] 잠을 방해했는지 알아내면, 반드시 그 [accuse_gender_objective] 얼굴에 한 방 먹여주겠어!</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==brawler)-&gt;다음에 또 어떤  [accuse_gender_someone] 이 내 [swearword] 잠을 방해하면, 그 [accuse_gender_objective] 은 내 주먹 맛좀 보게 될거야!\</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==quick sleeper)-&gt;왜 나는 잠시도 이 [swearword_adverb] 잠 좀  [swearword] 잠깐도 잘 수 없는거야?! 내가 너무 많은걸 바라나? [damn_it]!</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==tortured artist)-&gt;[damn_it]! 어떤 [swearword_adverb] 놈이 내 잠을 방해해서 영감이 날아가버렸어! 덕분에 좋은거 하나 날아갔군!</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==industrious)-&gt;[swearword] 잠도 못자게 하면 어떻게 일하라는 거야!?!?</li>	
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==hard worker)-&gt;내가 일하는걸 좋아하지만  —  [swearword] 잠을 맨날 방해하면 어떻게 일하라는거야!!</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==lazy)-&gt;내 수면시간은 나한테 정말 중요해 — 그러니 제발 내 [swearword] 잠 좀 방해 안하면 안돼?!</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==slothful)-&gt;하나만 지켜줬으면 하는게 있지 — 내가 잘때는 조용히 해야한다는 거야. 그런데 왜 [swearword_adverb] 하나도 못지키는거야!</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==beautiful)-&gt;하루에 최소 7시간은 자야 피부를 아름답게 유지할 수 있어. 그러니까 — [swearword_preverb] 7시간 근처로 라도 자게 좀 도와주면 안돼?</li>
+							<li>thought_sleepdisturbed_stressed(INITIATOR_trait==pretty)-&gt;난 막 자고 일어나도 보기 좋은 외모를 유지하고 싶은데, 그게 가능하냐고? 아니. 왜냐면 누가 [swearword_adverb] 내 [swearword] 잠을 자꾸 방해하기 때문이지!!</li>  <!-- ===Calm=== --> <li>thought_sleepdisturbed(INITIATOR_mood&gt;=0.4)-&gt;[thought_sleepdisturbed_calm]</li>
+							<li>thought_sleepdisturbed_calm(tag=ReactToThought_SleepDisturbed_Dream)-&gt;나 정말 [nice] 꿈을 꾸고 있었는데, 누가 날 깨워서 다 날아가버렸어.</li>
+							<li>thought_sleepdisturbed_calm(tag=ReactToThought_SleepDisturbed)-&gt;자는 사람을 위해 서로 조금만 배려하는게 어때? 누가 내 잠을 방해했다구.</li>
+							<li>thought_sleepdisturbed_calm-&gt;[mood_calm]</li>  <!-- ===SleptInBarracks=== --> <li>r_logentry-&gt;[thought_sleptinbarracks]</li>  <!-- ===Kind (priority 1)=== --> <li>thought_sleptinbarracks(INITIATOR_trait==kind,priority=1)-&gt;[thought_sleptinbarracks_calm]</li>  <!-- ===Stressed=== --> <li>thought_sleptinbarracks(INITIATOR_mood&lt;0.4)-&gt;[thought_sleptinbarracks_stressed]</li>				
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==awful barrack,tag=ReactToThought_SleptInBarracks)-&gt;이 [swearword] 방을 나눠쓰는 것도 화나는데 — 심지어 방도 [swearword_adverb][ugly] 방이야!</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==dull barrack,tag=ReactToThought_SleptInBarracks)-&gt;내 방은  [ugly 것 같아]! 그런데 그  [swearword_adverb] 것을 다른 사람과 나눠쓰기까지 해야해!</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==mediocre barrack,tag=ReactToThought_SleptInBarracks)-&gt; [swearword_adverb] 방을 다른 사람과 쓴다니 — 그것까진 괜찮아. 하지만 최소한 좋은 방을 줘야 할거 아냐?</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==decent barrack,tag=ReactToThought_SleptInBarracks)-&gt;꽤 괜찮은 방에서 지내지만, 남들과 같이 자야한다는 건 좀 [annoying].</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==slightly impressive barrack,tag=ReactToThought_SleptInBarracks)-&gt;내 방은 꽤 멋져. 남들과 같이 쓰는게 아니었다면 더 좋았겠지만.</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==impressive barrack,tag=ReactToThought_SleptInBarracks)-&gt;내 방은 아주 멋져. 남들과 같이 쓰지 않았으면 좋겠지만...</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==very impressive barrack)-&gt;[mood_stressed]</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==extremely impressive barrack)-&gt;[mood_stressed]</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==unbelievably impressive barrack)-&gt;[mood_stressed]</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==wondrously impressive barrack)-&gt;[mood_stressed]</li>  <!-- ===Calm=== --> <li>thought_sleptinbarracks(INITIATOR_mood&gt;=0.4)-&gt;[thought_sleptinbarracks_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==awful barrack)-&gt;[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==dull barrack)-&gt;[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==mediocre barrack)-&gt;[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==decent barrack)-&gt;[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==slightly impressive barrack)-&gt;[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==impressive barrack)-&gt;[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==very impressive barrack,tag=ReactToThought_SleptInBarracks)-&gt;내 막사는 정말 인상적이야. 방 나눠쓰는게 무슨 상관이야!</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==extremely impressive barrack,tag=ReactToThought_SleptInBarracks)-&gt;내가 쓰는 방은 극도로 인상적이라 나눠쓰는 것 따윈 신경안써!</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==unbelievably impressive barrack,tag=ReactToThought_SleptInBarracks)-&gt;내 막사는 정말 믿을 수 없을 정도로 멋진 곳이야!</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==wondrously impressive barrack,tag=ReactToThought_SleptInBarracks)-&gt;내 꿈이 실현된 곳에서 지내는데 몇 명 더 있는게 무슨 대수람!</li>  <!-- ===SleptInBedroom=== --> <li>r_logentry(INITIATOR_thoughtDefName==SleptInBedroom,tag=ReactToThought_Bedroom)-&gt;[thought_bedroom] [what_about_yours]</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==awful bedroom)-&gt;[thought_bedroom_awful]</li>
+						<li>thought_bedroom_awful-&gt;내 [swearword] 방은 [ugly]걸 — 나눠쓰지 않는 것만으로도 만족해야지.</li>
+						<li>thought_bedroom_awful-&gt;내 방은 [ugly]걸 — 최소한 내방이긴 하니 다행이지.</li>
+						<li>thought_bedroom_awful-&gt;말하기 그렇지만, 내 방은 [ugly] 곳이야.</li>
+						<li>thought_bedroom_awful(INITIATOR_mood&gt;=0.7)-&gt;좀 [ugly] 곳일순 있지만 그래도 나만 쓰는 방이라 별 불만은 없어.</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==decent bedroom)-&gt;[thought_bedroom_decent]</li>
+						<li>thought_bedroom_decent-&gt;난 [proper] 방에서 자.</li>
+						<li>thought_bedroom_decent-&gt;내 침실은 [proper]걸.</li>
+						<li>thought_bedroom_decent-&gt;내겐 [proper] 방이 있어서, 별로 불평꺼리는 없어.</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==slightly impressive bedroom)-&gt;[thought_bedroom_slightlyimpressive]</li>
+						<li>thought_bedroom_slightlyimpressive-&gt;난 내방이 좋아 —  [moderately_attractive_obj] 방이야.</li>
+						<li>thought_bedroom_slightlyimpressive-&gt;내 침실은 [moderately_attractive_obj] 방이라 만족해.</li>
+						<li>thought_bedroom_slightlyimpressive-&gt;난 [moderately_attractive_obj] 침실에서 자.</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==impressive bedroom)-&gt;[thought_bedroom_impressive]</li>
+						<li>thought_bedroom_impressive-&gt;난 인상적인 침실을 갖고있어. 정말 좋아!</li>
+						<li>thought_bedroom_impressive-&gt;난 인상적인 침실에서 자. 정말 편하게 잘 수 있지!</li>
+						<li>thought_bedroom_impressive-&gt;내 방은 인상적이야, 그래서 행복해.</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==very impressive bedroom)-&gt;[thought_bedroom_veryimpressive]</li>
+						<li>thought_bedroom_veryimpressive-&gt;난 정말 인상적인 침실에서 자 어떻게 싫어하겠어!</li>
+						<li>thought_bedroom_veryimpressive-&gt;난 내 침실이 좋아. 정말 인상적이야!</li>
+						<li>thought_bedroom_veryimpressive-&gt;내 침실에서 자는게 좋아. 침대에서 잘때마다 황홀한 기분이야!</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==extremely impressive bedroom)-&gt;[thought_bedroom_extremelyimpressive]</li>
+						<li>thought_bedroom_extremelyimpressive-&gt;난 상당히 인상적인 침실을 갖고 있어!</li>
+						<li>thought_bedroom_extremelyimpressive-&gt;내 침실은 상당히 인상적이야! 난 정말 복받았다니까.</li>
+						<li>thought_bedroom_extremelyimpressive-&gt;상당히 인상적인 침실 구경이라도 해봤어? 내방에 집들이나 한 번 와.</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==unbelievably impressive bedroom)-&gt;[thought_bedroom_unbelievablyimpressive]</li>
+						<li>thought_bedroom_unbelievablyimpressive-&gt;내 침실은 매우 인상적이야!</li>
+						<li>thought_bedroom_unbelievablyimpressive-&gt;난 어마어마하게 인상적인 침실은 갖고 있어. 경외심이 들 정도야!</li>
+						<li>thought_bedroom_unbelievablyimpressive-&gt;내 침실은 예술작품이라고 부르는게 나을거야. 믿을수 없을 정도로 인상적이거든.</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==wondrously impressive bedroom)-&gt;[thought_bedroom_wondrouslyimpressive]</li>
+						<li>thought_bedroom_wondrouslyimpressive-&gt;침실이 아니라 천국 같아. 정말 멋진 곳이지!</li>
+						<li>thought_bedroom_wondrouslyimpressive-&gt;침실에 들어서면 천상의 소리가 들리는 기분이 들곤해: 정말 멋져.</li>
+						<li>thought_bedroom_wondrouslyimpressive-&gt;시간이 지나면 내 침실은 박물관에 전시될걸. 말이 안나올 정도로 멋진 작품이야.</li>
+						<li>thought_bedroom_wondrouslyimpressive-&gt;내 침실을 생각만 해도 감동으로 눈물이 차올라!</li>  <!-- ===SleptInCold=== --> <li>r_logentry(INITIATOR_thoughtDefName==SleptInCold)-&gt;[thought_sleptincold]</li>  <!-- ===Construction skill=== --> <li>thought_sleptincold-&gt;제대로 잘 수가 없었어 — [swearword] 추위때문에 말이야! [hope_wont_happen_again_heatsource]</li>  <!-- ===Initiator is not skilled in construction=== --> <li>hope_wont_happen_again_heatsource(INITIATOR_construction_level&lt;5)-&gt;[sleptincold_construction_unskilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>sleptincold_construction_unskilled(RECIPIENT_construction_level&lt;5,tag=ReactToThought_SleptInCold)-&gt;내 방이 난방 좀 되면 좋겠다...</li>  <!-- ===Recipient is skilled in construction=== --> <li>sleptincold_construction_unskilled(RECIPIENT_construction_level&gt;=5,tag=ReactToThought_SleptInCold_construction)-&gt;다신 이런일 없었으면 좋겠어, [recipient].</li>  <!-- ===Initiator is skilled in construction=== --> <li>hope_wont_happen_again_heatsource(INITIATOR_construction_level&gt;=5,tag=ReactToThought_SleptInCold_construction)-&gt;[sleptincold_construction_skilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>sleptincold_construction_skilled(RECIPIENT_construction_level&lt;5)-&gt;이런 일 일어나지 않았어야 하는데 — 난방시설을 지었어야 했어.</li>  <!-- ===Recipient is skilled in construction=== --> <li>sleptincold_construction_skilled(RECIPIENT_construction_level&gt;=5)-&gt;이런 일 일어나지 않았어야 하는데 — 난방시설을 지었어야했어.</li>  <!-- ===General=== --> <li>thought_sleptincold(tag=ReactToThought_SleptInCold)-&gt;[slept_in_cold]</li>  <!-- ===Mood=== --> <li>slept_in_cold(INITIATOR_mood&gt;=0.7)-&gt;계속 이런 [swearword] 추위속에서 잤다간 발가락이 떨어져나가겠어!</li>
+								<li>slept_in_cold(INITIATOR_mood&gt;=0.4)-&gt;Jeez —추워서 덜덜 떠느라 [sleep_adj] 잠을 잘 수가 없었어.</li>
+									<li>sleep_adj-&gt;좋은</li>
+									<li>sleep_adj-&gt;편하게</li>
+									<li>sleep_adj-&gt;편안한</li>
+								<li>slept_in_cold(INITIATOR_mood&lt;0.4)-&gt;이렇게 [sleptincold_bodypart] 떨어져 나갈 정도로 추운데서 어떻게 자!</li>
+									<li>sleptincold_bodypart-&gt;손이</li>
+									<li>sleptincold_bodypart-&gt;발가락이</li>
+									<li>sleptincold_bodypart-&gt;손가락이</li>
+									<li>sleptincold_bodypart-&gt;귀가</li>  <!-- ===Brawler=== --> <li>slept_in_cold(INITIATOR_trait==brawler)-&gt;플라즈마 검을 껴안고 자도 이 [swearword] 추위는 못버틸거야.</li>  <!-- ===SleptInHeat=== --> <li>r_logentry(INITIATOR_thoughtDefName==SleptInHeat)-&gt;[thought_sleptinheat]</li>  <!-- ===Construction skill=== --> <li>thought_sleptinheat-&gt;제대로 잘 수가 없었어 —  [swearword] 더위때문에 말이야! [hope_wont_happen_again_cooler]</li>  <!-- ===Initiator is not skilled in construction=== --> <li>hope_wont_happen_again_cooler(INITIATOR_construction_level&lt;5)-&gt;[sleptinheat_construction_unskilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>sleptinheat_construction_unskilled(RECIPIENT_construction_level&lt;5,tag=ReactToThought_SleptInHeat)-&gt;내 방이 냉방 좀 되면 좋겠다...</li>  <!-- ===Recipient is skilled in construction=== --> <li>sleptinheat_construction_unskilled(RECIPIENT_construction_level&gt;=5,tag=ReactToThought_SleptInHeat_construction)-&gt;다신 이런일 없었으면 좋겠어, [recipient].</li>  <!-- ===Initiator is skilled in construction=== --> <li>hope_wont_happen_again_cooler(INITIATOR_construction_level&gt;=5,tag=ReactToThought_SleptInHeat_construction)-&gt;[sleptinheat_construction_skilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>sleptinheat_construction_skilled(RECIPIENT_construction_level&lt;5)-&gt;이런 일 일어나지 않았어야 하는데 — 냉방시설을 지었어야 했어.</li>  <!-- ===Recipient is skilled in construction=== --> <li>sleptinheat_construction_skilled(RECIPIENT_construction_level&gt;=5)-&gt;이런 일 일어나지 않았어야 하는데 — 냉방시설을 지었어야 했어.</li>  <!-- ===General=== --> <li>thought_sleptinheat(tag=ReactToThought_SleptInHeat)-&gt;[slept_in_heat]</li>  <!-- ===Mood=== --> <li>slept_in_heat(INITIATOR_mood&gt;=0.7)-&gt;흐어... 내가 만약 자다가 죽으면 말이야, 그건 이 [swearword_adverb]더위때문에 열사병 걸려서 일거야!</li>
+								<li>slept_in_heat(INITIATOR_mood&gt;=0.4)-&gt;[swearword] 더위때문에 잠자기가 힘들어.</li>
+								<li>slept_in_heat(INITIATOR_mood&lt;0.4)-&gt;으윽! 이런 [swearword] 더위 속에서 자는건 영양죽 먹는 것보다 고역이야!</li>  <!-- ===SleptOnGround=== --> <li>r_logentry(INITIATOR_thoughtDefName==SleptOnGround,tag=ReactToThought_SleptOnGround)-&gt;[thought_sleptonground]</li>
+					<li>thought_sleptonground-&gt;[slept_on_ground] [hope_wont_happen_again_bed]</li>
+					<li>slept_on_ground-&gt;동물처럼 바닥에서 자야했어 — [humiliating] 일이야!</li>  <!-- ===Initiator is not skilled in construction=== --> <li>hope_wont_happen_again_bed(INITIATOR_construction_level&lt;4)-&gt;[thought_sleptonground_construction_unskilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>thought_sleptonground_construction_unskilled(RECIPIENT_construction_level&lt;4)-&gt;[damn_it]...</li>  <!-- ===Recipient is skilled in construction=== --> <li>thought_sleptonground_construction_unskilled(RECIPIENT_construction_level&gt;=4)-&gt;다신 이런 일 없었으면 좋겠어, [recipient].</li>  <!-- ===Initiator is skilled in construction=== --> <li>hope_wont_happen_again_bed(INITIATOR_construction_level&gt;=4)-&gt;[thought_sleptonground_construction_skilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>thought_sleptonground_construction_skilled(RECIPIENT_construction_level&lt;4)-&gt;이런 일 일어나지 않을 수 있었는데 — 내가 쓸 침대를 만들었어야 했어.</li>  <!-- ===Recipient is skilled in construction=== --> <li>thought_sleptonground_construction_skilled(RECIPIENT_construction_level&gt;=4)-&gt;이런일 일어나지 않을 수 있었는데 — 내가 쓸 침대를 지었어야 했어.</li>  <!-- ===SleptOutside=== --> <li>r_logentry(INITIATOR_thoughtDefName==SleptOutside,tag=ReactToThought_SleptOutside)-&gt;[thought_sleptoutside]</li>
+					<li>thought_sleptoutside-&gt;[slept_outside] [hope_wont_happen_again_outside]</li>
+					<li>slept_outside-&gt;[outdoors]에서 자다니 — 정말  [humiliating] 일이야!</li>
+					<li>slept_outside-&gt;정말 [humiliating] 경험이야,  [proper] 지붕도 없는 곳에서 자다니!</li>  <!-- ===Initiator is not skilled in construction=== --> <li>hope_wont_happen_again_outside(INITIATOR_construction_level&lt;4)-&gt;[thought_sleptoutside_construction_unskilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>thought_sleptoutside_construction_unskilled(RECIPIENT_construction_level&lt;4)-&gt;[damn_it]...</li>  <!-- ===Recipient is skilled in construction=== --> <li>thought_sleptoutside_construction_unskilled(RECIPIENT_construction_level&gt;=4)-&gt;다신 이런 일 없었으면 좋겠어, [recipient].</li>  <!-- ===Initiator is skilled in construction=== --> <li>hope_wont_happen_again_outside(INITIATOR_construction_level&gt;=4)-&gt;[thought_sleptoutside_construction_skilled]</li>  <!-- ===Recipient is not skilled in construction=== --> <li>thought_sleptoutside_construction_skilled(RECIPIENT_construction_level&lt;4)-&gt;이런 일 일어나지 않을 수 있었는데 — 내가 쓸 침실을 만들었어야 했어.</li>  <!-- ===Recipient is skilled in construction=== --> <li>thought_sleptoutside_construction_skilled(RECIPIENT_construction_level&gt;=4)-&gt;이런일 일어나지 않을 수 있었는데 — 내가 쓸 침실을 지었어야 했어.</li>  <!-- ===Undergrounder outdoors=== --> <li>r_logentry(INITIATOR_thoughtDefName==UndergrounderOutdoors,tag=ReactToThought_UndergrounderOutdoors)-&gt;[thought_undergrounderoutdoors]</li>
+					<li>thought_undergrounderoutdoors-&gt;난 밖에 있는게 싫어. 실내를 선호한다구.</li>  <!-- ===Thought (Recipient)=== --> <li>r_logentry(INITIATOR_opinion&gt;=0,tag=WhatsUp)-&gt;그러니까, [recipient] — [whatsup]</li>
+				<li>whatsup(INITIATOR_intellectual_level&lt;5)-&gt;요즘 어때?</li>
+				<li>whatsup(INITIATOR_intellectual_level&lt;3)-&gt;좀 어때?</li>
+				<li>whatsup(INITIATOR_intellectual_level&lt;5)-&gt;사는건 어때?</li>
+				<li>whatsup(INITIATOR_intellectual_level&lt;5)-&gt;일은 잘돼가?</li>
+				<li>whatsup-&gt;잘지내?</li>
+				<li>whatsup-&gt;일상은 어때?</li>
+				<li>whatsup-&gt;무슨 생각해?</li>
+				<li>whatsup-&gt;새로운 소식 있어?</li>
+				<li>whatsup-&gt;지내는건 어때?</li>
+				<li>whatsup(INITIATOR_intellectual_level&gt;5)-&gt;요즘 좀 어때?</li>
+		</value>
+	</Operation>
+	
+</Patch>

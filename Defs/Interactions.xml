@@ -1,0 +1,1585 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<InteractionDef Abstract="True" Name="SpeakUpReply">
+		<symbol>Things/Mote/SpeechSymbols/Speech</symbol>
+		<initiatorXpGainSkill>Social</initiatorXpGainSkill>
+		<initiatorXpGainAmount>2</initiatorXpGainAmount>
+		<logRulesInitiator>
+			<rulesStrings>
+				<li>recipient(INITIATOR_opinion&lt;0,priority=2)-&gt;[RECIPIENT_nameDef]</li>
+
+				<li>recipient(p=4,INITIATOR_relationship==Lover)-&gt;[recipient_love]</li>
+				<li>recipient(p=3,INITIATOR_relationship==Fiance)-&gt;[recipient_love]</li>
+				<li>recipient(p=2,INITIATOR_relationship==Spouse)-&gt;[recipient_love]</li>
+					<li>recipient_love-&gt;자기</li>
+					<li>recipient_love-&gt;내사랑</li>
+					<li>recipient_love-&gt;여보야</li>
+					<li>recipient_love-&gt;내꺼</li>
+					<li>recipient_love-&gt;울쟈기</li>
+					<li>recipient_love-&gt;여보</li>
+					<li>recipient_love-&gt;자기야</li>
+					<li>recipient_love-&gt;울애기</li>
+					<li>recipient_love-&gt;달링</li>
+					<li>recipient_love-&gt;내꼬</li>
+					<li>recipient_love-&gt;그대</li>
+					<li>recipient_love-&gt;애기야</li>
+					<li>recipient_love-&gt;내 사랑</li>
+					<li>recipient_love(INITIATOR_intellectual_level&gt;=5)-&gt;내사랑</li>
+					<li>recipient_love(INITIATOR_intellectual_level&gt;=5)-&gt;내 사랑</li>
+				<li>recipient(INITIATOR_relationship==Sibling)-&gt;[recipient_sibling]</li>
+					<li>recipient_sibling(RECIPIENT_gender==Male)-&gt;[recipient_brother]</li>
+						<li>recipient_brother-&gt;어이</li>
+					<li>recipient_sibling(RECIPIENT_gender==Female)-&gt;[recipient_sister]</li>
+						<li>recipient_sister-&gt;야</li>
+
+				<li>recipient(RECIPIENT_relationship==Parent,priority=1)-&gt;[recipient_parent]</li>
+					<li>recipient_parent(RECIPIENT_gender==Male)-&gt;[recipient_father]</li>
+						<li>recipient_father-&gt;아버지</li>
+						<li>recipient_father-&gt;아빠</li>
+					<li>recipient_parent(RECIPIENT_gender==Female)-&gt;[recipient_mother]</li>
+						<li>recipient_mother-&gt;어머니</li>
+						<li>recipient_mother-&gt;엄마</li>
+
+				<li>recipient(INITIATOR_relationship==Parent)-&gt;[recipient_child]</li>
+					<li>recipient_child-&gt;내새끼</li>
+					<li>recipient_child(INITIATOR_OPINION&gt;=0)-&gt;내 사랑</li>
+					<li>recipient_child(RECIPIENT_gender==Male)-&gt;[recipient_son]</li>
+						<li>recipient_son-&gt;아들</li>
+						<li>recipient_son-&gt;내 아들</li>
+					<li>recipient_child(RECIPIENT_gender==Female)-&gt;[recipient_daughter]</li>
+						<li>recipient_daughter-&gt;딸</li>
+						<li>recipient_daughter-&gt;내 딸</li>
+						
+				<li>recipient-&gt;[RECIPIENT_nameDef]</li>  <!-- ===Wanna? (directed at someone)=== --> <li>wanna(INITIATOR_intellectual_level&gt;=8,priority=1)-&gt;보는건 어때</li>
+					<li>wanna(INITIATOR_intellectual_level&gt;=5)-&gt;보는건 어때</li>
+					<li>wanna(p=0.5)-&gt;볼래</li>
+					<li>wanna(INITIATOR_intellectual_level&lt;5)-&gt;볼래</li>  <!-- ===intensifier=== (add space after word. should be more common for less intellectual pawns)--> <li>intensifier(priority=-1,p=3)-&gt;</li>
+					<li>intensifier(priority=-1)-&gt;정말 </li>
+					<li>intensifier(priority=-1)-&gt;엄청 </li>
+					<li>intensifier(priority=-1,p=0.5)-&gt;진심으로 </li>
+					<li>intensifier(priority=-1)-&gt;완전 </li>
+					<li>intensifier(priority=-1,p=0.5)-&gt;정말 [intensifier]</li>
+					<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=1)-&gt;</li>
+					<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)-&gt;꽤나 </li>
+					<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)-&gt;엄청 </li>
+					<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)-&gt;진짜 </li>
+					<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=1)-&gt;정말</li>
+					<li>intensifier(INITIATOR_intellectual_level&gt;=7,p=5)-&gt;</li>
+					<li>intensifier(INITIATOR_intellectual_level&gt;=7,p=1)-&gt;상당히 </li>
+					<li>intensifier(INITIATOR_intellectual_level&gt;=7,p=1)-&gt;확실히 </li>
+					<li>intensifier(INITIATOR_mood&gt;=0.7)-&gt;진짜진짜 </li>  <!-- ===damned_intensifier=== --> <li>damned_intensifier(p=2)-&gt;</li>
+					<li>damned_intensifier-&gt;존나 </li>
+					<li>damned_intensifier-&gt;뒤지게 </li>
+					<li>damned_intensifier-&gt;ㄹㅇ </li>
+					<li>damned_intensifier-&gt;존나 </li>
+					<li>damned_intensifier(p=2,INITIATOR_trait==abrasive)-&gt;좆같이도 </li>
+					<li>damned_intensifier(INITIATOR_trait==abrasive,INITIATOR_mood&lt;=0.5)-&gt;개씹 [damned_intensifier]</li>
+					<li>damned_intensifier(p=2,INITIATOR_mood&lt;=0.4)-&gt;좆같이도 </li>
+					<li>damned_intensifier(p=2,INITIATOR_mood&lt;=0.4)-&gt;좆되게 </li>
+					<li>damned_intensifier(p=2,INITIATOR_mood&lt;=0.4)-&gt;좆같이 </li>
+					<li>damned_intensifier(p=2,INITIATOR_trait==abrasive,INITIATOR_mood&lt;=0.2)-&gt;개씹 [damned_intensifier]</li>
+						
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===ChitChat Generic=== --> <InteractionDef ParentName="SpeakUpReply">
+		<defName>ChitChat_generic</defName>
+		<label>Chitchat generic</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(INITIATOR_trait==kind,priority=1,tag=ChitChat_generic2)-&gt;[good_opinion]</li>
+					<li>bad_opinion-&gt;...</li>
+					<li>bad_opinion-&gt;[interjection_dismissive]...</li>
+ 					<li>bad_opinion-&gt;뭔데, [recipient]? *노려봄*</li>  <!-- ===DISMISSIVE INTERJECTIONS=== --> <li>interjection_dismissive-&gt;흥</li>
+                        <li>interjection_dismissive-&gt;칫</li>
+                        <li>interjection_dismissive-&gt;윽</li>
+                        <li>interjection_dismissive-&gt;별로</li>
+                        <li>interjection_dismissive-&gt;흥</li>
+                        <li>interjection_dismissive-&gt;흥</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0,tag=ChitChat_generic2)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;왜그래, [recipient]?</li>
+					<li>good_opinion(INITIATOR_intellectual_level&lt;=5)-&gt;왜그래, [recipient]?</li>
+					<li>good_opinion-&gt;으응?</li>
+					<li>good_opinion-&gt;뭔데 그래, [recipient]?</li>
+					<li>good_opinion-&gt;[interjection_neutral]...?</li>
+                    <li>good_opinion-&gt;[interjection_neutral]? 왜그래, [recipient]?</li>
+                    <li>good_opinion-&gt;[interjection_neutral]... 뭔데 그래, [recipient]?</li>  <!-- ===NEUTRAL INTERJECTIONS=== --> <li>interjection_neutral-&gt;허</li>
+                        <li>interjection_neutral-&gt;음</li>
+                        <li>interjection_neutral-&gt;으음</li>
+                        <li>interjection_neutral-&gt;어..</li>
+                        <li>interjection_neutral-&gt;어[add_h][add_h..]</li>
+                        <li>interjection_neutral-&gt;으[add_h][add_h]..</li>
+                        <li>interjection_neutral-&gt;음[add_m][add_m]..</li>
+                        <li>interjection_neutral-&gt;으음[add_m][add_m]..</li>
+                        <li>interjection_neutral-&gt;아[add_h][add_h]..</li>
+                        <li>interjection_neutral-&gt;오[add_h][add_h]..</li>
+                        <li>interjection_neutral-&gt;흠[add_m][add_m]..</li>
+							<li>add_h-&gt;</li>
+							<li>add_h-&gt;</li>
+							<li>add_m-&gt;</li>
+							<li>add_m-&gt;</li>					
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply">
+		<defName>ChitChat_generic2</defName>
+		<label>Chitchat generic2</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;아니다 — 별거 아냐.</li>
+					<li>r_logentry(INITIATOR_opinion&lt;0)-&gt;잊어버려.</li>
+					<li>r_logentry(INITIATOR_opinion&lt;0)-&gt;흠. 신경쓰지마.</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;어어, 신경쓰지마. 별거 아냐.</li>
+					<li>good_opinion-&gt;으음...아무것도 아냐 — 귀찮게 해서 미안.</li>
+					<li>good_opinion-&gt;뭐 말하려 했는지 까먹었어! 거 참 미안하게 됐수다.</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===JOBS=== --> <InteractionDef ParentName="SpeakUpReply"> <!-- ===invite — answer yes=== --> <defName>Invite_answer_yes</defName>
+		<label>invite — answer yes</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;별로 가고싶지 않지만... 알았어, [recipient] — 가보자.</li>
+					<li>bad_opinion-&gt;별론데, [recipient] — 그래도 그렇다면야... 가보자.</li>
+					<li>bad_opinion-&gt;알았어, [RECIPIENT_nameDef] — 별거 아니기만 해봐. 가자.</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;좋아, [recipient] — 재미있겠는걸 가보자!</li>
+					<li>good_opinion-&gt;물론이지, [recipient] — 좋은 생각이야. 가보자!</li>
+					<li>good_opinion-&gt;알겠어, [recipient], 꽤 구미가 당기는걸. 가보자!</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===invite — answer no=== --> <defName>Invite_answer_no</defName>
+		<label>invite — answer no</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;싫어, [recipient].</li>
+					<li>bad_opinion-&gt;그럴 일없어, [recipient].</li>
+					<li>bad_opinion(INITIATOR_opinion&lt;-25)-&gt;귀찮게 굴지 좀 마, [RECIPIENT_nameDef]!</li>
+					<li>bad_opinion(INITIATOR_opinion&lt;-25)-&gt;싫어, [RECIPIENT_nameDef]. 다신 그런 거 물어보지마 — 절대로!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;미안해, [recipient] — 그러고 싶긴한데, 지금은 힘들어</li>
+					<li>good_opinion-&gt;미안, [recipient] — 다음에 하자.</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === aurora === --> <defName>Aurora</defName>
+		<label>aurora</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_jobText!=watching the aurora.)-&gt;안 없어졌으면 좋겠다, 계속 보고싶은걸...</li>
+						<li>good_opinion(INITIATOR_artistic_passion!=None)-&gt;내 다음 작품에 오로라의 놀라운 아름다움을 담아내도록 노력해 봐야겠어...</li>
+						<li>good_opinion(INITIATOR_trait==ascetic)-&gt;하늘이 축하해주는 것 같아 — 오로라가 없어지기 전까진 즐기는게 좋겠어...</li>
+						<li>good_opinion(INITIATOR_trait==night owl,DAYPERIOD==night)-&gt;오로라의 아름다움이 이 밤을 더욱 완벽하게 해주는 것 같아...</li>
+						<li>good_opinion(INITIATOR_trait==depressive)-&gt;[pessimist]</li>
+						<li>good_opinion(INITIATOR_trait==pessimist)-&gt;[pessimist]</li>						
+							<li>pessimist-&gt;정말 아름답지만, 순식간에 끝나버리네...  마치 우리의 행복 같은걸... 덧없고... 실패뿐인...</li>
+						<li>good_opinion-&gt;너무 빠지지는 마!</li>
+						<li>good_opinion-&gt;오로라는 [outdoors]에서 볼 수 있는 것 중엔 가장 아름다워.</li>
+						<li>good_opinion-&gt;[intensifier] 아름다워. 그렇지 않아, [recipient]?</li>
+						<li>good_opinion(INITIATOR_trait==too smart)-&gt;오로라는 태양풍에 의해 행성의 자기장이 교란되어서 생기는 거야.</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === BeatFireStatic === --> <defName>BeatFireStatic</defName>
+		<label>beat fire — static</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(priority=-1)-&gt;...</li>
+					<li>bad_opinion(INITIATOR_trait==pyromaniac)-&gt;*경외심에 차 바라봄*</li>
+					<li>bad_opinion(INITIATOR_trait==pyromaniac)-&gt;불길... 나...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_jobDefName==BeatFire,INITIATOR_moving==No)-&gt;[beat_static]</li>
+							<li>beat_static-&gt;OK! 알겠어!</li>
+							<li>beat_static-&gt;아주 빠르게 갑니다!</li>
+							<li>beat_static-&gt;가고있어!</li>
+							<li>beat_static-&gt;불이야!</li>
+							<li>beat_static-&gt;*콜록*</li>
+						<li>good_opinion(INITIATOR_jobDefName==BeatFire,INITIATOR_moving==Yes)-&gt;[beat_moving]</li>
+							<li>beat_moving-&gt;지금 도우러 갈게!</li>
+							<li>beat_moving-&gt;지금 가는 중!</li>
+						<li>good_opinion(INITIATOR_jobDefName!=BeatFire)-&gt;[no_beat]</li>
+							<li>no_beat(INITIATOR_opinion&gt;=25)-&gt;난... 미안해, [recipient]... 난 못해...</li>
+							<li>no_beat(INITIATOR_trait==pyromaniac)-&gt;*경외심에 차 바라봄*</li>
+							<li>no_beat-&gt;...</li>
+							<li>no_beat-&gt;*불을 처다봄*</li>
+							<li>no_beat-&gt;난... 난 못해...</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === BeatFireMoving === --> <defName>BeatFireMoving</defName>
+		<label>beat fire — moving</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(priority=-1)-&gt;...</li>
+					<li>bad_opinion(INITIATOR_trait==pyromaniac)-&gt;*미소지음*</li>
+					<li>bad_opinion(INITIATOR_trait==pyromaniac)-&gt;불길... 정말 아름다워...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_jobDefName==BeatFire)-&gt;[beat_moving]</li>
+							<li>beat_moving-&gt;불끄러 가자!</li>
+							<li>beat_moving-&gt;당장 가자!</li>
+						<li>good_opinion(INITIATOR_jobDefName!=BeatFire)-&gt;[no_beat]</li>
+							<li>no_beat(INITIATOR_opinion&gt;=25)-&gt;난... 미안해, [recipient]... 난 못해...</li>
+							<li>no_beat(INITIATOR_trait==pyromaniac)-&gt;*웃음*</li>
+							<li>no_beat-&gt;...</li>
+							<li>no_beat-&gt;*불을 바라봄*</li>
+							<li>no_beat-&gt;난... 난 못해...</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===billiards — smart move=== --> <defName>Billiards_smart</defName>
+		<label>billiards — smart move</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(RECIPIENT_shooting_level&lt;5)-&gt;사기치지마! 대체 어떻게 한거야?!</li>
+					<li>bad_opinion-&gt;으음... 꽤 기술적인데. 하지만 노리고 한건 아닌 것 같군...</li>
+					<li>bad_opinion-&gt;*얼굴을 찌푸림*</li>
+					<li>bad_opinion-&gt;*노려봄*</li>
+					<li>bad_opinion-&gt;*창백해짐*</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion(RECIPIENT_shooting_level&lt;5)-&gt;우와, [recipient] — 잘치는데! 네가 당구를 그렇게 잘 치는줄 몰랐는데!</li>
+					<li>good_opinion-&gt;꽤 치는걸. 이번엔 네가 이겼어, [recipient]!</li>
+					<li>good_opinion-&gt;잘했어, [recipient] — 이러면 내가 치기 정말 힘들어지겠군...</li>
+					<li>good_opinion-&gt;*[about] 사색함*</li>
+					<li>good_opinion-&gt;*[about] 곰곰히 생각함*</li>
+					<li>good_opinion-&gt;*[about] 생각함*</li>
+					
+					<li>about-&gt;[INITIATOR_possessive]의 다음 샷에 대해</li>
+					<li>about-&gt;다음에 어떻게 쳐야할지에 대해</li>
+					<li>about-&gt;[RECIPIENT_nameDef]의 멋진 실력에 어떻게 반응해야 할지</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===billiards — blunder=== --> <defName>Billiards_blunder</defName>
+		<label>billiards — blunder</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;*비웃음*</li>
+					<li>bad_opinion-&gt;*조롱함*</li>
+					<li>bad_opinion-&gt;더럽게 못치네!</li>
+					<li>bad_opinion-&gt;치기전에 생각 좀 해보고 치는건 어때, [recipient]? 그게 좀 도움이 될거야.</li>
+					<li>bad_opinion-&gt;뒤지게 못친다 진짜. [recipient]!</li>
+					<li>bad_opinion-&gt;와! 큐볼을 포켓에 넣다니, 정말 엄청난 전략인걸? 참 당황스럽네!</li>
+					<li>bad_opinion-&gt;오! 그건 내공이야. 정말 고맙군, [recipient] — 내 차례야!</li>
+					<li>bad_opinion-&gt;뭘 하고 싶었던 거야, [recipient]? 큐볼이 다른 공에 닿지도 않았잖아. 고맙군 — 내 차례야!</li>
+					<li>bad_opinion-&gt;네가 실수하면, 나는 득을 보지! 정말 고맙군, [recipient] — 내 차례야!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;네가 내 다음 샷을 방해하려던 거였으면 말야, [recipient], 아무 소용없어서 미안하게 됐어.</li>
+					<li>good_opinion-&gt;음... 난 너처럼 큐볼을 포켓에 넣지는 않길 바라지... 내 차례야!</li>
+					<li>good_opinion-&gt;뭘 치고 있는거야, [recipient] — 그건 내가 넣어야할 공이라고. 그러니까... 내 차례군!</li>
+					<li>good_opinion-&gt;어떻게 하나도 못건드리냐, [recipient] — 진짜 못치네. 그러니까... 내 차례군!</li>
+					<li>good_opinion-&gt;[recipient] — 자세를 좀 바꿔보는건 어때?</li>
+					<li>good_opinion-&gt;괜찮아, [recipient]... 이겼을때보단 졌을때 배우는게 더 많을거야.</li>
+					<li>good_opinion-&gt;이런... 네 생각대로 되지 않았나보네. 내가 이득을 볼 수 있는지 한 번 보자고...</li>
+					<li>good_opinion-&gt;저번에 포기한 그 친구 생각나? 다른 사람도 마찬가지야. 계속 도전하는거야, [recipient]!</li>
+					<li>good_opinion-&gt;거친 시절은 오래가지 않지만 — 거친 선수들은 오래 기억되지. 너도 그렇게 될거야, [recipient]!</li>
+					<li>good_opinion(INITIATOR_trait==ascetic)-&gt;기억해 — 가지지 못하면 100% 다 잃는거야.</li>
+					<li>good_opinion(RECIPIENT_shooting_level&gt;=5)-&gt;와, [recipient] — 네 당구 실력에 뭔 문제가 생긴거야? 일부러 져주는건 아니지?</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===billiards — ready=== --> <defName>Billiards_ready</defName>
+		<label>billiards — ready</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<li>r_logentry-&gt;*끄덕임*</li>
+				<li>r_logentry-&gt;잠깐만 있어봐, 초크좀 칠하고. 좋아 — 준비됐어.</li>
+				<li>r_logentry-&gt;좋아, [recipient]. 넌 끝났어.</li>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;당연하지! 질 준비는 됐어, [recipient]?</li>
+					<li>bad_opinion-&gt;난 준비됐어 — 이길 준비가 됐다구.</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;그래, [recipient] — 난 준비됐어. 가보자!</li>
+					<li>good_opinion-&gt;좋아, [recipient] — 누가 이기는지 보자구!</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===chess — smart move=== --> <defName>Chess_smart</defName>
+		<label>chess — smart move</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;사기치지마 이 닭대가리야!</li>
+					<li>bad_opinion-&gt;으음... 꽤나 노련한 수인걸. 하지만 노리고 한건 아닌 것 같군...</li>
+					<li>bad_opinion-&gt;*얼굴을 찌푸림*</li>
+					<li>bad_opinion-&gt;*노려봄*</li>
+					<li>bad_opinion-&gt;*창백해짐*</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;좋은 수였어. 이번엔 네가 이겼어, [recipient]!</li>
+					<li>good_opinion-&gt;완벽한 수로군. 내가 졌어.</li>
+					<li>good_opinion-&gt;엄청난걸. 난 [random_5_10] 턴 전에 이미 진것 같은데 알아차리지도 못했어.</li>
+					<li>good_opinion-&gt;*사색 중*</li>
+					<li>good_opinion-&gt;*곰곰이 생각중*</li>
+					<li>good_opinion-&gt;*생각 중*</li>
+					
+					<li>random_5_10-&gt;5</li>
+					<li>random_5_10-&gt;6</li>
+					<li>random_5_10-&gt;7</li>
+					<li>random_5_10-&gt;8</li>
+					<li>random_5_10-&gt;9</li>
+					<li>random_5_10-&gt;10</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===chess — blunder=== --> <defName>Chess_blunder</defName>
+		<label>chess — blunder</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;*비웃음*</li>
+					<li>bad_opinion-&gt;*조롱함*</li>
+					<li>bad_opinion-&gt;좋아! 내 함정에 빠졌군!</li>
+					<li>bad_opinion-&gt;뭔 바보같은 수야!</li>
+					<li>bad_opinion-&gt;너무 뻔한걸! 봐라 —  [random_1_5] 턴안에 끝내줌.</li>
+					<li>bad_opinion-&gt;실수했군, [recipient], 판은 짜여졌고 — 때를 기다리면 되겠군!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;*웃음* 내 함정에 빠졌구나, 우리 [recipient]</li>
+					<li>good_opinion-&gt;네가 원하는대로 따라가줄줄 알았냐, [recipient]?</li>
+					<li>good_opinion-&gt;헤에... 내 예상대로인걸...</li>
+					<li>good_opinion-&gt;힌트를 하나 줄게, [recipient] — 상대가 좋은 수를 뒀다 싶으면, 그 다음 수는 더 좋을거라고 생각해야해...</li>
+					<li>good_opinion-&gt;괜찮아, [recipient]... 이겼을때보단 졌을때 배우는게 더 많을거야.</li>
+
+					<li>random_1_5-&gt;1</li>
+					<li>random_1_5-&gt;2</li>
+					<li>random_1_5-&gt;3</li>
+					<li>random_1_5-&gt;4</li>
+					<li>random_1_5-&gt;5</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===chess — comment=== --> <defName>Chess_comment</defName>
+		<label>chess — comment</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>
+					<li>bad_opinion-&gt;야, [recipient] — 입 그만 놀리고 손가락이나 놀려.</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;나도 동의해, [recipient].</li>
+					<li>good_opinion-&gt;멋진 대사인걸, [recipient].</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===Ur game — smart move=== --> <defName>GameOfUr_smart</defName>
+		<label>Ur game — smart move</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;사기치지마 이 닭대가리야!</li>
+					<li>bad_opinion-&gt;으음... 꽤나 노련한 수인걸. 하지만 노리고 한건 아닌 것 같군...</li>
+					<li>bad_opinion-&gt;이 운좋은 새끼, 그걸 보네 — 그거 좀 있다 딸 생각이었는데!</li>
+					<li>bad_opinion-&gt;한방 먹었군... 젠장...</li>
+					<li>bad_opinion-&gt;*얼굴을 찌푸림*</li>
+					<li>bad_opinion-&gt;*노려봄*</li>
+					<li>bad_opinion-&gt;*창백해짐*</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;좋은 수였어. 이번엔 네가 이겼어, [recipient]!</li>
+					<li>good_opinion-&gt;완벽한 수로군. 내가 졌어.</li>
+					<li>good_opinion-&gt;잘했어 — 그걸 볼 줄은 생각도 못했네!</li>
+					<li>good_opinion-&gt;이러면 나는 다음 수 두기가 좀 힘들어 지겠는걸...</li>
+					<li>good_opinion-&gt;*사색 중*</li>
+					<li>good_opinion-&gt;*곰곰이 생각중*</li>
+					<li>good_opinion-&gt;*생각 중*</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===Ur game — blunder=== --> <defName>GameOfUr_blunder</defName>
+		<label>Ur game — blunder</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;*비웃음*</li>
+					<li>bad_opinion-&gt;*조롱함*</li>
+					<li>bad_opinion-&gt;좋아! 내 함정에 빠졌군!</li>
+					<li>bad_opinion-&gt;뭔 바보같은 수야!</li>
+					<li>bad_opinion-&gt;너무 뻔한걸! 봐라 — 내가 곧 이기겠군.</li>
+					<li>bad_opinion-&gt;좋아 — 이제 저 말은 내가 따먹는다. 고마워, 똑똑이!</li>
+					<li>bad_opinion-&gt;말 하나 지키겠다고 너무 신경이 쏠렸나봐 — 그럼 나는 이쪽을 공격하면 되는데!</li>
+					<li>bad_opinion-&gt;실수했군, [recipient], 판은 짜여졌고 — 때를 기다리면 되겠군!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;*웃음* 내 함정에 빠졌구나, 우리 [recipient]</li>
+					<li>good_opinion-&gt;수를 놓을 때 좀 더 신중하게 생각했어야지... 이제 이 말은 내거야 — 미안...</li>
+					<li>good_opinion-&gt;승진이 눈앞인 폰은 잘 지켰어야지...</li>
+					<li>good_opinion-&gt;네가 원하는대로 따라가줄줄 알았냐, [recipient]?</li>
+					<li>good_opinion-&gt;헤에... 내 예상대로인걸...</li>
+					<li>good_opinion-&gt;힌트 하나 줄게, [recipient] — 상대가 좋은 수를 뒀다 싶으면, 그 다음 수는 더 좋을거라고 생각해야해...</li>
+					<li>good_opinion-&gt;괜찮아, [recipient]... 이겼을때보단 졌을때 배우는게 더 많을거야.</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===poker — smart move=== --> <defName>Poker_smart</defName>
+		<label>poker — smart move</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(RECIPIENT_intellectual_level&lt;5)-&gt;사기치지마! 대체 어떻게 한거야?!</li>
+					<li>bad_opinion-&gt;젠장할, [recipient]... 알고 있었는데... 난 폴드해야겠어...</li>
+					<li>bad_opinion-&gt;운좋은 새끼 — 조만간 네 운도 바닥날거다! </li>
+					<li>bad_opinion-&gt;그래, 네가 이겼어. 칩은 네꺼야 — 약값으로 다 썼으면 좋겠군.</li>
+					<li>bad_opinion-&gt;젠장! 칩 다 가져가고 빨리 리겜해. 다시 붙자!</li>
+					<li>bad_opinion-&gt;이 허풍쟁이 새끼가 — 내가 어떻게 눈치 못챘지?!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion(RECIPIENT_intellectual_level&lt;5)-&gt;우와, [recipient] — 네가 이렇게 잘하는줄 몰랐어!</li>
+					<li>good_opinion-&gt;재밌었어 — 이번엔 네가 이겼군, [recipient]!</li>
+					<li>good_opinion-&gt;네가 이겼어, [recipient] — 칩 가져가!</li>
+					<li>good_opinion-&gt;아... [recipient] — 내 직감대로 폴드할걸...</li>
+					<li>good_opinion-&gt;내 패도 나름 좋다고 생각했는데... 쩝... [you_win], [recipient]!</li>
+					<li>good_opinion-&gt;이번 [hand_bluff]는 별로 였어, 쩝. 축하해, [recipient] — [you_win]!</li>
+					<li>good_opinion-&gt;이런, 네 허세에 완전히 당했군... 잘했어, [recipient]!</li>
+					<li>good_opinion-&gt;내 포커페이스 별로였나? 잘했어, [recipient] — [you_win]!</li>
+						
+						<li>hand_bluff-&gt;패</li>
+						<li>hand_bluff-&gt;카드</li>
+						
+						<li>you_win-&gt;네가 이겼어</li>
+						<li>you_win-&gt;승리는 네 거야</li>
+						<li>you_win-&gt;칩은 네거야</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===poker — blunder=== --> <defName>Poker_blunder</defName>
+		<label>poker — blunder</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;[you_thought] 그런 허접한 패로 이길거라 생각한거야? 생각 좀 잘해 — 돈은 내가 챙긴다! *웃음*</li>
+					<li>bad_opinion-&gt;[you_thought] 내가 그딴 허풍에 속아날 거라 생각한거야? 내 패좀 봐 — 내가 이겼어!</li>
+					<li>bad_opinion-&gt;보면 알 수 있겠지, 우리 [RECIPIENT_nameDef], 내 점수가 더 높아! 너같은 찌질이는 항상 지게 되있지 — [grab_pot]</li>
+					<li>bad_opinion-&gt;내 패야— 내가 이겼군. 정말 멍청한 전략이네, [RECIPIENT_nameDef] — [grab_pot]</li>
+						<li>you_thought-&gt;정말</li>
+						<li>you_thought-&gt;대체 왜</li>
+						<li>you_thought-&gt;어떻게</li>
+						<li>grab_pot-&gt;칩은 내가 가져가지...</li>
+						<li>grab_pot-&gt;칩 이리 넘겨.</li>
+						<li>grab_pot-&gt;칩 가져간다.</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;미안하지만, [recipient]... [winning_ending]</li>
+					<li>good_opinion-&gt;이게 내 패야, [recipient]. [winning_ending]</li>
+					<li>good_opinion-&gt;[looks_like]  [win]엔 패가 별로 안좋았나봐, [recipient]. [winning_ending]</li>
+						<li>looks_like-&gt;내가 보기에</li>
+						<li>looks_like-&gt;아마</li>
+						<li>looks_like-&gt;내 생각엔</li>
+						<li>win-&gt;네가 이기기</li>
+						<li>win-&gt;날 이기기</li>
+					<li>good_opinion(RECIPIENT_intellectual_level&gt;=5)-&gt;와, [recipient] — 그전엔 포커 좀 치던거 같던데 오늘은 왜이래? [winning_ending]</li>
+					<li>good_opinion-&gt;내 블러핑이 먹혀들어갔네, [recipient]. [winning_ending]</li>
+						
+						<li>winning_ending-&gt;내 점수가 더 높아 — 내가 이겼군. *웃음*</li>
+						<li>winning_ending-&gt;내 점수가 더 많으니 — 내가 칩을 챙겨야겠네. *웃음*</li>
+						<li>winning_ending-&gt;칩 다내꺼야!</li>
+						<li>winning_ending-&gt;칩은 내가 가져가지...</li>
+
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===poker — ready=== --> <defName>Poker_ready</defName>
+		<label>poker — ready</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<li>r_logentry-&gt;*끄덕임*</li>
+				<li>r_logentry-&gt;좋아 — 준비됐어. 카드 돌려!</li>
+				<li>r_logentry-&gt;좋아, [recipient].</li>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;당연하지! 질 준비는 됐어, [recipient]?</li>
+					<li>bad_opinion-&gt;난 준비됐어 — 진정한 포커는 어떤건지 보여주지.</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;그래, [recipient] — 난 준비됐어. 가보자!</li>
+					<li>good_opinion-&gt;좋아, [recipient] — 누가 이기는지 보자구!</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===going to bed=== --> <defName>GoingToBed</defName>
+		<label>going to bed</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>
+					<li>bad_opinion(INITIATOR_opinion&lt;-50)-&gt;내일 아침에 시체로 발견되길 바란다.</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[r_sick][comment][good_wish]</li>
+					<li>good_wish-&gt;푹 쉬어, [recipient].</li>
+					<li>good_wish-&gt;잘자, [recipient].</li>
+					<li>good_wish-&gt;잘자콘 달아줘, [recipient].</li>
+					<li>good_wish-&gt;푹 쉬었으면 좋겠네, [recipient].</li>
+					<li>good_wish(DAYPERIOD==evening)-&gt;좋은 밤 보내, [recipient].</li>
+					<li>good_wish(DAYPERIOD==night)-&gt;좋은 밤 보내, [recipient].</li>
+					
+					<li>comment(INITIATOR_jobDefName==LayDown,INITIATOR_moving==Yes)-&gt;[me_too] </li>
+						<li>me_too(priority=-1)-&gt;나도 그러려고.</li>
+						<li>me_too(INITIATOR_thoughtDefName==Sick,RECIPIENT_thoughtDefName==Sick)-&gt;나도 쉬어야겠어 — 나도 몸이 별로 안좋아... </li>
+						<li>me_too(INITIATOR_thoughtDefName==NeedRest,RECIPIENT_thoughtDefName==NeedRest)-&gt;나도 쉬어야겠어 — 나도 정말 피곤해... </li>
+					<li>comment(priority=-1)-&gt;</li>
+					
+					<li>r_sick(RECIPIENT_thoughtDefName==Sick)-&gt;오, 정말 안됐다. </li>	
+					<li>r_sick(RECIPIENT_thoughtDefName==Sick)-&gt;금방 좋아지길 바라. </li>
+					<li>r_sick(RECIPIENT_thoughtDefName==Sick)-&gt;잠이 보약이지. </li>
+					<li>r_sick(priority=-1)-&gt;</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === television — new channel === --> <defName>TV_newchannel</defName>
+		<label>tv — new channel</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;아니, 괜찮아. 꽤 [bad] 들리는걸.</li>
+					<li>bad_opinion-&gt;뭐? 안돼! 내가 제일 좋아하는 프로란 말이야!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;아니, 지금 보는게 더 좋아 — 정말 [cool].</li>
+					<li>good_opinion-&gt;그래, 바꾸자. 이 프로는 정말 [boring].</li>
+					<li>good_opinion-&gt;뭘보든 상관없어, [recipient].</li>
+					<li>good_opinion-&gt;맘대로 해, [recipient]! 딴데 뭐하는지 둘러보자!</li>  <!-- ===WILDCARDS=== --> <li>bad-&gt;나쁘게</li>
+					<li>bad-&gt;변변찮게</li>
+					<li>bad-&gt;지루하게</li>
+					<li>bad-&gt;재미없게</li>
+					<li>bad-&gt;따분하게</li>
+					<li>bad-&gt;건조하게</li>
+					
+					<li>boring-&gt;지루해</li>
+					<li>boring-&gt;지겨워</li>
+					<li>boring-&gt;잠안올때 보면 좋을 것 같아</li>
+					<li>boring-&gt;맘에 안들어</li>
+					
+					<li>cool-&gt;재밌어</li>
+					<li>cool-&gt;흥미로워</li>
+					<li>cool-&gt;자극적인걸</li>
+					<li>cool-&gt;즐겁다구</li>
+					<li>cool-&gt;재미 있어</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === television — problem === --> <defName>TV_problem</defName>
+		<label>tv — problem</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;몰라. 네 스스로 생각해봐, [recipient].</li>
+					<li>bad_opinion-&gt;...</li>
+					<li>bad_opinion-&gt;조용! 이거 보고 있잖아!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;리모콘 좀 줘봐, 알려줄게.</li>
+					<li>good_opinion-&gt;미안해, [recipient] — 나도 잘 모르겠어.</li>
+					<li>good_opinion-&gt;거기 [Color] 버튼 한 번 눌러봐.</li>  <!-- ===General=== --> <li>r_logentry-&gt;흐음... 잘 모르겠는데. [try_this]!</li>  <!-- ===WILDCARDS=== --> <li>try_this-&gt;아무 버튼이나 눌러봐</li>
+				<li>try_this-&gt;텔레비전 한 대 때려봐</li>
+				<li>try_this-&gt;다른 사람에게 물어봐</li>				
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === television — what's this === --> <defName>TV_whatsthis</defName>
+		<label>tv — what's this</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+						<li>bad_opinion-&gt;...</li>
+						<li>bad_opinion-&gt;조용! 이거 보고 있잖아!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion-&gt;이건 [TalkTopicAny]에 관한 [show]야 — [adv_positive] [adj_show_good]!</li>
+						<li>good_opinion-&gt;이건 [adj_protagonist] [protagonist]의 [action]에 관한 [show]야.</li>
+						<li>good_opinion-&gt;[adj_protagonist] [protagonist]와 [adj_protagonist] [protagonist] 간의 사랑 이야기야.</li>  <!-- ===WILDCARDS=== --> <li>action-&gt;  [adj_protagonist] [protagonist]의 도움으로 [addiction] 중독에 맞서 싸움</li>
+					<li>action-&gt;[AdjectiveBadass] [Enemy]로부터의 은신</li>
+					<li>action-&gt;[AdjectiveBadass] [Enemy]들을 상대로 [AdjectiveAny] [Weapon]를 들고 싸우는 것</li>
+					<li>action-&gt; [AdjectiveBadass] [Enemy]들과 싸우다가  [BodyPart]를 잃은 사람</li>
+					<li>action-&gt; [AdjectiveBadass] 메카노이드 전초기지를 파괴할 계획을 가진 사람과 [adj_protagonist] [protagonist]들의 협동</li>
+					<li>action-&gt;[old_place]를 탐험하다가, [AdjectiveBadass] [Enemy]의 [Community]를 만난 사람</li>
+					<li>action-&gt;위험한 [TerrainFeature] 장소를 탐험하다가, [BodyPart]에 심각한 부상을 입은 사람</li>
+					<li>action-&gt;불을 가지고 놀다가, [BodyPart]에 심각한 상처를 입은 사람</li>
+					<li>action-&gt;화학 연료를 마신 후, 불을 뿜는 능력을 가지게 되어 [super_what]이 되기로 결심한 사람</li>
+					<li>action-&gt;벼락을 맞은 다음부터 전기를 다루는 능력을 가지게 되어 [super_what]이 되기로 결심한 사람</li>
+					<li>action-&gt;[AdjectiveBadass] [Enemy]에게 공격을 당해 수송포드를 타고 추락하는 사람들</li>
+					<li>action-&gt;예상치 못한 재정난을 겪은 후 돈을 벌기 위해 마약을 파는 것</li>
+					<li>action-&gt; [AdjectiveFriendly] [PersonJob] [Community] 에서 가족과 함께 행복하게 살아가는 것</li>
+					<li>action-&gt;[TerrainFeature]에서만 자라는 [Vegetable]로 아기 [Animal]을 양육하는 것</li>
+					<li>action-&gt;[Apparel]을 입은 곤충과 함께 사는 것</li>
+					<li>action-&gt;[Apparel]을 입은 메카노이드와 함께 사는 것</li>
+					<li>action-&gt; [AdjectiveAny] [Weapon] 으로 별 이유없이 아무나 공격해대는 것</li>
+					<li>action-&gt;아이들에게 역경을 극복해내는 것에 대해 가르치는 것</li>
+					<li>action-&gt;외계행성에 추락해서 [crashlanded] 살아가는 것</li>
+
+
+					<li>addiction-&gt;암브로시아</li>
+					<li>addiction-&gt;야요</li>
+					<li>addiction-&gt;웨이크 업</li>
+					<li>addiction-&gt;고주스</li>
+					<li>addiction-&gt;플레이크</li>
+					
+					<li>adj_protagonist-&gt;날아다니는</li>
+					<li>adj_protagonist-&gt;[Color]</li>
+					<li>adj_protagonist-&gt;[Vegetable]를 사랑하는</li>
+					<li>adj_protagonist-&gt;[AdjectiveFriendly]</li>
+					<li>adj_protagonist-&gt;정신나간</li>
+					<li>adj_protagonist-&gt;현명한</li>
+					<li>adj_protagonist-&gt;잘 차려입은</li>
+					<li>adj_protagonist-&gt;외로운</li>
+					<li>adj_protagonist-&gt;우울한</li>
+					<li>adj_protagonist-&gt;활기찬</li>
+					<li>adj_protagonist-&gt;행복한</li>
+					<li>adj_protagonist-&gt;살인광</li>
+					<li>adj_protagonist-&gt;평화주의자</li>
+					<li>adj_protagonist-&gt;친절한</li>
+					<li>adj_protagonist-&gt;무례한</li>
+					<li>adj_protagonist-&gt;동네 힘쎈</li>
+					<li>adj_protagonist-&gt;약한</li>
+					<li>adj_protagonist-&gt;장님</li>
+					<li>adj_protagonist-&gt;벙어리</li>
+					<li>adj_protagonist-&gt;유쾌한</li>
+					<li>adj_protagonist-&gt;초능력자</li>
+					<li>adj_protagonist-&gt;아름다운</li>
+					<li>adj_protagonist-&gt;키 큰</li>
+					<li>adj_protagonist-&gt;난쟁이</li>
+					<li>adj_protagonist-&gt;왕족</li>
+					<li>adj_protagonist-&gt;혼란에 빠진</li>
+					<li>adj_protagonist-&gt;신비한</li>
+					<li>adj_protagonist-&gt;냉철한</li>
+					<li>adj_protagonist-&gt;겁없는</li>
+					<li>adj_protagonist-&gt;겁쟁이</li>
+					<li>adj_protagonist-&gt;부끄럼쟁이</li>
+					<li>adj_protagonist-&gt;사이버네틱</li>
+					<li>adj_protagonist-&gt;신실한</li>
+					<li>adj_protagonist-&gt;영혼없는</li>
+					<li>adj_protagonist-&gt;타락한</li>
+					<li>adj_protagonist-&gt;용감한</li>
+					<li>adj_protagonist-&gt;똑똑한</li>
+					<li>adj_protagonist-&gt;컴퓨터가 제어하는</li>
+					<li>adj_protagonist-&gt;시간 여행자</li>
+					<li>adj_protagonist-&gt;편집증에 걸린</li>
+					<li>adj_protagonist-&gt;도망자</li>
+					
+					<li>adj_show_good-&gt;흥미로운</li>
+					<li>adj_show_good-&gt;매력있는</li>
+					<li>adj_show_good-&gt;매혹적인</li>
+					<li>adj_show_good-&gt;매력적인</li>
+					<li>adj_show_good-&gt;재미있는</li>
+					<li>adj_show_good-&gt;즐겁게 하는</li>
+					<li>adj_show_good-&gt;신난</li>
+					<li>adj_show_good-&gt;호기심을 자극하는</li>
+					<li>adj_show_good-&gt;액션이 넘치는</li>
+					<li>adj_show_good(INITIATOR_intellectual_level&gt;=5)-&gt;시사하는 바가 많은</li>
+					<li>adj_show_good(INITIATOR_intellectual_level&gt;=5)-&gt;마음을 사로잡는</li>
+					<li>adj_show_good(INITIATOR_intellectual_level&gt;=5)-&gt;몰두하게 하는</li>
+					
+					<li>adv_positive-&gt;꽤</li>
+					<li>adv_positive-&gt;정말로</li>
+					<li>adv_positive-&gt;진짜</li>
+					<li>adv_positive-&gt;엄청</li>
+					<li>adv_positive-&gt;아주</li>
+					<li>adv_positive-&gt;정말</li>
+					<li>adv_positive-&gt;극도로</li>
+					<li>adv_positive-&gt;엄청나게</li>
+					<li>adv_positive-&gt;예상 밖으로</li>
+					<li>adv_positive-&gt;놀라울 정도로</li>
+					<li>adv_positive(INITIATOR_trait==abrasive)-&gt;존나</li>	
+					<li>adv_positive(INITIATOR_intellectual_level&gt;=5)-&gt;두드러지게</li>					
+					<li>adv_positive(INITIATOR_intellectual_level&gt;=5)-&gt;현저하게</li>
+					
+					<li>crashlanded-&gt;식인을 하며</li>
+					<li>crashlanded-&gt;[adj_protagonist] [protagonist]의  [Community]와 경쟁하며</li>
+					
+					<li>old_place-&gt;[old_place_adj] 폐허</li>
+					<li>old_place-&gt;[old_place_adj] 복잡한 동굴</li>
+					<li>old_place-&gt;[old_place_adj] 잊힌 도시</li>
+					<li>old_place-&gt;[old_place_adj] 피라미드</li>
+					<li>old_place-&gt;[old_place_adj] 신전</li>
+					<li>old_place-&gt;[old_place_adj] 미궁</li>
+					<li>old_place-&gt;[old_place_adj] 왕궁</li>
+					<li>old_place-&gt;</li>
+					
+					<li>old_place_adj-&gt;</li>
+					<li>old_place_adj-&gt;저주받은 </li>
+					<li>old_place_adj-&gt;신성한 </li>
+					<li>old_place_adj-&gt;지하의 </li>
+					<li>old_place_adj-&gt;신비한 </li>
+					<li>old_place_adj-&gt;신비로운 </li>
+					<li>old_place_adj-&gt;귀신들린 </li>
+					
+					<li>protagonist-&gt;[Enemy]</li>
+					<li>protagonist-&gt;[PersonJob]</li>
+					<li>protagonist-&gt;[Animal]</li>
+					<li>protagonist-&gt;부족</li>
+					<li>protagonist-&gt;트럼보</li>
+					<li>protagonist-&gt;머팔로</li>
+					<li>protagonist-&gt;폭탄사슴</li>
+					<li>protagonist-&gt;고래</li>
+					<li>protagonist-&gt;춤꾼</li>
+					<li>protagonist-&gt;비밀 요원</li>
+					<li>protagonist-&gt;이중 간첩</li>
+					<li>protagonist-&gt;알파카</li>
+					<li>protagonist-&gt;우주인</li>
+					<li>protagonist-&gt;정착민</li>
+					<li>protagonist-&gt;폭탄쥐</li>
+					<li>protagonist-&gt;항성군주</li>
+					<li>protagonist-&gt;죄수</li>
+					<li>protagonist-&gt;베테랑</li>
+					<li>protagonist-&gt;암살자</li>
+					<li>protagonist-&gt;해병</li>
+					<li>protagonist-&gt;종교인</li>
+					<li>protagonist-&gt;방화광</li>
+					<li>protagonist-&gt;연쇄 살인마</li>
+					<li>protagonist-&gt;하인</li>
+					<li>protagonist-&gt;무법자</li>
+					<li>protagonist-&gt;로봇</li>
+					
+					<li>show-&gt;프로</li>
+					<li>show-&gt;영화</li>
+					<li>show-&gt;다큐멘터리</li>
+					<li>show-&gt;뉴스</li>
+					<li>show-&gt;영화</li>
+					
+					<li>super_what-&gt;수퍼히어로</li>
+					<li>super_what-&gt;수퍼빌런</li>
+					
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === telescope === --> <defName>Telescope</defName>
+		<label>telescope</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>
+					<li>bad_opinion-&gt;어이, [recipient] — 별 보면서 궁상떨지말고 현실을 살아줄래?</li>
+					<li>bad_opinion-&gt;왜 하늘에 박힌 [specks_adj] 점들을 처다보며 재미있어 하는지 이해가 안되네...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;다쓰면 말해줘, [recipient] — 나도 보고싶어!</li>
+					<li>good_opinion-&gt;야, [recipient] — 망원경으로 우주선 찾아보는건 어때?</li>
+					<li>good_opinion-&gt;정말 [view_adj] 광경이야, [recipient]!</li>  <!-- ===Depressive=== --> <li>r_logentry(INITIATOR_trait==depressive)-&gt;난 망원경이 싫어... 우주의 어두움과 공허함만을 보여줄 뿐이잖아... [reminds]를 보여주는 것 같아...</li>  <!-- ===WILDCARDS=== --> <li>reminds-&gt;나</li>
+					<li>reminds-&gt;우리의 미래</li>
+					<li>reminds-&gt;내 미래</li>
+					<li>specks_adj-&gt;쪼그만</li>
+					<li>specks_adj-&gt;의미없는</li>
+					<li>specks_adj-&gt;무의미한</li>
+					<li>specks_adj-&gt;별거없는</li>
+					<li>specks_adj(INITIATOR_intellectual_level&gt;=5)-&gt;작디작은</li>
+					<li>specks_adj(INITIATOR_intellectual_level&gt;=5)-&gt;하찮은</li>
+					<li>view_adj-&gt;멋진</li>
+					<li>view_adj-&gt;놀라운</li>
+					<li>view_adj-&gt;엄청난</li>
+					<li>view_adj-&gt;쩔어주는</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>	
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === ViewArt 1 === --> <defName>Job_ViewArt1</defName>
+		<label>view art 1</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;[yes] — [comment]!</li>
+					<li>good_opinion(INITIATOR_trait==ascetic)-&gt;[yes], 정말 아름다워 — 하지만 자연이 우리에게 주는 완벽한 아름다움에는 견줄 수 없지.</li>
+					<li>good_opinion(INITIATOR_trait==tortured artist)-&gt;이 예술품 — 내게 말을 걸고 있어... 날 위로해주고 있어...</li>
+					<li>good_opinion(INITIATOR_trait==tortured artist)-&gt;이 예술품 — 내게 비명을 지르고 있어... 광기에 찬 비명이 들려...</li>
+					<li>good_opinion(INITIATOR_trait==tortured artist)-&gt;[downbeat]</li>
+					<li>good_opinion(INITIATOR_trait==depressive)-&gt;[downbeat]</li>
+					<li>good_opinion(INITIATOR_trait==pessimist)-&gt;[downbeat]</li>
+						<li>downbeat-&gt;고통과 절망으로 가득한 나락밖에 보이지 않아...</li>
+						<li>downbeat-&gt;예술은 괴로운 자들을 편안하게 하고 편안한 자들을 괴롭게 해야 해...</li>
+						<li>downbeat-&gt;예술은 내게 살아가는게 고통이란걸 알려준다...</li>  <!-- ===No interest in arts (priority 1)=== --> <li>r_logentry(INITIATOR_artistic_passion==None,priority=1)-&gt;[no_art_passion]</li>
+					<li>no_art_passion(INITIATOR_trait==kind,priority=1)-&gt;[good_opinion]</li>
+					<li>no_art_passion(INITIATOR_shooting_passion!=None)-&gt;사격 연습용으로 써야겠어...</li>
+					<li>no_art_passion(INITIATOR_melee_passion!=None)-&gt;샌드백 대용으로 쓰는건 어떨까...</li>
+					<li>no_art_passion(INITIATOR_trait==brawler)-&gt;샌드백 대용으로 쓰는건 어떨까...</li>
+					<li>no_art_passion(INITIATOR_trait==greedy)-&gt;그럼 팔아버리는건 어때? 반짝이는 [money]로 가득찬 주머니가 더 아름다울거 같은데...</li>
+					<li>no_art_passion(INITIATOR_trait==chemical interest)-&gt;[chemical]</li>
+					<li>no_art_passion(INITIATOR_trait==chemical fascination)-&gt;[chemical]</li>
+						<li>chemical-&gt;예술은 정말 재밌어! 맥주, 연초, 암브로시아 — 이런게 진짜 예술이지!</li>
+					<li>no_art_passion(INITIATOR_trait==abrasive)-&gt;흐음... 이 쓸모없는걸 버리든지 아니면 교환을 하든지 처리를 해야 하는데...</li>
+					<li>no_art_passion(INITIATOR_trait==abrasive,INITIATOR_opinion&lt;0)-&gt;엿이나 처먹어, [recipient], 이딴게 좋으면 가서 너 혼자 구경해!</li>
+					<li>no_art_passion(INITIATOR_trait==ascetic)-&gt;들어봐, [recipient] — 자연이야말로 진정한 예술이야.</li>
+					<li>no_art_passion(INITIATOR_trait==depressive)-&gt;[downbeat_no_art]</li>
+					<li>no_art_passion(INITIATOR_trait==pessimist)-&gt;[downbeat_no_art]</li>
+						<li>downbeat_no_art-&gt;우리의 무의미한 삶에서 행복을 위한 또 다른 헛된 시도일 뿐이지...</li>
+					<li>no_art_passion(INITIATOR_jobDefName!=ViewArt)-&gt;난 예술이랑 안맞는 것 같아...</li>
+					<li>no_art_passion-&gt;[art_due_respect] 내게는 그냥 [adj_art_junk][art_junk] 같아 보이는걸 .</li>  <!-- ===WILDCARDS=== --> <li>adj_art_junk-&gt;</li>
+					<li>adj_art_junk-&gt;아무 </li>
+					<li>adj_art_junk-&gt;형편없는 </li>
+					<li>adj_art_junk-&gt;이상하게 생긴 </li>
+					<li>adj_art_junk-&gt;뒤틀린 </li>
+					<li>adj_art_junk-&gt;쓸모없는 </li>
+					<li>adj_art_junk-&gt;의미없는 </li>
+					<li>adj_art_junk-&gt;초라한 </li>
+					<li>adj_art_junk-&gt;[ugly] </li>
+					
+					<li>art_junk-&gt;쓰레기</li>
+					<li>art_junk-&gt;폐품</li>
+					<li>art_junk-&gt;쓰레기 더미</li>
+					<li>art_junk-&gt;잔해</li>
+					<li>art_junk(INITIATOR_intellectual_level&gt;=7)-&gt;쓰레기</li>
+					
+					<li>art_due_respect(INITIATOR_opinion&gt;=0, priority=1)-&gt;[art_due_respect_options]</li>
+						<li>art_due_respect_options(INITIATOR_trait==abrasive)-&gt;네 맘엔 안들겠지만, 내 의견은 말야 — </li>
+						<li>art_due_respect_options-&gt;오해하지는 마, 하지만 </li>
+						<li>art_due_respect_options-&gt;외람된 말이지만, </li>
+						<li>art_due_respect_options-&gt;내게 예술적 감각이 없을 수도 있지만, </li>
+						<li>art_due_respect_options-&gt;나만 그런지는 몰라도, </li>
+						<li>art_due_respect_options-&gt;내가 예술가는 아니지만, </li>
+					<li>art_due_respect-&gt;</li>
+					
+					<li>comment-&gt;이 방에 정말 잘 어울리는걸</li>
+					<li>comment-&gt;이 방을 한층 더 보기 좋게 만들어 주네</li>
+					<li>comment-&gt;보일 때마다, 감탄을 안할 수가 없다니까</li>
+					<li>comment-&gt;정말 [moderately_attractive_obj] 분위기를 주는걸</li>
+					<li>comment-&gt;이건 [intensifier][moderately_attractive_obj] 것 같아</li>
+					<li>comment(INITIATOR_artistic_passion!=None)-&gt;이 주변의 [space] 정말 완벽한 조화를 이루고 있어</li>
+						<li>space-&gt;공간과</li>
+						<li>space-&gt;암묵적 예술 구역과</li>
+						<li>space-&gt;본질적인 예술 패턴과</li>
+					<li>money-&gt;은화</li>
+					<li>money-&gt;금화</li>
+					<li>money-&gt;비취옥</li>
+					<li>yes-&gt;맞아</li>
+					<li>yes-&gt;그래</li>
+					<li>yes-&gt;네 말이 맞아</li>
+					<li>yes-&gt;그런 것 같아</li>
+					
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>	
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === Get well === --> <defName>GetWell</defName>
+		<label>get well</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>
+					<li>bad_opinion-&gt;[thank].</li>
+					<li>bad_opinion(INITIATOR_opinion&lt;-20)-&gt;너때문에 더 심해지는 것 같아, [RECIPIENT_nameDef].</li>
+					<li>bad_opinion(INITIATOR_opinion&lt;-20)-&gt;어이, [RECIPIENT_nameDef] — 부탁이 있어, 그냥 혼자있게 해줘...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion(p=2)-&gt;[thank], [recipient]. [comment]</li>
+						<li>comment-&gt;나도 그러길 바래.</li>
+						<li>comment-&gt;네가 맞길 빌지...</li>
+						<li>comment-&gt;한 번 해볼게.</li>
+						<li>comment(INITIATOR_opinion&gt;=50)-&gt;정말 감동이야.</li>
+					<li>good_opinion(INITIATOR_trait==kind)-&gt;[thank], [recipient] — 정말 친절하구나.</li>
+					<li>good_opinion(RECIPIENT_trait==kind)-&gt;[thank], [recipient] — 넌 항상 모두에게 친절하군.</li>
+					<li>good_opinion(INITIATOR_trait==pessimist)-&gt;난 죽을거야, 감추려해도 소용없어... 난 알아...</li>
+					<li>good_opinion(INITIATOR_trait==depressive)-&gt;내가 건강해질 이유따윈 없어 — 차라리 무의미하게 없어지는 것이 나아...</li>
+					<li>good_opinion(INITIATOR_trait==sanguine)-&gt;조만간 괜찮아져서 다시 일할 수 있을거야, [recipient] — 믿어봐!</li>
+					<li>good_opinion(INITIATOR_trait==optimist)-&gt;[thank], [recipient]! 나도 그렇게 생각해!</li>  <!-- ===WILDCARDS=== --> <li>thank-&gt;고마워</li>
+					<li>thank-&gt;고맙다</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===Thanks=== --> <defName>Thanks</defName>
+		<label>thanks</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;[thank], [recipient].</li>
+					<li>good_opinion(INITIATOR_trait==kind)-&gt;[thank], [recipient] — 정말 친절하구나.</li>
+					<li>good_opinion(RECIPIENT_trait==kind)-&gt;[thank], [recipient] — 넌 항상 모두에게 친절하군.</li>  <!-- ===WILDCARDS=== --> <li>thank-&gt;고마워</li>
+					<li>thank-&gt;고맙다</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>	
+	
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===Cleaning=== --> <defName>Cleaning</defName>
+		<label>cleaning</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>
+					<li>bad_opinion(INITIATOR_thoughtLabel==hideous environment,priority=1)-&gt;그래, [recipient] — 여긴 정말 [ugly] 곳이네, 네 면상처럼!</li>
+					<li>bad_opinion(INITIATOR_thoughtLabel==hideous environment,priority=1)-&gt;정말 [ugly] 곳이네, 그래 — 이제 여길 [RECIPIENT_nameDef] 양식으로 지었다고 하면 되겠네!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==hideous environment,priority=1)-&gt;꼬마워, [recipient] — 여긴 [intensifier][ugly]걸, [cleaning]라도 하면 좀 나아질 것 같군!</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==ugly environment,priority=1)-&gt;고마워, [recipient] — 여긴 꽤 [unsightly] 것 같아, [cleaning]하면 좀 괜찮겠네!</li>
+						<li>good_opinion-&gt;고마워, [recipient] — 여긴 정말 [cleaning]가 필요했어.</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==pretty environment,priority=1)-&gt;고마워, [recipient]. 여긴 [intensifier] 좋은 곳이야 — [keep_clean]</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==beautiful environment,priority=1)-&gt;고마워, [recipient]. 이 장소는 [intensifier] 아름다워 — [keep_clean]</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==beautiful environment,priority=1)-&gt;꼬마워! 이 장소는 [intensifier][moderately_attractive_obj] 곳이야 — [keep_clean]</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==gorgeous environment,priority=1)-&gt;고마워, [recipient]. 여긴 엄청나게 [gorgeous] — [keep_clean]</li> <!-- ===WILDCARDS=== --> <!-- ===clean=== --> <li>clean-&gt;[clean_adj] 청소하자</li>
+					<li>clean-&gt;[clean_adj] 정돈 하자</li>
+					<li>clean-&gt;[clean_adj] 깨끗하게 하자</li>
+					<li>clean_adj(p=2)-&gt;</li>
+					<li>clean_adj-&gt;때 하나 없게 </li>
+					<li>clean_adj-&gt;티끌 하나없이 </li>
+					<li>clean_adj-&gt;먼지 하나 없이 </li>  <!-- ===cleaning (action)=== --> <li>cleaning-&gt;[cleaning_adj]청소</li>
+					<li>cleaning-&gt;[cleaning_adj]빗자루질</li>
+					<li>cleaning-&gt;[cleaning_adj]걸레질</li>
+					<li>cleaning_adj(p=2)-&gt;</li>
+					<li>cleaning_adj-&gt;깔끔하게 </li>
+					<li>cleaning_adj(INITIATOR_intellectual_level&gt;=5)-&gt;흠 잡을 데 없이 </li>  <!-- ===gorgeous=== --> <li>gorgeous-&gt;황홀한 곳이야</li>
+					<li>gorgeous-&gt;놀라운 곳이야</li>  <!-- ===keep it clean=== --> <li>keep_clean-&gt;계속 [clean]!</li>
+					<li>keep_clean-&gt;여길 계속 [clean]!</li>
+					<li>keep_clean-&gt;항상 [clean]!</li>  <!-- ===ugly=== --> <li>ugly-&gt;못생긴</li>
+					<li>ugly-&gt;흉물스러운</li>
+					<li>ugly-&gt;끔찍한</li>
+					<li>ugly-&gt;괴상한</li>
+					<li>ugly-&gt;소름끼치는</li>
+					<li>ugly-&gt;더러운</li>
+					<li>ugly-&gt;암울한</li>
+					<li>ugly-&gt;징그러운</li>
+					<li>ugly-&gt;생각할 수 있는 무엇보다도 끔찍한</li>
+					<li>ugly-&gt;표현하기 힘들정도로 끔찍한</li>
+					<li>ugly(INITIATOR_intellectual_level&gt;=5)-&gt;[ugly_adv]불쾌한</li>
+					<li>ugly(INITIATOR_intellectual_level&gt;=5)-&gt;[ugly_adv] 지독한</li>
+					<li>ugly(INITIATOR_intellectual_level&gt;=5)-&gt;[ugly_adv] 혐오스러운</li>
+					<li>ugly_adv-&gt;</li>
+					<li>ugly_adv-&gt;확실히 </li>
+					<li>ugly_adv-&gt;정말로 </li>
+					<li>ugly_adv-&gt;소름끼치도록 </li>  <!-- ===unsightly=== --> <li>unsightly-&gt;보기 흉한</li>
+					<li>unsightly-&gt;엉망인</li>
+					<li>unsightly-&gt;허접한</li>
+					<li>unsightly-&gt;엉성한</li>				
+					<li>unsightly-&gt;쓰레기같은</li>
+					<li>unsightly-&gt;버림받은</li>
+					<li>unsightly-&gt;수준낮은</li>
+					<li>unsightly(INITIATOR_intellectual_level&gt;=5)-&gt;불쾌한</li>
+					<li>unsightly(INITIATOR_intellectual_level&gt;=5)-&gt;매력없는</li>				
+					<li>unsightly(INITIATOR_intellectual_level&gt;=10)-&gt;후줄그레한</li>				
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>	
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===Cloudwatching=== --> <defName>CloudWatching</defName>
+		<label>cloudwatching</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Idle=== --> <li>r_logentry(INITIATOR_jobDefName==GotoWander,priority=1)-&gt;[idle]</li>
+					<li>r_logentry(INITIATOR_jobDefName==Ingest,priority=1)-&gt;[idle]</li>
+					<li>r_logentry(INITIATOR_jobDefName==Wait_Wander,priority=1)-&gt;[idle]</li>
+					<li>r_logentry(INITIATOR_jobDefName==Skygaze,priority=1)-&gt;[idle]</li>				
+					<li>r_logentry(INITIATOR_jobDefName==SocialRelax,priority=1)-&gt;[idle]</li>
+					<li>r_logentry(INITIATOR_jobDefName==Sow,priority=1)-&gt;[idle]</li>
+					<li>r_logentry(INITIATOR_jobDefName==StandAndBeSociallyActive,priority=1)-&gt;[idle]</li>  <!-- ===Bad opinion of recipient=== --> <li>idle(INITIATOR_opinion&lt;0)-&gt;그렇지 않아, [recipient].</li>
+						<li>idle(INITIATOR_opinion&lt;0)-&gt;이러고 있으니 해야할게 생각났어 — 너같은 놈한테서 멀어지는거 말이야.</li>  <!-- ===Good opinion of recipient=== --> <li>idle(INITIATOR_opinion&gt;=0)-&gt;음... 와, 네가 맞아 — 꽤 재밌는걸!</li>
+						<li>idle(INITIATOR_opinion&gt;=0)-&gt;음... 네말이 맞을수도 — 근데 내생각엔 [a_cloudshape] 모양 같아.</li>
+							<li>a_cloudshape-&gt; [Animal]</li>
+							<li>a_cloudshape-&gt; [Apparel]</li>
+							<li>a_cloudshape-&gt; [TreeType]</li>
+							<li>a_cloudshape-&gt; [Vegetable]</li>
+							<li>a_cloudshape-&gt; [Weapon]</li>  <!-- ===Busy=== --> <li>r_logentry-&gt;[busy]</li>  <!-- ===Bad opinion of recipient=== --> <li>busy(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>busy(INITIATOR_opinion&gt;=0)-&gt;미안, [recipient] — 지금은 좀 바빠.</li>
+						<li>busy(INITIATOR_opinion&gt;=0)-&gt;어어? 아... 그게.. 뭐라는지 못들었어, [recipient].</li>
+						<li>busy(INITIATOR_opinion&gt;=0)-&gt;뭐라고 했어? 미안해, [recipient], 지금 좀 바빠서.</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===Eclipse=== --> <defName>Eclipse</defName>
+		<label>eclipse</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_trait==too smart)-&gt;일식에는 4가지 종류가 있지 — 개기일식, 금환일식, 혼성일식, 그리고 부분일식. 지금 보고있는건 [a_type]일식이야.</li>
+							<li>a_type-&gt;개기</li>
+							<li>a_type-&gt;금환</li>
+							<li>a_type-&gt;혼성</li>
+							<li>a_type-&gt;부분</li>
+						<li>good_opinion(INITIATOR_medical_level&gt;=5)-&gt;너네 눈 보호구는 끼고 보고 있는거지 — 잘못하면 실명할 수도 있어.</li>
+						<li>good_opinion(INITIATOR_trait==night owl)-&gt;좋아 — 밤이 더 길어졌어!</li>
+						<li>good_opinion(INITIATOR_trait==wimp)-&gt;어둠이 무서워... 빨리 일식이 끝났으면!</li>
+						<li>good_opinion(INITIATOR_jobText!=watching the eclipse.)-&gt;지금 당장 볼 수 없는게 좀 아쉽네...</li>
+						<li>good_opinion-&gt;너무 빠지지는 마!</li>
+						
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- ===Drink beer=== --> <defName>DrinkBeer</defName>
+		<label>drink beer</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(INITIATOR_opinion&lt;-25)-&gt;먹다가 뒤져버려, [recipient]!</li>
+					<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_jobText==Drinking beer.)-&gt;쭉 들이켜!</li>
+						<li>good_opinion(INITIATOR_jobText==Drinking beer.)-&gt;적셔!</li>
+						<li>good_opinion(INITIATOR_trait==teetotaler,priority=1)-&gt;[teetotaler]</li>
+							<li>teetotaler-&gt;과음하지는 마, [recipient] — 알콜 중독은 치료하기 정말 힘드니까!</li>
+							<li>teetotaler-&gt;술에 잔뜩 취해서 이상한 소리 하지 않게 조심해 — 취했다 싶으면 그냥 입 닫고 있는게 좋아.</li>
+							<li>teetotaler-&gt;술 같은 걸 왜 마시는지 모르겠네. 그냥 어지럽고 나중에 숙취땜에 고생할 뿐인데...</li>
+							<li>teetotaler-&gt;과음에는 불운이 따르지.  멈출 수 있을 때 멈추는 게 좋아.</li>
+							<li>teetotaler-&gt;그런 사악한 것에 휘둘리지마... 술이 없는 삶이 얼마나 좋은데.</li>
+						<li>good_opinion(INITIATOR_medical_level&gt;=5)-&gt;너무 마시지는 마, [recipient] — 그러다 간경변온다.</li>
+						<li>good_opinion(INITIATOR_social_level&gt;=5)-&gt;건배!</li>
+						<li>good_opinion(INITIATOR_trait==ascetic)-&gt;맥주같은거 없어도 행복해질 수 있는건 알지?</li>
+						<li>good_opinion-&gt;건배!</li>
+						<li>good_opinion-&gt;한잔해, [recipient]!</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === stargazing === --> <defName>Stargazing</defName>
+		<label>stargazing</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(INITIATOR_jobText==stargazing.,priority=1)-&gt;...</li>
+					<li>bad_opinion(INITIATOR_jobText==stargazing.,INITIATOR_opinion&lt;=-25,priority=1)-&gt;별똥별은 본다면 말이야, [recipient], 네가 나자빠져 죽기를 빌거야...</li>
+					
+					<li>bad_opinion-&gt;...</li>
+					<li>bad_opinion-&gt;어이, [recipient] — 별 보면서 궁상떨지말고 현실을 살아줄래?</li>
+					<li>bad_opinion-&gt;왜 하늘에 박힌 [specks_adj] 점들을 처다보며 재미있어 하는지 이해가 안되네...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion(INITIATOR_jobText==stargazing.,priority=1)-&gt;아아... 이런 멋진 별빛 가득한 하늘은 번화계 행성에선 볼 수 없는 거야...</li>
+					<li>good_opinion(INITIATOR_jobText==stargazing.,priority=1)-&gt;음... 별똥별을 본 것 같기도! 무슨 소원을 빌어볼까...</li>
+					
+					<li>good_opinion-&gt;정말 [view_adj] 광경이야, [recipient]!</li>
+					<li>good_opinion-&gt;별똥별은 보게된다면 말이야, [recipient], 우리에게 좋은 일이 생기길 빌자!</li>  <!-- ===WILDCARDS=== --> <li>specks_adj-&gt;쪼그만</li>
+					<li>specks_adj-&gt;의미없는</li>
+					<li>specks_adj-&gt;무의미한</li>
+					<li>specks_adj-&gt;별거없는</li>
+					<li>specks_adj(INITIATOR_intellectual_level&gt;=5)-&gt;작디작은</li>
+					<li>specks_adj(INITIATOR_intellectual_level&gt;=5)-&gt;하찮은</li>
+					<li>view_adj-&gt;멋진</li>
+					<li>view_adj-&gt;놀라운</li>
+					<li>view_adj-&gt;엄청난</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === sunrise === --> <defName>Sunrise</defName>
+		<label>sunrise</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(INITIATOR_trait==abrasive)-&gt;할수만 있다면 태양에다 널 집어던져 버리는건데.</li>
+					<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion-&gt;일출은 새로운 날의 아름다운 약속이야...</li>
+						<li>good_opinion-&gt;매일같이 아름다운 해돋이가 펼쳐져 — 게다가 공짜로 즐길수 있지!</li>
+						<li>good_opinion-&gt;좋은 아침의 비결은 열린 마음으로 해돋이를 보는거야.</li>
+						<li>good_opinion-&gt;이런 아름다운 해돋이를 보다니 정말 운도 좋지.</li>
+						<li>good_opinion(INITIATOR_trait==ascetic)-&gt;자연의 고귀함은 일출의 첫햇살을 통해 드러나지.</li>
+						<li>good_opinion(INITIATOR_trait==night owl)-&gt;빨리 석양이 보고싶어...</li>
+						<li>good_opinion(INITIATOR_trait==optimist)-&gt;[optimist]</li>
+						<li>good_opinion(INITIATOR_trait==sanguine)-&gt;[optimist]</li>
+							<li>optimist-&gt;해돋이나 희망을 꺾을 수 있었던 밤이나 문제는 없었어.</li>
+							<li>optimist-&gt;다음 해돋이, 다음 초, 다음 분, 언제든 항상 길이 있고 희망이 있지.</li>
+						<li>good_opinion(INITIATOR_trait==industrious)-&gt;[industrious]</li>						
+						<li>good_opinion(INITIATOR_trait==hard worker)-&gt;[industrious]</li>
+							<li>industrious-&gt;해돋이를 바라보며 시간을 낭비한다, 이게 맞는거야?</li>
+							<li>industrious-&gt;해돋이 좀 그만 쳐다보고 할 일이나 하러가면 좋겠는데...</li>							
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply"> <!-- === sunset === --> <defName>Sunset</defName>
+		<label>sunset</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(INITIATOR_trait==abrasive)-&gt;할수만 있다면 태양에다 널 집어던져 버리는건데.</li>
+					<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion-&gt;매일같이 아름다운 노을이 펼쳐져 — 게다가 공짜고!</li>
+						<li>good_opinion-&gt;잊지마 — 흐린 하늘이 있어야 아름다운 석양을 볼 수 있는거야...</li>
+						<li>good_opinion(INITIATOR_trait==ascetic)-&gt;아름다운 석양은 하루를 마무리하는 가장 좋은 방법이지.</li>
+						<li>good_opinion(INITIATOR_trait==optimist)-&gt;[optimist]</li>
+						<li>good_opinion(INITIATOR_trait==sanguine)-&gt;[optimist]</li>
+							<li>optimist-&gt;석양은 어떤 일이 있어도 우리의 하루하루가 아름답게 끝날 수 있다는 증거야,</li>
+							<li>optimist-&gt;아름다운 석양 뒤엔 해가 지지만, 새벽과 함께 해는 다시 떠올라.</li>
+						<li>good_opinion(INITIATOR_trait==wimp)-&gt;어둠이 무서워... 그냥 해가 계속 떠있으면 안되나?</li>
+						<li>good_opinion(INITIATOR_trait==night owl)-&gt;해가 진다니 정말 최고야 —이제 좀 마음이 놓이는 걸!</li>
+						<li>good_opinion(INITIATOR_trait==depressive)-&gt;[pessimist]</li>
+						<li>good_opinion(INITIATOR_trait==pessimist)-&gt;[pessimist]</li>						
+							<li>pessimist-&gt;석양이 아름답긴하지만, 찾아오는 어둠 속에 숨어있는 잠재적 위협에 대비해야해.</li>
+							<li>pessimist-&gt;경계해 — 어둠이 찾아온다...</li>
+						<li>good_opinion-&gt;이런 아름다운 석양을 보다니 정말 운도 좋아.</li>
+						<li>good_opinion-&gt;너무 빠지지는 마!</li>
+						<li>good_opinion(INITIATOR_trait==industrious)-&gt;[industrious]</li>
+						<li>good_opinion(INITIATOR_trait==hard worker)-&gt;[industrious]</li>
+							<li>industrious-&gt;석양을 바라보며 시간을 낭비한다, 이거 맞지?</li>
+							<li>industrious-&gt;저녁 노을 좀 그만 쳐다보고 하던 일이나 끝내주면 좋겠는데...</li>
+						<li>good_opinion-&gt;내일 흑점 폭발이 일어나지 않았으면 좋겠네.</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===butchering skill=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>Job_ButcheringSkill</defName>
+			<label>job — butchering skill</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_cooking_level&gt;=6)-&gt;고마워, [recipient]!</li>
+						<li>good_opinion(INITIATOR_cooking_level&lt;6)-&gt;미안해, [recipient] — 하지만 최선을 다하고 있는걸!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===playing instrument — compliment=== --> <InteractionDef ParentName="SpeakUpReply">
+		<defName>Job_PlayMusic_compliment</defName>
+		<label>job — playing — compliment</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;고마워, [recipient]!</li>
+				<li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;고맙다, [recipient]!</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===playing instrument — join=== --> <InteractionDef ParentName="SpeakUpReply">
+		<defName>Job_PlayMusic_join</defName>
+		<label>job — playing — join</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+				<li>bad_opinion(RECIPIENT_artistic_level&lt;=5)-&gt;쉿, [recipient]!</li>
+				<li>bad_opinion(RECIPIENT_artistic_level&lt;=10)-&gt;* [RECIPIENT_nameDef]를 쳐다봄*</li>
+				<li>bad_opinion(RECIPIENT_artistic_level&lt;=15)-&gt;*[RECIPIENT_nameDef]을 향해 얼굴을 찌푸림*</li>
+				<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+				<li>good_opinion(RECIPIENT_artistic_level&gt;=5)-&gt;*[RECIPIENT_nameDef]에게 끄덕임*</li>
+				<li>good_opinion(RECIPIENT_artistic_level&gt;=10)-&gt;*[RECIPIENT_nameDef]에게 웃어줌*</li>
+				<li>good_opinion(RECIPIENT_artistic_level&gt;=15)-&gt;*[RECIPIENT_nameDef]에게 미소를 지어줌*</li>
+				<li>good_opinion-&gt;...</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===playing instrument — critic=== --> <InteractionDef ParentName="SpeakUpReply">
+		<defName>Job_PlayMusic_critic</defName>
+		<label>job — playing — critic</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>
+				<li>r_logentry(INITIATOR_opinion&lt;0)-&gt;좀 닥쳐, [recipient] — 애초에 너한테 들으라고 강요한 사람 없어.</li>
+				<li>r_logentry(INITIATOR_opinion&lt;0)-&gt;맘에 안들면 말이야, [recipient], 딴데가서 볼일 봐.</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;미안해, [recipient] —좀 더 연습해야겠어.</li>
+					<li>good_opinion-&gt;미안해, [recipient] — 좀더 노력해볼게.</li>
+					<li>good_opinion(INITIATOR_artistic_level&lt;=4,priority=1)-&gt;[amateur]</li>
+					<li>amateur-&gt;난 그냥 재미로 하는거야, [recipient] — 전문가가 아니라고.</li>
+					<li>amateur-&gt;난 전문가가 아니야, [recipient] — 그냥 노는 김에 치는거야.</li>
+					<li>amateur(INITIATOR_mood&gt;=0.4)-&gt;*낄낄댐* 미안하게 됐어, [recipient] — 다른 음악을 해봐야겠네.</li>
+					<li>amateur-&gt;알았어, 알았다고, [recipient] — 이거만 하고 갈거니까 나보다 잘치는 다른 사람 구해봐.</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===vomiting=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>Job_Vomiting</defName>
+			<label>job — vomiting</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;미안해, [recipient]...</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===vomiting — help offer=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>Job_Vomiting_help</defName>
+			<label>job — vomiting — help offer</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;괜찮아, [recipient] — 고마워...</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===Build Snowman=== --> <InteractionDef ParentName="SpeakUpReply">
+		<defName>Job_BuildSnowman</defName>
+		<label>job - build snowman</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;와, 고마워 [recipient]!</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===shooting - hit=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>ShootingHit</defName>
+			<label>shooting — hit</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+						<li>bad_opinion-&gt;운도 좋네!</li>
+						<li>bad_opinion-&gt;운빨망겜...</li>
+						<li>bad_opinion-&gt;작은 승리, 큰 실패...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion-&gt;잘했어, [recipient]!</li>
+						<li>good_opinion-&gt;잘쏘는걸, [recipient]!</li>
+						<li>good_opinion-&gt;정확했어, [recipient]!</li>
+						<li>good_opinion-&gt;와, [recipient] — good aim!</li>
+						<li>good_opinion(RECIPIENT_gender==Male,INITIATOR_intellectual_level&lt;5)-&gt;엄청난걸!</li>
+						<li>good_opinion(RECIPIENT_gender==Female,INITIATOR_intellectual_level&lt;5)-&gt;엄청난걸!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===shooting - miss=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>ShootingMiss</defName>
+			<label>shooting — miss</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+						<li>bad_opinion-&gt;...</li>
+						<li>bad_opinion-&gt;허접하네...</li>
+						<li>bad_opinion-&gt;안쓰러워...</li>
+						<li>bad_opinion-&gt;허,너 진짜 더럽게 못쏜다.</li>
+						<li>bad_opinion-&gt;넌 할 줄 아는게 없는거 같구나, [recipient].</li>
+						<li>bad_opinion-&gt;너치고는 잘쐈지만 — 아직 한참 멀었어...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion-&gt;다시해봐, [recipient]!</li>
+						<li>good_opinion-&gt;음, 다음번엔 조금만 더  [left_right] 으로 조준해봐.</li>
+						<li>good_opinion-&gt;영점을 조금만 조절해볼까...</li>
+						<li>good_opinion-&gt;좀 아쉽네!</li>
+						<li>good_opinion-&gt;진짜 아깝게 빗나갔다!</li>
+						<li>left_right-&gt;왼쪽</li>
+						<li>left_right-&gt;오른쪽</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef> <!-- ==MOOD=== --> <!-- ===Calm=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>Calm</defName>
+			<label>react to — calm</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+						<li>bad_opinion(INITIATOR_mood&lt;0.4)-&gt;[stressed]</li>
+						<li>bad_opinion(INITIATOR_mood&lt;0.4,INITIATOR_trait==jealous,priority=1)-&gt;[stressed]</li>
+						<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_mood&lt;0.4,priority=1)-&gt;...</li>
+						<li>good_opinion-&gt;[calm]</li>  <!-- ===WILDCARDS=== --> <li>stressed(INITIATOR_mood&gt;0.3)-&gt;*얼굴을 찌푸림*</li>
+						<li>stressed-&gt;*노려봄*</li>
+						<li>stressed-&gt;*째려봄*</li>
+						<li>stressed-&gt;*쏘아봄*</li>
+						<li>stressed(INITIATOR_mood&lt;=0.2)-&gt;*화난 투덜거림*</li>
+						
+						<li>calm(p=2)-&gt;*smiles*</li>
+						<li>calm(INITIATOR_mood&gt;=0.6)-&gt;*[RECIPIENT_nameDef] 에게 웃어줌*</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===Stressed=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>Stressed</defName>
+			<label>react to — stressed</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+						<li>bad_opinion(INITIATOR_mood&lt;0.4,priority=1)-&gt;*똑같이 째려봄*</li>
+						<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_mood&lt;0.4,priority=1)-&gt;...</li>
+						<li>good_opinion-&gt;*미소 지음*</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===Singing=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>Singing</defName>
+			<label>react to — singing</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+						<li>bad_opinion-&gt;...</li>
+						<li>bad_opinion(INITIATOR_trait==kind,priority=1)-&gt;[good_opinion]</li>
+						<li>bad_opinion(RECIPIENT_trait==annoying voice)-&gt;브라보, [recipient] — 돼지 멱따는 소릴 표현한거라면 정말 완벽했어!</li>
+						<li>bad_opinion(RECIPIENT_artistic_level&lt;5)-&gt;그만 꽥꽥대, [recipient] — 귀에서 피가 날 지경이야!</li>
+						<li>bad_opinion(RECIPIENT_artistic_level&gt;=10)-&gt;네게 |약간의| 재능이라도 있었으면 좋았으련만...</li>
+						<li>bad_opinion(RECIPIENT_artistic_level&gt;=10)-&gt;에 — 더 좋은 것도 들은적 있는 걸...</li>
+						<li>bad_opinion(RECIPIENT_artistic_level&gt;=15)-&gt;재능이 없군. 너때문에 우리까지 못나 보이잖아, [recipient].</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion(RECIPIENT_trait==annoying voice)-&gt;으음, [recipient]... 노래 대신 악기 연주해보는건 어때?</li>
+						<li>good_opinion(RECIPIENT_artistic_level&lt;5)-&gt;[unskilled]</li>
+							<li>unskilled-&gt;...</li>
+							<li>unskilled(INITIATOR_artistic_level&gt;=5)-&gt;나쁘지 않았어, [recipient] — 그래도 노래 수업을 좀 받아야겠는걸...</li>
+						<li>good_opinion(RECIPIENT_artistic_level&gt;=5)-&gt;[calm]</li>
+							<li>calm-&gt;*미소 지음*</li>
+							<li>calm(INITIATOR_mood&gt;=0.6)-&gt;*[RECIPIENT_nameDef] 에게 웃어줌*</li>
+						<li>good_opinion(RECIPIENT_artistic_level&gt;=5)-&gt;브라보, [recipient] — 정말 아름다운 목소리야!</li>
+						<li>good_opinion(RECIPIENT_artistic_level&gt;=5)-&gt;네 목소리는 정말 듣기 좋은 것 같아, [recipient]!</li>
+						<li>good_opinion(RECIPIENT_artistic_level&gt;=10)-&gt;아아... 네 목소릴 듣기만 해도 행복해, [recipient]!</li>
+						<li>good_opinion(RECIPIENT_artistic_level&gt;=15)-&gt;정말 멋진 노래였어, [recipient] — I loved it!</li>
+						<li>good_opinion(RECIPIENT_artistic_level&gt;=15,INITIATOR_opinion&gt;=35)-&gt;방금 천상의 노랫소릴 들은거 같은데, 그게 너였구나, [recipient]!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===How are you=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>HowAreYou</defName>
+			<label>how are you</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===bad opinion=== --> <li>r_logentry(INITIATOR_opinion&lt;-5)-&gt;[bad_opinion]</li>
+						<li>bad_opinion-&gt;날 좀 내버려둬, [recipient]!</li>
+						<li>bad_opinion-&gt;네 일에나 신경써, [recipient]!</li>
+						<li>bad_opinion-&gt;네 알 바 아니야, [recipient]!</li>
+						<li>bad_opinion-&gt;...</li>  <!-- ===decent or good opinion, but sick=== --> <li>r_logentry(INITIATOR_opinion&gt;=-5,INITIATOR_thoughtDefName==Sick,priority=1)-&gt;[good_opinion_sick]</li>
+						<li>good_opinion_sick(INITIATOR_mood&gt;=0.7)-&gt;몸이 별로 안좋아, 그래도 곧 괜찮아질거야! [whataboutyou]</li>
+						<li>good_opinion_sick(INITIATOR_mood&gt;=0.5,INITIATOR_mood&lt;0.7)-&gt;몸이 별로 인것 같아, 그래도 곧 괜찮아 지겠지. [whataboutyou]</li>
+						<li>good_opinion_sick(INITIATOR_mood&gt;=0.3,INITIATOR_mood&lt;0.5)-&gt;몸상태가 별로야.</li>
+						<li>good_opinion_sick(INITIATOR_mood&lt;0.3)-&gt;[furious] 게다가, 아파 죽겠어!</li>  <!-- ===decent or good opinion, but in pain=== --> <li>r_logentry(INITIATOR_opinion&gt;=-5,INITIATOR_thoughtDefName==Pain,priority=1)-&gt;[good_opinion_pain]</li>
+						<li>good_opinion_pain(INITIATOR_mood&gt;=0.7)-&gt;몸이 별로 안좋아, 그래도 곧 괜찮아질거야! [whataboutyou]</li>
+						<li>good_opinion_pain(INITIATOR_mood&gt;=0.5,INITIATOR_mood&lt;0.7)-&gt;좀 힘들지만, 곧 괜찮아질거라 생각해. [whataboutyou]</li>
+						<li>good_opinion_pain(INITIATOR_mood&gt;=0.3,INITIATOR_mood&lt;0.5)-&gt;나 너무 아파...</li>
+						<li>good_opinion_pain(INITIATOR_mood&lt;0.3)-&gt;[furious] 게다가 아파죽겠어!</li>  <!-- ===decent or good opinion=== --> <li>r_logentry(INITIATOR_opinion&gt;=-5)-&gt;[good_opinion]</li>
+						<li>good_opinion(INITIATOR_mood&gt;=0.7)-&gt;난 지금 [great], 고마워! [whataboutyou]</li>
+						<li>good_opinion(INITIATOR_mood&gt;=0.5,INITIATOR_mood&lt;0.7)-&gt;난 [fine],고마워. [whataboutyou]</li>
+						<li>good_opinion(INITIATOR_mood&gt;=0.3,INITIATOR_mood&lt;0.5)-&gt;[not_so_well]</li>
+						<li>good_opinion(INITIATOR_mood&lt;0.3)-&gt;[furious]</li>  <!-- ===WILDCARDS=== --> <li>great-&gt;최고야</li>
+						<li>great-&gt;멋진 기분이야</li>
+						<li>great-&gt;행복해</li>
+						<li>great-&gt;정말 좋아</li>
+						<li>fine-&gt;괜찮아</li>
+						<li>fine-&gt;좋아</li>
+						<li>fine-&gt;괜찮아</li>
+						<li>fine-&gt;잘돼가</li>
+						<li>fine-&gt;좋은 것 같아</li>
+						<li>not_so_well-&gt;별로야...</li>
+						<li>not_so_well-&gt;영 좋지 않네...</li>
+						<li>not_so_well-&gt;그냥 그래...</li>
+						<li>not_so_well-&gt;최악은 아니지...</li>
+						<li>not_so_well-&gt;난... 괜찮을거야, 아마도.</li>
+						<li>not_so_well-&gt;뭐 늘상 그렇지...</li>
+						<li>furious-&gt;내 삶이 싫어!</li>
+						<li>furious-&gt;내 삶이 지겨워!</li>
+						<li>furious-&gt;최악의 기분이야!</li>
+						<li>furious-&gt;정신 나갈 것 같애!</li>
+						<li>furious-&gt;너무 화나서 미칠 것같아!</li>
+						<li>furious-&gt;열받아!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=5)-&gt;속이 부글부글 끓어!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=5)-&gt;분노로 가득찼어!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=10)-&gt;정신나갈거 가테!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=10)-&gt;속에 열불나!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=10)-&gt;화나 미칠지경이야!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=15)-&gt;터지기 일보 직전이야!</li>
+						<li>furious(INITIATOR_trait==abrasive)-&gt;기분 좆같아, 됐냐?</li>
+						<li>furious(INITIATOR_trait==abrasive)-&gt;이딴 좆같은 삶을 살바에 그냥 뒤지는게 낫겠다</li>
+						<li>furious(INITIATOR_trait==bloodlust)-&gt;저리 꺼져 — 처맞기 싫으면!</li>
+						<li>furious(INITIATOR_trait==brawler)-&gt;뚜껑 열리기 직전이야! 뭐라도 때려부수고 싶어!</li>
+						<li>furious(INITIATOR_trait==pyromaniac)-&gt;내 분노가 불과 같다면, 전세계가 불바다가 되고 말았을거야.</li>
+						<li>furious(INITIATOR_trait==tortured artist)-&gt;그 누구도 내 상처받은 영혼 속 휘몰아치는 거친 소용돌이를 이해하지 못할거야!</li>  <!-- ===FOLLOWUP=== --> <li>whataboutyou(INITIATOR_opinion&gt;=5,tag=HowAreYou2)-&gt;넌 좀 어때?</li>
+						<li>whataboutyou(INITIATOR_opinion&lt;5)-&gt;</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===How are you 2=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>HowAreYou2</defName>
+			<label>reply to HowAreYou</label>
+			<logRulesInitiator>
+				<rulesStrings> <!-- ===Since the starting chitchat requires its Initiator to have positive opinion of Recipient, here we certainly have INITIATOR_opinion>=0=== --> <!-- ===It's almost a identical copy of HowAreYou, but with no "bad opinion", [whataboutyou] and "followup" sections.=== --> <li>r_logentry(INITIATOR_thoughtDefName==Sick,RECIPIENT_thoughtDefName==Sick,priority=3)-&gt;[both_sick]</li>
+						<li>both_sick(INITIATOR_mood&gt;=0.7)-&gt;몸 상태가 평소같진 않은데, 별건 아니야.</li>
+						<li>both_sick(priority=-1)-&gt;나도 몸 상태가 별로야...</li>
+						<li>both_sick(INITIATOR_mood&gt;=0.3,INITIATOR_mood&lt;0.5)-&gt;몸이 좋지 않은걸 — 꽤 불편할 정도로.</li>
+						<li>both_sick(INITIATOR_mood&lt;0.3)-&gt;나도 몸이 안좋아 — 아파서 죽을 지경이야!</li>
+
+					<li>r_logentry(INITIATOR_thoughtDefName==Sick,priority=2)-&gt;[i_sick]</li>
+						<li>i_sick(INITIATOR_mood&gt;=0.7)-&gt;좀 아픈 것 같은데, 별 거 아니야.</li>
+						<li>i_sick(priority=-1)-&gt;별로 좋지않은 걸...</li>
+						<li>i_sick(INITIATOR_mood&gt;=0.3,INITIATOR_mood&lt;0.5)-&gt;몸이 좀 안좋아 — 꽤 불편한 걸.</li>
+						<li>i_sick(INITIATOR_mood&lt;0.3)-&gt;난 아파 — 아파서 죽을 지경이야!</li>
+
+						<li>r_logentry(INITIATOR_thoughtDefName==Pain,RECIPIENT_thoughtDefName==Pain,priority=3)-&gt;[both_pain]</li>
+						<li>both_pain(INITIATOR_mood&gt;=0.7)-&gt;나도 좀 아프긴한데, 그래도 버틸만해.</li>
+						<li>both_pain(priority=-1)-&gt;나도 몸이 안좋은거 같아...</li>
+						<li>both_pain(INITIATOR_mood&gt;=0.3,INITIATOR_mood&lt;0.5)-&gt;나도 좀 아파 — 꽤 불편할 정도로.</li>
+						<li>both_pain(INITIATOR_mood&lt;0.3)-&gt;몸이 너무 안좋아 — 더이상 버티기 힘들어!</li>
+
+					<li>r_logentry(INITIATOR_thoughtDefName==Pain,priority=2)-&gt;[i_pain]</li>
+						<li>i_pain(INITIATOR_mood&gt;=0.7)-&gt;좀 아프긴한데, 아직 버틸만 해.</li>
+						<li>i_pain(priority=-1)-&gt;아파...</li>
+						<li>i_pain(INITIATOR_mood&gt;=0.3,INITIATOR_mood&lt;0.5)-&gt;몸이 안좋아 — 꽤 불편한걸.</li>
+						<li>i_pain(INITIATOR_mood&lt;0.3)-&gt;몸이 너무 안좋아 — 버틸 수가 없다!</li>
+						
+					<li>r_logentry(INITIATOR_mood&gt;=0.7,RECIPIENT_mood&gt;=0.7,priority=1)-&gt;나도 그래, 고마워!</li>
+					<li>r_logentry(INITIATOR_mood&gt;=0.7)-&gt;난 [great], 고마워!</li>
+					
+					<li>r_logentry(INITIATOR_mood&gt;=0.5,INITIATOR_mood&lt;0.7,RECIPIENT_mood&gt;=0.5,RECIPIENT_mood&lt;0.7,priority=1)-&gt;나도야, 고마워.</li>
+					<li>r_logentry(INITIATOR_mood&gt;=0.5,INITIATOR_mood&lt;0.7)-&gt;난 [fine], 고마워.</li>
+					
+					<li>r_logentry(INITIATOR_mood&gt;=0.3,INITIATOR_mood&lt;0.5)-&gt;[not_so_well]</li>
+					<li>r_logentry(INITIATOR_mood&lt;0.3)-&gt;[furious]</li>  <!-- === WILDCARDS=== --> <li>great-&gt;최고야</li>
+						<li>great-&gt;멋진 기분이야</li>
+						<li>great-&gt;행복해</li>
+						<li>great-&gt;정말 좋아</li>
+						<li>fine-&gt;괜찮아</li>
+						<li>fine-&gt;좋아</li>
+						<li>fine-&gt;괜찮아</li>
+						<li>fine-&gt;잘돼가</li>
+						<li>fine-&gt;좋은 것 같아</li>
+						<li>not_so_well-&gt;별로야...</li>
+						<li>not_so_well-&gt;영 좋지 않네...</li>
+						<li>not_so_well-&gt;그냥 그래...</li>
+						<li>not_so_well-&gt;최악은 아니지...</li>
+						<li>not_so_well-&gt;난... 괜찮을거야, 아마도.</li>
+						<li>not_so_well-&gt;뭐 늘상 그렇지...</li>
+						<li>furious-&gt;내 삶이 싫어!</li>
+						<li>furious-&gt;내 삶이 지겨워!</li>
+						<li>furious-&gt;최악의 기분이야!</li>
+						<li>furious-&gt;정신 나갈 것 같애!</li>
+						<li>furious-&gt;너무 화나서 미칠 것같아!</li>
+						<li>furious-&gt;열받아!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=5)-&gt;최근 있던일 때문에 너무 괴로워!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=5)-&gt;너무 화나!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=10)-&gt;정신나갈거 가테!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=10)-&gt;속에 열불나!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=10)-&gt;화나 미칠지경이야!</li>
+						<li>furious(INITIATOR_intellectual_level&gt;=15)-&gt;터지기 일보 직전이야!</li>
+						<li>furious(INITIATOR_trait==abrasive)-&gt;기분 좆같아, 됐냐?</li>
+						<li>furious(INITIATOR_trait==abrasive)-&gt;이딴 좆같은 삶을 살바에 그냥 뒤지는게 낫겠다</li>
+						<li>furious(INITIATOR_trait==bloodlust)-&gt;저리 꺼져 — 후회할 짓 하지마!</li>
+						<li>furious(INITIATOR_trait==brawler)-&gt;뚜껑 열리기 직전이야! 뭐라도 때려부수고 싶어!</li>
+						<li>furious(INITIATOR_trait==pyromaniac)-&gt;내 분노가 불과 같다면, 전세계가 불바다가 되고 말았을거야.</li>
+						<li>furious(INITIATOR_trait==tortured artist)-&gt;그 누구도 내 상처받은 영혼 속 휘몰아치는 거친 소용돌이를 이해하지 못할거야!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef> <!-- ===TRAITS=== --> <!-- ===ascetic — wisdom=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>AsceticWisdom</defName>
+			<label>ascetic — wisdom</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+						<li>good_opinion-&gt;와, 꽤나 심금을 울리는데.</li>
+						<li>good_opinion-&gt;좀 처지는 말이긴 한데, [recipient] — 그래도 마음에 들어.</li>
+						<li>good_opinion(INITIATOR_trait==ascetic,priority=1)-&gt;좋은 말이야, [recipient].</li>
+						<li>good_opinion(INITIATOR_trait==greedy,priority=1)-&gt;...</li>
+						<li>good_opinion(INITIATOR_trait==jealous,priority=1)-&gt;...</li>
+						<li>good_opinion(INITIATOR_trait==gourmand,priority=1)-&gt;...</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===Lucky Future=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>LuckyFuture</defName>
+			<label>lucky future</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+						<li>bad_opinion-&gt;...</li>
+						<li>bad_opinion-&gt;행운이 따를 거라고? 그럴리가 — 네가 있는 것 만으로 전세계 불운은 다 가져왔는데!</li>
+						<li>bad_opinion-&gt;네 기분을 이해하긴 힘들어, [recipient] — 하지만 네가 꺼져준다면 비슷하게 생각할지도!</li>
+						<li>bad_opinion-&gt;아무도 관심없으니 쓸데없는 소리하지마, [recipient].</li>
+						<li>bad_opinion(INITIATOR_trait==pessimist,priority=1)-&gt;[anti_comment_hostile]</li>
+						<li>bad_opinion(INITIATOR_trait==depressive,priority=1)-&gt;[anti_comment_hostile]</li>
+						<li>anti_comment_hostile-&gt;나도 감이 와, [recipient] — 네가 틀렸다는게 증명될거야!</li>
+						<li>anti_comment_hostile-&gt;정말 위험할정도로 유치한 사고방식이네. 철 좀 들어, [recipient] — 사는게 장난같냐!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>				
+						<li>good_opinion-&gt;그래, [recipient] — 네가 맞길 빌자고!</li>
+						<li>good_opinion(INITIATOR_trait==pessimist,priority=1)-&gt;[anti_comment]</li>
+						<li>good_opinion(INITIATOR_trait==depressive,priority=1)-&gt;[anti_comment]</li>
+						<li>anti_comment-&gt;가끔 네 낙천적인 점이 부러워, [recipient].</li>
+						<li>anti_comment-&gt;네가 말하고 싶은게 뭔진 알아, [recipient] — 그래도 동의 안해. 우리는 최악의 상황을 대비해야한다고.</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===PsyVision=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>PsyVision</defName>
+			<label>Psychic vision</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<li>r_logentry-&gt;으음... 그게 뭐에 관한 건지 궁금한걸.</li>
+					<li>r_logentry-&gt;으음... 무슨 뜻이 담긴걸까.</li>
+					<li>r_logentry-&gt;흐음... 흥미로운걸.</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>PsyVisionGood</defName>
+			<label>Psychic vision</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<li>r_logentry-&gt;와 — 그거 [intensifier] 대단한데!</li>
+					<li>r_logentry-&gt;아마 좋은 징조일거야!</li>
+					<li>r_logentry-&gt; 랜디신이 좋은 일만 던져 주겠는걸!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>PsyVisionBad</defName>
+			<label>Psychic vision</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<li>r_logentry-&gt;조금 걱정되네...</li>
+					<li>r_logentry-&gt;음 — 꽤 불안한걸...</li>
+					<li>r_logentry-&gt;오... 그거 [intensifier][eerie]...</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===SLIGHT=== --> <InteractionDef ParentName="SpeakUpReply">
+		<defName>Slight_generic</defName>
+		<label>slight — react to</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<li>r_logentry(INITIATOR_trait==kind,priority=1)-&gt;[good_opinion]</li>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;아, 좀 닥쳐 [fool]!</li>
+					<li>bad_opinion-&gt;솔직히 말할게, [recipient], 네가 날 어떻게 생각하든 [damn] 신경안써!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;허 — 좀 심하네, [recipient]!</li>
+					<li>good_opinion-&gt;왜그러는거야, [recipient]! [what_for]</li>
+					<li>good_opinion-&gt;말이 좀 심해, [recipient]! [what_for]</li>
+					<li>good_opinion-&gt;야! [recipient]! [what_for]</li>
+					<li>good_opinion-&gt;너무 심했어, [recipient]! [what_for]</li>  <!-- ===WILDCARDS=== --> <li>fool-&gt;[adj]멍청아</li>
+					<li>fool-&gt;[adj]새끼야</li>
+					<li>fool-&gt;[adj]빡대가리야</li>
+					<li>fool-&gt;[adj]얼간아</li>
+					<li>fool-&gt;[adj]등신아</li>
+					<li>fool-&gt;[adj]병신아</li>
+					<li>damn-&gt;하나도</li>
+					<li>damn(INITIATOR_trait==abrasive)-&gt;좆도</li>
+					<li>adj-&gt;</li>
+					<li>adj-&gt;징얼대는 </li>
+					<li>adj-&gt;징징대는 </li>
+					<li>adj-&gt;능지딸리는 </li>
+					<li>adj(INITIATOR_intellectual_level&gt;=5)-&gt;못배운 </li>
+					<li>adj(INITIATOR_intellectual_level&gt;=5)-&gt;정박아같은 </li>
+					<li>adj(INITIATOR_intellectual_level&gt;=5)-&gt;대가리깨진 </li>
+					<li>what_for-&gt;정말 터무니 없는 짓이야!</li>
+					<li>what_for-&gt;뭐 때문에 그러는거야?!</li>
+					<li>what_for-&gt;뭐가 문제야?!</li>
+					<li>what_for-&gt;억떡계 이럴수가 있어?!</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===INSULT=== --> <InteractionDef ParentName="SpeakUpReply">
+		<defName>Insult_Ancestors</defName>
+		<label>insult — react to — ancestors</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<li>r_logentry-&gt;적어도 우리부모는 인간이기라도 하지, 넌 뭐냐? 쥐새끼같은게!</li>
+				<li>r_logentry-&gt;패드립 치지마! 니까짓게 함부로 말해도 되는 분들이 아냐!</li>
+				<li>r_logentry-&gt;느그 부모한테나 신경써!</li>
+				<li>r_logentry-&gt;그딴 소리하다 천벌받는다!</li>  <!-- ===kind=== --> <li>r_logentry(INITIATOR_trait==kind,priority=1)-&gt;[kind]</li>
+					<li>kind(RECIPIENT_mood&lt;0.4)-&gt;네가 화난걸 보니 정말 마음이 아파, [recipient].</li>
+					<li>kind-&gt;날 모욕하는게 네게 도움이 된다면, 내가 언제든지 널 도와줄게.</li>
+					<li>kind-&gt;네가 진심으로 그렇게 말한게 아니란걸 아실꺼야, [recipient] — 널 용서해.</li>
+					<li>kind-&gt;내 조상님의 영혼이 항상 너와 네 가족을 굽어살피길, [recipient].</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply">
+		<defName>Insult_generic</defName>
+		<label>insult — react to</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===abrasive=== --> <li>r_logentry(INITIATOR_trait==abrasive,priority=1)-&gt;[abrasive]</li>
+					<li>abrasive-&gt;좆까, [recipient]!</li>  <!-- ===ascetic=== --> <li>r_logentry(INITIATOR_trait==ascetic,priority=1)-&gt;[ascetic]</li>
+					<li>ascetic-&gt;네 저속하고 질낮은 감정은 내게 어떤 영향도 끼치지 못해, [recipient] — 좀더 좋은 일에 네 힘을 쏟는게 좋을거다.</li>
+					<li>ascetic-&gt;네 말은 무용지물이야, 난 네가 날 뭐라고 생각하든 신경안써. 난 나를 믿지.</li>
+					<li>ascetic-&gt;이러한 틀어진 감정은 네 마음속 해결되지 않은 문제에서 비롯되는 거야. 그 문제를 해결하지 못하면, 넌 평생 끌려다니게 될거야.</li>  <!-- ===kind=== --> <li>r_logentry(INITIATOR_trait==kind,priority=1)-&gt;[kind]</li>
+					<li>kind(RECIPIENT_mood&lt;0.4)-&gt;네가 화난걸 보니 정말 마음이 아파, [recipient].</li>
+					<li>kind-&gt;날 모욕하는게 네게 도움이 된다면, 내가 언제든지 널 도와줄게.</li>
+					<li>kind-&gt;진심으로 그런게 아니란거 알아, [recipient] — 용서할게.</li>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;[reaction] [insult_you]</li>
+						<li>reaction-&gt;아가리 함부로 놀리지마,</li>
+						<li>reaction-&gt;아가리 닥쳐,</li>
+						<li>reaction-&gt;딴데가서 입털어,</li>
+						<li>reaction-&gt;깝치지마,</li>
+						<li>insult_you-&gt;이 [bloody] [insult]!</li>
+						<li>insult_you(RECIPIENT_gender==Male)-&gt; [bloody]  [bitch] 밑구녕 뚫고 나온 새끼!</li>  <!-- ===calm=== --> <li>bad_opinion(INITIATOR_mood&gt;=0.4)-&gt;모욕 멈춰! [recipient] — 부끄러운줄 알아야지.</li>
+						<li>bad_opinion(INITIATOR_mood&gt;=0.4)-&gt; [damned_intensifier] 병신같아. 깝치지마, [RECIPIENT_nameDef].</li>
+						<li>bad_opinion(INITIATOR_mood&gt;=0.4)-&gt;이제 나쁜 말 그만해, [recipient].</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;누가 네 밥에 오줌이라도 쌌냐, [recipient]?</li>
+					<li>good_opinion-&gt;야! [recipient]! 내가 뭔 잘못했는데!?</li>
+					<li>good_opinion-&gt;말 조심해, [recipient]!</li>
+					<li>good_opinion-&gt;선 넘지마, [recipient]!</li>
+					<li>good_opinion-&gt;하나 이새끼, [recipient]! 대체 왜 그러는거야?</li>
+					<li>good_opinion-&gt;야! [recipient]! 대체 왜그러는거야!?</li>  <!-- ===High opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=50)-&gt;[friend_opinion]</li>
+					<li>friend_opinion-&gt;왜 그러는거야, [recipient]? 우리 그런 사이 아니잖아!</li>
+					<li>friend_opinion-&gt;야! 친구한테 그렇게 말하는거 아니야, [recipient]!</li>
+					<li>friend_opinion-&gt;[recipient]! 뭐?! 난 우리가 꽤 친한 사이라 생각했는데!</li>  <!-- ===Age difference=== --> <li>r_logentry(INITIATOR_age&gt;=60,RECIPIENT_age&lt;=25)-&gt;[elderly]</li>
+						<li>elderly-&gt;새파랗게 어린놈이 버르장머리없이 어른한테 말버릇이 그게 뭐야!</li>
+						<li>elderly-&gt;요즘 애들은 다 저렇게 버릇이 없나? 정착지 미래가 어떨지 참 걱정이다, 정말...</li>
+						<li>elderly-&gt;요즘 애들은 못배우고 자랐는지 싹바가지가 없어...</li>  <!-- ===WILDCARDS=== --> <li>insult(RECIPIENT_gender==Female)-&gt;[bitch]</li>
+				<li>insult(RECIPIENT_gender==Male)-&gt;[dickhead]</li>
+				<li>insult-&gt;창녀</li>
+				<li>insult-&gt;좆같은 새끼</li>
+				<li>insult-&gt;병신</li>
+				<li>insult(INITIATOR_intellectual_level&gt;=5)-&gt;육변기년</li>
+				<li>dickhead-&gt;똥휴지같은 새끼</li>
+				<li>dickhead-&gt;좆대가리</li>
+				<li>dickhead-&gt;변태새끼</li>
+				<li>dickhead-&gt;빡대가리</li>
+				<li>bitch-&gt;걸레년</li>
+				<li>bitch-&gt;갈보년</li>
+				<li>bitch-&gt;개보지</li>
+				<li>bitch-&gt;씹걸레년</li>
+				<li>bitch-&gt;버러지 같은년</li>
+				<li>bitch-&gt;걸레</li>
+				<li>bitch(INITIATOR_intellectual_level&gt;=5)-&gt;창부</li>
+				<li>bitch(INITIATOR_intellectual_level&gt;=10)-&gt;기녀</li>
+				<li>bloody-&gt;빌어먹을</li>
+				<li>bloody-&gt;씹창난</li>
+				<li>bloody-&gt;좆같은</li>
+				<li>bloody-&gt;개같은</li>
+				<li>bloody-&gt;대가리 깨진</li>
+				<li>bloody-&gt;림붕이 같은</li>
+				<li>bloody-&gt;버러지같은</li>
+				<li>bloody(p=2,INITIATOR_trait==abrasive)-&gt;애미뒤진</li>
+				<li>bloody(INITIATOR_intellectual_level&gt;=5)-&gt;저주받을</li>
+				<li>bloody(INITIATOR_intellectual_level&gt;=10)-&gt;병신 같은</li>
+				<li>bloody(INITIATOR_intellectual_level&gt;=10)-&gt;비열한</li>
+				<li>bloody(INITIATOR_intellectual_level&gt;=10)-&gt;답이 없는</li>
+					
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===KIND WORDS=== --> <InteractionDef ParentName="SpeakUpReply">
+		<defName>KindWords_generic</defName>
+		<label>kind words — react to</label>
+		<logRulesInitiator>
+			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;고마워, [recipient].</li>
+					<li>bad_opinion-&gt;으엑, [ironic] — 이상한 놈!</li>
+					<li>bad_opinion-&gt;지금와서 갑자기 [ironic], [recipient]. [threat]</li>
+					<li>bad_opinion-&gt;네가 날 엿먹이고 있는게 아니길 빈다, [recipient]. [threat]</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion-&gt;와, [recipient]! 정말 친절한 말이야 — 고마워!</li>
+					<li>good_opinion-&gt;꼬마워, [recipient]! 네 덕에 오늘 하루 힘나겠는걸!</li>
+					<li>good_opinion-&gt;고마워, [recipient]! 네 덕에 힘이 나는걸!</li>  <!-- ===WILDCARDS=== --> <li>ironic-&gt;이상하게 굴지마</li>
+				<li>ironic-&gt;빈정대지마</li>
+				<li>ironic-&gt;조롱하지마</li>
+				<li>threat-&gt;</li>
+				<li>threat(INITIATOR_mood&lt;0.4)-&gt;그러던가 말던가.</li>
+				<li>threat(INITIATOR_trait==brawler)-&gt;병원 신세좀 지고싶은가봐.</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>  <!-- ===nearest art=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>NearestArt</defName>
+			<label>nearest art</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion(p=2)-&gt;...</li>
+					<li>bad_opinion-&gt;...괜찮은것 같아, 아마도...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion(INITIATOR_artistic_passion!=None)-&gt;동감이야, [recipient]! 꽤나 멋진 작품인걸! 나도 마음에 들어!</li>
+					<li>good_opinion(INITIATOR_artistic_passion==None)-&gt;[no_passion]</li>
+						<li>no_passion(INITIATOR_intellectual_level&lt;5)-&gt;으음... 정확히 이해하기는 힘들지만 — 그래도 뭐, 꽤 아름다운걸!</li>
+						<li>no_passion(INITIATOR_intellectual_level&gt;=5)-&gt;난 예술에 별로 관심이 없어서, 그래도 — 이건 꽤 멋진 것 같아.</li>
+						<li>no_passion-&gt;맞아, 내 생각에도 [intensifier][moderately_attractive_obj] 것 같아.</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>  <!-- ===nearest plant=== --> <InteractionDef ParentName="SpeakUpReply">
+			<defName>NearestPlant</defName>
+			<label>nearest plant</label>
+			<logRulesInitiator>
+				<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;[bad_opinion]</li>
+					<li>bad_opinion-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
+					<li>good_opinion(INITIATOR_plants_passion!=None)-&gt;그래, [recipient]! [comment]</li>
+						<li>comment(p=0.1)-&gt;</li>
+						
+						<li>comment(NEAREST_plant==birch tree)-&gt;[birch]</li>
+						<li>birch-&gt;자작나무는 정말 가늘고 우아한 줄기를 가졌네!</li>
+						<li>birch-&gt;자작나무는 정말 이로워 — 땅도 기름지게 해주지.</li>
+						
+						<li>comment(NEAREST_plant==oak tree)-&gt;[oak]</li>
+						<li>oak-&gt;커다랗고 튼튼한걸 — 정말 완벽한 나무야!</li>
+						<li>oak-&gt;참나무는 수천년간 살아갈 수 있어 — 인내심의 상징과도 같지!</li>
+						
+						<li>comment(NEAREST_plant==pine tree)-&gt;[pine]</li>
+						<li>pine-&gt;소나무는 정말 매력적이야 — 향도 정말 특이하고!</li>
+						
+						<li>comment(NEAREST_plant==poplar tree)-&gt;[poplar]</li>
+						<li>poplar-&gt;이 미루나무는 정말 아름다운걸! 게다가 정말 빨리 자라지 — 목재 수급에도 좋아!</li>
+						
+						<li>comment(NEAREST_plant==grass)-&gt;[grasses]</li>
+						<li>comment(NEAREST_plant==tall grass)-&gt;[grasses]</li>
+						<li>grasses-&gt;나도 좋아</li>
+						
+					<li>good_opinion(INITIATOR_plants_passion==None)-&gt;[no_passion]</li>
+						<li>no_passion-&gt;맞아, [recipient] — 정말 경치 좋네!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+		
+
+		
+</Defs>
