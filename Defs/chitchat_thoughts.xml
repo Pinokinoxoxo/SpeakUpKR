@@ -200,113 +200,180 @@
 					<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion(INITIATOR_thoughtDefName==AteInImpressiveDiningRoom,priority=2)->Same here, [recipient]! [comment]</li>
-					<li>good_opinion(INITIATOR_thoughtDefName==AteWithoutTable,priority=1)->Really, [recipient]!? Where is this dining room you speak of? [comment]</li>
-					<li>good_opinion->That's nice to hear, [recipient]! [comment]</li>
+					<li>good_opinion(INITIATOR_thoughtDefName==AteInImpressiveDiningRoom,priority=2)->[recipient], 나도 마찬가지야! [comment]</li>
+					<li>good_opinion(INITIATOR_thoughtDefName==AteWithoutTable,priority=1)->[recipient], 정말이야!? 네가 말한 그 식당은 대체 어디에 있어? [comment]</li>
+					<li>good_opinion->그거 진짜 반가운 소식인걸, [recipient]! [comment]</li>
 				<!-- ===WILDCARDS=== -->
 					<li>comment-></li>
-					<li>comment(INITIATOR_trait==gourmand)->I look forward to enjoying many fancy meals there!</li>
+					<li>comment(INITIATOR_trait==gourmand)->나도 그 곳에서 호화롭게 식사를 즐기고 싶은데!</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
 	
 	<InteractionDef ParentName="SpeakUpReply">
-		<defName>ReactToThought_DiningRoom</defName>
-		<label>room — dining</label>
-		<logRulesInitiator>
-			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
-					<li>good_opinion(INITIATOR_thoughtDefName==AteInImpressiveDiningRoom,priority=2)-&gt;나도 마찬가지야, [recipient]! [comment]</li>
-					<li>good_opinion(INITIATOR_thoughtDefName==AteWithoutTable,priority=1)-&gt;정말이야, [recipient]!? 네가 말하는 그 식당이 대체 어디있어? [comment]</li>
-					<li>good_opinion-&gt;그거 반가운 소식이네, [recipient]! [comment]</li>  <!-- ===WILDCARDS=== --> <li>comment-&gt;</li>
-					<li>comment(INITIATOR_trait==gourmand)-&gt;나도 거기서 호화롭게 식사를 즐겨보고 싶은걸!</li>
-			</rulesStrings>
-		</logRulesInitiator>
-	</InteractionDef>
-	<InteractionDef ParentName="SpeakUpReply">
 		<defName>ReactToThought_DefeatedMechCluster</defName>
 		<label>defeated cluster</label>
 		<logRulesInitiator>
-			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
-					<li>good_opinion(INITIATOR_trait==body purist,priority=1)-&gt;이승리는 인간에겐 신체 개조가 필요없다는걸 뜻하지 — 우린 우리 몸 그대로일때가 완벽해!</li>
-					<li>good_opinion-&gt;정말 엄청난 승리였지! [comment]</li>
-					<li>comment-&gt;</li>
-					<li>comment(INITIATOR_trait==brawler)-&gt;벌레 으깨듯 메카놈들을 뭉개버렸다고!</li>
-					<li>comment(INITIATOR_trait==depressive)-&gt;이겨서 좋지만 무의미해 — 메카노이드는 더 강해져서 다시 침공해올거고, 우린 무자비하게 스러질거야.</li>
-					<li>comment(INITIATOR_trait==hard worker)-&gt;그래도, 지금은 다음 습격을 대비하는게 좋겠어.</li>
-					<li>comment(INITIATOR_trait==industrious)-&gt;그래도, 지금은 다음 습격을 대비하는게 좋겠어.</li>
-					<li>comment(INITIATOR_trait==optimist)-&gt;놈들이 한동안은 습격 못해올거야 — 우린 안전해!</li>
-					<li>comment(INITIATOR_trait==pessimist)-&gt;하지만 놈들은 더욱 강해져서 다시 침공할거야.</li>
-					<li>comment(INITIATOR_trait==sanguine)-&gt;그리고 이건 우리 앞에 놓인 수많은 승리중 하나일 뿐이지!</li>
+			<rulesStrings>
+				<!-- ===Bad opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+				<!-- ===Good opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
+					<li>good_opinion(INITIATOR_trait==body purist,priority=1)->이 승리는 우리 몸은 신체 개조 따윈 필요 없다는 걸 의미하지 — 우린 있는 그대로의 모습일수록 완벽해!</li>
+					<li>good_opinion->정말 대단했어! [comment]</li>
+					<li>comment-></li>
+					<li>comment(INITIATOR_trait==brawler)->우린 저 고철 놈들을 벌레 죽이듯 으깨버렸다고!</li>
+					<li>comment(INITIATOR_trait==depressive)->대단했지만, 무의미한 승리였어 — 저 메카노이드들은 언젠가 더 강해져서 돌아올거고, 우린 무자비하게 도륙당하겠지...</li>
+					<li>comment(INITIATOR_trait==hard worker)->하지만, 다시 돌아올 메카놈들의 공격에 어서 빨리 대비해야 해.</li>
+					<li>comment(INITIATOR_trait==industrious)->하지만, 다시 돌아올 메카놈들의 공격에 어서 빨리 대비해야 해.</li>
+					<li>comment(INITIATOR_trait==optimist)->저 놈들, 한동안은 습격하지 못할거야 — 당분간은 안전하다고!</li>
+					<li>comment(INITIATOR_trait==pessimist)->하지만 저 놈들, 분명히 조만간 돌아올 거야. 더 강해져서 말이지!</li>
+					<li>comment(INITIATOR_trait==sanguine)->그리고 이 승리는 우리 앞에 놓인 수많은 승리 중 하나일 뿐이지!</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>	
-	<InteractionDef ParentName="SpeakUpReply">
+	
+		<InteractionDef ParentName="SpeakUpReply">
 		<defName>ReactToThought_EnvironmentCold</defName>
 		<label>environment — cold</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==too smart)-&gt;우주 열사 이론에 따르면, 결국 우리는 모두 얼어 죽게 될거야. 오랫동안 계속되온 우리들의 분자는 살아남겠지만, 그게 인류가 뛰어나다는 증거가 될 수는 없지.</li>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>
-					<li>r_logentry(INITIATOR_opinion&lt;0)-&gt;좋은걸 — 네가 얼어뒤지는것만큼 좋은게 어딨겠어, [recipient]!</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>  <!-- ===Feeling cold=== --> <li>good_opinion(INITIATOR_thoughtDefName==EnvironmentCold,priority=1)-&gt;[feeling_cold]</li>
-						<li>feeling_cold(INITIATOR_thoughtLabel==chilly)-&gt;네가 맞아, [recipient]. 좀 불편할정도로 추운것 같은데.</li>
-						<li>feeling_cold(INITIATOR_thoughtLabel==cold)-&gt;나 몸이 덜덜 떨려, [recipient].</li>
-						<li>feeling_cold(INITIATOR_thoughtLabel==numbing cold)-&gt;뭐라도 따뜻한게 있었으면 좋겠어, [recipient].</li>
-						<li>feeling_cold(INITIATOR_thoughtLabel==absolutely freezing)-&gt;발가락에 감각이 없어. 따뜻한게 필요해. 지금 당장.</li>  <!-- ===Not feeling cold=== --> <li>good_opinion-&gt;정말 안됐다, [recipient]. [comment]</li>  <!-- ===WILDCARDS === --> <li>comment-&gt;</li>
-					<li>comment(INITIATOR_social_level&gt;=5)-&gt;상단 보이면 네가 입을 따뜻한 옷 좀 구해볼게.</li>
-					<li>comment(INITIATOR_crafting_level&gt;=5)-&gt;내가 파카같은거 하나 만들어 줄 수 있어.</li>
-					<li>comment(INITIATOR_medical_level&gt;=5)-&gt;네 몸을 덥힐게 필요해 — 심각한 동상에 걸리겠어.</li>
-					<li>comment(INITIATOR_cooking_level&gt;=5)-&gt;네 몸을 덥힐만한 따뜻한 식사를 준비해볼게.</li>
+				<li>r_logentry(INITIATOR_trait==too smart)->우주 열사 이론에 따르면 우린 언젠가 얼어죽을 수 밖에 없지. 우리 몸을 구성하는 분자는 오랫동안 남아있겠지만, 그건 그리 의미있는 건 아닐테니까.</li>
+				<!-- ===Bad opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<li>r_logentry(INITIATOR_opinion&lt;0)->좋은데? — [recipient], 네가 얼어죽는 것 만큼 좋은 일은 없지!</li>
+				<!-- ===Good opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
+					<!-- ===Feeling cold=== -->
+						<li>good_opinion(INITIATOR_thoughtDefName==EnvironmentCold,priority=1)->[feeling_cold]</li>
+						<li>feeling_cold(INITIATOR_thoughtLabel==chilly)->네가 맞아, [recipient]. 나도 정말 너무 추워서 힘들고 불편해.</li>
+						<li>feeling_cold(INITIATOR_thoughtLabel==cold)->너무 추워서 몸이 덜덜 떨려, [recipient].</li>
+						<li>feeling_cold(INITIATOR_thoughtLabel==numbing cold)->[recipient], 난 지금 어서 빨리 따뜻해질 방법만을 찾고 있어...</li>
+						<li>feeling_cold(INITIATOR_thoughtLabel==absolutely freezing)->너무 추워서 손이랑 발에 감각이 없어. 당장 뭐라도 따뜻한 게 필요해..!</li>
+					<!-- ===Not feeling cold=== -->
+						<li>good_opinion->그거 참 유감이야, [recipient]. [comment]</li>
+				
+				<!-- ===WILDCARDS === -->
+					<li>comment-></li>
+					<li>comment(INITIATOR_social_level>=5)->다음에 상단이 방문한다면 내가 어떤 방법을 통해서라도 네가 입을 따뜻한 옷을 구해볼게.</li>
+					<li>comment(INITIATOR_crafting_level>=5)->가만있어봐, 내가 따뜻한 옷을 만들어 줄 수 있어.</li>
+					<li>comment(INITIATOR_medical_level>=5)->당장 네 몸을 따뜻하게 만들 방법을 찾아야 해 — 자칫하단 심한 동상에 걸리겠어!</li>
+					<li>comment(INITIATOR_cooking_level>=5)->네 몸을 덥힐 수 있는 따뜻한 음식을 빨리 만들어볼게.</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
+	
 	<InteractionDef ParentName="SpeakUpReply">
 		<defName>ReactToThought_EnvironmentDark</defName>
 		<label>environment — dark</label>
 		<logRulesInitiator>
-			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
-					<li>good_opinion-&gt;Be careful, [recipient] — [watch_your_step].</li>  <!-- ===Undergrounder=== --> <li>good_opinion(INITIATOR_trait==undergrounder,priority=1)-&gt;[undergrounder]</li>
-					<li>undergrounder-&gt;진심이야, [recipient]? 난 어둠속이 정말 좋은걸.</li>
-					<li>undergrounder(RECIPIENT_trait==undergrounder,priority=1)-&gt;나도 마찬가지야, [recipient].</li>  <!-- ===Night owl=== --> <li>good_opinion(INITIATOR_trait==night owl,priority=1)-&gt;[night_owl]</li>
-					<li>night_owl-&gt;정말 그래, [recipient]? 난 어둠속에 있으면 좀 편안해지는데.</li>
-					<li>night_owl(RECIPIENT_trait==night owl,priority=1)-&gt;나도 동감이야, [recipient].</li>  <!-- ===Mood === --> <li>good_opinion(INITIATOR_mood&lt;0.5)-&gt;이런 어둠속에서 대체 어떻게 [supposed]을 하라는 거야?</li>  <!-- ===WILDCARDS=== --> <li>watch_your_step-&gt;안 넘어지게 조심해</li>
-					<li>watch_your_step-&gt;발 밑 잘 확인해</li>
-					<li>watch_your_step-&gt;조심조심 걸어</li>
-					<li>supposed-&gt;작업</li>
-					<li>supposed-&gt;일</li>
+			<rulesStrings>
+				<!-- ===Bad opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+				<!-- ===Good opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
+					<li>good_opinion->조심해, [recipient] — [watch_your_step].</li>
+				<!-- ===Undergrounder=== -->
+					<li>good_opinion(INITIATOR_trait==undergrounder,priority=1)->[undergrounder]</li>
+					<li>undergrounder->아 정말? 나는 [recipient], 너와 달리 어두운 게 그리 불편하진 않아.</li>
+					<li>undergrounder(RECIPIENT_trait==undergrounder,priority=1)->나도 그래, [recipient]. 하나도 안 보여!</li>
+				<!-- ===Night owl=== -->	
+					<li>good_opinion(INITIATOR_trait==night owl,priority=1)->[night_owl]</li>
+					<li>night_owl->아 그래? [recipient], 나는 어둠 속에 있으면 오히려 더 편안해지는 것 같아.</li>
+					<li>night_owl(RECIPIENT_trait==night owl,priority=1)->동감이야, [recipient].</li>
+				<!-- ===Mood === -->
+					<li>good_opinion(INITIATOR_mood&lt;0.5)->이런 캄캄한 어둠 속에서 대체 어떻게 [supposed]을 하라는거야?</li>
+				<!-- ===WILDCARDS=== -->	
+					<li>watch_your_step->발 밑 조심해</li>
+					<li>watch_your_step->조심히 움직여</li>
+					<li>watch_your_step->천천히 움직이렴</li>
+					<li>supposed->일</li>
+					<li>supposed->작업</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
+	
 	<InteractionDef ParentName="SpeakUpReply">
 		<defName>ReactToThought_EnvironmentHot</defName>
 		<label>environment — hot</label>
 		<logRulesInitiator>
-			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>  <!-- ===Feeling hot=== --> <li>good_opinion(INITIATOR_thoughtDefName==EnvironmentHot,priority=1)-&gt;[feeling_hot]</li>
-						<li>feeling_hot(INITIATOR_thoughtLabel==sweaty)-&gt;You're [intensifier]right, [recipient]. 나도 땀나는 것 같아.</li>
-						<li>feeling_hot(INITIATOR_thoughtLabel==hot)-&gt;아, [recipient] — 시원한 바람이라도 좀 쐬고 싶다...</li>
-						<li>feeling_hot(INITIATOR_thoughtLabel==hot)-&gt;응, [recipient]... 여긴 정말 더운걸.</li>
-						<li>feeling_hot(INITIATOR_thoughtLabel==sweltering hot)-&gt;내가 이 열기를 얼마나 더 버틸 수 있을지 모르겠어, [recipient].</li>
-						<li>feeling_hot(INITIATOR_thoughtLabel==blistering hot)-&gt;지옥도 여기보단 시원하겠다. 공기가 타는것 같아!</li>  <!-- ===Not feeling hot=== --> <li>good_opinion-&gt;정말 안됐다, [recipient]. [comment]</li>
-						<li>good_opinion-&gt;빨리 열을 식힐 수 있길 바라, [recipient]. [comment]</li>
-						<li>good_opinion-&gt;[intensifier] 유감이야, [recipient]. [comment]</li>  <!-- ===WILDCARDS === --> <li>comment-&gt;</li>
-					<li>comment(INITIATOR_social_level&gt;=5)-&gt;상단보이면 네가 입을 시원한 옷좀 구해볼게 .</li>
-					<li>comment(INITIATOR_crafting_level&gt;=5)-&gt;내가 바람막이 정도는 만들어 줄 수 있어.</li>
-					<li>comment(INITIATOR_medical_level&gt;=5)-&gt;널 식힐 방법을 찾아야겠어 — 심한 열사병에 시달릴지도 몰라.</li>
-					<li>comment(INITIATOR_cooking_level&gt;=5)-&gt;열을 식힐 만한 시원한 식사를 준비해볼게.</li>
+			<rulesStrings>
+				<!-- ===Bad opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+				<!-- ===Good opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
+					<!-- ===Feeling hot=== -->
+						<li>good_opinion(INITIATOR_thoughtDefName==EnvironmentHot,priority=1)->[feeling_hot]</li>
+						<li>feeling_hot(INITIATOR_thoughtLabel==sweaty)->네 말이 [intensifier] 맞아, [recipient]. 나도 땀이 줄줄 흘러.</li>
+						<li>feeling_hot(INITIATOR_thoughtLabel==hot)->하아, [recipient] — 시원한 바람이 정말 간절해...</li>
+						<li>feeling_hot(INITIATOR_thoughtLabel==hot)->맞아, [recipient]... 여기는 진짜 더워. 너무 힘드네.</li>
+						<li>feeling_hot(INITIATOR_thoughtLabel==sweltering hot)->이 지독한 열기를 얼마나 더 버틸 수 있을까? 나는 못 버틸 것 같아, [recipient].</li>
+						<li>feeling_hot(INITIATOR_thoughtLabel==blistering hot)->지옥이 여기보단 더 시원할거야..! 공기가 불타는 것 같아!</li>
+					<!-- ===Not feeling hot=== -->
+						<li>good_opinion->정말 유감이야, [recipient]. [comment]</li>
+						<li>good_opinion->빨리 열을 식힐 방법을 찾으면 좋겠는데 말이야, [recipient]. [comment]</li>
+						<li>good_opinion->많이 덥겠다. [intensifier] 유감이야, [recipient]. [comment]</li>
+				<!-- ===WILDCARDS === -->
+					<li>comment-></li>
+					<li>comment(INITIATOR_social_level>=5)->다음에 상단이 방문한다면 내가 어떻게든 네가 입을 시원한 옷을 구해볼게.</li>
+					<li>comment(INITIATOR_crafting_level>=5)->가만있어봐, 내가 조금 더 시원한 옷을 만들어 줄 수 있어.</li>
+					<li>comment(INITIATOR_medical_level>=5)->당장 네 몸을 시원하게 만들 방법을 찾아야 해 — 자칫하단 심한 열사병에 걸리겠어!</li>
+					<li>comment(INITIATOR_cooking_level>=5)->>네 몸을 시원하게 식힐 수 있는 차가운 음식을 빨리 만들어볼게.</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
+	
 	<InteractionDef ParentName="SpeakUpReply">
 		<defName>ReactToThought_ExSlave</defName>
 		<label>freed from slavery</label>
 		<logRulesInitiator>
-			<rulesStrings>  <!-- ===Bad opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&lt;0)-&gt;당연히 감사해야지, [recipient]. 널 구한게 그만한 가치가 있는 일이였으면 좋겠군!</li>
-					<li>r_logentry(INITIATOR_opinion&lt;0)-&gt;가끔은 널 노예상으로부터 왜 해방했나 싶은 생각이 들기도 해...</li>  <!-- ===Good opinion of recipient=== --> <li>r_logentry(INITIATOR_opinion&gt;=0)-&gt;[good_opinion]</li>
-					<li>good_opinion-&gt;별거 아니야, [recipient]. 옳은 일을 했을 뿐이야.</li>
-					<li>good_opinion-&gt;네가 자유를 되찾아서 정말 기뻐, [recipient].</li>
-					<li>good_opinion(INITIATOR_trait==kind)-&gt;고마워할 필요없어 — 우리는 사람이라면 마땅히 해야할 일을 했을 뿐이야.</li>
-					<li>good_opinion(INITIATOR_trait==psychopath,priority=1)-&gt;...</li>
+			<rulesStrings>
+				<!-- ===Bad opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion&lt;0)->당연히 고마워해야지, [recipient]. 너를 구한 게 그럴만한 가치가 있는 일이었다면 좋겠어!</li>
+					<li>r_logentry(INITIATOR_opinion&lt;0)->가끔은 우리가 왜 너를 노예상에서 구해줬나 하는 후회가 들어...</li>
+				<!-- ===Good opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
+					<li>good_opinion->별 거 아냐, [recipient]. 그저 옳은 일을 했을 뿐인 걸.</li>
+					<li>good_opinion->[recipient], 네가 자유를 되찾다면 그걸로 만족이야.</li>
+					<li>good_opinion(INITIATOR_trait==kind)->우리에게 고마워할 필요는 없어 — 우린 그저 사람으로서 마땅히 해야 할 일을 한 것 뿐이야.</li>
+					<li>good_opinion(INITIATOR_trait==psychopath,priority=1)->...</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>	
+	
+	<InteractionDef ParentName="SpeakUpReply">
+		<defName>ReactToThought_JoyRoom</defName>
+		<label>rec room</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<!-- ===Bad opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+				<!-- ===Good opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
+					<!-- ===Good rec room=== -->
+						<li>good_opinion(INITIATOR_thoughtDefName==JoyActivityInImpressiveRecRoom,priority=1)->[rec_room]</li>
+						<li>rec_room(INITIATOR_thoughtLabel==decent rec room)->Yes, [recipient].</li>
+						<li>rec_room(INITIATOR_thoughtLabel==slightly impressive rec room)->I believe it's enjoyable, [recipient]!</li>
+						<li>rec_room(INITIATOR_thoughtLabel==somewhat impressive rec room)->I believe it's very enjoyable, [recipient]! [comment2]</li>
+						<li>rec_room(INITIATOR_thoughtLabel==very impressive rec room)->I have loads of fun in it, [recipient]! [comment2]</li>
+						<li>rec_room(INITIATOR_thoughtLabel==extremely impressive rec room)->I truly have loads of fun in it, [recipient]! [comment2]</li>
+						<li>rec_room(INITIATOR_thoughtLabel==unbelievably impressive rec room)->It's the coolest ever, [recipient]! [comment2]</li>
+						<li>rec_room(INITIATOR_thoughtLabel==wondrously impressive rec room)->It's a complete Paradise, [recipient] — all decked for maxing out anyone's fun! [comment2]</li>
+					<!-- ===recreation satisfied === -->
+						<li>good_opinion(INITIATOR_thoughtLabel==recreation satisfied,priority=1)->I think we have several nice entertainment options around here.</li>
+					<!-- ===recreation fully satisfied === -->
+						<li>good_opinion(INITIATOR_thoughtLabel==recreation fully satisfied,priority=1)->I think we have lots of excellent entertainment options around here!</li>
+					<!-- ===Absent or bad rec room=== -->
+						<li>good_opinion->What rec room, [recipient]? I can't seem to have any fun around here...</li>
+						<li>good_opinion->I need help finding this rec room, [recipient]. I want to have fun, too...</li>
+						<li>good_opinion->That sounds nice, but I haven't had fun in a while, [recipient].</li>
+				<!-- ===WILDCARDS === -->
+					<li>comment2-></li>
+					<li>comment2(INITIATOR_social_level>=5)->And it'll be excellent for hosting our next party!</li>
+			</rulesStrings>
+		</logRulesInitiator>
+	</InteractionDef>
+	
 	<InteractionDef ParentName="SpeakUpReply">
 		<defName>ReactToThought_JoyRoom</defName>
 		<label>rec room</label>
