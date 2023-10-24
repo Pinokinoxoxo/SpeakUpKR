@@ -1,0 +1,5 @@
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Speakup\Assemblies\SpeakUp.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Speakup\SpeakUp\obj\Debug\SpeakUp.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Speakup\SpeakUp\obj\Debug\SpeakUp.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Speakup\SpeakUp\obj\Debug\SpeakUp.dll
+C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\SpeakUp\SpeakUp\obj\Debug\SpeakUp.csproj.CopyComplete
