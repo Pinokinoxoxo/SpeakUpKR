@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- ===stuck indoors=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>StuckIndoors</defName>
+			<label>weather — stuck indoors</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===undergrounder (priority 2)=== -->
+					<li>r_logentry(INITIATOR_opinion>=0,INITIATOR_trait==실내 선호,priority=2)->[i_undergrounder]</li>
+						<li>i_undergrounder(RECIPIENT_trait==실내 선호,priority=1)->전적으로 동의해, [recipient]!</li>
+						<li>i_undergrounder->밖의 날씨가 어떤지는 전혀 관심이 없어, [recipient]...</li>
+					<li>r_logentry(INITIATOR_opinion>=0,INITIATOR_thoughtDefName==NeedOutdoors,priority=1)->나도 그래, [recipient].</li>
+					<li>r_logentry(INITIATOR_opinion>=0)->아, 그건 내가 말해줄 수 있어 — [weather].</li>
+					
+					<li>weather(WEATHER==맑음,priority=1)->[dayperiod_adj]</li>
+					<li>dayperiod_adj(DAYPERIOD==morning)->화창한 아침이야</li>
+					<li>dayperiod_adj(DAYPERIOD==afternoon)->청명한 오후야</li>
+					<li>dayperiod_adj(DAYPERIOD==evening)->밤하늘이 빛나는 저녁이지</li>
+					<li>dayperiod_adj(DAYPERIOD==night)->별빛이 가득한 밤이야</li>
+					
+					<li>weather(WEATHER==마른 벼락,priority=1)->마른 벼락이 치는 [Day_weather] — 밖에서는 조심해!</li>
+					<li>weather(WEATHER==안개,priority=1)->안개가 자욱한 [Day_weather].</li>
+					<li>weather(WEATHER==안개비,priority=1)->안개비가 부슬부슬 내리는 [Day_weather].</li>
+					<li>weather(WEATHER==비,priority=1)->주룩주룩 비가 내리는 [Day_weather].</li>
+					<li>weather(WEATHER==폭풍우,priority=1)->폭풍우가 치는 [Day_weather] — 옷 젖지 않게 조심해.</li>
+					<li>weather(WEATHER==눈,priority=1)->눈이 내리는 [Day_weather].</li>
+					<li>weather(WEATHER==폭설,priority=1)->폭설이 내리는 [Day_weather] — 발 빠지지 않게 조심해!</li>
+					<li>weather->[WEATHER]</li>
+					<li>Day_weather(DAYPERIOD==morning)->아침이야</li>
+					<li>Day_weather(DAYPERIOD==afternoon)->오후야</li>
+					<li>Day_weather(DAYPERIOD==evening)->저녁이야</li>
+					<li>Day_weather(DAYPERIOD==night)->밤이야</li>
+					
+					<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>	
+	<!-- ===clear weather — good temp — not entombed=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherClearGoodtempNotEntombed</defName>
+			<label>clear weather — good temp — not entombed</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion=== -->
+						<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
+						<!-- ===undergrounder indoors (priority 2)=== -->
+							<li>good_opinion(INITIATOR_trait==실내 선호,OUTDOORS==아니오,priority=2)->[i_undergrounder]</li>
+								<li>i_undergrounder->밖의 날씨가 어떤지는 전혀 관심이 없어, [recipient]...</li>
+						<!-- ===Entombed (priority 1)=== -->
+							<li>good_opinion(INITIATOR_thoughtDefName==NeedOutdoors,priority=1)->밖에 나가서 내 눈으로 직접 볼 기회가 있으면 좋겠어!</li>
+						<!-- ===Not entombed (default)=== -->
+							<li>good_opinion->[yes], [recipient]. [outside_inside]</li>
+
+					<!-- === Comment if outside=== -->
+						<li>outside_inside(OUTDOORS==예)->[temperature]</li>
+						<li>temperature(TEMPERATURE>30,TEMPERATURE&lt;=44)->정말 더운 [Day_weather]. 그래도 아직 이 정도는,즐길만 해.</li>
+						<li>temperature(TEMPERATURE>26,TEMPERATURE&lt;=30)->포근하고 화창한 [Day_weather]. 정말 축복인걸!</li>
+						<li>temperature(TEMPERATURE>=16,TEMPERATURE&lt;=26)->너무 덥지도 않고, 너무 춥지도 않고 — 정말 완벽한 [Day_weather]!</li>
+						<li>temperature(TEMPERATURE>5,TEMPERATURE&lt;16)->약간 쌀쌀하지만, 그래도 [niceK] [Day_weather].</li>
+						<li>temperature(TEMPERATURE>=0,TEMPERATURE&lt;=5)->그래도 날씨가 많이 추운데[plants1]</li>
+						<li>temperature(TEMPERATURE>=-10,TEMPERATURE&lt;0)->얼어 죽겠어[plants2]</li>
+						<li>plants1(INITIATOR_plants_level&lt;5)->!</li>
+						<li>plants2(INITIATOR_plants_level&lt;5)->!</li>
+						<li>plants1(INITIATOR_plants_level>=5)-> — 밖에 있는 작물들은 제대로 자라기 힘들 거야.</li>
+						<li>plants2(INITIATOR_plants_level>=5)-> — 밖에 있는 작물들은 전부 얼어 죽을 거라고!</li>
+					<!-- ===Comment if inside=== -->
+						<li>outside_inside(OUTDOORS==아니오)->[outside]</li>
+						<li>outside->이렇게 날씨가 [nice] 확실히 도움이 될거야!</li>
+						<li>outside->이런 [niceK] 날씨는 우리에게 최고의 날씨라고!</li>								
+					<!-- ===WILDCARDS=== -->
+						<li>Day_weather(DAYPERIOD==morning)->아침이야</li>
+						<li>Day_weather(DAYPERIOD==afternoon)->오후야</li>
+						<li>Day_weather(DAYPERIOD==evening)->저녁이야</li>
+						<li>Day_weather(DAYPERIOD==night)->밤이야</li>
+						<li>nice->괜찮으니</li>
+						<li>nice->쾌적하니</li>
+						<li>nice->멋지니</li>
+						<li>nice->좋으니</li>
+						<li>nice->산뜻하니</li>
+						<li>nice->기분 좋으니</li>
+						<li>niceK->괜찮은</li>
+						<li>niceK->쾌적한</li>
+						<li>niceK->멋진</li>
+						<li>niceK->좋은</li>
+						<li>niceK->산뜻한</li>
+						<li>niceK->기분 좋은</li>							
+						<li>yes->맞아</li>
+						<li>yes->네 말이 맞아</li>
+						<li>yes->완전 동감이야</li>				
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Fog — good temperature — not entombed=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherFogGoodtempNotEntombed</defName>
+			<label>fog — good temp — not entombed</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry->[good_opinion]</li>
+						<li>good_opinion(DAYPERIOD==morning)->적어도 햇빛이 조금이나마 도움이 되는 것 같아.</li>
+						<li>good_opinion(DAYPERIOD==morning)->운이 좋다면 곧 날이 밝으면서 안개가 걷힐 것 같은데?</li>
+						<li>good_opinion(DAYPERIOD==afternoon)->저녁이 되기 전에는 안개가 걷히길 바라자고 — 밤에 안개까지 낀다면 정말 아무것도 안 보인단 말야.</li>
+						<li>good_opinion(DAYPERIOD==evening)->안개가 자욱한 저녁은 사고나기 쉬운 시간이지 — [inside_outside].</li>
+						<li>good_opinion(DAYPERIOD==night)->안개가 자욱한 밤은 사고나기 딱 좋은 시간이지 — [inside_outside].</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->모닥불을 피우면 안개를 걷어 내는데 도움이 된다고 들었어.</li>
+						
+						<li>inside_outside(OUTDOORS==예)->안으로 들어가야 할 것 같아</li>
+						<li>inside_outside(OUTDOORS==아니오)->안에 있는 게 좋을 것 같아</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Fog — too smart=== -->	
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherFogToosmart</defName>
+			<label>fog — too smart</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<li>r_logentry(INITIATOR_trait==괴짜 천재)->정답이야, 하지만 넌 이게 무슨 유형의 안개인지 맞추진 못할거야. 하지만, 난 가능하지 — 이건 [fog_type]</li>
+					<li>fog_type(DAYPERIOD==evening)->복사안개야. 지표의 복사냉각에 의해 발생하지.</li>
+					<li>fog_type(DAYPERIOD==night)->지표면안개야. 지상 가까이 발생하는 복사안개를 지표면안개라고 부르거든.</li>
+					<li>fog_type->착빙성 안개야. 과냉각 상태인 안개 입자가 물체에 닿으면 착빙을 일으키지.</li>
+					<li>fog_type->전선안개야. 온난기단과 한랭기단이 만나는 전선면에서 생기는 안개라고.</li>
+					<li>r_logentry(INITIATOR_intellectual_level>=10)->그거야말로 안개에 대한 정확한 정의지.</li>
+					<li>r_logentry(INITIATOR_intellectual_level>=5,INITIATOR_intellectual_level&lt;10)->으음... 맞아, 네 말이 다 맞아.</li>
+					<li>r_logentry(INITIATOR_intellectual_level&lt;5)->어어... 뭐라고? 다시 한 번 말해줄래?</li>
+					<li>r_logentry(INITIATOR_intellectual_level&lt;5)->잠깐 — 안개가... 뭐!?</li>
+					<li>r_logentry(INITIATOR_intellectual_passion==Minor)->정말 흥미로운 정보인데!</li>
+					<li>r_logentry(INITIATOR_intellectual_passion==Major)->멋진걸!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Fog — wimp=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherFogWimp</defName>
+			<label>fog — trait — wimp</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<li>r_logentry(INITIATOR_trait==싸움꾼,INITIATOR_opinion&lt;10)->에이, [recipient] — 계집애처럼 굴지 마! 그냥 안개일 뿐이야!</li>
+					<li>r_logentry(INITIATOR_trait==싸움꾼,INITIATOR_opinion>=15)->걱정 말라고, [recipient] — 그런 일이 생긴다면 내가 그냥 박살 내버릴 테니까!</li>
+					<li>r_logentry(INITIATOR_trait==약골,priority=1)->맞아, [recipient] — 이 안개는 나도 무서워 죽겠어!</li>
+					<li>r_logentry(INITIATOR_trait==약골,INITIATOR_opinion>=15,priority=1)->그렇다면, [recipient], 그냥 도망치자구!</li>
+					<li>r_logentry(INITIATOR_opinion&lt;10)->[recipient], 자꾸 그렇게 칭얼대지 마! 안개야 — 그저 안개일 뿐이라고!</li>
+					<li>r_logentry(INITIATOR_opinion>=15)->겁먹을 필요 없어, [recipient]. 그냥 평범한 안개야.</li>
+					<li>r_logentry->이런 안개 속에는 종종 위험이 숨겨져 있는 경우도 있지, [recipient] — 특히나 밤에는 더더욱...</li>
+					<li>r_logentry->언젠가 [story]</li>
+					<li>story->안개 속을 헤집고 다니며 산 자들을 잡아먹는 시체들의 이야기를 들은 적이 있어.</li>
+					<li>story->자욱한 안개 속에 영원히 갇혀 서서히 굶어 죽은 사람들의 이야기를 들은 적이 있어.</li>
+					<li>story->지독하고 사악한 안개가 사람들을 속여서 안개 속으로 들어가게 했다는 이야기를 들은 적이 있어 — 그리고 그들의 영혼을 빨아들였다지...</li>
+					<li>story->정체불명의 안개가 갑자기 사람들을 미지의 낯선 세계로 데려갔다는 이야기를 들은 적이 있어...</li>
+					<li>story->평화롭던 마을이 으스스한 안개에 둘러싸여 모두가 서로를 죽이기 시작했다는 이야기를 들은 적이 있어...</li>
+					<li>story->이런 기묘한 안개가 피어오르더니, 사람과 건물을 서서히 녹여버렸다는 이야기를 들었어 — 아무것도 남지 않았을 때까지!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Fog/hostile weather — hunting=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>HuntWithFog</defName>
+			<label>hunting with fog</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<li>r_logentry->누가 알겠어, [recipient]... 기분이 좋다면 한 번 시도해 볼지도 모르지.</li>
+					<li>r_logentry(INITIATOR_shooting_level&lt;5,INITIATOR_animals_level&lt;5)->네 말이 맞아, [recipient] — 오늘 사냥은 글러먹었어. 안타깝군.</li>
+					<li>r_logentry(INITIATOR_shooting_level>=5,INITIATOR_animals_level>=5)->[recipient], 나같은 베테랑은 날씨에 연연하며 사냥을 하지 않아.</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Rain — good temperature — indoors=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherRainGoodtempIndoors</defName>
+			<label>rain — good temperature — indoors</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry->[good_opinion]</li>
+						<li>good_opinion->밖에서 할 일이 없었으면 좋겠어.</li>
+						<li>good_opinion(INITIATOR_trait==우울증)->질척한 비가 내 영혼 속으로 쏟아지는 것 같아. 행복할 수 있는 기회를 앗아가 버렸어...</li>
+						<li>good_opinion(INITIATOR_trait==식탐)->이 습도가 조리에 방해가 안 되면 좋겠는데... 다음 식사를 망치지만 않았으면 좋겠어.</li>
+						<li>good_opinion(INITIATOR_trait==야행성)->비 내리는 소리를 듣다보면 마음이 차분해져. 밤에는 특히 더 그렇고.</li>
+						<li>good_opinion(INITIATOR_trait==나체주의자)->밖에 나가서 맨살에 닿는 부드러운 물방울을 모두가 느낄 수 있었으면 좋겠어.</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->난 비가 싫어.</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->빨리 멈췄으면 좋겠어 — 나는 건조한 날씨가 더 좋은 걸.</li>
+						<li>good_opinion(INITIATOR_trait==실내 선호)->실내에 있으니까 너무 좋아!</li>
+						<li>good_opinion(INITIATOR_trait==병약 체질,TEMPERATURE&lt;16)->이런 날 내가 밖에 나간다면 감기 혹은 더 심한 병에 걸릴 것 같아.</li>
+						<li>good_opinion(INITIATOR_trait==약골,TEMPERATURE&lt;16)->이 날씨에 내가 밖에 나간다면, 분명 감기만으로 끝나지는 않을 거야.</li>
+						<li>good_opinion(INITIATOR_thoughtDefName==sick,TEMPERATURE&lt;16)->This cold, wet weather will slow down my healing for sure...</li>
+						<li>good_opinion(TEMPERATURE>=16,TEMPERATURE&lt;=26)->안에 있어서 얼마나 다행인지 몰라, 안락하고 좋잖아.</li>
+						<li>good_opinion(TEMPERATURE>26)->여긴 너무 더워! 차라리 비를 맞으면서 더위를 식히고 싶은걸!</li>
+						<li>good_opinion(INITIATOR_plants_level>=5)->이런 산뜻한 보슬비는 바깥의 작물들에게 정말 좋아.</li>
+						<li>good_opinion(INITIATOR_plants_level>=5,INITIATOR_trait==게으름)->부슬비가 내린다는 건 말야 — 내가 작물에 물을 안 줘도 된다는 뜻이지!</li>
+						<li>good_opinion(INITIATOR_plants_passion==Minor)->이 비는 목마른 식물들에게는 정말 축복과도 같을거야.</li>
+						<li>good_opinion(INITIATOR_plants_passion==Major)->이 부슬비, 우리 경작지에 정말 큰 도움이 되겠는걸!</li>					
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Rain — good temperature — outdoors (recipient wants to get inside)=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherRainGoodtempOutdoors</defName>
+			<label>rain — good temperature — outdoors</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
+						<li>good_opinion->Go on, [recipient]. [comment]</li>
+						<li>comment(INITIATOR_jobDefName==GotoWander)->[wandering]</li>
+						<li>comment(INITIATOR_jobDefName==Wait_Wander)->[wandering]</li>
+						<li>comment(INITIATOR_jobDefName==BuildRoof)->[building]</li>
+						<li>comment(INITIATOR_jobDefName==FinishFrame)->[building]</li>
+						<li>comment(INITIATOR_jobDefName==Clean)->여기 청소만 마치고 [get_inside]</li>
+						<li>comment(INITIATOR_jobDefName==CutPlant)->여기 이 제초만 마무리하고 [get_inside]</li>
+						<li>comment(INITIATOR_jobDefName==Sow)->여기 경작지 파종만 끝내고 [get_inside]</li>
+						<li>comment(INITIATOR_jobDefName==HaulToContainer)->[hauling]</li>
+						<li>comment(INITIATOR_jobDefName==HaulToCell)->[hauling]</li>
+						<li>comment(INITIATOR_jobDefName==Hunt)->우리가 먹을 것을 사냥하는 게 우선이야 — [rain_hunt]</li>
+						<li>comment(INITIATOR_jobDefName==Ingest)->이것만 다 먹고 [get_inside]</li>
+						<li>comment(INITIATOR_jobDefName==Skygaze)->[relaxing]</li>
+						<li>comment(INITIATOR_jobDefName==SocialRelax)->[relaxing]</li>
+						<li>comment(INITIATOR_trait==우울증)->실내고... 실외고... 그게 다 무슨 상관이야... 모두 똑같이 암울한 삶이잖아...</li>				
+						<li>comment(INITIATOR_trait==병약 체질,TEMPERATURE&lt;16)->[do_the_same] — 난 감기 혹은 그보다 더 심한 병에 걸리고 싶지 않다구.</li>
+						<li>comment(INITIATOR_trait==약골,TEMPERATURE&lt;16)->[do_the_same] — 난 감기 같은 거 걸리고 싶지 않아...</li>
+						<li>comment(INITIATOR_thoughtDefName==sick,TEMPERATURE&lt;16)->[do_the_same] — 가뜩이나 아픈데, 이보다 더 심해지긴 싫어.</li>
+						<li>comment(TEMPERATURE>=30)->이 지옥같은 더위 속에서 이 비는 상쾌한 축복이라고 할 수 있겠는걸!</li>
+						<li>comment(TEMPERATURE&lt;=5)->[do_the_same] — 이러다 얼어죽겠어!</li>
+						<li>comment(INITIATOR_trait==방화광)->[do_the_same] — 난 비가 싫어.</li>
+						<li>comment(INITIATOR_trait==방화광)->빨리 그쳤으면 좋겠네 — 난 건조한 날씨가 더 좋다고.</li>
+						<li>comment(INITIATOR_trait==실내 선호)->[do_the_same] — 실내에 있는 게 최고라니까 그래!</li>
+						<li>comment-></li>				
+					<!-- ===WILDCARDS=== -->
+						<li>building->이것만 완성하고 [get_inside]</li>
+						<li>hauling->이거만 옮기고 [get_inside]</li>
+						<li>rain_hunt(INITIATOR_animals_level>=5,INITIATOR_shooting_level>=5,priority=1)->이 비는 내게 큰 문제가 되진 않아.</li>
+						<li>rain_hunt->이놈의 비 때문에 사냥이 조금 힘들 것 같진 하지만 말야.</li>
+						<li>relaxing->여기서 잠시 쉬었다가 [get_inside]</li>
+						<li>wandering->비를 맞으며 여유롭게 산책을 좀 하려고. 산책 마치고 [get_inside]</li>
+						<li>do_the_same->나도 같이 가</li>
+						<li>get_inside->안으로 들어갈게.</li>
+						<li>get_inside->다시 들어가야겠어.</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Drystorm — good temp — indoors=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherDrystormGoodtempIndoors</defName>
+			<label>drystorm — good temp — indoors</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry->[good_opinion]</li>
+						<li>good_opinion->나도 들었어, [recipient]! 하지만 비 소식은 없는 것 같은데 — 아무래도 산불이 날지도 몰라!</li>
+						<li>good_opinion->맞아, [recipient] - 방금은 꽤 소리가 컸어! 제발 산불이 나지 않기를 기원하자고!</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->천둥... — 자연의 웅장한 외침!</li>
+						<li>good_opinion(INITIATOR_trait==괴로운 예술가)->자연이 나의 내면 혼란을 완벽하게 표현해주고 있구나...</li>
+						<li>good_opinion(INITIATOR_trait==약골)->천둥 소리... 좀 무서운데!</li>
+						<li>good_opinion->가슴이 떨릴 정도로 울리는 천둥 소리라 — 정말 [thunder_love_hate]!</li>
+						<li>thunder_love_hate(INITIATOR_trait==방화광)->최고야</li>
+						<li>thunder_love_hate(INITIATOR_trait==약골)->싫어</li>
+						<li>thunder_love_hate(INITIATOR_trait==약골)->무서워</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Drystorm — good temp — outdoors=== -->	
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherDrystormGoodtempOutdoors</defName>
+			<label>drystorm — good temp — outdoors</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry->[good_opinion]</li>
+						<li>good_opinion->맞아, [recipient] — 빨리 비가 오길 바라자고, 아니면 산불이 날 테니까!</li>
+						<li>good_opinion->음... 아무래도 안으로 들어가야 할 것 같아 — 난 벼락 맞고 싶지 않거든!</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->좋았어! 난 번개가 너무 좋아!</li>
+						<li>good_opinion(INITIATOR_trait==약골)->아으으! 난 안으로 들어갈래 — 밖에 있는 건 너무 위험하다고!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Storm — good temp — indoors=== -->	
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherStormGoodtempIndoors</defName>
+			<label>storm — good temp — indoors</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry->[good_opinion]</li>
+						<li>good_opinion->우와 — 거 천둥소리 한번 정말 크네!</li>
+						<li>good_opinion->지붕을 때리는 빗소리가 장난 아닌데? 엄청 세차게 내리나봐!</li>
+						<li>good_opinion->하늘에 구멍 뚫렸나! 어마어마하게 내리는 걸!</li>
+						<li>good_opinion->밖에서 해야 할 작업이 없었으면 좋겠어 — 이 폭풍우 속에서 작업을 한다면 곧바로 물에 젖은 생쥐 꼴이 될 거라고!</li>
+						<li>good_opinion(INITIATOR_trait==식탐)->이 습도가 조리에 방해가 안 되면 좋겠는데... 다음 식사를 망치지만 않았으면 좋겠어.</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->천둥... — 자연의 웅장한 외침!</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->난 비가 정말 싫어.</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->빨리 멈췄으면 좋겠어 — 나는 건조한 날씨가 더 좋은 걸.</li>				
+						<li>good_opinion(INITIATOR_trait==괴로운 예술가)->이 대자연이 지금 나의 내면의 혼란을 완벽하게 표현하고 있구나...</li>
+						<li>good_opinion(INITIATOR_trait==약골)->난 천둥이 너무 무서워!</li>
+						<li>good_opinion(INITIATOR_trait==약골,TEMPERATURE&lt;16)->이런 날 밖에 나간다면, 분명히 감기에 걸려버릴거야.</li>
+						<li>good_opinion(INITIATOR_trait==병약 체질,TEMPERATURE&lt;16)->이 날씨에 내가 밖에 나간다면, 분명 감기만으로 끝나지는 않을 거야.</li>
+						<li>good_opinion(INITIATOR_trait==실내 선호)->실내에 있으니까 너무 좋아!</li>
+						<li>good_opinion(INITIATOR_thoughtDefName==sick,TEMPERATURE&lt;16)->이렇게 춥고 습한 날씨 속에서는 내 몸이 금방 나을 것 같진 않아...</li>
+						<li>good_opinion(TEMPERATURE>=16,TEMPERATURE&lt;=26)->안에 있어서 얼마나 다행인지 몰라, 안락하고 좋잖아.</li>
+						<li>good_opinion(INITIATOR_plants_level>=5)->우리 경작지에 번개가 치지 않기를 기도하자고!</li>
+						<li>good_opinion(INITIATOR_plants_level>=5,INITIATOR_trait==게으름)->이렇게 비가 내린다는 건 말야 — 내가 작물에 물을 안 줘도 된다는 뜻이지!</li>
+					
+						<li>good_opinion->가슴이 떨릴 정도로 울리는 천둥 소리... — 정말 [thunder_love_hate]!</li>
+						<li>thunder_love_hate(INITIATOR_trait==싸움꾼)->최고야</li>
+						<li>thunder_love_hate(INITIATOR_trait==피의 갈망)->흥분돼</li>
+						<li>thunder_love_hate(INITIATOR_trait==약골)->싫어</li>
+						<li>thunder_love_hate(INITIATOR_trait==약골)->무서워</li>			
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Storm — good temp — outdoors=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherStormGoodtempOutdoors</defName>
+			<label>storm — good temp — outdoors</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry->[good_opinion]</li>
+						<li>good_opinion->아무래도 안으로 들어가야 할 것 같아 — 난 벼락 맞고 싶지 않거든!</li>
+						<li>good_opinion->젠장, 흠뻑 젖었네...</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->천둥 소리 — 자연의 웅장한 외침!</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->난 비가 정말 싫어!</li>
+						<li>good_opinion(INITIATOR_trait==약골)->난 폭풍이 무서워!</li>
+						<li>good_opinion->가슴이 떨릴 정도로 울리는 천둥 소리... — 정말 [thunder_love_hate]!</li>
+						<li>thunder_love_hate(INITIATOR_trait==방화광)->최고야</li>
+						<li>thunder_love_hate(INITIATOR_trait==약골)->무서워</li>
+						<li>thunder_love_hate(INITIATOR_trait==약골)->싫어</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Wimp — thunder=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WimpThunder</defName>
+			<label>wimp — thunder</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry->[good_opinion]</li>
+						<li>good_opinion->진정해, [recipient] - 그냥 평범한 천둥번개일 뿐이야!</li>
+						<li>good_opinion(INITIATOR_trait==싸움꾼)->철 좀 들어, [recipient]! 그냥 평범한 천둥 번개일 뿐이야!</li>
+						<li>good_opinion(INITIATOR_trait==다정다감,priority=1)->괜찮아, 괜찮아 — 나 여기 있어, [recipient]!</li>
+						<li>good_opinion(INITIATOR_trait==방화광)->왜 그렇게 겁을 먹지? 천둥과 번개는 정말 매혹적인 존재라고!</li>
+						<li>good_opinion(INITIATOR_trait==약골)->아, [recipient]! 나도 무서워!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Hard snow — good temperature — not entombed=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherHardsnowGoodtempNotEntombed</defName>
+			<label>hard snow — good temp — not entombed</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry->[good_opinion]</li>
+						<li>good_opinion->아무래도 삽을 들고 빡세게 제설 작업을 해야 할 것 같아...</li>
+						<li>good_opinion(OUTDOORS==아니오)-문을 닫아두자 — 그래야 실내에서 따뜻하게 지낼 수 있을테니까!</li>
+						<!-- === outdoors === -->
+							<li>good_opinion(OUTDOORS==아니오)->[outdoors]</li>
+							<li>outdoors->으으, 이 바람 — 살이 에는 것 같아!</li>
+							<li>outdoors->눈을 뜨고 있을 수가 없어... 얼굴에 눈이 너무 많이 묻어...</li>
+							<li>outdoors->걷기가 점점 힘들어지는데... 점점 꼼짝도 못하겠어...</li>
+							<li>outdoors(INITIATOR_trait==병약 체질,TEMPERATURE&lt;10)->나는 당장 안으로 들어가야겠어  — 난 감기 혹은 그보다 더 심한 병에 걸리고 싶지 않다구.</li>
+							<li>outdoors(INITIATOR_trait==약골,TEMPERATURE&lt;10)->나는 안으로 들어가야겠어 — 난 감기 같은 거 걸리고 싶지 않아.</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===Hard snow — too smart=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherSnowstormToosmart</defName>
+			<label>hard snow — too smart</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<li>r_logentry(INITIATOR_trait==괴짜 천재)->맞아, 그런데 눈보라란 실제로 눈이 내리는 것이 아니라 지상에 쌓여 있던 눈이 강풍에 의해 날리는 기상 상태라는 사실은 몰랐을 거야. 그렇지?</li>
+					<li>r_logentry(INITIATOR_intellectual_level>=10)->그래. 그거야말로 눈보라에 대한 정확한 정의지.</li>
+					<li>r_logentry(INITIATOR_intellectual_level>=5,INITIATOR_intellectual_level&lt;10)->음... 그래, 네가 맞아.</li>
+					<li>r_logentry(INITIATOR_intellectual_level&lt;5)->어어... 지상이 뭐..? 다시 말해볼래?</li>
+					<li>r_logentry(INITIATOR_intellectual_level&lt;5)->잠깐 — 눈... 폭풍이 그러니까... 뭐라고!?</li>
+					<li>r_logentry(INITIATOR_intellectual_passion==Minor)->정말 흥미로운 정보인걸!</li>
+					<li>r_logentry(INITIATOR_intellectual_passion==Major)->흥미로운걸!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===gentle snow — good temperature — not entombed=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherSoftsnowGoodtempNotEntombed</defName>
+			<label>gentle snow — good temp — not entombed</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry->[good_opinion]</li>
+						<li>good_opinion(INITIATOR_trait==게으름)->삽으로 눈을 퍼낼 정도로 많이 내리지는 않아 보여 — 나이스!</li>
+						<li>good_opinion(INITIATOR_trait==나태)->제설을 할 필요가 없는 눈이라 — 다행이구만!</li>
+						<li>good_opinion(INITIATOR_intellectual_passion!=None)->하늘에서 떨어지는 눈송이마다 독특한 모양으로 반짝이다니, 정말 흥미로워.</li>
+						<li>good_opinion(INITIATOR_plants_passion!=None)->자연은 놀라움과 신비로 가득 차 있지 — 작은 눈송이조차도 자연의 그 손길을 피하진 못한다고.</li>
+						<li>good_opinion(INITIATOR_trait==다정다감)->친절함과 다정함은 마치 눈과 같은 것 같아. 모든 것을 아름답게 덮어주잖아.</li>
+						<li>good_opinion(INITIATOR_trait==검소)->이 아름다운 눈송이를 감상하려면 추위 속으로 나서야 하지.</li>
+						<li>good_opinion->눈이 내리면 말야, 삽으로 눈을 치우거나 눈 천사를 만들거나 둘 중 하나를 해야 하지[optimist_pessimist]</li>
+							<li>optimist_pessimist(INITIATOR_trait==긍정적)-> — 난 누워서 천사 만들거야!</li>
+							<li>optimist_pessimist(INITIATOR_trait==낙천적)-> — 눈밭을 뒹굴거리며 천사를 만드는 게 최고라고!</li>
+							<li>optimist_pessimist(INITIATOR_trait==부정적)-> — 실상은 삽을 들고 눈이나 치워야지...</li>
+							<li>optimist_pessimist(INITIATOR_trait==우울증)-> — 하지만 결국 우리는 제설 작업을 해야 하는 운명이지...</li>
+							<li>optimist_pessimist(INITIATOR_mood&lt;0.4)-> — 제설 작업을 해야겠지...</li>
+							<li>optimist_pessimist(INITIATOR_mood>=0.4)-> — 눈싸움 할 사람!</li>
+						<li>good_opinion(INITIATOR_trait==야행성)->한밤중에 소리 없이 내리는 눈은 언제나 내 마음을 따뜻하게 채워줘.</li>
+						<li>good_opinion(INITIATOR_social_passion!=None)->눈송이는 자연의 가장 연약한 존재 중 하나지, 하지만 눈송이가 서로 뭉쳤을 때 무엇을 할 수 있는지 한 번 봐봐!</li>
+					<!-- mood (default) === -->				
+						<li>good_opinion(INITIATOR_mood>=0.7)->얼른 눈사람을 만들고 싶어!</li>
+						<li>good_opinion(INITIATOR_mood>=0.4)->눈 덮인 풍경이 너무 멋져!</li>
+						<li>good_opinion(INITIATOR_mood&lt;0.4)->눈...? 뭐 어쩌라고, [recipient]... 별 것도 아닌 걸 가지고...</li>
+					<!-- outdoors === -->
+						<li>good_opinion(OUTDOORS==예)->[outdoors]</li>
+						<li>outdoors(INITIATOR_mood>=0.4)->눈송이가 너무 예뻐!</li>
+						<li>outdoors(INITIATOR_mood&lt;0.4)->이런 젠장, 눈송이가 내 눈에 들어갔어...</li>
+						<li>outdoors(INITIATOR_trait==병약 체질,TEMPERATURE&lt;10)->당장 안으로 들어가야겠어  — 난 감기 혹은 그보다 더 심한 병에 걸리고 싶지 않다구.</li>
+						<li>outdoors(INITIATOR_trait==약골,TEMPERATURE&lt;10)->안으로 들어가야겠어 — 난 감기 같은 거 걸리고 싶지 않아.</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===gentle snow — too smart=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>WeatherSnowToosmart</defName>
+			<label>gentle snow — too smart</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<li>r_logentry(INITIATOR_trait==괴짜 천재)->정답이야 — 하지만 만들어질 수 있는 눈송이의 주요 형태가 바늘, 기둥, 판, 서리 등의 형태이라는 사실은 몰랐을거야.</li>
+					<li>r_logentry(INITIATOR_intellectual_level>=10)->눈송이에 대한 제대로 된 정의지.</li>
+					<li>r_logentry(INITIATOR_intellectual_level>=5,INITIATOR_intellectual_level&lt;10)->음... 그래, 네가 맞아.</li>
+					<li>r_logentry(INITIATOR_intellectual_level&lt;5)->어... 다시 말해볼래?</li>
+					<li>r_logentry(INITIATOR_intellectual_level&lt;5)->그러니까 — 눈... 눈송이 모양이... 뭐!?</li>
+					<li>r_logentry(INITIATOR_intellectual_passion==Minor)->정말 흥미로운 정보인걸!</li>
+					<li>r_logentry(INITIATOR_intellectual_passion==Major)->흥미로운걸!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+</Defs>

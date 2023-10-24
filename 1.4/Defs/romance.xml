@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	
+	<InteractionDef ParentName="SpeakUpReply"><!-- ===RomanceSuccess=== -->
+		<defName>RomanceSuccess</defName>
+		<label>romance — success</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<li>r_logentry->[RECIPIENT_nameDef], 정말 좋아해 — 우리 만날래?</li>
+			</rulesStrings>
+			
+			<rulesFiles>
+
+			</rulesFiles>
+			
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply"><!-- ===RomanceFail=== -->
+		<defName>RomanceFail</defName>
+		<label>romance — fail</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<!-- ===Bad opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
+						<li>bad_opinion->...</li>
+						<li>bad_opinion->*째려봄*</li>
+						<li>bad_opinion->[stop], [RECIPIENT_nameDef] — [no_chance]!</li>
+							<li>stop->말 걸지 마</li>
+							<li>stop->저리 꺼져</li>
+							<li>no_chance->넌 가망 없으니 저리 가</li>
+							<li>no_chance->귀찮게 굴지 말고 저리 가</li>
+				<!-- ===Good opinion of recipient=== -->
+					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
+						<li>good_opinion->음, 고마워..? [RECIPIENT_nameDef]...</li>
+						<li>good_opinion->어, [RECIPIENT_nameDef]... 음, 고마워...</li>
+						<li>good_opinion->음, 저기... [RECIPIENT_nameDef], 이런 말 하긴 뭐 하지만...</li>
+						<li>good_opinion->*발그레*</li>
+						<li>good_opinion->*어색한 헛기침*</li>
+
+			</rulesStrings>
+			
+			<rulesFiles>
+
+			</rulesFiles>
+			
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply"><!-- ===ProposalSuccess=== -->
+		<defName>ProposalSuccess</defName>
+		<label>propose — success</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<li>r_logentry->그 말 만을 기다렸어, [RECIPIENT_nameDef] — 물론, 당연하지!</li>
+				<li>r_logentry->응, [RECIPIENT_nameDef] — 물론이지!</li>
+			</rulesStrings>
+			
+			<rulesFiles>
+
+			</rulesFiles>
+			
+		</logRulesInitiator>
+	</InteractionDef>
+	
+	<InteractionDef ParentName="SpeakUpReply"><!-- ===ProposalFail=== -->
+		<defName>ProposalFail</defName>
+		<label>propose — fail</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<li>r_logentry->음, 저기... [RECIPIENT_nameDef], 미안해... 나는 아직 마음의 준비가 안 된 것 같아... 조금만 더 생각할 시간을 줘...</li>
+			</rulesStrings>
+			
+			<rulesFiles>
+
+			</rulesFiles>
+			
+		</logRulesInitiator>
+	</InteractionDef>
+
+	<InteractionDef ParentName="SpeakUpReply"><!-- ===ProposalFail=== -->
+		<defName>ProposalBreakup</defName>
+		<label>propose — fail break</label>
+		<logRulesInitiator>
+			<rulesStrings>
+				<li>r_logentry->[RECIPIENT_nameDef]... 내가 바란 건 이런 게 아니었어 — 조금 지치네... [extra]...</li>
+					<li>extra->우리, 잠깐 생각할 시간을 갖자</li>
+					<li>extra->그만하자, 우리. 여기서 그만 하는게 서로에게 좋은 것 같아</li>
+					<li>extra->나는 더 이상 이 관계를 계속 할 자신이 없어</li>
+			</rulesStrings>
+			
+			<rulesFiles>
+
+			</rulesFiles>
+			
+		</logRulesInitiator>
+	</InteractionDef>
+	
+</Defs>

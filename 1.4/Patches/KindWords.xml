@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>/Defs/InteractionDef[defName = "KindWords"]/logRulesInitiator/rulesStrings</xpath>
+		<value>
+			<rulesStrings>
+				<li>r_logentry(tag=KindWords_generic)->넌 정말 좋은 사람이야, [recipient]!</li>
+				<li>r_logentry(tag=KindWords_generic)->언제나 친구들과 사랑하는 사람들로 가득한 나날을 보내길 빌게, [recipient]!</li>
+				<li>r_logentry(RECIPIENT_trait==아름다움,tag=KindWords_generic)->너보다 아름다운 사람이 나타날 수 있는 방법은 하나 뿐이야, [recipient], 바로 네가 화장을 하는거지!</li> 
+
+				<!-- ===RECIPIENT=== -->		
+				<li>recipient(INITIATOR_opinion&lt;0,priority=2)->[RECIPIENT_nameDef]</li>
+
+				<li>recipient(p=4,INITIATOR_relationship==Lover)->[recipient_love]</li>
+				<li>recipient(p=3,INITIATOR_relationship==Fiance)->[recipient_love]</li>
+				<li>recipient(p=2,INITIATOR_relationship==Spouse)->[recipient_love]</li>
+					<li>recipient_love->자기</li>
+					<li>recipient_love->여보</li>		
+					
+					<li>recipient_love(RECIPIENT_gender==Female, INITIATOR_gender==Male, priority=1)->[recipient_love_1]</li>
+					<li>recipient_love(RECIPIENT_gender==Male, INITIATOR_gender==Female, priority=1)->[recipient_love_2]</li>
+					<li>recipient_love(RECIPIENT_gender==Male, INITIATOR_gender==Male, priority=1)->[recipient_love_3]</li>
+					<li>recipient_love(RECIPIENT_gender==Female, INITIATOR_gender==Female, priority=1)->[recipient_love_4]</li>
+				
+						<!-- === INITIATOR의 나이가 RECIPIENT보다 크면 INITIATOR_AgeBool=1, 작으면 INITIATOR_AgeBool=0 === -->
+						<li>recipient_love_1(INITIATOR_AgeBool==0)->누나</li>
+						<li>recipient_love_2(INITIATOR_AgeBool==0)->오빠</li>
+						<li>recipient_love_2(INITIATOR_AgeBool==0)->오라버니</li>
+						<li>recipient_love_3(INITIATOR_AgeBool==0)->형</li>
+						<li>recipient_love_4(INITIATOR_AgeBool==0)->언니</li>
+		
+				<li>recipient(INITIATOR_relationship==Sibling)->[recipient_sibling]</li>
+					<li>recipient_sibling(RECIPIENT_gender==Female, INITIATOR_gender==Male, priority=1)->[recipient_brother_1]</li>
+					<li>recipient_sibling(RECIPIENT_gender==Male, INITIATOR_gender==Female, priority=1)->[recipient_sister_1]</li>
+					<li>recipient_sibling(RECIPIENT_gender==Male, INITIATOR_gender==Male, priority=1)->[recipient_brother_2]</li>
+					<li>recipient_sibling(RECIPIENT_gender==Female, INITIATOR_gender==Female, priority=1)->[recipient_sister_2]</li>
+				
+					<!-- === INITIATOR의 나이가 RECIPIENT보다 크면 INITIATOR_AgeBool=1, 작으면 INITIATOR_AgeBool=0 === -->
+					<li>recipient_brother_1(INITIATOR_AgeBool==0)->누나</li>
+					<li>recipient_sister_1(INITIATOR_AgeBool==0)->오빠</li>
+					<li>recipient_brother_2(INITIATOR_AgeBool==0)->형</li>
+					<li>recipient_sister_2(INITIATOR_AgeBool==0)->언니</li>
+				
+				<li>recipient(RECIPIENT_relationship==Parent,priority=1)->[recipient_parent]</li>
+					<li>recipient_parent(RECIPIENT_gender==Male)->[recipient_father]</li>
+						<li>recipient_father->아버지</li>
+						<li>recipient_father->아빠</li>
+					<li>recipient_parent(RECIPIENT_gender==Female)->[recipient_mother]</li>
+						<li>recipient_mother->어머니</li>
+						<li>recipient_mother->엄마</li>
+						
+				<li>recipient(RECIPIENT_relationship==Grandparent,priority=1)->[recipient_parent]</li>
+					<li>recipient_parent(RECIPIENT_gender==Male)->[recipient_Grandfather]</li>
+						<li>recipient_Grandfather->할아버지</li>
+					<li>recipient_parent(RECIPIENT_gender==Female)->[recipient_Grandmother]</li>
+						<li>recipient_Grandmother->할머니</li>
+
+				<li>recipient(INITIATOR_relationship==Parent)->[recipient_child]</li>
+					<li>recipient_child->아가</li>
+					<li>recipient_child(RECIPIENT_gender==Male)->[recipient_son]</li>
+						<li>recipient_son->아들</li>
+						<li>recipient_son->우리 아들</li>
+					<li>recipient_child(RECIPIENT_gender==Female)->[recipient_daughter]</li>
+						<li>recipient_daughter->딸</li>
+						<li>recipient_daughter->우리 딸</li>
+						
+				<li>recipient(INITIATOR_relationship==Grandparent,priority=1)->[recipient_Grandchild]</li>
+					<li>recipient_parent(RECIPIENT_gender==Male)->[recipient_Grandfather]</li>
+						<li>recipient_Grandfather->할아버지</li>
+					<li>recipient_parent(RECIPIENT_gender==Female)->[recipient_Grandmother]</li>
+						<li>recipient_Grandmother->할머니</li>
+						
+				<li>recipient->[RECIPIENT_nameDef]</li>						
+				<!-- ===END RECIPIENT=== -->
+					
+			</rulesStrings>
+		</value>
+	</Operation>
+	
+</Patch>

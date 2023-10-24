@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- ===joke — 00=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_00</defName>
+			<label>joke — 00</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_00b)->[good_opinion]</li>
+						<li>good_opinion->그게 뭐야, [recipient]?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 00b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_00b</defName>
+			<label>joke — 00b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->가위만 내면 돼. 거대늘보는 '늘 보'만 내거든!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>	
+	
+	<!-- ===joke — 01=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_01</defName>
+			<label>joke — 01</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_01b)->[good_opinion]</li>
+						<li>good_opinion->뭔데, [recipient]?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 01b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_01b</defName>
+			<label>joke — 01b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->팔걸이 의자야. 팔 걸, 이 의자!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+		
+	<!-- ===joke — 02=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_02</defName>
+			<label>joke — 02</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_02b)->[good_opinion]</li>
+						<li>good_opinion->모르겠네, 답[him_her] 뭐야?</li>
+					<!-- ==Wildcards== -->
+					<li>him_her->이</li>
+					<li>him_her->은</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 02b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_02b</defName>
+			<label>joke — 02b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->입자가 속기 때문이야!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>		
+
+	<!-- ===joke — 03=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_03</defName>
+			<label>joke — 03</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_03b)->[good_opinion]</li>
+						<li>good_opinion->얼마 내야 하는데?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 03b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_03b</defName>
+			<label>joke — 03b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->4820원!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>		
+
+	<!-- ===joke — 04=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_04</defName>
+			<label>joke — 04</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_04b)->[good_opinion]</li>
+						<li>good_opinion->비법? 비법이 뭐야, [recipient]? 그건 좀 궁금한 걸...</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 04b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_04b</defName>
+			<label>joke — 04b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->별거 없어!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 05=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_05</defName>
+			<label>joke — 05</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_05b)->[good_opinion]</li>
+						<li>good_opinion->뭔데 그래, [recipient]?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 05b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_05b</defName>
+			<label>joke — 05b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->하긴, 동물 귀 달린 사람이라니, 그럼 벌레 인간도 있겠다!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+		
+	<!-- ===joke — 06=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_06</defName>
+			<label>joke — 06</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_06b)->[good_opinion]</li>
+						<li>good_opinion->모르겠네, [recipient] — 왜 그런데?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 06b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_06b</defName>
+			<label>joke — 06b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->음료 반입 금지라서 그래!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 07=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_07</defName>
+			<label>joke — 07</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_07b)->[good_opinion]</li>
+						<li>good_opinion->뭔데, [recipient]?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 07b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_07b</defName>
+			<label>joke — 07b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->[he_she] 말이야. 다 그닥 다 그닥 하니까!</li>
+						<!-- ==Wildcards== -->
+							<li>he_she->바로</li>
+							<li>he_she-></li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 08=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_08</defName>
+			<label>joke — 08</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_08b)->[good_opinion]</li>
+						<li>good_opinion->응, [recipient]. 알려줘봐!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 08b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_08b</defName>
+			<label>joke — 08b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->[he_she] 말을 아껴야 하니까!</li>
+						<!-- ==Wildcards== -->
+							<li>he_she->바로</li>
+							<li>he_she-></li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+	
+	<!-- ===joke — 09=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_09</defName>
+			<label>joke — 09</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_09b)->[good_opinion]</li>
+						<li>good_opinion->뭔데, [recipient]?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 09b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_09b</defName>
+			<label>joke — 09b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->섬광탄이야! 무조건 '빛' 나가니까!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 10=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_10</defName>
+			<label>joke — 10</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_10b)->[good_opinion]</li>
+						<li>good_opinion->뭔데, [recipient]?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 10b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_10b</defName>
+			<label>joke — 10b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->야행성인 사람들이야. 해 피한 삶을 살고 있으니까!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 11=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_11</defName>
+			<label>joke — 11</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_11b)->[good_opinion]</li>
+						<li>good_opinion->뭔데, [recipient]?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 11b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_11b</defName>
+			<label>joke — 11b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->산소부족!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>		
+
+	<!-- ===joke — 12=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_12</defName>
+			<label>joke — 12</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_12b)->[good_opinion]</li>
+						<li>good_opinion->음... 잘모르겠는걸, [recipient]. 몇 발씩 쏘는데?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 12b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_12b</defName>
+			<label>joke — 12b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->한발씩 쏜대. 두발이 없기 때문이거든!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 13=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_13</defName>
+			<label>joke — 13</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_13b)->[good_opinion]</li>
+						<li>good_opinion->음... 잘모르겠는걸, [recipient]. 걔 이름이 뭔데?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 13b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_13b</defName>
+			<label>joke — 13b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->안녕하이소!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 14=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_14</defName>
+			<label>joke — 14</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_14b)->[good_opinion]</li>
+						<li>good_opinion->뭐라고 했는데?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 14b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_14b</defName>
+			<label>joke — 14b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->꼭끼오!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 15=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_15</defName>
+			<label>joke — 15</label>
+			<logRulesInitiator>
+				<rulesStrings>
+					<!-- ===Bad opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
+					<!-- ===Good opinion of recipient=== -->
+						<li>r_logentry(INITIATOR_opinion>=0,tag=Joke_15b)->[good_opinion]</li>
+						<li>good_opinion->잘모르겠네. 어떻게 되는데?</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+	<!-- ===joke — 15b=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>Joke_15b</defName>
+			<label>joke — 15b</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(tag=JokeReaction)->심기불편해져!</li>
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+		
+	<!-- ===joke — reaction=== -->
+		<InteractionDef ParentName="SpeakUpReply">
+			<defName>JokeReaction</defName>
+			<label>joke — reaction</label>
+			<logRulesInitiator>
+				<rulesStrings>
+						<li>r_logentry(RECIPIENT_사교_level>=0)->[good]</li>
+						<li>r_logentry(RECIPIENT_사교_level>=5)->[good]</li>
+						<li>r_logentry(RECIPIENT_사교_level>=10)->[good]</li>
+						<li>r_logentry(RECIPIENT_사교_level>=15)->[good]</li>
+						<li>r_logentry(RECIPIENT_사교_level&lt;5)->[bad]</li>
+						<li>r_logentry(RECIPIENT_사교_level&lt;10)->[bad]</li>
+						<li>r_logentry(RECIPIENT_사교_level&lt;15)->[bad]</li>
+						<li>r_logentry(RECIPIENT_사교_level&lt;=20)->[bad]</li>						
+						
+						
+						<li>good(INITIATOR_mood>=0.7)->*폭소*</li>
+						<li>good(INITIATOR_mood>=0.4,INITIATOR_mood&lt;0.7)->*웃음*</li>
+						<li>good(INITIATOR_mood>=0.2,INITIATOR_mood&lt;0.4)->*미소 지음*</li>
+						<li>good(INITIATOR_mood&lt;0.2)->*한숨*</li>
+						
+						<li>bad(INITIATOR_trait==다정다감,priority=1)->*점잖게 웃음*</li>
+						<li>bad(INITIATOR_mood>=0.7)->*킥킥*</li>
+						<li>bad(INITIATOR_mood>=0.4,INITIATOR_mood&lt;0.7)->[mid_mood]</li>
+							<li>mid_mood->이미 들어본 거야...</li>
+							<li>mid_mood->음... 별로 재미없는걸...</li>
+						<li>bad(INITIATOR_mood>=0.2,INITIATOR_mood&lt;0.4)->*움찔*</li>
+						<li>bad(INITIATOR_mood&lt;0.2)->*째려봄*</li>
+						
+				</rulesStrings>
+			</logRulesInitiator>
+		</InteractionDef>
+
+</Defs>
