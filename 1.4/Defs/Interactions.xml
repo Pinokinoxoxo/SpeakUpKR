@@ -537,33 +537,37 @@
 			<rulesStrings>
 				<!-- ===Bad opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
-					<li>bad_opinion->[you_thought] your lousy hand was enough? Think again — pot's mine! *laughs*</li>
-					<li>bad_opinion->[you_thought] I couldn't see through your lousy bluff? Here's my hand — I beat you!</li>
-					<li>bad_opinion->As you can see, my dear [RECIPIENT_nameDef], I got a higher score here! Losers like you are always [gonna] lose — [grab_pot]</li>
-					<li>bad_opinion->Here's my hand — I win. That was a silly strategy, [RECIPIENT_nameDef] — [grab_pot]</li>
-						<li>you_thought->And you thought</li>
-						<li>you_thought->What made you think</li>
-						<li>you_thought->How could you possibly think</li>
-						<li>grab_pot->now let me grab the pot...</li>
-						<li>grab_pot->now hand over that pot.</li>
-						<li>grab_pot->and now the pot is mine.</li>
+					<li>bad_opinion->[you_thought] 네 형편없는 실력만으로 충분하다고 생각했어? — 칩은 전부 가져가지! *웃음*</li>
+					<li>bad_opinion->[you_thought] 내가 네 허세를 못 꿰뚫어볼 줄 알았어? 이게 내 [hand_bluff]야 — 내가 널 이겼어!</li>
+					<li>bad_opinion->친애하는 [RECIPIENT_nameDef], 보시다시피 내 점수가 더 높아! 너 같은 루저는 항상 지는 법이야 — [grab_pot]</li>
+					<li>bad_opinion->이게 내 [hand_bluff]야 — 내가 이겼어. 정말 어리석은 전략이었어, [RECIPIENT_nameDef] — [grab_pot]</li>
+						<li>you_thought->정말</li>
+						<li>you_thought->진심으로</li>
+						<li>you_thought->다시 생각해봐.</li>
+						<li>grab_pot->칩은 내가 가져가지...</li>
+						<li>grab_pot->칩 이리 넘겨.</li>
+						<li>grab_pot->칩 가져간다.</li>
+						<li>hand_bluff->카드</li>
+						<li>hand_bluff->패</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion->Sorry, [recipient]... [winning_ending]</li>
-					<li>good_opinion->Here's my hand, [recipient]. [winning_ending]</li>
-					<li>good_opinion->[looks_like] your hand isn't enough to [win], [recipient]. [winning_ending]</li>
-						<li>looks_like->looks like</li>
-						<li>looks_like->it seems</li>
-						<li>looks_like->I believe</li>
-						<li>win->win</li>
-						<li>win->beat mine</li>
-					<li>good_opinion(RECIPIENT_intellectual_level>=5)->Wow, [recipient] — weren't you supposed to be a skilled poker player? [winning_ending]</li>
-					<li>good_opinion->Looks like my bluff was better than yours, [recipient]. [winning_ending]</li>
+					<li>good_opinion->미안하지만, [recipient]... [winning_ending]</li>
+					<li>good_opinion->이게 내 [hand_bluff]야, [recipient]. [winning_ending]</li>
+					<li>good_opinion->[looks_like] [win]엔 패가 별로 안 좋았나봐, [recipient]. [winning_ending]</li>
+						<li>looks_like->아무래도</li>
+						<li>looks_like->아마</li>
+						<li>looks_like->내가 생각하기엔</li>
+						<li>win->네가 이기기</li>
+						<li>win->날 이기기</li>
+						<li>hand_bluff->카드</li>
+						<li>hand_bluff->패</li>
+					<li>good_opinion(RECIPIENT_intellectual_level>=5)->와우, [recipient] — 너 원래는 포커 잘 하지 않았어? 오늘은 왜 이러지? [winning_ending]</li>
+					<li>good_opinion->내 블러핑이 너보다 나은 것 같군, [recipient]. [winning_ending]</li>
 						
-						<li>winning_ending->I got a higher score here — I win. *smiles*</li>
-						<li>winning_ending->I got more points — and the pot, it seems. *smiles*</li>
-						<li>winning_ending->Pot's mine!</li>
-						<li>winning_ending->Now let me grab that pot...</li>
+						<li>winning_ending->내 점수가 더 높아 — 내가 이겼군. *웃음*</li>
+						<li>winning_ending->내 점수가 더 많으니 — 내가 칩을 챙겨야겠네. *웃음*</li>
+						<li>winning_ending->칩 이리 넘겨.</li>
+						<li>winning_ending->칩은 내가 가져가지...</li>
 
 			</rulesStrings>
 		</logRulesInitiator>
@@ -573,17 +577,19 @@
 		<label>poker — ready</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry->*nods*</li>
-				<li>r_logentry->Yes — I'm ready. Deal on!</li>
-				<li>r_logentry->Yeah, [recipient].</li>
+				<li>r_logentry->*끄덕*</li>
+				<li>r_logentry->좋아 — 준비됐어. [hand_bluff] 돌려!</li>
+				<li>r_logentry->좋아, [recipient].</li>
+					<li>hand_bluff->카드</li>
+					<li>hand_bluff->패</li>
 				<!-- ===Bad opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
-					<li>bad_opinion->Of course I am! Are you ready to lose, [recipient]?</li>
-					<li>bad_opinion->I'm ready — ready to show you how actual Poker is played.</li>
+					<li>bad_opinion->물론이지! 돈 잃을 준비는 되었나, [recipient]?</li>
+					<li>bad_opinion->난 준비됐어 — 진정한 포커가 무엇인지 보여주지.</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion->Yes, [recipient] — I'm ready. Let's go!</li>
-					<li>good_opinion->Yes, [recipient] — may the best of us win!</li>
+					<li>good_opinion->그래, [recipient] — 난 준비됐어. 가보자!</li>
+					<li>good_opinion->좋아, [recipient] — 누가 이기는지 보자구!</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -597,25 +603,25 @@
 				<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 					<li>bad_opinion->...</li>
-					<li>bad_opinion(INITIATOR_opinion&lt;-50)->May you wake up cold and stiff.</li>
+					<li>bad_opinion(INITIATOR_opinion&lt;-50)->내일 아침에 시체로 발견되길 간절히 바라지.</li>
 				<!-- ===Good opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion>=0)->[r_sick][comment][good_wish]</li>
-					<li>good_wish->Have a good rest, [recipient].</li>
-					<li>good_wish->Sleep well, [recipient].</li>
-					<li>good_wish->Rest well, [recipient].</li>
-					<li>good_wish->I wish you a good rest, [recipient].</li>
-					<li>good_wish(DAYPERIOD==evening)->Good night, [recipient].</li>
-					<li>good_wish(DAYPERIOD==night)->Good night, [recipient].</li>
+					<li>good_wish->푹 쉬어, [recipient].</li>
+					<li>good_wish->잘 자, [recipient].</li>
+					<li>good_wish->잘 쉬어, [recipient].</li>
+					<li>good_wish->푹 쉬었으면 좋겠네, [recipient].</li>
+					<li>good_wish(DAYPERIOD==evening)->좋은 밤 보내, [recipient].</li>
+					<li>good_wish(DAYPERIOD==night)->좋은 밤 되렴, [recipient].</li>
 					
 					<li>comment(INITIATOR_jobDefName==LayDown,INITIATOR_moving==Yes)->[me_too] </li>
-						<li>me_too(priority=-1)->I'm going too.</li>
-						<li>me_too(INITIATOR_thoughtDefName==Sick,RECIPIENT_thoughtDefName==Sick)->I'd better go too — I'm not feeling well either... </li>
-						<li>me_too(INITIATOR_thoughtDefName==NeedRest,RECIPIENT_thoughtDefName==NeedRest)->I'd better go too — I'm so tired as well... </li>
+						<li>me_too(priority=-1)->나도 그러려고.</li>
+						<li>me_too(INITIATOR_thoughtDefName==Sick,RECIPIENT_thoughtDefName==Sick)->나도 쉬어야겠어 — 나도 몸이 별로 안 좋은 것 같아...</li>
+						<li>me_too(INITIATOR_thoughtDefName==NeedRest,RECIPIENT_thoughtDefName==NeedRest)->나도 가야겠어 — 나도 너무 피곤해...</li>
 					<li>comment(priority=-1)-></li>
 					
-					<li>r_sick(RECIPIENT_thoughtDefName==Sick)->Oh, I'm sorry to hear that. </li>	
-					<li>r_sick(RECIPIENT_thoughtDefName==Sick)->Get well soon. </li>
-					<li>r_sick(RECIPIENT_thoughtDefName==Sick)->Sleep is good medicine. </li>
+					<li>r_sick(RECIPIENT_thoughtDefName==Sick)->오, 정말 유감이야. </li>	
+					<li>r_sick(RECIPIENT_thoughtDefName==Sick)->금방 좋아질거야. </li>
+					<li>r_sick(RECIPIENT_thoughtDefName==Sick)->잠이 보약이지. </li>
 					<li>r_sick(priority=-1)-></li>
 			</rulesStrings>
 		</logRulesInitiator>
@@ -628,33 +634,32 @@
 			<rulesStrings>
 				<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
-					<li>bad_opinion->No thanks. It sounds pretty [bad].</li>
-					<li>bad_opinion->What? No way! This is my favorite show playing right now!</li>
+					<li>bad_opinion->아니. 꽤 [bad] 들리는걸.</li>
+					<li>bad_opinion->뭐? 말도 안 돼! 지금 내가 가장 좋아하는 프로가 방영 중이라고!</li>
 				<!-- ===Good opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion->No, I like our current show — it's really [cool].</li>
-					<li>good_opinion->Yes, please. This show is [boring].</li>
-					<li>good_opinion->I'm fine with whatever, [recipient].</li>
-					<li>good_opinion->Sure, [recipient]! Let's check it out!</li>
+					<li>good_opinion->N아니, 지금 보는게 더 좋아 — 이거 정말 [cool].</li>
+					<li>good_opinion->그래, 바꾸자. 이 프로는 정말 [boring].</li>
+					<li>good_opinion->뭘 보든 상관없어, [recipient].</li>
+					<li>good_opinion->맘대로 해, [recipient]! 다른 곳은 뭐 하는지 둘러보자!</li>
 
 				<!-- ===WILDCARDS=== -->
-					<li>bad->bad</li>
-					<li>bad->lame</li>
-					<li>bad->boring</li>
-					<li>bad->uninteresting</li>
-					<li>bad->unexciting</li>
-					<li>bad->bland</li>
+					<li>bad->변변찮게</li>
+					<li>bad->지루하게</li>
+					<li>bad->재미없게</li>
+					<li>bad->따분하게</li>
+					<li>bad->건조하게</li>
+		
+					<li>boring->지루해</li>
+					<li>boring->지겨워</li>
+					<li>boring->보다 잠들 것 같아</li>
+					<li>boring->맘에 안들어</li>
 					
-					<li>boring->boring</li>
-					<li>boring->pretty boring</li>
-					<li>boring->making me fall asleep</li>
-					<li>boring->obnoxious</li>
-					
-					<li>cool->cool</li>
-					<li>cool->interesting</li>
-					<li>cool->intriguing</li>
-					<li>cool->amusing</li>
-					<li>cool->entertaining</li>
+					<li>cool->재밌어</li>
+					<li>cool->흥미로워</li>
+					<li>cool->자극적인 걸</li>
+					<li>cool->재미있는걸</li>
+					<li>cool->재미있어</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>

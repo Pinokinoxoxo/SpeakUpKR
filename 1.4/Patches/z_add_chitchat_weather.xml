@@ -218,18 +218,18 @@
 			<!-- ===WILDCARDS=== -->
 				<!-- ===Extreme cold felt=== -->
 					<!-- ===Clothes are not enough=== -->
-						<li>weather_toocold(INITIATOR_thoughtLabel==chilly,priority=1)->I should get better clothing — I'm almost freezing.</li>
-						<li>weather_toocold(INITIATOR_thoughtLabel==cold,priority=1)->I should get better clothing — I'm cold!</li>
-						<li>weather_toocold(INITIATOR_thoughtLabel==numbing cold,priority=1)->I should get better clothing — I'm freezing!</li>
-						<li>weather_toocold(INITIATOR_thoughtLabel==absolutely freezing,priority=1)->I should get better clothing — I'm totally numbed by the cold!</li>
+						<li>weather_toocold(INITIATOR_thoughtLabel==쌀쌀함,priority=1)->I should get better clothing — I'm almost freezing.</li>
+						<li>weather_toocold(INITIATOR_thoughtLabel==추움,priority=1)->I should get better clothing — I'm cold!</li>
+						<li>weather_toocold(INITIATOR_thoughtLabel==얼고있음,priority=1)->I should get better clothing — I'm freezing!</li>
+						<li>weather_toocold(INITIATOR_thoughtLabel==얼어붙음,priority=1)->I should get better clothing — I'm totally numbed by the cold!</li>
 					<!--Clothes are enough-->
 						<li>weather_toocold->Luckily, my gear is warm enough to protect me from this extreme cold!</li>
 				<!-- ===Extreme heat felt=== -->
 					<!-- ===Clothes are not enough=== -->
-						<li>weather_toohot(INITIATOR_thoughtLabel==sweaty,priority=1)->I should get better clothing — I'm sweating.</li>
-						<li>weather_toohot(INITIATOR_thoughtLabel==hot,priority=1)->I should get better clothing — I'm feeling very hot!</li>
-						<li>weather_toohot(INITIATOR_thoughtLabel==sweltering hot,priority=1)->I should get better clothing — I'm feeling extremely hot!</li>
-						<li>weather_toohot(INITIATOR_thoughtLabel==blistering hot,priority=1)->I should get better clothing — I'm melting!</li>
+						<li>weather_toohot(INITIATOR_thoughtLabel==땀남,priority=1)->I should get better clothing — I'm sweating.</li>
+						<li>weather_toohot(INITIATOR_thoughtLabel==더움,priority=1)->I should get better clothing — I'm feeling very hot!</li>
+						<li>weather_toohot(INITIATOR_thoughtLabel==무더위,priority=1)->I should get better clothing — I'm feeling extremely hot!</li>
+						<li>weather_toohot(INITIATOR_thoughtLabel==태워짐,priority=1)->I should get better clothing — I'm melting!</li>
 					<!-- ===Clothes are enough=== -->
 						<li>weather_toohot->Luckily, my gear is good enough to protect me from this scorching heat!</li>
 				<!-- ===snowstorm=== -->

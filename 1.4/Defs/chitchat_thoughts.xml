@@ -18,7 +18,7 @@
 					<li>good_opinion->[recipient], 즐거운 식사 하렴!</li>
 					<li>good_opinion->[recipient], 어서 먹어!</li>
 					<li>good_opinion(INITIATOR_social_level>=5)->[recipient], 맛있게 드세요!</li>
-					<li>good_opinion(INITIATOR_의학_level>=5)->[recipient], 천천히 먹어.</li>
+					<li>good_opinion(INITIATOR_medical_level>=5)->[recipient], 천천히 먹어.</li>
 					<li>good_opinion(INITIATOR_trait==식탐)->맛있게 먹어! 잘 먹는 게 인생의 전부 아니겠어!</li>
 					<li>good_opinion(INITIATOR_trait==검소)->천천히, [recipient], 천천히 먹으렴...</li>
 			</rulesStrings>
@@ -53,33 +53,33 @@
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level&lt;4)->[bad_opinion_unskilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>bad_opinion_unskilled(RECIPIENT_건설_level&lt;4)->...</li>
+							<li>bad_opinion_unskilled(RECIPIENT_construction_level&lt;4)->...</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>bad_opinion_unskilled(RECIPIENT_건설_level>=4)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
+							<li>bad_opinion_unskilled(RECIPIENT_construction_level>=4)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
 					<!-- ===Initiator is skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level>=4)->[bad_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level&lt;4)->그리고 [recipient], 넌 [shut_up].</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level&lt;4)->그리고 [recipient], 넌 [shut_up].</li>
 								<li>shut_up->입 좀 다물어</li>
 								<li>shut_up->잔소리 좀 그만해</li>
 								<li>shut_up->귀찮게 좀 하지 마</li>
 								<li>shut_up->제발 입 좀 닥쳐</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level>=4)->이봐, [recipient] — 식탁이 필요하면 직접 만들던가. 난 그런 것보다 중요한 일이 더 많다고.</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level>=4)->이봐, [recipient] — 식탁이 필요하면 직접 만들던가. 난 그런 것보다 중요한 일이 더 많다고.</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>good_opinion(INITIATOR_construction_level&lt;4)->[good_opinion_unskilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>good_opinion_unskilled(RECIPIENT_건설_level&lt;4)->우리, 이런 일은 더 없도록 하자. — [recipient], [annoying].</li>
+							<li>good_opinion_unskilled(RECIPIENT_construction_level&lt;4)->우리, 이런 일은 더 없도록 하자. — [recipient], [annoying].</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>good_opinion_unskilled(RECIPIENT_건설_level>=4)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
+							<li>good_opinion_unskilled(RECIPIENT_construction_level>=4)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
 					<!-- ===Initiator is skilled in construction=== -->
 						<li>good_opinion(INITIATOR_construction_level>=4)->[good_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level&lt;4)->만들 생각은 했는데 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level&lt;4)->만들 생각은 했는데 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level>=4)->맞아, [recipient] — 빨리 만들 걸 그랬어. 이젠 더 이상 이런 일이 일어나진 않을거야.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level>=4)->맞아, [recipient] — 빨리 만들 걸 그랬어. 이젠 더 이상 이런 일이 일어나진 않을거야.</li>
 				<!-- ===WILDCARDS=== -->
 					<li>annoying->이러면 조금 짜증 난단 말이야</li>
 					<li>annoying->난 이렇게 걸리적 거리는 게 싫어</li>
@@ -166,17 +166,17 @@
 						<li>recipient_corpse(INITIATOR_thoughtDefName==AteCorpse,priority=1)->내 말이! 정말 너무 끔찍했어! 맙소사, 대체 무슨 일이 벌어진 거지?!</li>
 				<!-- ===WILDCARDS=== -->
 					<li>medical_opinion_lavish_1-></li>
-					<li>medical_opinion_lavish_1(INITIATOR_의학_level>=5,priority=1)->[although] 난 조금 더 검소하게 먹는 게 더 건강하리라 생각해.</li>
+					<li>medical_opinion_lavish_1(INITIATOR_medical_level>=5,priority=1)->[although] 난 조금 더 검소하게 먹는 게 더 건강하리라 생각해.</li>
 					<li>medical_opinion_lavish_2-></li>
-					<li>medical_opinion_lavish_2(INITIATOR_의학_level>=5,priority=1)->[moreover] 그것보다 검소하게 먹는 게 네 건강에 더 도움이 될 거야.</li>
+					<li>medical_opinion_lavish_2(INITIATOR_medical_level>=5,priority=1)->[moreover] 그것보다 검소하게 먹는 게 네 건강에 더 도움이 될 거야.</li>
 					<li>medical_opinion_fine_1-></li>
-					<li>medical_opinion_fine_1(INITIATOR_의학_level>=5,priority=1)->[moreover] 균형 잡힌 올바른 식사를 하는 건 좋은 일이야. 다양하게 골고루 먹는 것 만큼 건강에 최고인 건 없으니까 말이야.</li>
+					<li>medical_opinion_fine_1(INITIATOR_medical_level>=5,priority=1)->[moreover] 균형 잡힌 올바른 식사를 하는 건 좋은 일이야. 다양하게 골고루 먹는 것 만큼 건강에 최고인 건 없으니까 말이야.</li>
 					<li>medical_opinion_fine_2-></li>
-					<li>medical_opinion_fine_2(INITIATOR_의학_level>=5,priority=1)->적어도 너는 운 좋게도 균형 잡힌 식사를 할 수 있잖아 — 네 건강에는 최고일거야.</li>
+					<li>medical_opinion_fine_2(INITIATOR_medical_level>=5,priority=1)->적어도 너는 운 좋게도 균형 잡힌 식사를 할 수 있잖아 — 네 건강에는 최고일거야.</li>
 					<li>medical_opinion_raw-></li>
-					<li>medical_opinion_raw(INITIATOR_의학_level>=5,priority=1)->[moreover] 날음식 함부로 먹으면 건강에 안 좋아!</li>
+					<li>medical_opinion_raw(INITIATOR_medical_level>=5,priority=1)->[moreover] 날음식 함부로 먹으면 건강에 안 좋아!</li>
 					<li>medical_opinion_corpse-></li>
-					<li>medical_opinion_corpse(INITIATOR_의학_level>=5,priority=1)->[moreover] 그건 네 건강에 진짜 치명적이라고!</li>
+					<li>medical_opinion_corpse(INITIATOR_medical_level>=5,priority=1)->[moreover] 그건 네 건강에 진짜 치명적이라고!</li>
 					<li>cooking_offer(INITIATOR_cooking_level&lt;6)-></li>
 					<li>cooking_offer(INITIATOR_cooking_level>=6)->네가 좋아할만한 요리를 만들도록 노력해볼게.</li>
 					<li>cook_opinion(INITIATOR_cooking_level&lt;6)->내 요리 실력이 조금만 더 좋았더라면...</li>
@@ -617,7 +617,7 @@
 					<!-- ===Also hungry or worse === -->
 						<li>good_opinion(INITIATOR_thoughtDefName==NeedFood,priority=2)->[hungry_too]</li>
 						<!-- ===hungry === -->
-							<li>hungry_too(INITIATOR_thoughtLabel==배고픔)->[thought_needfood_hungry0]</li>
+							<li>hungry_too(INITIATOR_thoughtLabel==1)->[thought_needfood_hungry0]</li>
 							<li>thought_needfood_hungry0->나 진짜 배고파.</li>
 							<li>thought_needfood_hungry0->나 좀 출출해.</li>
 							<li>thought_needfood_hungry0->배고파... — [animal_large] 한 마리를 통째로 먹을 수 있을 것만 같아!</li>
@@ -626,35 +626,35 @@
 							<li>thought_needfood_hungry0->뱃가죽이 등에 붙을 것만 같아!</li>
 							<li>thought_needfood_hungry0->나 [intensifier] 배고파!</li>
 							<li>thought_needfood_hungry0->뭐라도 먹을 수만 있으면 무슨 짓이라도 하겠어..!</li>
-							<li>thought_needfood_hungry0(RECIPIENT_thoughtLabel==배고픔,priority=2)->나도야, [recipient]!</li>
+							<li>thought_needfood_hungry0(RECIPIENT_thoughtLabel==1,priority=2)->나도야, [recipient]!</li>
 							<li>thought_needfood_hungry0(RECIPIENT_thoughtDefName==NeedFood,priority=1)->나도 배고파, [recipient]. 근데 너는 정말 굶어 죽게 생겼어! [offer_solution]</li>
 						<!-- ===ravenously hungry === -->
-							<li>hungry_too(INITIATOR_thoughtLabel==매우 배고픔)->[thought_needfood_hungry1]</li>
+							<li>hungry_too(INITIATOR_thoughtLabel==2)->[thought_needfood_hungry1]</li>
 							<li>thought_needfood_hungry1->배고파서 아무 것도 할 수가 없어. 지금 당장 뭐라도 먹어야 돼!</li>
 						<!-- ===malnourished === -->
-							<li>hungry_too(INITIATOR_thoughtLabel==굶주림 (초기))->[thought_needfood_hungry2]</li>
+							<li>hungry_too(INITIATOR_thoughtLabel==3)->[thought_needfood_hungry2]</li>
 							<li>thought_needfood_hungry2->너무 배고파서 몸이 약해지는 게 느껴져...</li>
 						<!-- ===badly malnourished === -->
-							<li>hungry_too(INITIATOR_thoughtLabel==굶주림 (약간))->[thought_needfood_hungry3]</li>
+							<li>hungry_too(INITIATOR_thoughtLabel==4)->[thought_needfood_hungry3]</li>
 							<li>thought_needfood_hungry3->너무 배고파... 배고파서 속이 너무 쓰려.</li>
 						<!-- ===starving === -->
-							<li>hungry_too(INITIATOR_thoughtLabel==굶주림)->[thought_needfood_hungry4]</li>
+							<li>hungry_too(INITIATOR_thoughtLabel==5)->[thought_needfood_hungry4]</li>
 							<li>thought_needfood_hungry4->하하, 내 뱃가죽이 등이랑 인사를 하네. 곧 있으면 굶어 죽게 생겼는데?</li>
 						<!-- ===advanced starvation === -->
-							<li>hungry_too(INITIATOR_thoughtLabel==굶주림 (심각))->[thought_needfood_hungry5]</li>
+							<li>hungry_too(INITIATOR_thoughtLabel==6)->[thought_needfood_hungry5]</li>
 							<li>thought_needfood_hungry5->이대로 가다간 기절해서 그대로 굶어 죽을 것 같아...</li>
 						<!-- ===extreme starvation === -->
-							<li>hungry_too(INITIATOR_thoughtLabel==굶주림 (극도))->[thought_needfood_hungry6]</li>
+							<li>hungry_too(INITIATOR_thoughtLabel==7)->[thought_needfood_hungry6]</li>
 							<li>thought_needfood_hungry6->밥... 아니 뭐라도 먹을 것 좀... 아무거나... 제발...</li>					
 					<!-- ===Not hungry === -->
 						<!-- ===Recipient is only a bit hungry === -->
-							<li>good_opinion(RECIPIENT_thoughtLabel==배고픔,priority=1)->주방이나 식자재 창고에 가봐 — 그 곳에서는 뭐라도 먹을 걸 찾을 수 있을거야.</li>
+							<li>good_opinion(RECIPIENT_thoughtLabel==1,priority=1)->주방이나 식자재 창고에 가봐 — 그 곳에서는 뭐라도 먹을 걸 찾을 수 있을거야.</li>
 						<!-- ===Recipient is in dire conditions === -->
 							<li>good_opinion->정말 유감이야, [recipient]. [offer_solution]</li>
 				<!-- ===WILDCARDS=== -->
 				<!-- ===offer a solution=== -->
 				
-						<li>comment(INITIATOR_제작_level>=5)->내가 새 옷 만들어 줄 수 있어.</li>
+						<li>comment(INITIATOR_crafting_level>=5)->내가 새 옷 만들어 줄 수 있어.</li>
 					<li>comment(INITIATOR_social_level>=5)->다음에 상단이 방문한다면 내가 어떻게든 네 새 옷을 구해볼게.</li>
 					
 					
@@ -663,7 +663,7 @@
 					<li>offer_solution(INITIATOR_faction==PlayerTribe,priority=1)->[offer_solution_colonist]</li>
 					<li>offer_solution_colonist(INITIATOR_plants_level>=5)->아무래도 재배구역을 늘리는 걸 고려해야겠어, 그래야 이런 일이 더 이상 안 일어나겠지.</li>
 					<li>offer_solution_colonist(INITIATOR_animals_level>=5)->아무래도 가축을 더 늘리는 걸 고려해야겠어, 그래야 이런 일이 더 이상 안 일어나겠지.</li>
-					<li>offer_solution_colonist(INITIATOR_animals_level>=5,INITIATOR_사격_level>=5)->뭐라도 사냥을 시도해봐야겠어 — 그게 도움이 됐으면 좋겠네.</li>
+					<li>offer_solution_colonist(INITIATOR_animals_level>=5,INITIATOR_shooting_level>=5)->뭐라도 사냥을 시도해봐야겠어 — 그게 도움이 됐으면 좋겠네.</li>
 					<li>offer_solution_colonist(INITIATOR_social_level>=5)->어서 빨리 상단이 방문하길 기대하자고 — 어떻게든 음식을 구해봐야겠어.</li>
 				<!-- ===animal — large=== -->
 					<li>animal_large->말</li>
@@ -685,7 +685,7 @@
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
 					<!-- ===Good cook === -->
-						<li>good_opinion(INITIATOR_조리_level>=6,priority=1)->고마워!</li>
+						<li>good_opinion(INITIATOR_cooking_level>=6,priority=1)->고마워!</li>
 					<!-- ===Bad cook === -->
 						<li>good_opinion->나는 최선을 다했을 뿐이야... 나도 내가 요리를 잘 했으면 좋겠는 걸...</li>
 			</rulesStrings>
@@ -812,8 +812,8 @@
 						<li>good_opinion(INITIATOR_thoughtLabel==좁은 공간,priority=1)->[dissatisfied]</li>
 						<li>dissatisfied(INITIATOR_construction_level>=5)->맞아, [recipient]. 내가 어떻게든 고쳐볼게.</li>
 						<li>dissatisfied(INITIATOR_construction_level&lt;5)->내 말이 그 말이야, [recipient]! 나도 똑같은 생각 했어!</li>
-						<li>dissatisfied(INITIATOR_construction_level>=5,RECIPIENT_건설_level>=5,priority=1)->맞아, [recipient]. 네가 그리 해준다면 그렇잖아도 내가 도와주려고 했어.</li>
-						<li>dissatisfied(INITIATOR_construction_level&lt;5,RECIPIENT_건설_level>=5,priority=1)->응, [recipient]. 네가 힘 써주면 진짜 좋을 것 같아!</li>
+						<li>dissatisfied(INITIATOR_construction_level>=5,RECIPIENT_construction_level>=5,priority=1)->맞아, [recipient]. 네가 그리 해준다면 그렇잖아도 내가 도와주려고 했어.</li>
+						<li>dissatisfied(INITIATOR_construction_level&lt;5,RECIPIENT_construction_level>=5,priority=1)->응, [recipient]. 네가 힘 써주면 진짜 좋을 것 같아!</li>
 					<!-- ===initiator satisfied=== -->
 						<li>good_opinion->[satisfied1]</li>
 						<li>satisfied1->으음, [recipient] — 그렇게 생각할 수도 있을 것 같은데, 내가 보기엔 이 정도가 우리에게 딱 적당한 크기 같아.</li>
@@ -1199,34 +1199,34 @@
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level&lt;5)->[bad_opinion_unskilled]</li>
 						<!-- ===Recipient is skilled in construction (guaranteed)=== -->
-							<li>bad_opinion_unskilled(RECIPIENT_건설_level>=5)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
+							<li>bad_opinion_unskilled(RECIPIENT_construction_level>=5)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
 					<!-- ===Initiator is skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level>=5)->[bad_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level&lt;5)->그리고 [recipient], 넌 [shut_up]</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level&lt;5)->그리고 [recipient], 넌 [shut_up]</li>
 								<li>shut_up->입 좀 다물어.</li>
 								<li>shut_up->잔소리 좀 그만해.</li>
 								<li>shut_up->귀찮게 좀 하지 마.</li>
 								<li>shut_up->제발 입 좀 닥쳐.</li>
 								<li>shut_up->네 일이나 신경 써.</li>
 								<li>shut_up->네 일이나 잘 하지 그래?</li>
-								<li>shut_up(INITIATOR_연구_level>=5)->계속 시끄럽게 쫑알대다간 네 할 일도 못 할텐데?</li>
-								<li>shut_up(INITIATOR_연구_level>=5)->그 입을 좀 닫고 조용히 있는 게 좋을거야.</li>
-								<li>shut_up(INITIATOR_연구_level>=7)->그 잘나신 입을 좀 쉬게 하는 건 어떨까? - 지금 당장 말이야.</li>
+								<li>shut_up(INITIATOR_intellectual_level>=5)->계속 시끄럽게 쫑알대다간 네 할 일도 못 할텐데?</li>
+								<li>shut_up(INITIATOR_intellectual_level>=5)->그 입을 좀 닫고 조용히 있는 게 좋을거야.</li>
+								<li>shut_up(INITIATOR_intellectual_level>=7)->그 잘나신 입을 좀 쉬게 하는 건 어떨까? - 지금 당장 말이야.</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level>=5)->몸 덥힐 게 필요하다면 말야, [recipient], 네가 직접 만들어서 써 — 난 그런 것보다 중요한 일이 더 많다고.</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level>=5)->몸 덥힐 게 필요하다면 말야, [recipient], 네가 직접 만들어서 써 — 난 그런 것보다 중요한 일이 더 많다고.</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>good_opinion(INITIATOR_construction_level&lt;5)->[good_opinion_unskilled]</li>
 						<!-- ===Recipient is skilled in construction (guaranteed)=== -->
-							<li>good_opinion_unskilled(RECIPIENT_건설_level>=5)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
+							<li>good_opinion_unskilled(RECIPIENT_construction_level>=5)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
 					<!-- ===Initiator is skilled in construction=== -->
 						<li>good_opinion(INITIATOR_construction_level>=5)->[good_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level&lt;5)->몸을 데울만한 걸 만들 생각은 했는데 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level&lt;5)->몸을 데울만한 걸 만들 생각은 했는데 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level>=5)->맞아, [recipient] — 몸을 데울만한 걸 빨리 만들 걸 그랬어. 이젠 더 이상 이런 일이 일어나도록 놔두지 않을 거야.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level>=5)->맞아, [recipient] — 몸을 데울만한 걸 빨리 만들 걸 그랬어. 이젠 더 이상 이런 일이 일어나도록 놔두지 않을 거야.</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -1272,34 +1272,34 @@
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level&lt;5)->[bad_opinion_unskilled]</li>
 						<!-- ===Recipient is skilled in construction (guaranteed)=== -->
-							<li>bad_opinion_unskilled(RECIPIENT_건설_level>=5)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
+							<li>bad_opinion_unskilled(RECIPIENT_construction_level>=5)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
 					<!-- ===Initiator is skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level>=5)->[bad_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level&lt;5)->그리고 [recipient], 넌 [shut_up]</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level&lt;5)->그리고 [recipient], 넌 [shut_up]</li>
 								<li>shut_up->입 좀 다물어.</li>
 								<li>shut_up->잔소리 좀 그만해.</li>
 								<li>shut_up->귀찮게 좀 하지 마.</li>
 								<li>shut_up->제발 입 좀 닥쳐.</li>
 								<li>shut_up->네 일이나 신경 써.</li>
 								<li>shut_up->네 일이나 잘 하지 그래?</li>
-								<li>shut_up(INITIATOR_연구_level>=5)->계속 시끄럽게 쫑알대다간 네 할 일도 못 할텐데?</li>
-								<li>shut_up(INITIATOR_연구_level>=5)->그 입을 좀 닫고 조용히 있는 게 좋을거야.</li>
-								<li>shut_up(INITIATOR_연구_level>=7)->그 잘나신 입을 좀 쉬게 하는 건 어떨까? - 지금 당장 말이야.</li>
+								<li>shut_up(INITIATOR_intellectual_level>=5)->계속 시끄럽게 쫑알대다간 네 할 일도 못 할텐데?</li>
+								<li>shut_up(INITIATOR_intellectual_level>=5)->그 입을 좀 닫고 조용히 있는 게 좋을거야.</li>
+								<li>shut_up(INITIATOR_intellectual_level>=7)->그 잘나신 입을 좀 쉬게 하는 건 어떨까? - 지금 당장 말이야.</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level>=5)->냉방 기기가 필요하다면 말야, [recipient], 네가 직접 만들지 그래? — 난 그런 것보다 중요한 일이 더 많다고.</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level>=5)->냉방 기기가 필요하다면 말야, [recipient], 네가 직접 만들지 그래? — 난 그런 것보다 중요한 일이 더 많다고.</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>good_opinion(INITIATOR_construction_level&lt;5)->[good_opinion_unskilled]</li>
 						<!-- ===Recipient is skilled in construction (guaranteed)=== -->
-							<li>good_opinion_unskilled(RECIPIENT_건설_level>=5)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
+							<li>good_opinion_unskilled(RECIPIENT_construction_level>=5)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
 					<!-- ===Initiator is skilled in construction=== -->
 						<li>good_opinion(INITIATOR_construction_level>=5)->[good_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level&lt;5)->몸을 식힐 만한 걸 만들 생각은 했는데 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level&lt;5)->몸을 식힐 만한 걸 만들 생각은 했는데 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level>=5)->맞아, [recipient] — 몸을 식힐 냉방 기기를 빨리 만들 걸 그랬어. 이젠 더 이상 이런 일이 일어나지 않을거야.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level>=5)->맞아, [recipient] — 몸을 식힐 냉방 기기를 빨리 만들 걸 그랬어. 이젠 더 이상 이런 일이 일어나지 않을거야.</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -1314,38 +1314,38 @@
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level&lt;4)->[bad_opinion_unskilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>bad_opinion_unskilled(RECIPIENT_건설_level&lt;4)->...</li>
+							<li>bad_opinion_unskilled(RECIPIENT_construction_level&lt;4)->...</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>bad_opinion_unskilled(RECIPIENT_건설_level>=4)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
+							<li>bad_opinion_unskilled(RECIPIENT_construction_level>=4)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
 					<!-- ===Initiator is skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level>=4)->[bad_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level&lt;4)->그리고 [recipient], 넌 [shut_up]</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level&lt;4)->그리고 [recipient], 넌 [shut_up]</li>
 								<li>shut_up->입 좀 다물어.</li>
 								<li>shut_up->잔소리 좀 그만해.</li>
 								<li>shut_up->귀찮게 좀 하지 마.</li>
 								<li>shut_up->제발 입 좀 닥쳐.</li>
 								<li>shut_up->네 일이나 신경 써.</li>
 								<li>shut_up->네 일이나 잘 하지 그래?</li>
-								<li>shut_up(INITIATOR_연구_level>=5)->계속 시끄럽게 쫑알대다간 네 할 일도 못 할텐데?</li>
-								<li>shut_up(INITIATOR_연구_level>=5)->그 입을 좀 닫고 조용히 있는 게 좋을거야.</li>
-								<li>shut_up(INITIATOR_연구_level>=7)->그 잘나신 입을 좀 쉬게 하는 건 어떨까? - 지금 당장 말이야.</li>
+								<li>shut_up(INITIATOR_intellectual_level>=5)->계속 시끄럽게 쫑알대다간 네 할 일도 못 할텐데?</li>
+								<li>shut_up(INITIATOR_intellectual_level>=5)->그 입을 좀 닫고 조용히 있는 게 좋을거야.</li>
+								<li>shut_up(INITIATOR_intellectual_level>=7)->그 잘나신 입을 좀 쉬게 하는 건 어떨까? - 지금 당장 말이야.</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level>=4)->침대가 필요하다면 말야, [recipient], 네가 직접 만들지 그래? — 난 그런 것보다 중요한 일이 더 많다고.</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level>=4)->침대가 필요하다면 말야, [recipient], 네가 직접 만들지 그래? — 난 그런 것보다 중요한 일이 더 많다고.</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>good_opinion(INITIATOR_construction_level&lt;4)->[good_opinion_unskilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>good_opinion_unskilled(RECIPIENT_건설_level&lt;4)->이런 일은 다시 일어나지 않을거야, [recipient] — 이거 정말 [annoying].</li>
+							<li>good_opinion_unskilled(RECIPIENT_construction_level&lt;4)->이런 일은 다시 일어나지 않을거야, [recipient] — 이거 정말 [annoying].</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>good_opinion_unskilled(RECIPIENT_건설_level>=4)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
+							<li>good_opinion_unskilled(RECIPIENT_construction_level>=4)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
 					<!-- ===Initiator is skilled in construction=== -->
 						<li>good_opinion(INITIATOR_construction_level>=4)->[good_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level&lt;4)->네 침대를 만드려 했는데 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level&lt;4)->네 침대를 만드려 했는데 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level>=4)->맞아, [recipient] — 네 침대를 빨리 만들었어야 했어. 이젠 더 이상 이런 일이 일어나지 않을거야.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level>=4)->맞아, [recipient] — 네 침대를 빨리 만들었어야 했어. 이젠 더 이상 이런 일이 일어나지 않을거야.</li>
 				<!-- ===WILDCARDS=== -->
 					<li>annoying->좋지 않아</li>
 					<li>annoying->문제 있어</li>
@@ -1369,38 +1369,38 @@
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level&lt;4)->[bad_opinion_unskilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>bad_opinion_unskilled(RECIPIENT_건설_level&lt;4)->...</li>
+							<li>bad_opinion_unskilled(RECIPIENT_construction_level&lt;4)->...</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>bad_opinion_unskilled(RECIPIENT_건설_level>=4)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
+							<li>bad_opinion_unskilled(RECIPIENT_construction_level>=4)->[recipient], 그래. 그럴 수도 있지 — 이젠 좀 생산적인 행동을 하지 그래?</li>
 					<!-- ===Initiator is skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level>=4)->[bad_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level&lt;4)->그리고 [recipient], 넌 [shut_up]</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level&lt;4)->그리고 [recipient], 넌 [shut_up]</li>
 								<li>shut_up->입 좀 다물어.</li>
 								<li>shut_up->잔소리 좀 그만해.</li>
 								<li>shut_up->귀찮게 좀 하지 마.</li>
 								<li>shut_up->제발 입 좀 닥쳐.</li>
 								<li>shut_up->네 일이나 신경 써.</li>
 								<li>shut_up->네 일이나 잘 하지 그래?</li>
-								<li>shut_up(INITIATOR_연구_level>=5)->계속 시끄럽게 쫑알대다간 네 할 일도 못 할텐데?</li>
-								<li>shut_up(INITIATOR_연구_level>=5)->그 입을 좀 닫고 조용히 있는 게 좋을거야.</li>
-								<li>shut_up(INITIATOR_연구_level>=7)->그 잘나신 입을 좀 쉬게 하는 건 어떨까? - 지금 당장 말이야.</li>
+								<li>shut_up(INITIATOR_intellectual_level>=5)->계속 시끄럽게 쫑알대다간 네 할 일도 못 할텐데?</li>
+								<li>shut_up(INITIATOR_intellectual_level>=5)->그 입을 좀 닫고 조용히 있는 게 좋을거야.</li>
+								<li>shut_up(INITIATOR_intellectual_level>=7)->그 잘나신 입을 좀 쉬게 하는 건 어떨까? - 지금 당장 말이야.</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>bad_opinion_skilled(RECIPIENT_건설_level>=4)->실내 공간이 필요하다면 말야, [recipient], 네가 직접 만들지 그래? — 난 그런 것보다 중요한 일이 더 많다고.</li>
+							<li>bad_opinion_skilled(RECIPIENT_construction_level>=4)->실내 공간이 필요하다면 말야, [recipient], 네가 직접 만들지 그래? — 난 그런 것보다 중요한 일이 더 많다고.</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
 					<!-- ===Initiator is not skilled in construction=== -->
-						<li>good_opinion(INITIATOR_건설_level&lt;4)->[good_opinion_unskilled]</li>
+						<li>good_opinion(INITIATOR_construction_level&lt;4)->[good_opinion_unskilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>good_opinion_unskilled(RECIPIENT_건설_level&lt;4)->이런 일은 다시 일어나지 않을거야, [recipient] — 이거 정말 [annoying].</li>
+							<li>good_opinion_unskilled(RECIPIENT_construction_level&lt;4)->이런 일은 다시 일어나지 않을거야, [recipient] — 이거 정말 [annoying].</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>good_opinion_unskilled(RECIPIENT_건설_level>=4)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
+							<li>good_opinion_unskilled(RECIPIENT_construction_level>=4)->[recipient], 걱정 마 — 두 번 다시 네게 이런 일은 없을거야.</li>
 					<!-- ===Initiator is skilled in construction=== -->
-						<li>good_opinion(INITIATOR_건설_level>=4)->[good_opinion_skilled]</li>
+						<li>good_opinion(INITIATOR_construction_level>=4)->[good_opinion_skilled]</li>
 						<!-- ===Recipient is not skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level&lt;4)->너를 위해 실내 공간을 빨리 만들었어야 했는데, 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level&lt;4)->너를 위해 실내 공간을 빨리 만들었어야 했는데, 깜빡하고 잊어버렸어. 미안, [recipient] — 다시는 이런 일 없도록 할게.</li>
 						<!-- ===Recipient is skilled in construction=== -->
-							<li>good_opinion_skilled(RECIPIENT_건설_level>=4)->맞아, [recipient] — 실내 공간을 빨리 만들었어야 했어. 이젠 더 이상 이런 일이 일어나지 않을거야.</li>
+							<li>good_opinion_skilled(RECIPIENT_construction_level>=4)->맞아, [recipient] — 실내 공간을 빨리 만들었어야 했어. 이젠 더 이상 이런 일이 일어나지 않을거야.</li>
 				<!-- ===WILDCARDS=== -->
 					<li>annoying->좋지 않아</li>
 					<li>annoying->문제 있어</li>

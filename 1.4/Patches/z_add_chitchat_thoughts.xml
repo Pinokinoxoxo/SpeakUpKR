@@ -5,10 +5,10 @@
 		<value>
 				<!-- ===ApparelDamaged=== -->
 					<li>r_logentry(INITIATOR_thoughtDefName==ApparelDamaged,tag=ReactToThought_ApparelDamaged)->[apparel_damaged]</li>
-					<li>apparel_damaged(INITIATOR_thoughtLabel==ratty apparel)->My outfit is starting to show holes here and there. [apparel_damaged_comment]</li>
-					<li>apparel_damaged(INITIATOR_thoughtLabel==ratty apparel)->I just noticed another hole in my outfit. [apparel_damaged_comment]</li>
-					<li>apparel_damaged(INITIATOR_thoughtLabel==tattered apparel)->My outfit looks like it's about to fall apart. [apparel_damaged_comment]</li>
-					<li>apparel_damaged(INITIATOR_thoughtLabel==tattered apparel)->Part of my outfit almost fell off earlier! [apparel_damaged_comment]</li>
+					<li>apparel_damaged(INITIATOR_thoughtLabel==해진 복장)->My outfit is starting to show holes here and there. [apparel_damaged_comment]</li>
+					<li>apparel_damaged(INITIATOR_thoughtLabel==해진 복장)->I just noticed another hole in my outfit. [apparel_damaged_comment]</li>
+					<li>apparel_damaged(INITIATOR_thoughtLabel==낡은 옷)->My outfit looks like it's about to fall apart. [apparel_damaged_comment]</li>
+					<li>apparel_damaged(INITIATOR_thoughtLabel==낡은 옷)->Part of my outfit almost fell off earlier! [apparel_damaged_comment]</li>
 						<!-- ===WILDCARDS=== -->
 							<li>apparel_damaged_comment-></li>
 							<li>apparel_damaged_comment(INITIATOR_social_level>=5)-> That's unacceptable — what would people think about me?</li>
@@ -48,13 +48,13 @@
 						<li>r_logentry(INITIATOR_faction==PlayerTribe)->[thought_diningroom]</li>
 						<!-- ===AteInImpressiveDiningRoom=== -->
 							<li>thought_diningroom(INITIATOR_thoughtDefName==AteInImpressiveDiningRoom,tag=ReactToThought_DiningRoom,priority=2)->[thought_diningroom_good]</li>
-							<li>thought_diningroom_good(INITIATOR_thoughtLabel==decent dining room)->Last time I ate, it was in a [proper] dining room.</li>
-							<li>thought_diningroom_good(INITIATOR_thoughtLabel==slightly impressive dining room)->Last time I ate, it was in a slightly impressive dining room.</li>
-							<li>thought_diningroom_good(INITIATOR_thoughtLabel==somewhat impressive dining room)->Last time I ate, it was in an impressive dining room.</li>
-							<li>thought_diningroom_good(INITIATOR_thoughtLabel==very impressive dining room)->Last time I ate, it was in a very impressive dining room.</li>
-							<li>thought_diningroom_good(INITIATOR_thoughtLabel==extremely impressive dining room)->Last time I ate, it was in an extremely impressive dining room. I could stay there forever.</li>
-							<li>thought_diningroom_good(INITIATOR_thoughtLabel==unbelievably impressive dining room)->Last time I ate, it was in an unbelievably impressive dining room. I could stay there forever.</li>
-							<li>thought_diningroom_good(INITIATOR_thoughtLabel==wondrously impressive dining room)->Last time I ate, it was in a wonderful dining room. I could stay there forever.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==괜찮은 식당)->Last time I ate, it was in a [proper] dining room.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==약간 인상적인 식당)->Last time I ate, it was in a slightly impressive dining room.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==꽤 인상적인 식당)->Last time I ate, it was in an impressive dining room.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==상당히 인상적인 식당)->Last time I ate, it was in a very impressive dining room.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==매우 인상적인 식당)->Last time I ate, it was in an extremely impressive dining room. I could stay there forever.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==굉장히 인상적인 식당)->Last time I ate, it was in an unbelievably impressive dining room. I could stay there forever.</li>
+							<li>thought_diningroom_good(INITIATOR_thoughtLabel==극도로 인상적인 식당)->Last time I ate, it was in a wonderful dining room. I could stay there forever.</li>
 						<!-- ===AteWithoutTable=== -->
 							<li>thought_diningroom(INITIATOR_thoughtDefName==AteWithoutTable,priority=1)->[thought_atewotable]</li>
 								<!-- ===Stressed || abrasive=== -->
@@ -91,10 +91,10 @@
 				<!-- ===EnvironmentCold=== -->
 					<li>r_logentry(INITIATOR_thoughtDefName==EnvironmentCold,tag=ReactToThought_EnvironmentCold)->[thought_environmentcold]</li>
 					<li>thought_environmentcold(p=0.5)->Brr! *shiver*</li>
-					<li>thought_environmentcold(INITIATOR_thoughtLabel==chilly)->I'm uncomfortably cold.</li>
-					<li>thought_environmentcold(INITIATOR_thoughtLabel==cold)->I'm [swearword_adverb]freezing!</li>
-					<li>thought_environmentcold(INITIATOR_thoughtLabel==numbing cold)->I can't stop [swearword_adverb]shivering from the cold!</li>
-					<li>thought_environmentcold(INITIATOR_thoughtLabel==absolutely freezing)->My teeth are [swearword_adverb]chattering so hard I can barely speak!</li>
+					<li>thought_environmentcold(INITIATOR_thoughtLabel==쌀쌀함)->I'm uncomfortably cold.</li>
+					<li>thought_environmentcold(INITIATOR_thoughtLabel==추움)->I'm [swearword_adverb]freezing!</li>
+					<li>thought_environmentcold(INITIATOR_thoughtLabel==얼고있음)->I can't stop [swearword_adverb]shivering from the cold!</li>
+					<li>thought_environmentcold(INITIATOR_thoughtLabel==얼어붙음)->My teeth are [swearword_adverb]chattering so hard I can barely speak!</li>
 				<!-- ===EnvironmentDark=== -->
 					<li>r_logentry(INITIATOR_thoughtDefName==EnvironmentDark,tag=ReactToThought_EnvironmentDark)->[thought_environmentdark]</li>
 						<!-- ===Special trait — undergrounder=== -->
@@ -116,10 +116,10 @@
 							<li>extra(INITIATOR_trait==depressive)->just like each and every day of my life.</li>
 				<!-- ===EnvironmentHot=== -->
 					<li>r_logentry(INITIATOR_thoughtDefName==EnvironmentHot,tag=ReactToThought_EnvironmentHot)->[thought_environmenthot]</li>
-					<li>thought_environmenthot(INITIATOR_thoughtLabel==sweaty)->It's quite hot here.</li>
-					<li>thought_environmenthot(INITIATOR_thoughtLabel==hot)->It's way too [swearword_adverb]hot here!</li>
-					<li>thought_environmenthot(INITIATOR_thoughtLabel==sweltering hot)->I feel like I'm in a [swearword]furnace — I must get somewhere cooler!</li>
-					<li>thought_environmenthot(INITIATOR_thoughtLabel==blistering hot)->This place is searing hot — I think I could [swearword_adverb]die from this heat!</li>
+					<li>thought_environmenthot(INITIATOR_thoughtLabel==땀남)->It's quite hot here.</li>
+					<li>thought_environmenthot(INITIATOR_thoughtLabel==더움)->It's way too [swearword_adverb]hot here!</li>
+					<li>thought_environmenthot(INITIATOR_thoughtLabel==무더위)->I feel like I'm in a [swearword]furnace — I must get somewhere cooler!</li>
+					<li>thought_environmenthot(INITIATOR_thoughtLabel==태워짐)->This place is searing hot — I think I could [swearword_adverb]die from this heat!</li>
 				<!-- ===Expectations=== -->
 				<!-- ===Freed from slavery=== -->
 					<li>r_logentry(INITIATOR_thoughtDefName==FreedFromSlavery,tag=ReactToThought_ExSlave)->[thought_freed]</li>
@@ -128,13 +128,13 @@
 					<li>thought_freed->I treasure my freedom. I'm thankful that your group gave me my life back.</li>
 				<!-- ===JoyActivityInImpressiveRecRoom=== -->
 					<li>r_logentry(INITIATOR_thoughtDefName==JoyActivityInImpressiveRecRoom,tag=ReactToThought_JoyRoom)->[thought_joyroom]</li>
-					<li>thought_joyroom(INITIATOR_thoughtLabel==decent rec room)->I think we have a decent rec room.</li>
-					<li>thought_joyroom(INITIATOR_thoughtLabel==slightly impressive rec room)->I think we have a nice rec room.</li>
-					<li>thought_joyroom(INITIATOR_thoughtLabel==somewhat impressive rec room)->I think we have a very nice rec room.</li>
-					<li>thought_joyroom(INITIATOR_thoughtLabel==very impressive rec room)->I think our rec room is quite impressive!</li>
-					<li>thought_joyroom(INITIATOR_thoughtLabel==extremely impressive rec room)->I think our rec room is extremely impressive!</li>
-					<li>thought_joyroom(INITIATOR_thoughtLabel==unbelievably impressive rec room)->We're so lucky to have such an unbelievably impressive rec room!</li>
-					<li>thought_joyroom(INITIATOR_thoughtLabel==wondrously impressive rec room)->Our rec room is wondrously impressive! [wondrously_impressive_comment]</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==괜찮은 휴게실)->I think we have a decent rec room.</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==약간 인상적인 휴게실)->I think we have a nice rec room.</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==꽤 인상적인 휴게실)->I think we have a very nice rec room.</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==상당히 인상적인 휴게실)->I think our rec room is quite impressive!</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==매우 인상적인 휴게실)->I think our rec room is extremely impressive!</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==굉장히 인상적인 휴게실)->We're so lucky to have such an unbelievably impressive rec room!</li>
+					<li>thought_joyroom(INITIATOR_thoughtLabel==극도로 인상적인 휴게실)->Our rec room is wondrously impressive! [wondrously_impressive_comment]</li>
 						<!-- ===comment === -->
 						<li>wondrously_impressive_comment->I could stay there forever!</li>
 						<li>wondrously_impressive_comment->I love being there!</li>
@@ -155,61 +155,61 @@
 					<li>thought_prisonersold(INITIATOR_trait==greedy,priority=1)->Selling that [prisoner] into slavery was no noble deed, but hey — if it means getting paid for it, I'm in!</li>				
 				<!-- ===NeedBeauty=== -->
 					<!-- ===hideous=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==hideous environment,tag=ReactToThought_NeedBeauty_hideous)->[thought_needbeauty_hideous]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==끔찍한 환경,tag=ReactToThought_NeedBeauty_hideous)->[thought_needbeauty_hideous]</li>
 						<li>thought_needbeauty_hideous->This place is unbearably [ugly]. I can't look at this any more.</li>
 						<li>thought_needbeauty_hideous->I hate being in a place like this. It's too [ugly] for me to stand it...</li>
 						<li>thought_needbeauty_hideous->I can't believe this place is so deeply [ugly]...</li>
 						<li>thought_needbeauty_hideous(INITIATOR_trait==depressive)->This place is a perfect depiction of our future — bleak and dreary.</li>
 						<li>thought_needbeauty_hideous(INITIATOR_trait==pyromaniac)->This place is so totally dismal we could burn it down to ashes — and even so, it would look better!</li>
 					<!-- ===ugly=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==ugly environment,tag=ReactToThought_NeedBeauty_ugly)->[thought_needbeauty_ugly]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==매우 나쁜 환경,tag=ReactToThought_NeedBeauty_ugly)->[thought_needbeauty_ugly]</li>
 						<li>thought_needbeauty_ugly->This place is really [ugly]. I wish I didn't have to look at this any more.</li>
 						<li>thought_needbeauty_ugly->This place is [intensifier][ugly].</li>
 						<li>thought_needbeauty_ugly->I don't like being in a [ugly] place like this.</li>
 						<li>thought_needbeauty_ugly(INITIATOR_trait==depressive)->It's very [ugly] around here... but then again — it's OK: it's the best I'll ever get in this life, I'm sure.</li>
 						<li>thought_needbeauty_ugly(INITIATOR_trait==pyromaniac)->This place is hopelessly [ugly]. Let's burn it down and build a better one from scratch!</li>
 					<!-- ===unsightly=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==unsightly environment,tag=ReactToThought_NeedBeauty_unsightly)->[thought_needbeauty_unsightly]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==나쁜 환경,tag=ReactToThought_NeedBeauty_unsightly)->[thought_needbeauty_unsightly]</li>
 						<li>thought_needbeauty_unsightly->This place is kind of [unsightly]. I wish I didn't have to look at all this.</li>
 						<li>thought_needbeauty_unsightly->I wish this place were more [moderately_attractive_obj]. It's too [unsightly].</li>
 					<!-- ===pretty=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==pretty environment,tag=ReactToThought_NeedBeauty_pretty)->[thought_needbeauty_pretty]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==만족스러운 환경,tag=ReactToThought_NeedBeauty_pretty)->[thought_needbeauty_pretty]</li>
 						<li>thought_needbeauty_pretty->This place looks nice.</li>
 						<li>thought_needbeauty_pretty->This is a [moderately_attractive_obj] place.</li>
 					<!-- ===beautiful=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==beautiful environment,tag=ReactToThought_NeedBeauty_beautiful)->[thought_needbeauty_beautiful]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==매우 만족스러운 환경,tag=ReactToThought_NeedBeauty_beautiful)->[thought_needbeauty_beautiful]</li>
 						<li>thought_needbeauty_pretty->I really like this place. It's [intensifier]beautiful.</li>
 						<li>thought_needbeauty_pretty->I like being here. It's [intensifier]beautiful.</li>
 						<li>thought_needbeauty_pretty->This place is [intensifier]beautiful.</li>
 					<!-- ===gorgeous=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==gorgeous environment,tag=ReactToThought_NeedBeauty_gorgeous)->[thought_needbeauty_gorgeous]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==황홀한 환경,tag=ReactToThought_NeedBeauty_gorgeous)->[thought_needbeauty_gorgeous]</li>
 						<li>thought_needbeauty_gorgeous->This place is truly beautiful. It lifts me up and makes me love life!</li>
 						<li>thought_needbeauty_gorgeous->This place is a dream come true. I'm [intensifier]happy to be here!</li>
 						<li>thought_needbeauty_gorgeous(INITIATOR_artistic_level>=5)->This place looks like a true masterwork of fine arts!</li>
 				<!-- ===NeedComfort=== -->
 					<!-- ===uncomfortable=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==uncomfortable,tag=ReactToThought_NeedComfort)->[thought_need_comfort1]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==불편,tag=ReactToThought_NeedComfort)->[thought_need_comfort1]</li>
 						<li>thought_need_comfort1->My back is aching. Our furniture here is quite lacking.</li>
 						<li>thought_need_comfort1->Ouch! I must have sat down wrong earlier. I think I blame our furniture...</li>
 						<li>thought_need_comfort1->Our furniture isn't very good. I'm [intensifier]uncomfortable.</li>
 						<li>thought_need_comfort1(INITIATOR_trait==ascetic,priority=1)->Not to complain, but our furniture causes my body to ache.</li>
 					<!-- ===comfortable=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==comfortable,tag=ReactToThought_NeedComfort)->[thought_need_comfort2]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==편함,tag=ReactToThought_NeedComfort)->[thought_need_comfort2]</li>
 						<li>thought_need_comfort2->I'm glad we have comfortable furniture around here.</li>
 						<li>thought_need_comfort2->Our furniture is fine. I'm comfortable enough!</li>
 						<li>thought_need_comfort2->Our furniture is just what I needed.</li>
 					<!-- ===quite comfortable=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==quite comfortable,tag=ReactToThought_NeedComfort)->[thought_need_comfort3]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==매우 편함,tag=ReactToThought_NeedComfort)->[thought_need_comfort3]</li>
 						<li>thought_need_comfort3->I'm so glad we have nice and comfortable furniture around here!</li>
 						<li>thought_need_comfort3->I'm comfortable here, and it feels pretty good.</li>
 						<li>thought_need_comfort3->I like our furniture. It's [intensifier]nice and comfortable!</li>
 					<!-- ===extremely comfortable=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==extremely comfortable,tag=ReactToThought_NeedComfort)->[thought_need_comfort4]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==엄청 편함,tag=ReactToThought_NeedComfort)->[thought_need_comfort4]</li>
 						<li>thought_need_comfort4->Our place is so cushy — we truly have excellent furniture around here!</li>
 						<li>thought_need_comfort4->Our furniture here is [intensifier]well-crafted and cozy!</li>
 						<li>thought_need_comfort4->We're surrounded by comfort, and it feels great.</li>
 					<!-- ===luxuriantly comfortable=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==luxuriantly comfortable,tag=ReactToThought_NeedComfort)->[thought_need_comfort5]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==사치스럽게 편함,tag=ReactToThought_NeedComfort)->[thought_need_comfort5]</li>
 						<li>thought_need_comfort5->Our furniture feels like heaven! So comfy!</li>
 						<li>thought_need_comfort5->We have the best furniture!</li>
 						<li>thought_need_comfort5->Our furniture is the ultimate in comfort!</li>
@@ -276,7 +276,7 @@
 						<li>thought_needfood_cookrecipient(INITIATOR_jobText==resting.)->[thought_needfood_hungry0] Can you get me some food, please?</li>
 						<li>thought_needfood_cookrecipient(priority=-1)->Hey, [recipient] — is there anything I could eat around here?</li>
 					<!-- ===just hungry=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==hungry,tag=ReactToThought_NeedFood)->[thought_needfood_hungry0]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==1,tag=ReactToThought_NeedFood)->[thought_needfood_hungry0]</li>
 						<li>thought_needfood_hungry0->I'm really hungry.</li>
 						<li>thought_needfood_hungry0->I'm [intensifier]hungry.</li>
 						<li>thought_needfood_hungry0->I'm feeling peckish.</li>
@@ -287,69 +287,72 @@
 						<li>thought_needfood_hungry0->I'm dying for something to eat!</li>
 						<li>thought_needfood_hungry0(INITIATOR_trait==cannibal)->I'm so hungry, I could eat an arm!</li>
 					<!-- ===ravenously hungry=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==ravenously hungry,tag=ReactToThought_NeedFood)->[thought_needfood_hungry1]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==2,tag=ReactToThought_NeedFood)->[thought_needfood_hungry1]</li>
 						<li>thought_needfood_hungry1->These hunger pangs are hard to ignore.</li>
 					<!-- ===malnourished=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==malnourished,tag=ReactToThought_NeedFood)->[thought_needfood_hungry2]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==3,tag=ReactToThought_NeedFood)->[thought_needfood_hungry2]</li>
 						<li>thought_needfood_hungry2->It's been so long since I ate. I'm all fuzzy and it's hard to focus.</li>
 					<!-- ===badly malnourished=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==badly malnourished,tag=ReactToThought_NeedFood)->[thought_needfood_hungry3]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==4,tag=ReactToThought_NeedFood)->[thought_needfood_hungry3]</li>
 						<li>thought_needfood_hungry3->I can feel my body wasting away... I'd eat almost anything to stop the pain...</li>
 					<!-- ===starving=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==starving,tag=ReactToThought_NeedFood)->[thought_needfood_hungry4]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==5,tag=ReactToThought_NeedFood)->[thought_needfood_hungry4]</li>
 						<li>thought_needfood_hungry4->I can barely think about anything but food. I need food. Now.</li>
 					<!-- ===advanced starvation=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==advanced starvation,tag=ReactToThought_NeedFood)->[thought_needfood_hungry5]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==6,tag=ReactToThought_NeedFood)->[thought_needfood_hungry5]</li>
 						<li>thought_needfood_hungry5->I can barely move or think about anything but food. I feel so weak...</li>
 					<!-- ===extreme starvation=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==extreme starvation,tag=ReactToThought_NeedFood)->[thought_needfood_hungry6]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==7,tag=ReactToThought_NeedFood)->[thought_needfood_hungry6]</li>
 						<li>thought_needfood_hungry6->Food... food... anything... please...</li>
 				<!-- ===NeedJoy=== -->
 					<!-- ===recreation-starved=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==recreation-starved,tag=ReactToThought_NeedJoy)->[thought_need_joy1]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==재미가 결핍됨,tag=ReactToThought_NeedJoy)->[thought_need_joy1]</li>
 						<li>thought_need_joy1->It's been so long since I did anything for fun on my own time.</li>
 						<li>thought_need_joy1->I don't remember what fun feels like.</li>
 						<li>thought_need_joy1->I'm [intensifier]bored. I wonder if life will always feel this bland?</li>
 					<!-- ===recreation-deprived=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==recreation-deprived,tag=ReactToThought_NeedJoy)->[thought_need_joy2]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==재미가 매우 부족함,tag=ReactToThought_NeedJoy)->[thought_need_joy2]</li>
 						<li>thought_need_joy2->We need more variation in recreation activities, and I need time to enjoy them.</li>
 						<li>thought_need_joy2->I feel [intensifier]unfulfilled... I wish I could enjoy something fun.</li>
 					<!-- ===recreation unfulfilled=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==recreation unfulfilled,tag=ReactToThought_NeedJoy)->[thought_need_joy3]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==재미가 부족함,tag=ReactToThought_NeedJoy)->[thought_need_joy3]</li>
 						<li>thought_need_joy3->We need more variation in the recreation activities, and I need time to enjoy them.</li>
 						<li>thought_need_joy3->What can I do for fun around here?</li>
 						<li>thought_need_joy3->I feel like I'm missing something... Oh, right: Recreation!</li>
 					<!-- ===recreation satisfied=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==recreation satisfied,tag=ReactToThought_NeedJoy)->[thought_need_joy4]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==재미로 가득참,tag=ReactToThought_NeedJoy)->[thought_need_joy4]</li>
 						<li>thought_need_joy4->I've been having a great time doing various things I like to do.</li>
 						<li>thought_need_joy4->We have some fun around here, don't we?</li>
 						<li>thought_need_joy4->Lately I've had a pretty enjoyable time!</li>
 					<!-- ===recreation fully satisfied=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==recreation fully satisfied,tag=ReactToThought_NeedJoy)->[thought_need_joy5]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==야호!,tag=ReactToThought_NeedJoy)->[thought_need_joy5]</li>
 						<li>thought_need_joy5->I've been enjoying myself so much, I love it!</li>
 						<li>thought_need_joy5->We have so much fun here! Life is full of fun!</li>
 						<li>thought_need_joy5->I've been so entertained lately, I don't remember what boredom feels like.</li>
 				<!-- ===NeedRest=== -->
 					<li>r_logentry(INITIATOR_thoughtDefName==NeedRest,tag=ReactToThought_NeedRest)->[thought_need_rest]</li>
 					<!-- ===drowsy=== -->
-						<li>thought_need_rest(INITIATOR_thoughtLabel==drowsy)->[thought_need_rest1]</li>
+						<li>thought_need_rest(INITIATOR_thoughtLabel==피곤)->[thought_need_rest1]</li>
 						<li>thought_need_rest1->I haven't slept in a while. It's hard to keep focus.</li>
 					<!-- ===tired=== -->
-						<li>thought_need_rest(INITIATOR_thoughtLabel==tired)->[thought_need_rest2]</li>
+						<li>thought_need_rest(INITIATOR_thoughtLabel==지침)->[thought_need_rest2]</li>
 						<li>thought_need_rest2->I'm so tired. I just want to lay down and rest for a few minutes...</li>
 					<!-- ===exhausted=== -->
-						<li>thought_need_rest(INITIATOR_thoughtLabel==exhausted)->[thought_need_rest3]</li>
+						<li>thought_need_rest(INITIATOR_thoughtLabel==탈진)->[thought_need_rest3]</li>
 						<li>thought_need_rest3->I'm so exhausted I can barely stand. Let me sleep...</li>
 				<!-- ===NeedRoomSize=== -->
 					<!-- ===confined interior=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==confined interior,tag=ReactToThought_NeedSpace)->[thought_need_space1]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==좁아터진 공간,tag=ReactToThought_NeedSpace)->[thought_need_space1]</li>
 						<li>thought_need_space1->Our living spaces are so cramped, it's difficult to breathe! [ask_for_larger_rooms]</li>
 						<li>thought_need_space1(INITIATOR_construction_level>=5,priority=1)->I should build larger living spaces — these ones are way too cramped!</li>
 					<!-- ===cramped interior=== -->
-						<li>r_logentry(INITIATOR_thoughtLabel==cramped interior,tag=ReactToThought_NeedSpace)->[thought_need_space2]</li>
+						<li>r_logentry(INITIATOR_thoughtLabel==좁은 공간,tag=ReactToThought_NeedSpace)->[thought_need_space2]</li>
 						<li>thought_need_space2->Can't we get larger living spaces? It feels so cramped! [ask_for_larger_rooms]</li>
 						<li>thought_need_space2(INITIATOR_construction_level>=5,priority=1)->I should build larger living spaces — these ones are somewhat cramped.</li>
 					<!-- ===spacious interior [not implemented]=== -->
+					<li>r_logentry(INITIATOR_thoughtLabel==넓은 공간,tag=ReactToThought_NeedSpace)->[thought_need_space3]</li>
+						<li>thought_need_space3->넒은 공간에 있으니까 마음이 뻥 뚫리는 것 같아!! [ask_for_larger_rooms]</li>
+						<li>thought_need_space3(INITIATOR_construction_level>=5,priority=1)->이 정도면 공간을 더 크게 확장하지 않아도 되겠지? — 더할 나위 없이 좋은 공간이야.</li>
 					<!-- ===LOCAL WILDCARDS=== -->
 						<li>ask_for_larger_rooms(RECIPIENT_construction_level&lt;5)-></li>
 						<li>ask_for_larger_rooms(RECIPIENT_construction_level>=5)->Hey, [recipient]! Could you take care of it?</li>
@@ -467,60 +470,60 @@
 							<li>thought_sleptinbarracks(INITIATOR_trait==kind,priority=1)->[thought_sleptinbarracks_calm]</li>
 						<!-- ===Stressed=== -->
 							<li>thought_sleptinbarracks(INITIATOR_mood&lt;0.4)->[thought_sleptinbarracks_stressed]</li>				
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==awful barrack,tag=ReactToThought_SleptInBarracks)->Not only I must share my [swearword]room — it's also a very [swearword_adverb][ugly] one!</li>
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==dull barrack,tag=ReactToThought_SleptInBarracks)->My room is quite [ugly]! And I must [swearword_adverb]share it with other [swearword]people, too!</li>
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==mediocre barrack,tag=ReactToThought_SleptInBarracks)->I have to [swearword_adverb]share my room with others — OK. But couldn't it be a nicer one at least?</li>
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==decent barrack,tag=ReactToThought_SleptInBarracks)->My room is nice enough, but I find it a bit [annoying] sharing my sleeping space.</li>
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==slightly impressive barrack,tag=ReactToThought_SleptInBarracks)->My room is quite nice. Unfortunately, I have to share it with others.</li>
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==impressive barrack,tag=ReactToThought_SleptInBarracks)->My room is very nice. If only I didn't have to share it with others...</li>
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==very impressive barrack)->[mood_stressed]</li>
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==extremely impressive barrack)->[mood_stressed]</li>
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==unbelievably impressive barrack)->[mood_stressed]</li>
-							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==wondrously impressive barrack)->[mood_stressed]</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==끔찍한 막사,tag=ReactToThought_SleptInBarracks)->Not only I must share my [swearword]room — it's also a very [swearword_adverb][ugly] one!</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==부족한 막사,tag=ReactToThought_SleptInBarracks)->My room is quite [ugly]! And I must [swearword_adverb]share it with other [swearword]people, too!</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==평범한 막사,tag=ReactToThought_SleptInBarracks)->I have to [swearword_adverb]share my room with others — OK. But couldn't it be a nicer one at least?</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==괜찮은 막사,tag=ReactToThought_SleptInBarracks)->My room is nice enough, but I find it a bit [annoying] sharing my sleeping space.</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==약간 인상적인 막사,tag=ReactToThought_SleptInBarracks)->My room is quite nice. Unfortunately, I have to share it with others.</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==인상적인 막사,tag=ReactToThought_SleptInBarracks)->My room is very nice. If only I didn't have to share it with others...</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==상당히 인상적인 막사)->[mood_stressed]</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==매우 인상적인 막사)->[mood_stressed]</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==굉장히 인상적인 막사)->[mood_stressed]</li>
+							<li>thought_sleptinbarracks_stressed(INITIATOR_thoughtLabel==극도로 인상적인 막사)->[mood_stressed]</li>
 						<!-- ===Calm=== -->
 							<li>thought_sleptinbarracks(INITIATOR_mood>=0.4)->[thought_sleptinbarracks_calm]</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==awful barrack)->[mood_calm]</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==dull barrack)->[mood_calm]</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==mediocre barrack)->[mood_calm]</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==decent barrack)->[mood_calm]</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==slightly impressive barrack)->[mood_calm]</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==impressive barrack)->[mood_calm]</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==very impressive barrack,tag=ReactToThought_SleptInBarracks)->My shared room is very impressive. I don't even mind sharing it!</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==extremely impressive barrack,tag=ReactToThought_SleptInBarracks)->My shared room is so extremely impressive that sharing it doesn't even bother me!</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==unbelievably impressive barrack,tag=ReactToThought_SleptInBarracks)->I can't believe how nice my shared room is!</li>
-							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==wondrously impressive barrack,tag=ReactToThought_SleptInBarracks)->My shared room is just a dream come true!</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==끔찍한 막사)->[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==부족한 막사)->[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==평범한 막사)->[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==괜찮은 막사)->[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==약간 인상적인 막사)->[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==인상적인 막사)->[mood_calm]</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==상당히 인상적인 막사,tag=ReactToThought_SleptInBarracks)->My shared room is very impressive. I don't even mind sharing it!</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==매우 인상적인 막사,tag=ReactToThought_SleptInBarracks)->My shared room is so extremely impressive that sharing it doesn't even bother me!</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==굉장히 인상적인 막사,tag=ReactToThought_SleptInBarracks)->I can't believe how nice my shared room is!</li>
+							<li>thought_sleptinbarracks_calm(INITIATOR_thoughtLabel==극도로 인상적인 막사,tag=ReactToThought_SleptInBarracks)->My shared room is just a dream come true!</li>
 				<!-- ===SleptInBedroom=== -->
 					<li>r_logentry(INITIATOR_thoughtDefName==SleptInBedroom,tag=ReactToThought_Bedroom)->[thought_bedroom] [what_about_yours]</li>
-					<li>thought_bedroom(INITIATOR_thoughtLabel==awful bedroom)->[thought_bedroom_awful]</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==끔찍한 침실)->[thought_bedroom_awful]</li>
 						<li>thought_bedroom_awful->My [swearword]room is [swearword_adverb][ugly] — but at least I don't have to share it.</li>
 						<li>thought_bedroom_awful->My room is so [swearword_adverb][ugly] — but at least it's mine.</li>
 						<li>thought_bedroom_awful->I'm not proud to say it, but my bedroom is [ugly].</li>
 						<li>thought_bedroom_awful(INITIATOR_mood>=0.7)->My room may be [ugly], but it's my very own bedroom, so I don't really mind.</li>
-					<li>thought_bedroom(INITIATOR_thoughtLabel==decent bedroom)->[thought_bedroom_decent]</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==괜찮은 침실)->[thought_bedroom_decent]</li>
 						<li>thought_bedroom_decent->I sleep in a [proper] bedroom.</li>
 						<li>thought_bedroom_decent->My bedroom is [proper].</li>
 						<li>thought_bedroom_decent->I have a [proper] bedroom, so I can't complain.</li>
-					<li>thought_bedroom(INITIATOR_thoughtLabel==slightly impressive bedroom)->[thought_bedroom_slightlyimpressive]</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==약간 인상적인 침실)->[thought_bedroom_slightlyimpressive]</li>
 						<li>thought_bedroom_slightlyimpressive->I like my bedroom — it's a [moderately_attractive_obj] one.</li>
 						<li>thought_bedroom_slightlyimpressive->I have a [moderately_attractive_obj] bedroom, and I like it.</li>
 						<li>thought_bedroom_slightlyimpressive->I sleep in a [moderately_attractive_obj] bedroom of my own.</li>
-					<li>thought_bedroom(INITIATOR_thoughtLabel==impressive bedroom)->[thought_bedroom_impressive]</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==꽤 인상적인 침실)->[thought_bedroom_impressive]</li>
 						<li>thought_bedroom_impressive->I sleep in an impressive bedroom. It's great!</li>
 						<li>thought_bedroom_impressive->I have an impressive bedroom. Going to bed is great!</li>
 						<li>thought_bedroom_impressive->My bedroom is impressive, it makes me happy.</li>
-					<li>thought_bedroom(INITIATOR_thoughtLabel==very impressive bedroom)->[thought_bedroom_veryimpressive]</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==상당히 인상적인 침실)->[thought_bedroom_veryimpressive]</li>
 						<li>thought_bedroom_veryimpressive->I sleep in a very impressive bedroom. I just love it!</li>
 						<li>thought_bedroom_veryimpressive->I love my bedroom. It's very impressive!</li>
 						<li>thought_bedroom_veryimpressive->I love sleeping in my bedroom. I'm very impressed every time I go to bed!</li>
-					<li>thought_bedroom(INITIATOR_thoughtLabel==extremely impressive bedroom)->[thought_bedroom_extremelyimpressive]</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==매우 인상적인 침실)->[thought_bedroom_extremelyimpressive]</li>
 						<li>thought_bedroom_extremelyimpressive->I get to sleep in an extremely impressive bedroom!</li>
 						<li>thought_bedroom_extremelyimpressive->I have an extremely impressive bedroom! I'm so lucky.</li>
 						<li>thought_bedroom_extremelyimpressive->Have you ever seen an extremely impressive bedroom? That's what mine is like.</li>
-					<li>thought_bedroom(INITIATOR_thoughtLabel==unbelievably impressive bedroom)->[thought_bedroom_unbelievablyimpressive]</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==굉장히 인상적인 침실)->[thought_bedroom_unbelievablyimpressive]</li>
 						<li>thought_bedroom_unbelievablyimpressive->My bedroom is truly astounding!</li>
 						<li>thought_bedroom_unbelievablyimpressive->I have an unbelievably impressive bedroom. It's almost awe-inspiring!</li>
 						<li>thought_bedroom_unbelievablyimpressive->My bedroom is almost a work of art. It's [intensifier]unbelievably impressive.</li>
-					<li>thought_bedroom(INITIATOR_thoughtLabel==wondrously impressive bedroom)->[thought_bedroom_wondrouslyimpressive]</li>
+					<li>thought_bedroom(INITIATOR_thoughtLabel==극도로 인상적인 침실)->[thought_bedroom_wondrouslyimpressive]</li>
 						<li>thought_bedroom_wondrouslyimpressive->Sleeping in my bedroom feels like heaven. Just wondrous!</li>
 						<li>thought_bedroom_wondrouslyimpressive->When I enter my bedroom I feel like I can hear heavenly singing: It's that magnificent.</li>
 						<li>thought_bedroom_wondrouslyimpressive->My bedroom is a work of art that belongs in a museum. It's simply wondrous.</li>
