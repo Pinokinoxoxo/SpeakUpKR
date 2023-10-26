@@ -12,15 +12,33 @@
 				<li>recipient(p=3,INITIATOR_relationship==Fiance)->[recipient_love]</li>
 				<li>recipient(p=2,INITIATOR_relationship==Spouse)->[recipient_love]</li>
 					<li>recipient_love->자기</li>
-					<li>recipient_love->내 사랑</li>
 					<li>recipient_love->여보</li>
-					<li>recipient_love(INITIATOR_intellectual_level>=5)->amore</li>
-					<li>recipient_love(INITIATOR_intellectual_level>=5)->amore mio</li>
+					<li>recipient_love->[RECIPIENT_nameDef]</li>
+					<li>recipient_love(RECIPIENT_gender==Female, INITIATOR_gender==Male, priority=1)->[recipient_love_1]</li>
+					<li>recipient_love(RECIPIENT_gender==Male, INITIATOR_gender==Female, priority=1)->[recipient_love_2]</li>
+					<li>recipient_love(RECIPIENT_gender==Male, INITIATOR_gender==Male, priority=1)->[recipient_love_3]</li>
+					<li>recipient_love(RECIPIENT_gender==Female, INITIATOR_gender==Female, priority=1)->[recipient_love_4]</li>
+					
+					<!-- === INITIATOR의 나이가 RECIPIENT보다 크면 INITIATOR_AgeBool=1, 작으면 INITIATOR_AgeBool=0 === -->
+					<li>recipient_love_1(INITIATOR_AgeBool==0)->누나</li>
+					<li>recipient_love_2(INITIATOR_AgeBool==0)->오빠</li>
+					<li>recipient_love_2(INITIATOR_AgeBool==0)->오라버니</li>
+					<li>recipient_love_3(INITIATOR_AgeBool==0)->형</li>
+					<li>recipient_love_4(INITIATOR_AgeBool==0)->언니</li>
+					
 				<li>recipient(INITIATOR_relationship==Sibling)->[recipient_sibling]</li>
-					<li>recipient_sibling(RECIPIENT_gender==Male)->[recipient_brother]</li>
-						<li>recipient_brother->brother</li>
-					<li>recipient_sibling(RECIPIENT_gender==Female)->[recipient_sister]</li>
-						<li>recipient_sister->sister</li>
+				
+					<li>recipient_sibling(RECIPIENT_gender==Female, INITIATOR_gender==Male, priority=1)->[recipient_sibling_1]</li>
+					<li>recipient_sibling(RECIPIENT_gender==Male, INITIATOR_gender==Female, priority=1)->[recipient_sibling_2]</li>
+					<li>recipient_sibling(RECIPIENT_gender==Male, INITIATOR_gender==Male, priority=1)->[recipient_sibling_3]</li>
+					<li>recipient_sibling(RECIPIENT_gender==Female, INITIATOR_gender==Female, priority=1)->[recipient_sibling_4]</li>
+					
+					<!-- === INITIATOR의 나이가 RECIPIENT보다 크면 INITIATOR_AgeBool=1, 작으면 INITIATOR_AgeBool=0 === -->
+					<li>recipient_sibling_1(INITIATOR_AgeBool==0)->누나</li>
+					<li>recipient_sibling_2(INITIATOR_AgeBool==0)->오빠</li>
+					<li>recipient_sibling_3(INITIATOR_AgeBool==0)->형</li>
+					<li>recipient_sibling_4(INITIATOR_AgeBool==0)->언니</li>
+
 
 				<li>recipient(RECIPIENT_relationship==Parent,priority=1)->[recipient_parent]</li>
 					<li>recipient_parent(RECIPIENT_gender==Male)->[recipient_father]</li>
@@ -29,16 +47,32 @@
 					<li>recipient_parent(RECIPIENT_gender==Female)->[recipient_mother]</li>
 						<li>recipient_mother->어머니</li>
 						<li>recipient_mother->엄마</li>
-
+						
+				<li>recipient(RECIPIENT_relationship==Grandparent,priority=1)->[recipient_Grandparent]</li>
+					<li>recipient_Grandparent(RECIPIENT_gender==Male)->[recipient_Grandfather]</li>
+						<li>recipient_Grandfather->할아버지</li>
+					<li>recipient_Grandparent(RECIPIENT_gender==Female)->[recipient_Grandmother]</li>
+						<li>recipient_Grandmother->할머니</li>
+						
 				<li>recipient(INITIATOR_relationship==Parent)->[recipient_child]</li>
-					<li>recipient_child->아가</li>
-					<li>recipient_child(INITIATOR_OPINION>=0)->dear</li>
+					<li>recipient_child->[RECIPIENT_nameDef]</li>
+					<li>recipient_child(INITIATOR_OPINION>=0)->아가</li>
 					<li>recipient_child(RECIPIENT_gender==Male)->[recipient_son]</li>
 						<li>recipient_son->아들</li>
-						<li>recipient_son->내 아들</li>
+						<li>recipient_son->우리 아들</li>
 					<li>recipient_child(RECIPIENT_gender==Female)->[recipient_daughter]</li>
 						<li>recipient_daughter->딸</li>
-						<li>recipient_daughter->내 딸</li>
+						<li>recipient_daughter->우리 딸</li>
+				
+				<li>recipient(INITIATOR_relationship==Grandparent)->[recipient_child]</li>
+					<li>recipient_child->[RECIPIENT_nameDef]</li>
+					<li>recipient_child(INITIATOR_OPINION>=0)->아가</li>
+					<li>recipient_child(RECIPIENT_gender==Male)->[recipient_son]</li>
+						<li>recipient_son->우리 손자</li>
+						<li>recipient_son->우리 강아지</li>
+					<li>recipient_child(RECIPIENT_gender==Female)->[recipient_daughter]</li>
+						<li>recipient_daughter->우리 손녀</li>
+						<li>recipient_daughter->우리 강아지</li>
 						
 				<li>recipient->[RECIPIENT_nameDef]</li>
 				
@@ -53,7 +87,7 @@
 					<li>intensifier(priority=-1)->엄청 </li>
 					<li>intensifier(priority=-1,p=0.5)->진심으로 </li>
 					<li>intensifier(priority=-1)->완전 </li>
-					<li>intensifier(priority=-1,p=0.5)->so [intensifier]</li>
+					<li>intensifier(priority=-1,p=0.5)->너무 [intensifier]</li>
 					<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=1)-></li>
 					<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)->꽤나 </li>
 					<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)->엄청 </li>
@@ -66,7 +100,7 @@
 					<li>damned_intensifier(p=2)-></li>
 					<li>damned_intensifier->겁나 </li>
 					<li>damned_intensifier->겁나게 </li>
-					<li>damned_intensifier->blasted </li>
+					<li>damned_intensifier->젠장맞을 </li>
 					<li>damned_intensifier->sodding </li>
 					<li>damned_intensifier(p=2,INITIATOR_trait==직설적)->존나 </li>
 					<li>damned_intensifier(INITIATOR_trait==직설적,INITIATOR_mood&lt;=0.5)->fucking [damned_intensifier]</li>
@@ -446,19 +480,19 @@
 					<li>bad_opinion->*조롱*</li>
 					<li>bad_opinion->좋아! 내 함정에 빠졌군!</li>
 					<li>bad_opinion->정말 바보같은 수로구만!</li>
-					<li>bad_opinion->How predictable! Mark my words — I'm going to win soon.</li>
-					<li>bad_opinion->Yes — now I'll be able to eat that piece of yours. Thank you so much, smarty!</li>
-					<li>bad_opinion->Protecting this piece on the rosette was foolish — you had better protect this other piece here!</li>
-					<li>bad_opinion->Your blunders, [recipient], are all there on the board — just waiting to be made!</li>
+					<li>bad_opinion->예상대로야! 내 말 잘 들어 — 내가 곧 이길거야.</li>
+					<li>bad_opinion->그래 — 이제 네 조각을 먹을 수 있겠어. 정말 고마워, 똑똑이!</li>
+					<li>bad_opinion->로제트에서 이 조각을 보호하는 것은 정말 어리석은 짓이었어 — 여기 다른 조각을 보호했었어야지!</li>
+					<li>bad_opinion->실수했군, [recipient], 판은 짜여졌고 — 때를 기다리면 되겠군!</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion->*smiles* You've fallen into my trap, dear [recipient]!</li>
-					<li>good_opinion->You should be more careful with your pieces... I'll have to eat this one now — sorry...</li>
-					<li>good_opinion->You should always protect the pieces that are almost off the board first...</li>
-					<li>good_opinion->And you think I don't know about your little plan, [recipient]?</li>
-					<li>good_opinion->Heh... Just as I thought...</li>
-					<li>good_opinion->Here's a hint for you, [recipient] — when you believe you see a good move, look for a better one...</li>
-					<li>good_opinion->Well, [recipient]... You may learn much more from a game you lose than from a game you win.</li>
+					<li>good_opinion->*웃음* 내 함정에 빠졌구나, 우리 [recipient]!</li>
+					<li>good_opinion->수를 놓을 때 좀 더 신중하게 생각했어야지... 이제 이 말은 내거야 — 미안!</li>
+					<li>good_opinion->보드에서 거의 떨어진 조각을 먼저 보호했어야지!</li>
+					<li>good_opinion->네가 원하는대로 따라가줄 줄 알았나, [recipient]?</li>
+					<li>good_opinion->헤에... 내 예상대로인걸...</li>
+					<li>good_opinion->힌트를 하나 줄게, [recipient] — 상대가 좋은 수를 뒀다 싶으면, 그 다음 수는 더 좋을거라고 생각해야해...</li>
+					<li>good_opinion->괜찮아, [recipient]... 이겼을 때보단 졌을 때 배우는 게 더 많을거야.</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -470,29 +504,29 @@
 			<rulesStrings>
 				<!-- ===Bad opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
-					<li>bad_opinion(RECIPIENT_intellectual_level&lt;5)->You cheater! How did you pull that off?!</li>
-					<li>bad_opinion->Damn it, [recipient]... I knew it... I had to fold...</li>
-					<li>bad_opinion->You lucky bastard — your luck will run out sooner or later! </li>
-					<li>bad_opinion->Fine, you win. Pot's yours — I hope you spend it all on medicines.</li>
-					<li>bad_opinion->Crap! Grab that blasted pot and let's deal a new hand. I'll show you!</li>
-					<li>bad_opinion->You bluffing bastard — how didn't I see through it?!</li>
+					<li>bad_opinion(RECIPIENT_intellectual_level&lt;5)->이 사기꾼! 대체 어떻게 한거야?!</li>
+					<li>bad_opinion->젠장할, [recipient]... 이럴 줄 알았어... 거기서 멈추고 폴드해야 했어...</li>
+					<li>bad_opinion->운 좋은 놈 — 조만간 네 운도 다 떨어질거야!</li>
+					<li>bad_opinion->그래, 네가 이겼어. 칩은 네꺼야 — 약값으로 다 썼으면 좋겠군.</li>
+					<li>bad_opinion->젠장! 그 빌어먹을 칩 다시 올려놔, 다시 새로운 게임을 시작하자고. 내 진짜 실력을 보여주지!</li>
+					<li>bad_opinion->이 빌어먹을 허풍쟁이 같으니라고 — 어떻게 내가 눈치를 못 챌 수가 있지?!</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion(RECIPIENT_intellectual_level&lt;5)->Wow, [recipient] — I didn't expect you to play so well!</li>
-					<li>good_opinion->Well played — you got me this time, [recipient]!</li>
-					<li>good_opinion->You win, [recipient] — pot's yours!</li>
-					<li>good_opinion->Whoa, [recipient] — I should've trusted my guts and folded...</li>
-					<li>good_opinion->And I thought I had a good hand... oh well... [you_win], [recipient]!</li>
-					<li>good_opinion->So much for my [hand_bluff], then. Congratulations, [recipient] — [you_win]!</li>
-					<li>good_opinion->Gee, your bluff caught me completely by surprise... Well done, [recipient]!</li>
-					<li>good_opinion->Was my bluff that easy to see through? Well done, [recipient] — [you_win]!</li>
+					<li>good_opinion(RECIPIENT_intellectual_level&lt;5)->우와, [recipient] — 네가 이렇게 잘하는줄 몰랐어!</li>
+					<li>good_opinion->재밌었어 — [recipient], 이번엔 네가 이겼군!</li>
+					<li>good_opinion->네가 이겼어, [recipient] — 칩 가져가!</li>
+					<li>good_opinion->워, [recipient] — 내 직감을 믿고 접었어야 했는데...</li>
+					<li>good_opinion->내 [hand_bluff]도 나름 좋다고 생각했는데... 쩝... [you_win], [recipient]!</li>
+					<li>good_opinion->이번 [hand_bluff]는 별로 였어, 쩝. 축하해, [recipient] — [you_win]!</li>
+					<li>good_opinion->이런, 네 블러핑에 완전히 당했군.. 잘했어, [recipient]!</li>
+					<li>good_opinion->내 블러핑이 눈치채기 너무 쉬웠나? 잘했어, [recipient] — [you_win]!</li>
 						
-						<li>hand_bluff->hand</li>
-						<li>hand_bluff->bluff</li>
+						<li>hand_bluff->카드</li>
+						<li>hand_bluff->패</li>
 						
-						<li>you_win->you win</li>
-						<li>you_win->victory is yours</li>
-						<li>you_win->pot's yours</li>
+						<li>you_win->네가 이겼어</li>
+						<li>you_win->승리는 네 거야</li>
+						<li>you_win->칩은 네거야</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
