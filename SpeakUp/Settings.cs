@@ -50,7 +50,7 @@ namespace SpeakUp
 
         public override string SettingsCategory()
         {
-            return "SpeakUp";
+            return "SpeakUp KR";
         }
     }
 
@@ -62,7 +62,7 @@ namespace SpeakUp
 
         public static bool
             sameRegionRestriction = true,
-            forceNoTranslate = false,
+            forceNoTranslate = true,
             showGrammarDebug = false,
             toggleTalkBack = false,
             useAgeBiologicalYears = true; // New setting for age selection

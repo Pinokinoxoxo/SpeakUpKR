@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>SpeakUp</name>
+	<name>SpeakUp KR</name>
 	<author>jptrrs</author>
   <supportedVersions>
     <li>1.2</li>
@@ -25,9 +25,9 @@
   </loadAfter>
 
   <description>
-SpeakUp is a Social Interaction Framework (SIF) capable of giving voice to your pawns.
+SpeakUp 모드는 폰에 목소리를 줄 수 있는 소셜 인터랙션 프레임워크(SIF)입니다. SpeakUp KR은 이 SpeakUp 모드를 한국어 문법과 규칙에 맞게 수정한 버전입니다.
+문의 : 디스코드 SpeakUp KR 채널 (https://discord.gg/JspugZR7)
 
-Let'em speak their mind - let's hear them out!
   </description>
 	<url>https://steamcommunity.com/id/jptrrs/myworkshopfiles/?appid=294100</url>
 </ModMetaData>

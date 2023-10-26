@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Verse;
 using Verse.Grammar;
 
@@ -53,24 +54,26 @@ namespace SpeakUp
 
         private static readonly Dictionary<string, string> KoreanTranslations = new Dictionary<string, string>
         {
-            { "건설", "construction" },
-            { "격투", "melee" },
-            { "사격", "shooting" },
-            { "사교", "social" },
-            { "연구", "intellectual" },
-            { "예술", "artistic" },
-            { "원예", "plants" },
-            { "의학", "medical" },
-            { "제작", "crafting" },
-            { "조련", "animals" },
-            { "조리", "cooking" },
-            { "채굴", "mining" },
-            { "섹스", "sex" },
+            { "배고픔", "1" },
+            { "매우 배고픔", "2" },
+            { "굶주림 (초기)", "3" },
+            { "굶주림 (약간)", "4" },
+            { "굶주림", "5" },
+            { "굶주림 (심각)", "6" },
+            { "굶주림 (극도)", "7" },
         };
-
-        private static string TranslateKorean(string input)
+        private static bool IsKorean(string text)
         {
-            return KoreanTranslations.TryGetValue(input, out var translation) ? translation : input;
+            return Regex.IsMatch(text, @"\p{IsHangulSyllables}");
+        }
+
+        private static string TranslateKorean(string output)
+        {
+            if (IsKorean(output) && KoreanTranslations.TryGetValue(output, out var translation))
+            {
+                return translation;
+            }
+            return output;
         }
 
 
@@ -178,7 +181,6 @@ namespace SpeakUp
             //all skills
             foreach (var skill in pawn.skills.skills)
             {
-                string str = TranslateKorean(skill.def.label);
                 MakeRule(symbol + skill.def.label + "_level", skill.levelInt.ToString());
                 MakeRule(symbol + skill.def.label + "_passion", skill.passion.ToString());
             }
@@ -348,7 +350,11 @@ namespace SpeakUp
                 DebugLog($"Couldn't process {keyword}. Moving on.");
                 return;
             }
-            DebugLog($"Processing rule for {keyword} with value {output}");
+
+            // Translate the output value before logging and adding to the rules.
+            output = TranslateKorean(output);
+
+            //DebugLog($"Processing rule for {keyword} with value {output}");
             tempRules.Add(new Rule_String(keyword, output));
         }
 
