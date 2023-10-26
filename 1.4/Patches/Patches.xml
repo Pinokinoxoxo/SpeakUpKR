@@ -868,12 +868,12 @@
 						<li>disturbing(INITIATOR_intellectual_level>=10)->abhorrent</li>
 						<li>disturbing(INITIATOR_intellectual_level>=10)->abominable</li>
 					<!-- ===eerie=== -->
-						<li>eerie->strange</li>
-						<li>eerie->eerie</li>
-						<li>eerie->otherworldy</li>
-						<li>eerie->unearthly</li>
-						<li>eerie(INITIATOR_intellectual_level&lt;5)->spooky</li>
-						<li>eerie(INITIATOR_intellectual_level>5)->eldritch</li>
+						<li>eerie->이상한</li>
+						<li>eerie->섬뜩한</li>
+						<li>eerie->기이한</li>
+						<li>eerie->음산한</li>
+						<li>eerie(INITIATOR_intellectual_level&lt;5)->기이한</li>
+						<li>eerie(INITIATOR_intellectual_level>5)->불길한</li>
 					<!-- ===fix (verb, metaphoric)=== -->
 						<li>fix->fix</li>
 						<li>fix->manage</li>
@@ -884,26 +884,35 @@
 						<li>fix(INITIATOR_intellectual_level>=5)->remedy</li>
 						<li>fix(INITIATOR_intellectual_level>=10)->rectify</li>
 					<!-- ===horrible (monster)=== -->
-						<li>horrible->terrible</li>
-						<li>horrible->horrible</li>
-						<li>horrible->unholy</li>
-						<li>horrible->ugly</li>
-						<li>horrible->fearsome</li>
-						<li>horrible->frightening</li>
-						<li>horrible->ghastly</li>
-						<li>horrible->ghoulish</li>
-						<li>horrible->nightmarish</li>
-						<li>horrible->vile</li>
-						<li>horrible->bizarre</li>
+						<li>horrible->괴기스러운</li>
+						<li>horrible->무서운</li>
+						<li>horrible->괴상한</li>
+						<li>horrible->흉측한</li>
+						<li>horrible->무시무시한</li>
+						<li>horrible->끔찍한</li>
+						<li>horrible->섬뜩한</li>
+						<li>horrible->기괴한</li>
+						<li>horrible->괴이한</li>
+						<li>horrible->사악한</li>
+						<li>horrible->흉악한</li>
 					<!-- ===humiliating=== -->
-						<li>humiliating->humiliating</li>
-						<li>humiliating->demeaning</li>
-						<li>humiliating->embarassing</li>
-						<li>humiliating->mortifying</li>
-						<li>humiliating(INITIATOR_intellectual_level>=5)->undignified</li>
-						<li>humiliating(INITIATOR_intellectual_level>=10)->discomfiting</li>
-						<li>humiliating(INITIATOR_intellectual_level>=10)->disgraceful</li>
-						<li>humiliating(INITIATOR_intellectual_level>=15)->ignominous</li>
+						<li>humiliating->굴욕적이야</li>
+						<li>humiliating->모욕적이야</li>
+						<li>humiliating->당황스러워</li>
+						<li>humiliating->창피해</li>
+						<li>humiliating(INITIATOR_intellectual_level>=5)->불결해</li>
+						<li>humiliating(INITIATOR_intellectual_level>=10)->불쾌해</li>
+						<li>humiliating(INITIATOR_intellectual_level>=10)->수치스러워</li>
+						<li>humiliating(INITIATOR_intellectual_level>=15)->불명예스럽군</li>
+					<!-- ===humiliate=== -->
+						<li>humiliate->굴욕적인</li>
+						<li>humiliate->모욕적인</li>
+						<li>humiliate->당황스러운</li>
+						<li>humiliate->창피한</li>
+						<li>humiliate(INITIATOR_intellectual_level>=5)->불결한</li>
+						<li>humiliate(INITIATOR_intellectual_level>=10)->불쾌한</li>
+						<li>humiliate(INITIATOR_intellectual_level>=10)->수치스러운</li>
+						<li>humiliate(INITIATOR_intellectual_level>=15)->불명예스러운</li>
 					<!-- ===intensifier=== (add space after word. should be more common for less intellectual pawns)-->
 						<li>intensifier(priority=-1,p=3)-></li>
 						<li>intensifier(priority=-1)->so </li>
@@ -933,19 +942,19 @@
 						<li>damned_intensifier(p=2,INITIATOR_mood&lt;=0.4)->goddamned </li>
 						<li>damned_intensifier(p=2,INITIATOR_trait==abrasive,INITIATOR_mood&lt;=0.2)->fucking [damned_intensifier]</li>
 					<!-- ===mist=== -->
-						<li>mist->mist</li>
-						<li>mist->fog</li>				
-						<li>mist->haze</li>
+						<li>mist->운무</li>
+						<li>mist->안개</li>				
+						<li>mist->안개</li>
 					<!-- ===monster=== -->
-						<li>monster->monster</li>
-						<li>monster->beast</li>
-						<li>monster->fiend</li>
-						<li>monster->abomination</li>
-						<li>monster->creature</li>
-						<li>monster->ghost</li>
-						<li>monster->alien</li>
-						<li>monster->freak</li>
-						<li>monster->terror</li>
+						<li>monster->괴물</li>
+						<li>monster->짐승</li>
+						<li>monster->악마</li>
+						<li>monster->악귀</li>
+						<li>monster->미물</li>
+						<li>monster->귀신</li>
+						<li>monster->생명체</li>
+						<li>monster->마귀</li>
+						<li>monster->괴생물</li>
 						<li>monster(p=0.2)->[horrible] [monster]</li>
 					<!-- === moderately attractive (to describe an object or room) === -->
 						<li>moderately_attractive_obj->pretty</li>
@@ -955,50 +964,50 @@
 						<li>moderately_attractive_obj->lovely</li>
 						<li>moderately_attractive_obj->pleasant</li>
 					<!-- ===nice (weather)=== -->
-						<li>nice->nice</li>
-						<li>nice->good</li>
-						<li>nice->pleasant</li>
-						<li>nice->wonderful</li>
-						<li>nice->fair</li>
-						<li>nice->fine</li>
+						<li>nice->좋은</li>
+						<li>nice->멋진</li>
+						<li>nice->쾌적한</li>
+						<li>nice->화창한</li>
+						<li>nice->더할 나위 없는</li>
+						<li>nice->완벽한</li>
 					<!-- ===outdoors=== -->
-						<li>outdoors->outdoors</li>
-						<li>outdoors->in the open</li>
-						<li>outdoors->outside</li>
+						<li>outdoors->바깥</li>
+						<li>outdoors->밖</li>
+						<li>outdoors->실외</li>
 					<!-- ===prisoner=== -->
 						<li>prisoner->prisoner</li>
 						<li>prisoner->captive</li>
 					<!-- ===proper=== -->
-						<li>proper->fitting</li>
-						<li>proper->suitable</li>
-						<li>proper->regular</li>
-						<li>proper->decent</li>
-						<li>proper->ordinary</li>
-						<li>proper->standard</li>
-						<li>proper(INITIATOR_intellectual_level>=5)->conventional</li>
+						<li>proper->적절한</li>
+						<li>proper->제대로 된</li>
+						<li>proper->적절한</li>
+						<li>proper->괜찮은</li>
+						<li>proper->평범한</li>
+						<li>proper->기본적인</li>
+						<li>proper(INITIATOR_intellectual_level>=5)->일반적인</li>
 					<!-- ===scared=== -->
-						<li>scared->so scared</li>
-						<li>scared->scared stiff</li>
-						<li>scared->scared witless</li>
-						<li>scared->shaking like a leaf</li>
-						<li>scared->terrified</li>
-						<li>scared->worried</li>
-						<li>scared->frightened</li>
-						<li>scared(INITIATOR_intellectual_level&lt;=3)->spooked</li>
-						<li>scared(INITIATOR_intellectual_level>=5)->petrified</li>
-						<li>scared(INITIATOR_intellectual_level>=7)->nigh-hysterical</li>
-						<li>scared(INITIATOR_intellectual_level>=7)->terror-stricken</li>
+						<li>scared->무서워</li>
+						<li>scared->걱정 돼</li>
+						<li>scared->두려워</li>
+						<li>scared->무서운걸</li>
+						<li>scared->걱정되는 걸</li>
+						<li>scared->두려운걸</li>
+						<li>scared->떨리는데</li>
+						<li>scared->겁나</li>
+						<li>scared->겁나는데</li>
+						<li>scared(INITIATOR_intellectual_level&lt;=3)->소름끼쳐</li>
+						<li>scared(INITIATOR_intellectual_level>=5)->밤에 잠 못 잘 것 같아</li>
+						<li>scared(INITIATOR_intellectual_level>=7)->너무 무서워서 몸이 떨려</li>
+						<li>scared(INITIATOR_intellectual_level>=7)->공포에 휩싸일 것만 같아</li>
 					<!-- ===swearword=== -->
 						<li>swearword(INITIATOR_mood>=0.4,priority=1)-></li>
 						<li>swearword-></li>
-						<li>swearword->blasted </li>
-						<li>swearword->blighted </li>
-						<li>swearword->bloody </li>
-						<li>swearword->damn </li>
-						<li>swearword->frigging </li>			
-						<li>swearword->sodding </li>
-						<li>swearword->wretched </li>
-						<li>swearword->darn </li>
+						<li>swearword->정신나간</li>
+						<li>swearword->미쳐버린</li>
+						<li>swearword->빌어먹을</li>
+						<li>swearword->짜증나는</li>
+						<li>swearword->말도 안되는</li>			
+						<li>swearword->답 없는</li>
 						<!-- ===abrasive=== -->
 							<li>swearword(INITIATOR_trait==abrasive)->[swearword_abrasive] </li>
 							<li>swearword_abrasive->frakking</li>
@@ -1006,8 +1015,10 @@
 					<!-- ===swearword (adverb)=== -->
 						<li>swearword_adverb(INITIATOR_mood>=0.4,priority=1)-></li>
 						<li>swearword_adverb-></li>
-						<li>swearword_adverb->bloody </li>
-						<li>swearword_adverb->frigging </li>
+						<li>swearword_adverb->정신나가도록</li>
+						<li>swearword_adverb->빌어먹을 만큼</li>
+						<li>swearword_adverb->미치도록</li>
+						<li>swearword_adverb->미칠 듯이</li>
 						<!-- ===abrasive=== -->
 							<li>swearword_adverb(INITIATOR_trait==abrasive)->[swearword_adverb_abrasive] </li>
 							<li>swearword_adverb_abrasive->frakking</li>
@@ -1023,16 +1034,15 @@
 						<li>stupid(INITIATOR_intellectual_level>=5)->imbecilic</li>
 						<li>stupid(INITIATOR_intellectual_level>=8)->fatuous</li>
 					<!-- ===surely=== -->
-						<li>surely->surely</li>
-						<li>surely->certainly</li>
-						<li>surely->obviously</li>
-						<li>surely->clearly</li>
-						<li>surely->definitely</li>
-						<li>surely(INITIATOR_intellectual_level>=10)->unquestionably</li>
-						<li>surely(INITIATOR_intellectual_level>=5)->undeniably</li>
-						<li>surely(INITIATOR_intellectual_level>=10)->indubitably</li>
-						<li>surely(INITIATOR_intellectual_level>=5)->doubtlessly</li>
-						<li>surely(INITIATOR_intellectual_level>=5)->inarguably</li>
+						<li>surely->분명</li>
+						<li>surely->반드시</li>
+						<li>surely->분명히</li>
+						<li>surely->틀림없이</li>
+						<li>surely->확실하게</li>
+						<li>surely(INITIATOR_intellectual_level>=10)->명백하게</li>
+						<li>surely(INITIATOR_intellectual_level>=10)->부정할 수 없이</li>
+						<li>surely(INITIATOR_intellectual_level>=5)->의심할 여지없이</li>
+						<li>surely(INITIATOR_intellectual_level>=5)->논란의 여지가 없이</li>
 
 					<!-- ===tv letters=== -->					
 						<li>tv_letters->NTQ</li>
@@ -1127,19 +1137,19 @@
 						<li>chess_piece->knight</li>
 						<li>chess_piece->pawn</li>
 					<!-- ===damn it!=== -->
-						<li>damn_it->damn</li>
-						<li>damn_it->damn it</li>				
-						<li>damn_it->darn</li>
-						<li>damn_it->darn it</li>
-						<li>damn_it->heck</li>
-						<li>damn_it->hell</li>
+						<li>damn_it->빌어먹을</li>
+						<li>damn_it->우라질</li>				
+						<li>damn_it->이런 망할</li>
+						<li>damn_it->젠장</li>
+						<li>damn_it->제기랄</li>
+						<li>damn_it->젠장 맞을</li>
 							<!-- ===Abrasive=== -->
-								<li>damn_it(INITIATOR_trait==abrasive)->What the [swearword]fuck</li>
+								<li>damn_it(INITIATOR_trait==abrasive)->염병할</li>
 							<!-- ===Low mood=== -->
-								<li>damn_it(INITIATOR_mood&lt;0.4)->[swearword]hell</li>
+								<li>damn_it(INITIATOR_mood&lt;0.4)->이런 빌어먹을</li>
 					<!-- ===Out here or out there=== -->
-						<li>out_here_out_there(OUTDOORS==No)->out there</li>
-						<li>out_here_out_there(OUTDOORS==Yes)->out here</li>
+						<li>out_here_out_there(OUTDOORS==No)->밖</li>
+						<li>out_here_out_there(OUTDOORS==Yes)->이 곳</li>
 					<!-- ===Random ranges=== -->
 						<li>random_1_8->1</li>
 						<li>random_1_8->2</li>
