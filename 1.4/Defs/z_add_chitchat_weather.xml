@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/InteractionDef[defName = "Chitchat"]/logRulesInitiator/rulesStrings</xpath>
+		<value>
+		
+			<!-- ==CLEAR== -->
+				<li>r_logentry(WEATHER==clear)->[weather_clear]</li>
+				<!-- ===Good temperature for humans=== -->
+					<li>weather_clear(TEMPERATURE>=-10,TEMPERATURE&lt;=35)->[weather_clear_goodtemp]</li>
+					<!-- ===Undergrounder indoors (priority 2)=== -->
+						<li>weather_clear_goodtemp(OUTDOORS==No,INITIATOR_trait==undergrounder,priority=2)->[mood]</li>
+					<!-- ===Entombed indoors (priority 1)=== -->
+						<li>weather_clear_goodtemp(OUTDOORS==No,INITIATOR_thoughtDefName==NeedOutdoors,tag=StuckIndoors,priority=1)->바깥 날씨는 어떤지 궁금하네.</li>
+					<!-- ===Outdoors or indoors but not entombed (default)=== -->
+						<li>weather_clear_goodtemp(tag=WeatherClearGoodtempNotEntombed)->[weather_clear_goodtemp_not_entombed]</li>
+						<!-- ===Mood=== -->
+							<li>weather_clear_goodtemp_not_entombed(INITIATOR_mood>=0.7,priority=1)->정말 [nice] 날씨야!</li>
+							<li>weather_clear_goodtemp_not_entombed(INITIATOR_mood>=0.7,priority=1)->정말 [nice] [Day_clear]야!</li>
+							<li>weather_clear_goodtemp_not_entombed->[nice] [Day_clear]야.</li>
+							<li>weather_clear_goodtemp_not_entombed(INITIATOR_mood&lt;0.4,priority=1)->[nice] 날씨야... 마침내...</li>
+								<li>Day_clear(DAYPERIOD==mornig)->아침이</li>
+								<li>Day_clear(DAYPERIOD==afternoon)->오후</li>
+								<li>Day_clear(DAYPERIOD==evening)->저녁이</li>
+								<li>Day_clear(DAYPERIOD==night)->밤이</li>
+				<!-- ===Extreme cold for humans=== -->
+					<li>weather_clear(TEMPERATURE&lt;-10)->[weather_toocold]</li>
+				<!-- ===Extreme heat for humans=== -->
+					<li>weather_clear(TEMPERATURE>35)->[weather_toohot]</li>
+				
+			<!-- ===FOG=== -->
+				<li>r_logentry(WEATHER==fog)->[weather_fog]</li>
+				<!-- ===Good temperature for humans=== -->
+					<li>weather_fog(TEMPERATURE>=-15,TEMPERATURE&lt;=40)->[weather_fog_goodtemp]</li>
+					<!-- ===Undergrounder indoors (priority 2)=== -->
+						<li>weather_fog_goodtemp(OUTDOORS==No,INITIATOR_trait==undergrounder,priority=2)->[mood]</li>
+					<!-- ===Entombed indoors (priority 1)=== -->
+						<li>weather_fog_goodtemp(OUTDOORS==No,INITIATOR_thoughtDefName==NeedOutdoors,tag=StuckIndoors,priority=1)->바깥 날씨는 어떤지 궁금하네.</li>
+					<!-- ===Outdoors or indoors but not entombed (default)=== -->
+						<li>weather_fog_goodtemp(tag=WeatherFogGoodtempNotEntombed)->[weather_fog_goodtemp_not_entombed]</li>
+						<!-- ===Initiator mood=== -->
+							<li>weather_fog_goodtemp_not_entombed(INITIATOR_mood>=0.4)->[out_here_out_there]은 안개가 좀 심하네.</li>
+							<li>weather_fog_goodtemp_not_entombed(INITIATOR_mood>=0.2,INITIATOR_mood&lt;0.4)->[out_here_out_there]의 이 [swearword]안개는 내가 아무것도 볼 수 없게 만들어!</li>
+							<li>weather_fog_goodtemp_not_entombed(INITIATOR_mood&lt;0.2)->이 [swearword]안개! 이 [swearword]안개 때문에 — 아무것도 보이지 않아!</li>	
+					<!-- ===Hunting skill (recipient)=== -->
+						<li>weather_fog_goodtemp(RECIPIENT_shooting_level>=5,RECIPIENT_animals_level>=5,tag=HuntWithFog)->아무래도 안개 때문에 오늘은 사냥을 못 하겠어. 그치?</li>
+					<!-- ===Trait==Too smart=== -->
+						<li>weather_fog_goodtemp(INITIATOR_trait==too smart,tag=WeatherFogToosmart)->[fog_fact]</li>
+						<li>fog_fact(INITIATOR_intellectual_level>=10)->안개는 행성 표면 또는 그 근처의 공기 중에 떠다니는 작은 물방울이나 얼음 결정으로 구성된 눈에 보이는 에어로졸이야.</li>
+						<li>fog_fact(INITIATOR_intellectual_level>=7)->안개는 때때로 지층에 거의 붙어있는 저층 구름의 일종으로 간주되기도 해.</li>
+						<li>fog_fact(INITIATOR_intellectual_level>=5)->안개는 인근 수역, 지형, 바람 조건의 영향을 많이 받지.</li>
+						<li>fog_fact->안개는 수증기 또는 기체 형태의 물이 응결될 때 나타나는 것으로 알려져 있어.</li>
+					<!-- ===Trait==Wimp=== -->
+						<li>weather_fog_goodtemp(INITIATOR_trait==wimp,tag=WeatherFogWimp)->나 조금 [scared]... 이 [eerie] [mist] 속에서 만약 [horrible] [monster](이)가 갑자기 튀어나오면 어떻게 해...</li>
+				<!-- ===Extreme cold for humans=== -->
+					<li>weather_fog(TEMPERATURE&lt;-10)->[weather_toocold]</li>
+				<!-- ===Extreme heat for humans=== -->
+					<li>weather_fog(TEMPERATURE>35)->[weather_toohot]</li>
+				
+			<!-- ===RAIN=== -->
+				<li>r_logentry(WEATHER==rain)->[weather_rain]</li>
+				<!-- ===Good temperature for humans=== -->
+					<li>weather_rain(TEMPERATURE>=-15,TEMPERATURE&lt;=40)->[weather_rain_goodtemp]</li>
+					<!-- ===Indoors=== -->
+						<li>weather_rain_goodtemp(OUTDOORS==No,tag=WeatherRainGoodtempIndoors)->[weather_rain_goodtemp_indoors]</li>
+						<li>weather_rain_goodtemp_indoors->으음... 밖에 비가 오나 봐.</li>
+						<li>weather_rain_goodtemp_indoors->지금 밖에 비 오는 거 아냐?</li>
+						<li>weather_rain_goodtemp_indoors->들려? 지금 비가 오고 있어.</li>
+						<li>weather_rain_goodtemp_indoors(INITIATOR_thoughtDefName==SoakingWet)->이 [swearword]비 때문에 온 몸이 흠뻑 젖었어! [rain_drenched]</li>
+						<li>rain_drenched(INITIATOR_thoughtDefName==EnvironmentCold,priority=1)->[thought_environmentcold]</li>
+						<li>rain_drenched(INITIATOR_thoughtDefName==Sick,priority=1)->아무래도 이미 [swearword]병에 걸린 것 같아, 으윽...</li>
+						<li>rain_drenched(INITIATOR_trait==sickly,priority=1)->이제 나는 [surely] [swearword]감기에 걸리게 될거야...</li>
+						<li>rain_drenched-></li>
+					<!-- ===Outdoors=== -->
+						<li>weather_rain_goodtemp(OUTDOORS==Yes,tag=WeatherRainGoodtempOutdoors)->[weather_rain_goodtemp_outdoors]</li>
+						<li>weather_rain_goodtemp_outdoors->비 때문에 옷이 젖었어 — [damn_it], 찝찝해... 빨리 안으로 들어가야겠어.</li>
+						<li>weather_rain_goodtemp_outdoors->나 완전히 물에 빠진 생쥐 꼴이야 — 어서 안으로 들어가는 게 낫겠어.</li>
+						<li>weather_rain_goodtemp_outdoors(TEMPERATURE&lt;=5,INITIATOR_trait==sickly)->안으로 들어가야겠어 — 그렇지 않으면 난 [surely] 감기 혹은 그보다 더 심한 병에 걸리고 싶지 않다구.</li>
+						<li>weather_rain_goodtemp_outdoors(TEMPERATURE&lt;=5,INITIATOR_trait==wimp)->난 안으로 들어갈래 — 감기에 걸리지 않으려면 빨리 들어가야해...</li>
+						
+						
+				<!-- ===Extreme cold for humans=== -->
+					<li>weather_rain(TEMPERATURE&lt;-10)->[weather_toocold]</li>
+				<!-- ===Extreme heat for humans=== -->
+					<li>weather_rain(TEMPERATURE>35)->[weather_toohot]</li>
+				
+			<!-- ===DRY THUNDERSTORM=== (p=2) -->
+				<li>r_logentry(p=2,WEATHER==dry thunderstorm)->[weather_dry_storm]</li>
+				<!-- ===Good temperature for humans=== -->
+					<li>weather_dry_storm(TEMPERATURE>=-15,TEMPERATURE&lt;=40)->[weather_dry_storm_goodtemp]</li>
+					<!-- ===Indoors=== -->
+						<li>weather_dry_storm_goodtemp(OUTDOORS==No,tag=WeatherDrystormGoodtempIndoors)->[weather_drystorm_goodtemp_indoors]</li>
+						<li>weather_drystorm_goodtemp_indoors->방금 천둥 소리 들었어</li>
+						<li>weather_drystorm_goodtemp_indoors->우와 — 방금 천둥 소리는 엄청났는데!</li>
+					<!-- ===Outdoors=== -->
+						<li>weather_dry_storm_goodtemp(OUTDOORS==Yes,tag=WeatherDrystormGoodtempOutdoors)->[weather_drystorm_goodtemp_outdoors]</li>
+						<li>weather_drystorm_goodtemp_outdoors->우와 — 방금 번개 봤어? 장난 아닌데!</li>
+						<li>weather_drystorm_goodtemp_outdoors(INITIATOR_trait==pyromaniac)->방금 번개는 정말 대단했어!</li>
+						<li>weather_drystorm_goodtemp_outdoors->바람이 [wind_pickingup] — 폭풍이 다가오고 있나봐.</li>
+						<li>wind_pickingup->점점 강해지고 있어</li>
+						<li>wind_pickingup->점점 세지고 있어</li>
+						<li>wind_pickingup->울부짖고 있어</li>
+					<!-- ===Wimp — Indoors=== -->
+						<li>weather_dry_storm_goodtemp(INITIATOR_trait==wimp,OUTDOORS==No,tag=WimpThunder)->[wimp_thunder_indoors]</li>
+						<li>wimp_thunder_indoors->아오! 언제 저 [swearword]천둥 소리가 그칠까? 나는 조금 [scared]!</li>
+						<li>wimp_thunder_indoors->아오! 난 천둥 소리가 [swearword_adverb] 무서워!</li>
+					<!-- ===Wimp — Outdoors=== -->
+						<li>weather_dry_storm_goodtemp(INITIATOR_trait==wimp,OUTDOORS==Yes,tag=WimpThunder)->빨리 안으로 들어가자고! [wimp_thunder_outdoors]</li>
+						<li>wimp_thunder_indoors->저 [swearword]번개를 보면 살짝 소름이 끼쳐!</li>
+						<li>wimp_thunder_indoors->저 [swearword]천둥이 조만간 내 귀를 멀게 만들 것 같네 — 조금 [scared]!</li>					
+
+				<!-- ===Extreme cold for humans=== -->
+					<li>weather_dry_storm(TEMPERATURE&lt;-10)->[weather_toocold]</li>
+				<!-- ===Extreme heat for humans=== -->
+					<li>weather_dry_storm(TEMPERATURE>35)->[weather_toohot]</li>
+
+			<!-- ===RAINY THUNDERSTORM=== (p=2) -->
+				<li>r_logentry(p=2,WEATHER==rainy thunderstorm)->[weather_storm]</li>
+				<!-- ===Good temperature for humans=== -->
+					<li>weather_storm(TEMPERATURE>=-15,TEMPERATURE&lt;=40)->[weather_storm_goodtemp]</li>
+					<!-- ===Indoors=== -->
+						<li>weather_storm_goodtemp(OUTDOORS==No,tag=WeatherStormGoodtempIndoors)->[weather_storm_goodtemp_indoors]</li>
+						<li>weather_storm_goodtemp_indoors->방금 천둥 소리 들었어? 우와...</li>
+						<li>weather_storm_goodtemp_indoors->우와 — 지붕을 때리는 빗소리가 장난 아닌데?</li>
+						<li>weather_storm_goodtemp_indoors->비가 아니라 총알이 지붕에 쏟아지는 것 같아...</li>
+						<li>weather_storm_goodtemp_indoors->폭풍 한번 거세네, 그치?</li>
+						<li>weather_storm_goodtemp_indoors(INITIATOR_artistic_level>=5)->♪♫♪밖에 비온다 주룩주룩, 우리 셋은 걸어, 그 먹구름 위를...♪♫♪</li>
+						<li>weather_storm_goodtemp_indoors->이런 — 비가 억수같이 내리고 있네!</li>
+						<li>weather_storm_goodtemp_indoors(INITIATOR_thoughtDefName==SoakingWet)->이 [swearword]폭풍 때문에 흠뻑 젖어버렸어!  [rain_drenched]</li>
+					<!-- ===Outdoors=== -->
+						<li>weather_storm_goodtemp(OUTDOORS==Yes,tag=WeatherStormGoodtempOutdoors)->[weather_storm_goodtemp_outdoors]</li>
+						<li>weather_storm_goodtemp_outdoors->워우 — 방금 번개 친거 봤어? 어마어마한걸!</li>
+						<li>weather_storm_goodtemp_outdoors->비 때문에 옷이 전부 젖었어 — [damn_it], 찝찝해... 빨리 안으로 들어가야겠어.</li>
+						<li>weather_storm_goodtemp_outdoors->나 완전히 물에 빠진 생쥐 꼴이야 — 어서 안으로 들어가는 게 낫겠어.</li>
+						<li>weather_storm_goodtemp_outdoors(INITIATOR_trait==pyromaniac)->방금 번개는 정말 대단했어!</li>
+						<li>weather_storm_goodtemp_outdoors(TEMPERATURE&lt;=5,INITIATOR_trait==sickly)->안으로 들어가야겠어 — 그렇지 않으면 난 [surely] 감기 혹은 그보다 더 심한 병에 걸리고 싶지 않다구.</li>
+						<li>weather_storm_goodtemp_outdoors(TEMPERATURE&lt;=5,INITIATOR_trait==wimp)->난 안으로 들어갈래 — 감기에 걸리지 않으려면 빨리 들어가야해...</li>
+					<!-- ===Wimp — Indoors (see Dry Thunderstorm)=== -->
+						<li>weather_storm_goodtemp(INITIATOR_trait==wimp,OUTDOORS==No,tag=WimpThunder)->[wimp_thunder_indoors]</li>
+					<!-- ===Wimp — Outdoors (see Dry Thunderstorm)=== -->
+						<li>weather_storm_goodtemp(INITIATOR_trait==wimp,OUTDOORS==Yes,tag=WimpThunder)->빨리 안으로 들어가자! [wimp_thunder_outdoors]</li>
+
+				<!-- ===Extreme cold for humans=== -->
+					<li>weather_storm(TEMPERATURE&lt;-10)->[weather_toocold]</li>
+				<!-- ===Extreme heat for humans=== -->
+					<li>weather_storm(TEMPERATURE>35)->[weather_toohot]</li>
+
+			<!-- ===FOGGY RAIN=== -->
+				<li>r_logentry(WEATHER==foggy rain)->[weather_foggyrain]</li>
+				<!-- ===Good temperature for humans=== -->
+					<li>weather_foggyrain(TEMPERATURE>=-15,TEMPERATURE&lt;=40)->[weather_foggyrain_goodtemp]</li>
+					<!-- ===Indoors (as per normal rain)=== -->
+						<li>weather_foggyrain_goodtemp(OUTDOORS==No,tag=WeatherRainGoodtempIndoors)->[weather_rain_goodtemp_indoors]</li>
+					<!-- ===Outdoors (as per normal rain)=== -->
+						<li>weather_foggyrain_goodtemp(OUTDOORS==Yes,tag=WeatherRainGoodtempOutdoors)->[weather_rain_goodtemp_outdoors]</li>
+					<!-- ===Outdoors (as per normal fog)=== -->					
+						<li>weather_foggyrain_goodtemp(OUTDOORS==Yes,tag=WeatherFogGoodtempNotEntombed)->[weather_fog_goodtemp_not_entombed]</li>
+						<li>weather_foggyrain_goodtemp(OUTDOORS==Yes,tag=WeatherFogGoodtempNotEntombed)->옷이 젖은 것도 화나는데, 이 [swearword]안개 때문에 — 아무것도 보이지 않아!</li>					
+					<!-- ===Hunting skill (recipient)=== -->
+						<li>weather_foggyrain_goodtemp(RECIPIENT_shooting_level>=5,RECIPIENT_animals_level>=5,tag=HuntWithFog)->아무래도 안개비 때문에 오늘은 사냥을 할 수 없겠는데?</li>
+					<!-- ===Trait==Wimp=== -->
+						<li>weather_foggyrain_goodtemp(INITIATOR_trait==wimp,tag=WeatherFogWimp)->나 조금 [scared]... 이 [eerie] [mist] 속에서 만약 [horrible] [monster](이)가 갑자기 튀어나오면 어떻게 해...</li>
+				<!-- ===Extreme cold for humans=== -->
+					<li>weather_fog(TEMPERATURE&lt;-10)->[weather_toocold]</li>
+				<!-- ===Extreme heat for humans=== -->
+					<li>weather_fog(TEMPERATURE>35)->[weather_toohot]</li>
+
+			<!-- ===HARD SNOW=== (p=2)-->
+				<li>r_logentry(p=2,WEATHER==hard snow)->[weather_hardsnow]</li>
+				<!-- ===Good temperature for humans=== -->
+					<li>weather_hardsnow(TEMPERATURE>=-15,TEMPERATURE&lt;=40)->[weather_hardsnow_goodtemp]</li>
+					<!-- ===Undergrounder indoors (priority 2)=== -->
+						<li>weather_hardsnow_goodtemp(OUTDOORS==No,INITIATOR_trait==undergrounder,tag=StuckIndoors,priority=2)->이렇게 바람이 강하게 부는 날에 실내에 있다니, 정말 다행이야...</li>
+					<!-- ===Entombed indoors (priority 1)=== -->
+						<li>weather_hardsnow_goodtemp(OUTDOORS==No,INITIATOR_thoughtDefName==NeedOutdoors,tag=StuckIndoors,priority=1)->밖에서 바람이 엄청 강하게 부는 것 같은데...</li>
+					<!-- ===Outdoors or indoors but not entombed (default)=== -->
+						<li>weather_hardsnow_goodtemp(tag=WeatherHardsnowGoodtempNotEntombed)->[weather_hardsnow_goodtemp_not_entombed]</li>
+						<!-- ===Initiator mood=== -->
+							<li>weather_hardsnow_goodtemp_not_entombed(INITIATOR_mood>=0.4)->[out_here_out_there]은 눈보라가 몰아치고 있어!</li>
+							<li>weather_hardsnow_goodtemp_not_entombed(INITIATOR_mood>=0.2,INITIATOR_mood&lt;0.4)->[damn_it]! 이런 [swearword]눈보라가 몰아치는 [out_here_out_there]에서 움직이는 건 거의 불가능해!</li>
+							<li>weather_hardsnow_goodtemp_not_entombed(INITIATOR_mood&lt;0.2)->이 [swearword]눈보라! 미끄러져 넘어질 뻔했어! [damn_it]!</li>
+					<!-- ===Hunting skill (recipient)=== -->
+						<li>weather_hardsnow_goodtemp(RECIPIENT_shooting_level>=5,RECIPIENT_animals_level>=5,tag=HuntWithFog)->아무래도 눈보라 때문에 오늘은 사냥을 못 할 것 같지?</li>
+					<!-- ===Trait==Too smart=== -->
+						<li>weather_hardsnow_goodtemp(INITIATOR_trait==too smart,tag=WeatherSnowstormToosmart)->[snowstorm_fact]</li>
+						<li>snowstorm_fact(INITIATOR_intellectual_level>=10)->대기의 온도 상태에 따라서 눈은 습기가 많은 상태이거나, 비교적 건조한 상태일 수도 있어 — 만약 전자라면 제설이 더욱 힘들거야.</li>
+						<li>snowstorm_fact(INITIATOR_intellectual_level>=7)->겨울 폭풍의 총 강수량은 비보다 적어 — 차가운 공기는 따뜻한 공기만큼 많은 수분을 보유 할 수 없기 때문이지!</li>
+						<li>snowstorm_fact(INITIATOR_intellectual_level>=5)->겨울 폭풍은 습한 공기가 대기 중으로 상승하여 지상 부근에 저기압을 형성하고 공중에 구름을 만들 때 형성돼.</li>
+						<li>snowstorm_fact->풍속이 16m/s 이상이고 가시거리가 3시간 이상 감소하는 겨울 폭풍을 블리자드, 또는 눈보라라고 부르지.</li>
+
+				<!-- ===Extreme cold for humans=== -->
+					<li>weather_hardsnow(TEMPERATURE&lt;-10)->[weather_toocold]</li>
+				<!-- ===Extreme heat for humans=== -->
+					<li>weather_hardsnow(TEMPERATURE>35)->[weather_toohot]</li>			
+
+			<!-- ===GENTLE SNOW=== -->
+				<li>r_logentry(WEATHER==gentle snow)->[weather_softsnow]</li>
+				<!-- ===Good temperature for humans=== -->
+					<li>weather_softsnow(TEMPERATURE>=-10,TEMPERATURE&lt;=35)->[weather_softsnow_goodtemp]</li>
+					<!-- ===Undergrounder indoors (priority 2)=== -->
+						<li>weather_softsnow_goodtemp(OUTDOORS==No,INITIATOR_trait==undergrounder,priority=2)->[mood]</li>
+					<!-- ===Entombed indoors (priority 1)=== -->
+						<li>weather_softsnow_goodtemp(OUTDOORS==No,INITIATOR_thoughtDefName==NeedOutdoors,tag=StuckIndoors,priority=1)->바깥 날씨가 어떤지 정말 궁금하다...</li>
+					<!-- ===Outdoors or indoors but not entombed (default)=== -->
+						<li>weather_softsnow_goodtemp(tag=WeatherSoftsnowGoodtempNotEntombed)->[weather_softsnow_goodtemp_not_entombed]</li>
+						<!-- ===Mood=== -->
+							<li>weather_softsnow_goodtemp_not_entombed(INITIATOR_mood>=0.7)->눈이 내리고 있어 — 정말 분위기 좋다!</li>
+							<li>weather_softsnow_goodtemp_not_entombed(INITIATOR_mood>=0.7,OUTDOORS==Yes)->이거 봐, 나 눈송이 잡았어 — 정말 예쁘지!</li>
+							<li>weather_softsnow_goodtemp_not_entombed(INITIATOR_mood>=0.4,OUTDOORS==No)->밖에 봤어? 지금 눈 내리고 있어!</li>
+							<li>weather_softsnow_goodtemp_not_entombed(INITIATOR_mood>=0.4,OUTDOORS==Yes)->눈이 내리고 있어!</li>
+							<li>weather_softsnow_goodtemp_not_entombed(INITIATOR_mood&lt;0.4,OUTDOORS==No)->[swearword]눈...</li>
+							<li>weather_softsnow_goodtemp_not_entombed(INITIATOR_mood&lt;0.4,OUTDOORS==Yes)->[damn_it]! — 눈송이가 눈에 들어갔어...!</li>
+					<!-- ===Trait==Too smart=== -->
+						<li>weather_softsnow_goodtemp(INITIATOR_trait==too smart,OUTDOORS==Yes,tag=WeatherSnowToosmart)->[snow_fact]</li>
+						<li>snow_fact(INITIATOR_intellectual_level>=10)->눈송이는 과냉각된 구름 물방울을 끌어당겨 형성되며, 이 물방울이 얼어붙어 결정 형태로 응결되어서 생겨나는거야.</li>
+						<li>snow_fact(INITIATOR_intellectual_level>=7)->눈송이는 과포화 기단에서 먼지 입자 주위에 핵을 형성하면서 만들어지게 돼.</li>
+						<li>snow_fact(INITIATOR_intellectual_level>=5)->눈송이는 표면에 침전물들이 쌓이며 밀리미터 단위로 커지고 변형을 거듭하다 결국에는 녹게 돼.</li>
+						<li>snow_fact->눈송이는 수명 주기 내내 얼어붙은 결정질 물로 이루어져 있지.</li>
+				<!-- ===Extreme cold for humans=== -->
+					<li>weather_softsnow(TEMPERATURE&lt;-10)->[weather_toocold]</li>
+				<!-- ===Extreme heat for humans=== -->
+					<li>weather_softsnow(TEMPERATURE>35)->[weather_toohot]</li>
+			
+			<!-- ===WILDCARDS=== -->
+				<!-- ===Extreme cold felt=== -->
+					<!-- ===Clothes are not enough=== -->
+						<li>weather_toocold(INITIATOR_thoughtLabel==chilly,priority=1)->더 좋은 옷을 입어야겠어 — 날이 엄청 쌀쌀하네!</li>
+						<li>weather_toocold(INITIATOR_thoughtLabel==cold,priority=1)->더 좋은 옷을 입어야겠어 — 엄청 추워! 감기 걸릴 것 같아.</li>
+						<li>weather_toocold(INITIATOR_thoughtLabel==numbing cold,priority=1)->더 좋은 옷을 입어야겠어 — 이러다 진짜 얼어죽겠다!</li>
+						<li>weather_toocold(INITIATOR_thoughtLabel==absolutely freezing,priority=1)->더 좋은 옷을 입어야겠어 — 온 몸에 감각이 없어... 이러다 진짜 죽는 거 아닐까..?</li>
+					<!--Clothes are enough-->
+						<li>weather_toocold->다행히도 내 장비는 이 정신나간 강추위로부터 나를 보호하기에 충분한 것 같아!</li>
+				<!-- ===Extreme heat felt=== -->
+					<!-- ===Clothes are not enough=== -->
+						<li>weather_toohot(INITIATOR_thoughtLabel==sweaty,priority=1)->더 좋은 옷을 입어야겠어 — 땀이 줄줄 흘러.</li>
+						<li>weather_toohot(INITIATOR_thoughtLabel==hot,priority=1)->더 좋은 옷을 입어야겠어 — 너무 더워!</li>
+						<li>weather_toohot(INITIATOR_thoughtLabel==sweltering hot,priority=1)->더 좋은 옷을 입어야겠어 — 진짜, 너무 더워!</li>
+						<li>weather_toohot(INITIATOR_thoughtLabel==blistering hot,priority=1)->더 좋은 옷을 입어야겠어 — 더워서 녹아내릴 것만 같아!</li>
+					<!-- ===Clothes are enough=== -->
+						<li>weather_toohot->다행히도 내 장비는 이 지긋지긋한 무더위로부터 나를 보호하기에 충분한 것 같아!</li>
+				
+		</value>
+	</Operation>
+	
+</Patch>
