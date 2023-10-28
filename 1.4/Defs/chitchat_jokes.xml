@@ -432,14 +432,14 @@
 			<label>joke — reaction</label>
 			<logRulesInitiator>
 				<rulesStrings>
-						<li>r_logentry(RECIPIENT_사교_level>=0)->[good]</li>
-						<li>r_logentry(RECIPIENT_사교_level>=5)->[good]</li>
-						<li>r_logentry(RECIPIENT_사교_level>=10)->[good]</li>
-						<li>r_logentry(RECIPIENT_사교_level>=15)->[good]</li>
-						<li>r_logentry(RECIPIENT_사교_level&lt;5)->[bad]</li>
-						<li>r_logentry(RECIPIENT_사교_level&lt;10)->[bad]</li>
-						<li>r_logentry(RECIPIENT_사교_level&lt;15)->[bad]</li>
-						<li>r_logentry(RECIPIENT_사교_level&lt;=20)->[bad]</li>						
+						<li>r_logentry(RECIPIENT_social_level>=0)->[good]</li>
+						<li>r_logentry(RECIPIENT_social_level>=5)->[good]</li>
+						<li>r_logentry(RECIPIENT_social_level>=10)->[good]</li>
+						<li>r_logentry(RECIPIENT_social_level>=15)->[good]</li>
+						<li>r_logentry(RECIPIENT_social_level&lt;5)->[bad]</li>
+						<li>r_logentry(RECIPIENT_social_level&lt;10)->[bad]</li>
+						<li>r_logentry(RECIPIENT_social_level&lt;15)->[bad]</li>
+						<li>r_logentry(RECIPIENT_social_level&lt;=20)->[bad]</li>						
 						
 						
 						<li>good(INITIATOR_mood>=0.7)->*폭소*</li>

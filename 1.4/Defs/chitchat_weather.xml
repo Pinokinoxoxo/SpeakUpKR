@@ -48,7 +48,7 @@
 					<!-- ===Good opinion=== -->
 						<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
 						<!-- ===undergrounder indoors (priority 2)=== -->
-							<li>good_opinion(INITIATOR_trait==실내 선호,OUTDOORS==아니오,priority=2)->[i_undergrounder]</li>
+							<li>good_opinion(INITIATOR_trait==실내 선호,OUTDOORS==No,priority=2)->[i_undergrounder]</li>
 								<li>i_undergrounder->밖의 날씨가 어떤지는 전혀 관심이 없어, [recipient]...</li>
 						<!-- ===Entombed (priority 1)=== -->
 							<li>good_opinion(INITIATOR_thoughtDefName==NeedOutdoors,priority=1)->밖에 나가서 내 눈으로 직접 볼 기회가 있으면 좋겠어!</li>
@@ -56,7 +56,7 @@
 							<li>good_opinion->[yes], [recipient]. [outside_inside]</li>
 
 					<!-- === Comment if outside=== -->
-						<li>outside_inside(OUTDOORS==예)->[temperature]</li>
+						<li>outside_inside(OUTDOORS==Yes)->[temperature]</li>
 						<li>temperature(TEMPERATURE>30,TEMPERATURE&lt;=44)->정말 더운 [Day_weather]. 그래도 아직 이 정도는,즐길만 해.</li>
 						<li>temperature(TEMPERATURE>26,TEMPERATURE&lt;=30)->포근하고 화창한 [Day_weather]. 정말 축복인걸!</li>
 						<li>temperature(TEMPERATURE>=16,TEMPERATURE&lt;=26)->너무 덥지도 않고, 너무 춥지도 않고 — 정말 완벽한 [Day_weather]!</li>
@@ -68,7 +68,7 @@
 						<li>plants1(INITIATOR_plants_level>=5)-> — 밖에 있는 작물들은 제대로 자라기 힘들 거야.</li>
 						<li>plants2(INITIATOR_plants_level>=5)-> — 밖에 있는 작물들은 전부 얼어 죽을 거라고!</li>
 					<!-- ===Comment if inside=== -->
-						<li>outside_inside(OUTDOORS==아니오)->[outside]</li>
+						<li>outside_inside(OUTDOORS==No)->[outside]</li>
 						<li>outside->이렇게 날씨가 [nice] 확실히 도움이 될거야!</li>
 						<li>outside->이런 [niceK] 날씨는 우리에게 최고의 날씨라고!</li>								
 					<!-- ===WILDCARDS=== -->
@@ -112,8 +112,8 @@
 						<li>good_opinion(DAYPERIOD==night)->안개가 자욱한 밤은 사고나기 딱 좋은 시간이지 — [inside_outside].</li>
 						<li>good_opinion(INITIATOR_trait==방화광)->모닥불을 피우면 안개를 걷어 내는데 도움이 된다고 들었어.</li>
 						
-						<li>inside_outside(OUTDOORS==예)->안으로 들어가야 할 것 같아</li>
-						<li>inside_outside(OUTDOORS==아니오)->안에 있는 게 좋을 것 같아</li>
+						<li>inside_outside(OUTDOORS==Yes)->안으로 들어가야 할 것 같아</li>
+						<li>inside_outside(OUTDOORS==No)->안에 있는 게 좋을 것 같아</li>
 				</rulesStrings>
 			</logRulesInitiator>
 		</InteractionDef>
@@ -386,9 +386,9 @@
 					<!-- ===Good opinion of recipient=== -->
 						<li>r_logentry->[good_opinion]</li>
 						<li>good_opinion->아무래도 삽을 들고 빡세게 제설 작업을 해야 할 것 같아...</li>
-						<li>good_opinion(OUTDOORS==아니오)-문을 닫아두자 — 그래야 실내에서 따뜻하게 지낼 수 있을테니까!</li>
+						<li>good_opinion(OUTDOORS==No)-문을 닫아두자 — 그래야 실내에서 따뜻하게 지낼 수 있을테니까!</li>
 						<!-- === outdoors === -->
-							<li>good_opinion(OUTDOORS==아니오)->[outdoors]</li>
+							<li>good_opinion(OUTDOORS==No)->[outdoors]</li>
 							<li>outdoors->으으, 이 바람 — 살이 에는 것 같아!</li>
 							<li>outdoors->눈을 뜨고 있을 수가 없어... 얼굴에 눈이 너무 많이 묻어...</li>
 							<li>outdoors->걷기가 점점 힘들어지는데... 점점 꼼짝도 못하겠어...</li>
@@ -445,7 +445,7 @@
 						<li>good_opinion(INITIATOR_mood>=0.4)->눈 덮인 풍경이 너무 멋져!</li>
 						<li>good_opinion(INITIATOR_mood&lt;0.4)->눈...? 뭐 어쩌라고, [recipient]... 별 것도 아닌 걸 가지고...</li>
 					<!-- outdoors === -->
-						<li>good_opinion(OUTDOORS==예)->[outdoors]</li>
+						<li>good_opinion(OUTDOORS==Yes)->[outdoors]</li>
 						<li>outdoors(INITIATOR_mood>=0.4)->눈송이가 너무 예뻐!</li>
 						<li>outdoors(INITIATOR_mood&lt;0.4)->이런 젠장, 눈송이가 내 눈에 들어갔어...</li>
 						<li>outdoors(INITIATOR_trait==병약 체질,TEMPERATURE&lt;10)->당장 안으로 들어가야겠어  — 난 감기 혹은 그보다 더 심한 병에 걸리고 싶지 않다구.</li>

@@ -7,7 +7,7 @@
 			<rulesStrings>
 				<!-- ===Bad opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
-					<li>bad_opinion(INITIATOR_opinion&lt;=-25)->목이나 콱 막혀서 죽어버려, [RECIPIENT_nameDef]!</li>
+					<li>bad_opinion(INITIATOR_opinion&lt;=-25)->목이나 콱 막혀서 죽어버리지 그래, [RECIPIENT_nameDef]!</li>
 					<li>bad_opinion->...</li>
 					<li>bad_opinion->...짜증나는 군.</li>
 				<!-- ===Good opinion of recipient=== -->
@@ -17,10 +17,10 @@
 					<li>good_opinion->[recipient], 마음껏 먹어!</li>
 					<li>good_opinion->[recipient], 즐거운 식사 하렴!</li>
 					<li>good_opinion->[recipient], 어서 먹어!</li>
-					<li>good_opinion(INITIATOR_social_level>=5)->[recipient], 맛있게 드세요!</li>
+					<li>good_opinion(INITIATOR_social_level>=5)->[recipient], 맛있게 먹어!</li>
 					<li>good_opinion(INITIATOR_medical_level>=5)->[recipient], 천천히 먹어.</li>
-					<li>good_opinion(INITIATOR_trait==식탐)->맛있게 먹어! 잘 먹는 게 인생의 전부 아니겠어!</li>
-					<li>good_opinion(INITIATOR_trait==검소)->천천히, [recipient], 천천히 먹으렴...</li>
+					<li>good_opinion(INITIATOR_trait==gourmand)->맛있게 먹어! 잘 먹는 게 인생의 전부 아니겠어!</li>
+					<li>good_opinion(INITIATOR_trait==ascetic)->천천히, [recipient], 천천히 먹으렴...</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -48,7 +48,7 @@
 		<label>react to — ate wo table (stressed or abrasive)</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<!-- ===Bad opinion of recipient=== -->
+<!-- ===Bad opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 					<!-- ===Initiator is not skilled in construction=== -->
 						<li>bad_opinion(INITIATOR_construction_level&lt;4)->[bad_opinion_unskilled]</li>
@@ -204,7 +204,7 @@
 					<li>good_opinion->그거 진짜 반가운 소식인걸, [recipient]! [comment]</li>
 				<!-- ===WILDCARDS=== -->
 					<li>comment-></li>
-					<li>comment(INITIATOR_trait==식탐)->나도 그 곳에서 호화롭게 식사를 즐기고 싶은데!</li>
+					<li>comment(INITIATOR_trait==gourmand)->나도 그 곳에서 호화롭게 식사를 즐기고 싶은데!</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -971,8 +971,8 @@
 					<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion->네 말이 맞아, [recipient]. 서로 좀 더 조용하게 배려하며 다닐 필요가 있어.</li>
-					<li>good_opinion->아, 이런... 정말 미안해, [recipient]. 앞으로는 소리 안 나게 조심할게.</li>
+					<li>good_opinion->[recipient] 말이 맞아. 서로 좀 더 조용하게 배려하며 다닐 필요가 있어.</li>
+					<li>good_opinion->아, 이런... [recipient], 정말 미안해. 앞으로는 소리 안 나게 조심할게.</li>
 					<li>good_opinion->가능한 조용하게 움직일게, [recipient].</li>
 					<li>good_opinion(INITIATOR_trait==직설적)->이건 내 잘못 아니야, [RECIPIENT_nameDef]. Sucks to be you, I guess. Sorry.</li>
 					<li>good_opinion(INITIATOR_trait==다정다감)->이런, [RECIPIENT_nameDef]! 한 번만 참아줘, 다음에 네가 잘 때는 방해받지 않도록 해줄게.</li>
@@ -1048,7 +1048,7 @@
 		<label>slept in a shared room</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<!-- ===Bad opinion of recipient=== -->
+<!-- ===Bad opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion&lt;0)->...</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
@@ -1091,7 +1091,7 @@
 					<li>annoying->안 좋은</li>
 					<li>annoying(INITIATOR_intellectual_level>=5)->용납되지 않는</li>
 					<li>annoying(INITIATOR_intellectual_level>=5)->불결한</li>
-					<li>annoying(INITIATOR_intellectual_level>=10)->혐오스러운</li>									
+					<li>annoying(INITIATOR_intellectual_level>=10)->혐오스러운</li>												
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -1113,10 +1113,10 @@
 					<!-- ===Slept outside=== -->
 						<li>good_opinion(INITIATOR_thoughtDefName==SleptOutside,priority=4)->무슨 침실!? 지난번에 잘 땐 밖에서 잤는데!</li>
 					<!-- ===Ascetic=== -->
-						<li>good_opinion(INITIATOR_thoughtLabel==끔찍한 침실 (검소),priority=4)->내 방은 내가 원하는 딱 그대로야 — 굉장히 소박하고 단순해!</li>
-						<li>good_opinion(INITIATOR_thoughtLabel==형편없는 침실 (검소),priority=4)->내 방은 내가 원하는 딱 그대로야 — 소박하고 단순하지.</li>
-						<li>good_opinion(INITIATOR_thoughtLabel==썰렁한 침실 (검소),priority=4)->내 방은 소박하고 깔끔해. 마음에 들어.</li>
-						<li>good_opinion(INITIATOR_thoughtLabel==인상적인 침실 (검소),priority=4)->내 방은 불필요하게 화려하고 사치스러워. 차라리 소박한 방에서 자고 싶어.</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==ascetic has awful bedroom,priority=4)->내 방은 내가 원하는 딱 그대로야 — 굉장히 소박하고 단순해!</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==ascetic has dull bedroom,priority=4)->내 방은 내가 원하는 딱 그대로야 — 소박하고 단순하지.</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==ascetic has mediocre bedroom,priority=4)->내 방은 소박하고 깔끔해. 마음에 들어.</li>
+						<li>good_opinion(INITIATOR_thoughtLabel==ascetic has impressive bedroom,priority=4)->내 방은 불필요하게 화려하고 사치스러워. 차라리 소박한 방에서 자고 싶어.</li>
 					<!-- ===Barracks=== -->
 						<li>good_opinion(INITIATOR_thoughtDefName==SleptInBarracks,priority=3)->나는 침실이 없어 — 다른 사람하고 공간을 같이 사용하고 있는 중이야.</li>
 						<li>good_opinion(INITIATOR_thoughtDefName==SleptInBarracks,priority=3)->나만의 침실이 있었으면 좋겠는데... 언제 생길지 누가 알겠어...</li>
@@ -1302,8 +1302,7 @@
 							<li>good_opinion_skilled(RECIPIENT_construction_level>=5)->맞아, [recipient] — 몸을 식힐 냉방 기기를 빨리 만들 걸 그랬어. 이젠 더 이상 이런 일이 일어나지 않을거야.</li>
 			</rulesStrings>
 		</logRulesInitiator>
-	</InteractionDef>
-	
+	</InteractionDef>	
 	<InteractionDef ParentName="SpeakUpReply"><!-- ===slept on ground === -->
 		<defName>ReactToThought_SleptOnGround</defName>
 		<label>slept on ground</label>
@@ -1359,6 +1358,7 @@
 		</logRulesInitiator>
 	</InteractionDef>
 	
+	
 	<InteractionDef ParentName="SpeakUpReply">
 		<defName>ReactToThought_SleptOutside</defName>
 		<label>slept outside</label>
@@ -1413,7 +1413,6 @@
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
-	
 	<InteractionDef ParentName="SpeakUpReply">
 		<defName>ReactToThought_UndergrounderOutdoors</defName>
 		<label>undergrounder outdoors</label>
@@ -1426,7 +1425,7 @@
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
 					<li>good_opinion->나도 알아, [recipient] — 하지만 몇몇 필수적인 작업들은 밖에서만 할 수 있는걸. 유감스럽지만 그걸 바꿀 순 없어...</li>
 					<li>good_opinion->알아들었어, [recipient] — 아무래도 네가 실내 작업 위주로 할 수 있도록 사람들과 이야기를 해 봐야겠어.</li>
-					<li>good_opinion->유감이야, [recipient] — 조만간 실내에서 일을 할 수 있길 기원할게.</li>
+					<li>good_opinion->유감이야, [recipient] — 조만간 실내에서 일을 할 수 있길 바랄게.</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -1502,4 +1501,5 @@
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
+
 </Defs>

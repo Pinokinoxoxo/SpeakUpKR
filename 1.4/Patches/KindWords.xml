@@ -16,8 +16,8 @@
 				<li>recipient(p=3,INITIATOR_relationship==Fiance)->[recipient_love]</li>
 				<li>recipient(p=2,INITIATOR_relationship==Spouse)->[recipient_love]</li>
 					<li>recipient_love->자기</li>
-					<li>recipient_love->여보</li>		
-					
+					<li>recipient_love->여보</li>	
+					<li>recipient_love->우리 [RECIPIENT_nameDef]</li>	
 					<li>recipient_love(RECIPIENT_gender==Female, INITIATOR_gender==Male, priority=1)->[recipient_love_1]</li>
 					<li>recipient_love(RECIPIENT_gender==Male, INITIATOR_gender==Female, priority=1)->[recipient_love_2]</li>
 					<li>recipient_love(RECIPIENT_gender==Male, INITIATOR_gender==Male, priority=1)->[recipient_love_3]</li>
@@ -38,9 +38,13 @@
 				
 					<!-- === INITIATOR의 나이가 RECIPIENT보다 크면 INITIATOR_AgeBool=1, 작으면 INITIATOR_AgeBool=0 === -->
 					<li>recipient_brother_1(INITIATOR_AgeBool==0)->누나</li>
+					<li>recipient_brother_1(INITIATOR_AgeBool==1)->[RECIPIENT_nameDef]</li>
 					<li>recipient_sister_1(INITIATOR_AgeBool==0)->오빠</li>
+					<li>recipient_sister_1(INITIATOR_AgeBool==1)->[RECIPIENT_nameDef]</li>
 					<li>recipient_brother_2(INITIATOR_AgeBool==0)->형</li>
+					<li>recipient_brother_2(INITIATOR_AgeBool==1)->[RECIPIENT_nameDef]</li>
 					<li>recipient_sister_2(INITIATOR_AgeBool==0)->언니</li>
+					<li>recipient_sister_2(INITIATOR_AgeBool==1)->[RECIPIENT_nameDef]</li>
 				
 				<li>recipient(RECIPIENT_relationship==Parent,priority=1)->[recipient_parent]</li>
 					<li>recipient_parent(RECIPIENT_gender==Male)->[recipient_father]</li>
@@ -58,6 +62,7 @@
 
 				<li>recipient(INITIATOR_relationship==Parent)->[recipient_child]</li>
 					<li>recipient_child->아가</li>
+					<li>recipient_child->[RECIPIENT_nameDef]</li>
 					<li>recipient_child(RECIPIENT_gender==Male)->[recipient_son]</li>
 						<li>recipient_son->아들</li>
 						<li>recipient_son->우리 아들</li>
@@ -66,10 +71,12 @@
 						<li>recipient_daughter->우리 딸</li>
 						
 				<li>recipient(INITIATOR_relationship==Grandparent,priority=1)->[recipient_Grandchild]</li>
-					<li>recipient_parent(RECIPIENT_gender==Male)->[recipient_Grandfather]</li>
-						<li>recipient_Grandfather->할아버지</li>
-					<li>recipient_parent(RECIPIENT_gender==Female)->[recipient_Grandmother]</li>
-						<li>recipient_Grandmother->할머니</li>
+					<li>recipient_Grandchild(RECIPIENT_gender==Male)->[recipient_Grandson]</li>
+						<li>recipient_Grandson->우리 손자</li>
+						<li>recipient_Grandson->우리 강아지</li>
+					<li>recipient_Grandchild(RECIPIENT_gender==Female)->[recipient_Granddaughter]</li>
+						<li>recipient_Granddaughter->우리 손녀</li>
+						<li>recipient_Granddaughter->우리 강아지</li>
 						
 				<li>recipient->[RECIPIENT_nameDef]</li>						
 				<!-- ===END RECIPIENT=== -->

@@ -271,7 +271,7 @@
 				<!-- ===Bad opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 					<li>bad_opinion(priority=-1)->...</li>
-					<li>bad_opinion(INITIATOR_trait==방화광)->*미소지음*</li>
+					<li>bad_opinion(INITIATOR_trait==방화광)->*미소 지음*</li>
 					<li>bad_opinion(INITIATOR_trait==방화광)->이 불길... 장엄한 불길...</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
@@ -280,7 +280,7 @@
 							<li>beat_moving->한번에 다 같이 가자고!</li>
 						<li>good_opinion(INITIATOR_jobDefName!=BeatFire)->[no_beat]</li>
 							<li>no_beat(INITIATOR_opinion>=25)->나... 난... [recipient], 미안해... 난 못해...</li>
-							<li>no_beat(INITIATOR_trait==방화광)->*미소지음*</li>
+							<li>no_beat(INITIATOR_trait==방화광)->*미소 지음*</li>
 							<li>no_beat->...</li>
 							<li>no_beat->*응시*</li>
 							<li>no_beat->난... 난 못해...</li>
@@ -412,7 +412,7 @@
 					<li>bad_opinion->[recipient], 넌 방금 큰 실수를 했어! 판은 짜여졌고 — 때를 기다리면 되겠군!</li>
 				<!-- ===Good opinion of recipient=== -->
 					<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion->*미소지음* 내 함정에 빠졌구나, 우리 [recipient]!</li>
+					<li>good_opinion->*미소 지음* 내 함정에 빠졌구나, 우리 [recipient]!</li>
 					<li>good_opinion->네가 원하는 대로 따라가주진 않을 거야, recipient]!</li>
 					<li>good_opinion->흐음... 내 예상대로인 걸...</li>
 					<li>good_opinion->힌트를 하나 줄게, [recipient] — 상대가 좋은 수를 뒀다 싶으면, 그 다음 수는 더 좋을거라고 생각해야해...</li>
@@ -1956,7 +1956,7 @@
 				<li>ironic->derisive</li>
 				<li>threat-></li>
 				<li>threat(INITIATOR_mood&lt;0.4)->Or else.</li>
-				<li>threat(INITIATOR_trait==싸움꾼)->Or you might find yourself in the hospital.</li>
+				<li>threat(INITIATOR_trait==brawler)->Or you might find yourself in the hospital.</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -1996,81 +1996,22 @@
 					<li>good_opinion(INITIATOR_plants_passion!=None)->Yes, [recipient]! [comment]</li>
 						<li>comment(p=0.1)-></li>
 						
-						<!-- ===Temperate=== -->
-						<li>comment(NEAREST_plant==자작나무)->[birch]</li>
+						<li>comment(NEAREST_plant==birch tree)->[birch]</li>
 						<li>birch->Birches have such slender and elegant trunks!</li>
 						<li>birch->Birches are a blessing for the land — they improve its fertility.</li>
 						
-						<li>comment(NEAREST_plant==참나무)->[oak]</li>
+						<li>comment(NEAREST_plant==oak tree)->[oak]</li>
 						<li>oak->Majestic and sturdy — oaks are a truly masterwork of Nature!</li>
 						<li>oak->Oaks can live more than a thousand years — an inspiring symbol of endurance!</li>
 						
-						<li>comment(NEAREST_plant==소나무)->[pine]</li>
+						<li>comment(NEAREST_plant==pine tree)->[pine]</li>
 						<li>pine->Pines are so charming — and their bark has such a nice perfume!</li>
 						
-						<li>comment(NEAREST_plant==미루나무)->[poplar]</li>
+						<li>comment(NEAREST_plant==poplar tree)->[poplar]</li>
 						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
 						
-						<!-- ===Swamp=== -->
-						<li>comment(NEAREST_plant==용설란)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==바늘꽂이 선인장)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==사와로 선인장)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==용혈수)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-												
-						<!-- ===Swamp=== -->
-						<li>comment(NEAREST_plant==질식덩굴)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==사이프러스)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==단풍나무)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==버드나무)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<!-- ===Tropical=== -->
-						<li>comment(NEAREST_plant==알로카시아)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==군자란)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==라플레시아)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==대나무)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==세크로피아)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==야자수)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==티크 나무)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<!-- ===General=== -->
-						<li>comment(NEAREST_plant==가시덩굴)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==덤불)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-						
-						<li>comment(NEAREST_plant==야생 약뿌리)->[poplar]</li>
-						<li>poplar->Poplars are so beautiful! Moreover, they grow so quick — a perfect wood source!</li>
-
-						<li>comment(NEAREST_plant==잡초)->[grasses]</li>
-						<li>comment(NEAREST_plant==키 큰 잡초)->[grasses]</li>
+						<li>comment(NEAREST_plant==grass)->[grasses]</li>
+						<li>comment(NEAREST_plant==tall grass)->[grasses]</li>
 						<li>grasses->I love it too!</li>
 						
 					<li>good_opinion(INITIATOR_plants_passion==None)->[no_passion]</li>

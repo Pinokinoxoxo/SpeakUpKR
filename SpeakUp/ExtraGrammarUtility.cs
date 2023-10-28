@@ -54,6 +54,22 @@ namespace SpeakUp
 
         private static readonly Dictionary<string, string> KoreanTranslations = new Dictionary<string, string>
         {
+            { "예", "Yes" },
+            { "아니오", "No" },
+            { "사격", "shooting" },
+            { "격투", "melee" },
+            { "건설", "construction" },
+            { "채굴", "mining" },
+            { "조리", "cooking" },
+            { "원예", "plants" },
+            { "조련", "animals" },
+            { "제작", "crafting" },
+            { "예술", "artistic" },
+            { "의학", "medical" },
+            { "사교", "social" },
+            { "연구", "intellectual" },
+            { "섹스", "sex" },
+
             { "배고픔", "1" },
             { "매우 배고픔", "2" },
             { "굶주림 (초기)", "3" },
@@ -181,8 +197,9 @@ namespace SpeakUp
             //all skills
             foreach (var skill in pawn.skills.skills)
             {
-                MakeRule(symbol + skill.def.label + "_level", skill.levelInt.ToString());
-                MakeRule(symbol + skill.def.label + "_passion", skill.passion.ToString());
+                string skillLabelTranslated = TranslateKorean(skill.def.label);
+                MakeRule(symbol + skillLabelTranslated + "_level", skill.levelInt.ToString());
+                MakeRule(symbol + skillLabelTranslated + "_passion", skill.passion.ToString());
             }
 
             //childhood
@@ -354,7 +371,7 @@ namespace SpeakUp
             // Translate the output value before logging and adding to the rules.
             output = TranslateKorean(output);
 
-            //DebugLog($"Processing rule for {keyword} with value {output}");
+            DebugLog($"Processing rule for {keyword} with value {output}");
             tempRules.Add(new Rule_String(keyword, output));
         }
 

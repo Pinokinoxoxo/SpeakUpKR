@@ -674,23 +674,23 @@
 
 					<!-- ===Calm=== -->
 						<li>mood_calm(tag=Calm)->[calm_options]</li>
-						<li>calm_options->*smiles*</li>
-						<li>calm_options(INITIATOR_trait==psychopath,p=2)->*stares unexpressively*</li>
-						<li>calm_options(INITIATOR_mood>=0.6,INITIATOR_opinion>=0)->*beams a smile at [RECIPIENT_nameDef]*</li>
-						<li>calm_options(INITIATOR_mood>=0.7)->♪♫♪ hums a tune ♪♫♪</li>
-						<li>calm_options(INITIATOR_mood>=0.8)->♪♫♪ whistles a tune ♪♫♪</li>
-						<li>calm_options(INITIATOR_mood>=0.8)->What a wonderful world!</li>
+						<li>calm_options->*미소*</li>
+						<li>calm_options(INITIATOR_trait==psychopath,p=2)->*무표정한 응시*</li>
+						<li>calm_options(INITIATOR_mood>=0.6,INITIATOR_opinion>=0)->*[RECIPIENT_nameDef]에게 미소 지음*</li>
+						<li>calm_options(INITIATOR_mood>=0.7)->♪♫♪ 흥얼거림 ♪♫♪</li>
+						<li>calm_options(INITIATOR_mood>=0.8)->♪♫♪ 휘파람 소리 ♪♫♪</li>
+						<li>calm_options(INITIATOR_mood>=0.8)->정말 멋진 날이야!</li>
 						
 					<!-- ===Stressed=== -->
 						<li>mood_stressed(tag=Stressed)->[stressed_options]</li>
-						<li>stressed_options->*scowls*</li>
-						<li>stressed_options->*glares*</li>
-						<li>stressed_options->*glowers*</li>
-						<li>stressed_options->*frowns*</li>
-						<li>stressed_options->Hmph...</li>
-						<li>stressed_options(INITIATOR_trait==psychopath,p=2)->*stares unexpressively*</li>
-						<li>stressed_options(INITIATOR_mood&lt;=0.2)->*mutters angrily*</li>
-						<li>stressed_options(INITIATOR_mood&lt;=0.3)->*grumbles*</li>
+						<li>stressed_options->*노려봄*</li>
+						<li>stressed_options->*쏘아봄*</li>
+						<li>stressed_options->*째려봄*</li>
+						<li>stressed_options->*얼굴을 찌푸림*</li>
+						<li>stressed_options->흥...</li>
+						<li>stressed_options(INITIATOR_trait==psychopath,p=2)->*무표정한 응시*</li>
+						<li>stressed_options(INITIATOR_mood&lt;=0.2)->*화 내며 중얼거림*</li>
+						<li>stressed_options(INITIATOR_mood&lt;=0.3)->*투덜거림*</li>
 
 					<!-- ===Singing=== -->
 						<li>r_logentry(INITIATOR_mood>=0.6,INITIATOR_artistic_passion!=None,tag=Singing)->♪♫♪ *sings* ♪♫♪</li>
@@ -808,18 +808,18 @@
 						<li>animal_large->a grizzly bear</li>
 						<li>animal_large->a megasloth</li>
 					<!-- ===annoying=== -->
-						<li>annoying->annoying</li>
-						<li>annoying->bad</li>
-						<li>annoying->irritating</li>
-						<li>annoying->infuriating</li>
-						<li>annoying->maddening</li>
-						<li>annoying->bothersome</li>
-						<li>annoying->frustrating</li>
-						<li>annoying(INITIATOR_intellectual_level&lt;5)->[intensifier]annoying</li>
-						<li>annoying(INITIATOR_intellectual_level&lt;5)->[intensifier]bad</li>
-						<li>annoying(INITIATOR_intellectual_level>=5)->exasperating</li>
-						<li>annoying(INITIATOR_intellectual_level>=5)->ire-raising</li>
-						<li>annoying(INITIATOR_intellectual_level>=5)->vexing</li>
+						<li>annoying->짜증나</li>
+						<li>annoying->별로야</li>
+						<li>annoying->답답해</li>
+						<li>annoying->성가셔</li>
+						<li>annoying->제정신이 아니야</li>
+						<li>annoying->거슬려</li>
+						<li>annoying->실망스러워</li>
+						<li>annoying(INITIATOR_intellectual_level&lt;5)->[intensifier]골치아파</li>
+						<li>annoying(INITIATOR_intellectual_level&lt;5)->[intensifier]짜증나</li>
+						<li>annoying(INITIATOR_intellectual_level>=5)->분노가 치밀어 올라</li>
+						<li>annoying(INITIATOR_intellectual_level>=5)->화를 돋구는 일이야</li>
+						<li>annoying(INITIATOR_intellectual_level>=5)->골치아파</li>
 					<!-- ===beautiful (person)=== -->
 						<li>beautiful_person->adorable</li>
 						<li>beautiful_person->alluring</li>
@@ -846,12 +846,11 @@
 						<li>cleaning->tidying</li>
 						<li>cleaning->washing</li>
 					<!-- ===disgusting (dead body/meal)=== -->
-						<li>disgusting->disgusting</li>
-						<li>disgusting->nauseating</li>
-						<li>disgusting->sickening</li>
-						<li>disgusting->gross</li>
-						<li>disgusting->nasty</li>
-						<li>disgusting->vile</li>
+						<li>disgusting->역겨웠어</li>
+						<li>disgusting->메스꺼웠어</li>
+						<li>disgusting->구역질이 났어</li>
+						<li>disgusting->끔찍했어</li>
+						<li>disgusting->고약했어</li>
 						<li>disturbing(INITIATOR_intellectual_level&lt;=5)->gross</li>
 						<li>disgusting(INITIATOR_intellectual_level>=5)->revolting</li>
 						<li>disgusting(INITIATOR_intellectual_level>=5)->repellent</li>
@@ -915,20 +914,20 @@
 						<li>humiliate(INITIATOR_intellectual_level>=15)->불명예스러운</li>
 					<!-- ===intensifier=== (add space after word. should be more common for less intellectual pawns)-->
 						<li>intensifier(priority=-1,p=3)-></li>
-						<li>intensifier(priority=-1)->so </li>
-						<li>intensifier(priority=-1)->very </li>
-						<li>intensifier(priority=-1,p=0.5)->really </li>
-						<li>intensifier(priority=-1)->truly </li>
-						<li>intensifier(priority=-1,p=0.5)->so [intensifier]</li>
+						<li>intensifier(priority=-1)->정말 </li>
+						<li>intensifier(priority=-1)->진짜 </li>
+						<li>intensifier(priority=-1,p=0.5)->완전 </li>
+						<li>intensifier(priority=-1)->진심으로 </li>
 						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=1)-></li>
-						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)->so </li>
-						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)->very </li>
-						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)->really </li>
-						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=1)->so [intensifier]</li>
+						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)->정말 </li>
+						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)->진짜 </li>
+						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)->진심으로 </li>
+						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=2)->완전 </li>
+						<li>intensifier(INITIATOR_intellectual_level&lt;=3,p=1)->너무나 </li>
 						<li>intensifier(INITIATOR_intellectual_level>=7,p=5)-></li>
-						<li>intensifier(INITIATOR_intellectual_level>=7,p=1)->most </li>
-						<li>intensifier(INITIATOR_intellectual_level>=7,p=1)->quite </li>
-						<li>intensifier(INITIATOR_mood>=0.7)->super </li>
+						<li>intensifier(INITIATOR_intellectual_level>=7,p=1)->상당히 </li>
+						<li>intensifier(INITIATOR_intellectual_level>=7,p=1)->확실히 </li>
+						<li>intensifier(INITIATOR_mood>=0.7)->너무나도 </li>
 					<!-- ===damned_intensifier=== -->
 						<li>damned_intensifier(p=2)-></li>
 						<li>damned_intensifier->damned </li>
@@ -957,17 +956,17 @@
 						<li>monster->괴생물</li>
 						<li>monster(p=0.2)->[horrible] [monster]</li>
 					<!-- === moderately attractive (to describe an object or room) === -->
-						<li>moderately_attractive_obj->pretty</li>
-						<li>moderately_attractive_obj->nice</li>
-						<li>moderately_attractive_obj->attractive</li>
-						<li>moderately_attractive_obj->charming</li>
-						<li>moderately_attractive_obj->lovely</li>
-						<li>moderately_attractive_obj->pleasant</li>
+						<li>moderately_attractive_obj->예쁜</li>
+						<li>moderately_attractive_obj->괜찮은</li>
+						<li>moderately_attractive_obj->매력적인</li>
+						<li>moderately_attractive_obj->좋은</li>
+						<li>moderately_attractive_obj->사랑스러운</li>
+						<li>moderately_attractive_obj->쾌적한</li>
 					<!-- ===nice (weather)=== -->
 						<li>nice->좋은</li>
 						<li>nice->멋진</li>
-						<li>nice->쾌적한</li>
-						<li>nice->화창한</li>
+						<li>nice->상쾌한</li>
+						<li>nice->기분 좋은</li>
 						<li>nice->더할 나위 없는</li>
 						<li>nice->완벽한</li>
 					<!-- ===outdoors=== -->
@@ -975,13 +974,13 @@
 						<li>outdoors->밖</li>
 						<li>outdoors->실외</li>
 					<!-- ===prisoner=== -->
-						<li>prisoner->prisoner</li>
-						<li>prisoner->captive</li>
+						<li>prisoner->죄수</li>
+						<li>prisoner->포로</li>
 					<!-- ===proper=== -->
 						<li>proper->적절한</li>
 						<li>proper->제대로 된</li>
 						<li>proper->적절한</li>
-						<li>proper->괜찮은</li>
+						<li>proper->적당한</li>
 						<li>proper->평범한</li>
 						<li>proper->기본적인</li>
 						<li>proper(INITIATOR_intellectual_level>=5)->일반적인</li>
@@ -1002,34 +1001,46 @@
 					<!-- ===swearword=== -->
 						<li>swearword(INITIATOR_mood>=0.4,priority=1)-></li>
 						<li>swearword-></li>
-						<li>swearword->정신나간</li>
-						<li>swearword->미쳐버린</li>
-						<li>swearword->빌어먹을</li>
-						<li>swearword->짜증나는</li>
-						<li>swearword->말도 안되는</li>			
-						<li>swearword->답 없는</li>
+						<li>swearword->정신나간 </li>
+						<li>swearword->빌어먹을 </li>
+						<li>swearword->짜증나는 </li>
+						<li>swearword->젠장할 </li>			
+						<li>swearword->지독한 </li>
 						<!-- ===abrasive=== -->
 							<li>swearword(INITIATOR_trait==abrasive)->[swearword_abrasive] </li>
-							<li>swearword_abrasive->frakking</li>
-							<li>swearword_abrasive->fucking</li>
+							<li>swearword_abrasive->염병할</li>
+							<li>swearword_abrasive->엿같은</li>
 					<!-- ===swearword (adverb)=== -->
 						<li>swearword_adverb(INITIATOR_mood>=0.4,priority=1)-></li>
 						<li>swearword_adverb-></li>
-						<li>swearword_adverb->정신나가도록</li>
-						<li>swearword_adverb->빌어먹을 만큼</li>
-						<li>swearword_adverb->미치도록</li>
-						<li>swearword_adverb->미칠 듯이</li>
+						<li>swearword_adverb->정신나가도록 </li>
+						<li>swearword_adverb->빌어먹을 만큼 </li>
+						<li>swearword_adverb->미치도록 </li>
+						<li>swearword_adverb->미칠 듯이 </li>
 						<!-- ===abrasive=== -->
 							<li>swearword_adverb(INITIATOR_trait==abrasive)->[swearword_adverb_abrasive] </li>
-							<li>swearword_adverb_abrasive->frakking</li>
-							<li>swearword_adverb_abrasive->fucking</li>
+							<li>swearword_adverb_abrasive->염병하게</li>
+							<li>swearword_adverb_abrasive->엿같이</li>
+					
+					<!-- ===swearword (adverb)=== -->
+						<li>swearword_ad(INITIATOR_mood>=0.4,priority=1)-></li>
+						<li>swearword_ad-></li>
+						<li>swearword_ad->지독하게 </li>
+						<li>swearword_ad->빌어먹게 </li>
+						<li>swearword_ad->짜증나게 </li>
+						<li>swearword_ad->미쳐버리게 </li>
+						<!-- ===abrasive=== -->
+							<li>swearword_ad(INITIATOR_trait==abrasive)->[swearword_ad_abrasive] </li>
+							<li>swearword_ad_abrasive->염병할 정도로</li>
+							<li>swearword_ad_abrasive->엿같이도</li>
+					
 					<!-- ===stupid=== -->
-						<li>stupid->stupid</li>
-						<li>stupid->lame</li>
-						<li>stupid->dumb</li>
-						<li>stupid->ignorant</li>
+						<li>stupid->멍청한</li>
+						<li>stupid->저능아같은</li>
+						<li>stupid->얼간이같은</li>
+						<li>stupid->무식한</li>
 						<li>stupid->witless</li>
-						<li>stupid->boneheaded</li>
+						<li>stupid->골빈</li>
 						<li>stupid(INITIATOR_intellectual_level&lt;5)->dopey</li>
 						<li>stupid(INITIATOR_intellectual_level>=5)->imbecilic</li>
 						<li>stupid(INITIATOR_intellectual_level>=8)->fatuous</li>
@@ -1090,17 +1101,26 @@
 						<li>tv_show->flick</li>
 		
 					<!-- ===ugly=== -->
-						<li>ugly->ugly</li>
-						<li>ugly->hideous</li>
-						<li>ugly->horrible</li>
-						<li>ugly->frightful</li>
-						<li>ugly->grisly</li>
-						<li>ugly->gruesome</li>
-						<li>ugly->grim</li>
-						<li>ugly(INITIATOR_intellectual_level>=5)->repugnant</li>
-						<li>ugly(INITIATOR_intellectual_level>=5)->vile</li>
-						<li>ugly(INITIATOR_intellectual_level>=5)->grotesque</li>
-						
+						<li>ugly->못생겼어</li>
+						<li>ugly->지저분해</li>
+						<li>ugly->끔찍해</li>
+						<li>ugly->엉망이야</li>
+						<li>ugly->소름끼쳐</li>
+						<li>ugly->음침해</li>
+						<li>ugly(INITIATOR_intellectual_level>=5)->혐오스러워</li>
+						<li>ugly(INITIATOR_intellectual_level>=5)->지저분해</li>
+						<li>ugly(INITIATOR_intellectual_level>=5)->그로테스크해</li>
+					<!-- ===ugly room=== -->
+						<li>ugly_room->못생겼을지 몰라도</li>
+						<li>ugly_room->지저분할지 몰라도</li>
+						<li>ugly_room->끔찍할지 몰라도</li>
+						<li>ugly_room->엉망일지 몰라도</li>
+						<li>ugly_room->소름 끼치지만</li>
+						<li>ugly_room->지저분할지 몰라도</li>
+						<li>ugly_room->음침할지 몰라도</li>
+						<li>ugly(INITIATOR_intellectual_level>=5)->혐오스러울 수도</li>
+						<li>ugly(INITIATOR_intellectual_level>=5)->지저분할지 몰라도</li>
+						<li>ugly(INITIATOR_intellectual_level>=5)->그로테스크할지도 몰라도</li>
 					<!-- ===unsightly=== -->
 						<li>unsightly->unsightly</li>
 						<li>unsightly->messy</li>
@@ -1126,9 +1146,9 @@
 						<li>accuse_gender_who(INITIATOR_trait==misandrist)->the [stupid] guy that</li>
 						<li>accuse_gender_who(INITIATOR_trait==misogynist)->the [stupid] bitch that</li>
 						<li>accuse_gender_who->who</li>						
-						<li>accuse_gender_someone(INITIATOR_trait==misandrist)->some [stupid] guy</li>
-						<li>accuse_gender_someone(INITIATOR_trait==misogynist)->some [stupid] bitch</li>
-						<li>accuse_gender_someone->someone</li>
+						<li>accuse_gender_someone(INITIATOR_trait==misandrist)->[stupid] 놈</li>
+						<li>accuse_gender_someone(INITIATOR_trait==misogynist)->[stupid] 년</li>
+						<li>accuse_gender_someone->자식</li>
 					<!-- ===chess pieces=== -->
 						<li>chess_piece->king</li>
 						<li>chess_piece->queen</li>
