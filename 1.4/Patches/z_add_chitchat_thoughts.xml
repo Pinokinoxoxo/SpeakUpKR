@@ -315,7 +315,7 @@
 						<li>thought_need_joy2->I feel [intensifier]unfulfilled... I wish I could enjoy something fun.</li>
 					<!-- ===recreation unfulfilled=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==재미가 부족함,tag=ReactToThought_NeedJoy)->[thought_need_joy3]</li>
-						<li>thought_need_joy3->We need more variation in the recreation activities, and I need time to enjoy them.</li>
+						<li>thought_need_joy3->이 곳에는 조금 더 다양한 오락거리가 필요해... 그걸 즐길 시간도 필요하긴 하지만.</li>
 						<li>thought_need_joy3->여기서 재미있게 놀 수 있을만한 건 대체 뭐가 있을까?</li>
 						<li>thought_need_joy3->뭔가 놓치고 있는 것 같아... 그래, 맞아 — 오락이 부족해!</li>
 					<!-- ===recreation satisfied=== -->

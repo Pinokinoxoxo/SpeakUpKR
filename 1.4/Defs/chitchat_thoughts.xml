@@ -1124,7 +1124,7 @@
 						<li>good_opinion(INITIATOR_thoughtDefName==SleptInBedroom,priority=2)->[bedroom]</li>
 						<li>bedroom(INITIATOR_thoughtLabel==괜찮은 침실)->내 방은 꽤 괜찮은 것 같아, [recipient].</li>
 						<li>bedroom(INITIATOR_thoughtLabel==약간 인상적인 침실)->내 방은 꽤 멋져, [recipient].</li>
-						<li>bedroom(INITIATOR_thoughtLabel==꽤 인상적인 침실)-내 방은 인상적이야, [recipient].</li>
+						<li>bedroom(INITIATOR_thoughtLabel==꽤 인상적인 침실)->내 방은 인상적이야, [recipient].</li>
 						<li>bedroom(INITIATOR_thoughtLabel==상당히 인상적인 침실)->내 방은 정말 인상적이야, [recipient]!</li>
 						<li>bedroom(INITIATOR_thoughtLabel==매우 인상적인 침실)->내 방은 극도로 인상적이야, [recipient]!</li>
 						<li>bedroom(INITIATOR_thoughtLabel==굉장히 인상적인 침실)->내 방은 마치 천국의 일부처럼 느껴져, [recipient]!</li>
