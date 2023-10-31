@@ -164,16 +164,16 @@
 						<li>r_logentry(INITIATOR_thoughtLabel==매우 나쁜 환경,tag=ReactToThought_NeedBeauty_ugly)->[thought_needbeauty_ugly]</li>
 						<li>thought_needbeauty_ugly->여긴 정말 [ugly]. 더이상 이런 건 보고싶지 않아.</li>
 						<li>thought_needbeauty_ugly->이 공간은 [intensifier][ugly].</li>
-						<li>thought_needbeauty_ugly->I don't like being in a [ugly] place like this.</li>
-						<li>thought_needbeauty_ugly(INITIATOR_trait==depressive)->It's very [ugly] around here... but then again — it's OK: it's the best I'll ever get in this life, I'm sure.</li>
-						<li>thought_needbeauty_ugly(INITIATOR_trait==pyromaniac)->This place is hopelessly [ugly]. Let's burn it down and build a better one from scratch!</li>
+						<li>thought_needbeauty_ugly->여긴 정말 [ugly]. 이런 곳에서는 조금이라도 있고 싶지 않아..!</li>
+						<li>thought_needbeauty_ugly(INITIATOR_trait==depressive)->여긴 정말 [ugly]... 그런데 생각해보면 — 나 같은 자식이 이 곳보다 좋은 공간에 지낼 일이 어디 있겠어...</li>
+						<li>thought_needbeauty_ugly(INITIATOR_trait==pyromaniac)->여긴 정말 너무나도 [ugly]. 다 태워버리고 새로 짓는게 낫겠다!<</li>
 					<!-- ===unsightly=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==나쁜 환경,tag=ReactToThought_NeedBeauty_unsightly)->[thought_needbeauty_unsightly]</li>
 						<li>thought_needbeauty_unsightly->This place is kind of [unsightly]. I wish I didn't have to look at all this.</li>
 						<li>thought_needbeauty_unsightly->I wish this place were more [moderately_attractive_obj]. It's too [unsightly].</li>
 					<!-- ===pretty=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==만족스러운 환경,tag=ReactToThought_NeedBeauty_pretty)->[thought_needbeauty_pretty]</li>
-						<li>thought_needbeauty_pretty->This place looks nice.</li>
+						<li>thought_needbeauty_pretty->여긴 꽤나 멋진 곳인걸.</li>
 						<li>thought_needbeauty_pretty->This is a [moderately_attractive_obj] place.</li>
 					<!-- ===beautiful=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==매우 만족스러운 환경,tag=ReactToThought_NeedBeauty_beautiful)->[thought_needbeauty_beautiful]</li>
@@ -182,7 +182,7 @@
 						<li>thought_needbeauty_pretty->This place is [intensifier]beautiful.</li>
 					<!-- ===gorgeous=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==황홀한 환경,tag=ReactToThought_NeedBeauty_gorgeous)->[thought_needbeauty_gorgeous]</li>
-						<li>thought_needbeauty_gorgeous->This place is truly beautiful. It lifts me up and makes me love life!</li>
+						<li>thought_needbeauty_gorgeous->이 장소는 정말 아름다워. 내 삶의 활력소야!</li>
 						<li>thought_needbeauty_gorgeous->This place is a dream come true. I'm [intensifier]happy to be here!</li>
 						<li>thought_needbeauty_gorgeous(INITIATOR_artistic_level>=5)->This place looks like a true masterwork of fine arts!</li>
 				<!-- ===NeedComfort=== -->
@@ -194,8 +194,8 @@
 						<li>thought_need_comfort1(INITIATOR_trait==ascetic,priority=1)->Not to complain, but our furniture causes my body to ache.</li>
 					<!-- ===comfortable=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==편함,tag=ReactToThought_NeedComfort)->[thought_need_comfort2]</li>
-						<li>thought_need_comfort2->I'm glad we have comfortable furniture around here.</li>
-						<li>thought_need_comfort2->Our furniture is fine. I'm comfortable enough!</li>
+						<li>thought_need_comfort2->안락한 가구가 있어서 다행이야.</li>
+						<li>thought_need_comfort2->꽤 쓸만한 가구야. 쓰기 좋은걸!</li>
 						<li>thought_need_comfort2->Our furniture is just what I needed.</li>
 					<!-- ===quite comfortable=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==매우 편함,tag=ReactToThought_NeedComfort)->[thought_need_comfort3]</li>
@@ -209,34 +209,33 @@
 						<li>thought_need_comfort4->We're surrounded by comfort, and it feels great.</li>
 					<!-- ===luxuriantly comfortable=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==사치스럽게 편함,tag=ReactToThought_NeedComfort)->[thought_need_comfort5]</li>
-						<li>thought_need_comfort5->Our furniture feels like heaven! So comfy!</li>
-						<li>thought_need_comfort5->We have the best furniture!</li>
-						<li>thought_need_comfort5->Our furniture is the ultimate in comfort!</li>
-						<li>thought_need_comfort5->I think our furniture was made by a master craftsman - it's perfect!</li>
+						<li>thought_need_comfort5->마치 천국에 있는 것 같아! 안락함의 극치가 무엇인지 이제는 알 것 같아!</li>
+						<li>thought_need_comfort5->이보다 좋은 가구가 있을까!</li>
+						<li>thought_need_comfort5->우리가 가진 가구는 편안함의 극치를 선사하는 최고의 가구야!</li>
+						<li>thought_need_comfort5->아무래도 우리 가구는 최고의 장인이 만든 것 같아 - 정말 완벽해!</li>
 				<!-- ===NeedFood===-->
 					<!-- ===hungry or worse , eating and seated (priority 5)=== -->
 						<li>r_logentry(INITIATOR_thoughtDefName==NeedFood,INITIATOR_jobDefName==Ingest,INITIATOR_jobText!=Drinking beer.,INITIATOR_moving==No,priority=5,tag=StarvingEating)->[starving_eating]</li>
-							<li>starving_eating->Mmm! So tasty! I was starving!</li>
-							<li>starving_eating->Hunger is the best [seasoning].</li>
-							<li>starving_eating(INITIATOR_trait==ascetic)->Thank you, Nature, for this much needed sustenance.</li>
-							<li>starving_eating->The best [seasoning] for food is hunger.</li>
-								<li>seasoning->seasoning</li>
-								<li>seasoning->spice</li>
-								<li>seasoning->sauce</li>
+							<li>starving_eating->음! 맛있어! 굶어 죽을 뻔 했는데 다행이야!</li>
+							<li>starving_eating->역시 배고픔이 최고의 [seasoning](이)야.</li>
+							<li>starving_eating(INITIATOR_trait==ascetic)->자연이시여, 오늘도 우리에게 일용할 양식을 주시어 대단히 감사합니다.</li>
+							<li>starving_eating->식욕을 돋우는 최고의 [seasoning](은)는 역시 배고픔이야.</li>
+								<li>seasoning->양념</li>
+								<li>seasoning->향신료</li>
+								<li>seasoning->조미료</li>
 					<!-- ===hungry or worse , going to eat or eating standing (priority 5)=== -->
 						<li>r_logentry(INITIATOR_thoughtDefName==NeedFood,INITIATOR_jobDefName==Ingest,INITIATOR_jobText!=Drinking beer.,INITIATOR_moving==Yes,priority=5,tag=StarvingEating)->[starving_eating_go]</li>
-							<li>starving_eating_go->[thought_needfood_hungry0] I'm going to [devour] something at once!</li>
-								<li>devour->devour</li>
-								<li>devour->eat up</li>
-								<li>devour->eat</li>
-								<li>devour->cram down</li>
-								<li>devour->shovel down</li>
-								<li>devour->wolf down</li>
-								<li>devour->gobble down</li>
-								<li>devour->stuff my face with</li>
-								<li>devour->stuff myself with</li>
-							<li>starving_eating_go(INITIATOR_trait==ascetic,priority=1)->I'll eat something.</li>
-							<li>starving_eating_go(INITIATOR_trait==gourmand)->So hungry! I'll delight myself with a nice meal.</li>
+							<li>starving_eating_go->[thought_needfood_hungry0] 단숨에 [devour]!</li>
+								<li>devour->먹어치워버려야지</li>
+								<li>devour->흡입해야지</li>
+								<li>devour->먹어야지</li>
+								<li>devour->먹어치울거야</li>
+								<li>devour->배에 쑤셔넣을거야</li>
+								<li>devour->다 먹어치울거야</li>
+								<li>devour->배 터질때까지 먹을거야</li>
+								<li>devour->입 안으로 쓸어담을거야</li>
+							<li>starving_eating_go(INITIATOR_trait==ascetic,priority=1)->뭐 좀 먹어야겠어.</li>
+							<li>starving_eating_go(INITIATOR_trait==gourmand)->너무 배고파! 내 위를 채워줄 맛있는 음식이 있었으면 좋겠는데.</li>
 					<!-- ===recipient is cooking=== -->
 						<li>r_logentry(RECIPIENT_jobText==Cooking simple meal.)->[recipient_is_cooking]</li>
 						<li>r_logentry(RECIPIENT_jobText==Cooking 4 simple meals.)->[recipient_is_cooking]</li>
@@ -256,10 +255,10 @@
 						<li>r_logentry(RECIPIENT_jobText==Cooking 4 survival meals.)->[recipient_is_cooking]</li>							
 							<!-- ===recipient is actually cooking=== --> 
 							<li>recipient_is_cooking(RECIPIENT_moving==No,tag=IsCooking)->[recipient_is_cooking_actual]</li>
-								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level>=6)->Mmm... smells nice, [recipient] — we're so lucky to have a pro cook here!</li>
-								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level>2,RECIPIENT_cooking_level&lt;6)->It doesn't smell that good, [recipient] — but it's better than nothing.</li>
-								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level&lt;2)->I hope you know what you're doing, [recipient] — hope there won't be any food poisoning incidents...</li>
-								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level&lt;2,INITIATOR_trait==kind)->You're cooking, [recipient]? Oh... Um, smells good... Good luck...</li>
+								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level>=6)->으음... 냄새 진짜 좋은 걸, [recipient] — 너 같은 멋진 요리사가 있어서 정말 다행이야!</li>
+								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level>2,RECIPIENT_cooking_level&lt;6)->[recipient], 음식 냄새가 살짝 이상하긴 하지만 — 그래도 없는 것보다는 낫겠지.</li>
+								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level&lt;2)->음... [recipient]? 네가 지금 뭘 하고 있는지 알고는 있어? — 식중독만 안 걸렸으면 좋겠네...</li>
+								<li>recipient_is_cooking_actual(RECIPIENT_cooking_level&lt;2,INITIATOR_trait==kind)->[recipient], 혹시 요리 중이야? 어... 음, 냄새 좋네... 화이팅...</li>
 							<!-- ===recipient is going to cook=== --> 
 							<li>recipient_is_cooking(RECIPIENT_moving==Yes)->[recipient_is_going_to_cook]</li>
 								<li>recipient_is_going_to_cook->[mood]</li>
@@ -270,49 +269,49 @@
 						<li>r_logentry(RECIPIENT_faction==PlayerColony,INITIATOR_jobDefName!=StandAndBeSociallyActive,INITIATOR_jobDefName!=Ingest,INITIATOR_thoughtDefName==NeedFood,RECIPIENT_cooking_level>=6,tag=ReactToThought_NeedFood_CookRecipient,priority=4)->[thought_needfood_cookrecipient]</li>
 						<li>r_logentry(RECIPIENT_faction==PlayerTribe,INITIATOR_jobDefName!=StandAndBeSociallyActive,INITIATOR_jobDefName!=Ingest,INITIATOR_thoughtDefName==NeedFood,RECIPIENT_cooking_level>=6,tag=ReactToThought_NeedFood_CookRecipient,priority=4)->[thought_needfood_cookrecipient]</li>
 						<li>thought_needfood_cookrecipient(INITIATOR_trait==brawler,INITIATOR_mood&lt;0.4,priority=1)->[damn_it], [recipient] — get me some cooked food already or I swear I'll eat that [ugly] face of yours!</li>
-						<li>thought_needfood_cookrecipient(INITIATOR_mood&lt;0.4)->What's someone got to do to get some food around here?</li>
-						<li>thought_needfood_cookrecipient(INITIATOR_mood&lt;0.4)->Hey, [recipient] — can you get me some food already?!</li>
-						<li>thought_needfood_cookrecipient(INITIATOR_jobText==resting.)->[thought_needfood_hungry0] Can you get me some food, please?</li>
-						<li>thought_needfood_cookrecipient(priority=-1)->Hey, [recipient] — is there anything I could eat around here?</li>
+						<li>thought_needfood_cookrecipient(INITIATOR_mood&lt;0.4)->여기서 먹을 걸 구하려면 어떻게 해야 하는거야?</li>
+						<li>thought_needfood_cookrecipient(INITIATOR_mood&lt;0.4)->[recipient] — 당장 음식 좀 가져다 주지 그래?!</li>
+						<li>thought_needfood_cookrecipient(INITIATOR_jobText==resting.)->[thought_needfood_hungry0] 먹을 것 좀 갖다줄래?</li>
+						<li>thought_needfood_cookrecipient(priority=-1)->이봐, [recipient] — 이 근처에 뭐 먹을만한게 있을까?</li>
 					<!-- ===just hungry=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==1,tag=ReactToThought_NeedFood)->[thought_needfood_hungry0]</li>
-						<li>thought_needfood_hungry0->I'm really hungry.</li>
-						<li>thought_needfood_hungry0->I'm [intensifier]hungry.</li>
-						<li>thought_needfood_hungry0->I'm feeling peckish.</li>
-						<li>thought_needfood_hungry0->I could eat [animal_large]!</li>
-						<li>thought_needfood_hungry0->I'm [intensifier]starving!</li>
-						<li>thought_needfood_hungry0->I'm [intensifier]ravenous!</li>
-						<li>thought_needfood_hungry0->I'm [intensifier]famished!</li>
-						<li>thought_needfood_hungry0->I'm dying for something to eat!</li>
-						<li>thought_needfood_hungry0(INITIATOR_trait==cannibal)->I'm so hungry, I could eat an arm!</li>
+						<li>thought_needfood_hungry0->나 [intensifier]배고파.</li>
+						<li>thought_needfood_hungry0->[intensifier]배고파. 뭐라도 먹을 게 없나?</li>
+						<li>thought_needfood_hungry0->조금 출출하네.</li>
+						<li>thought_needfood_hungry0->배고파..! [animal_large] 한 마리를 통째로 먹으라해도 먹을 수 있을 것 같아!</li>
+						<li>thought_needfood_hungry0->배고파 죽을 지경이야!</li>
+						<li>thought_needfood_hungry0->뱃가죽이 등에 붙겠어!</li>
+						<li>thought_needfood_hungry0->굶어 죽을 것 같아!</li>
+						<li>thought_needfood_hungry0->뭐라도 먹을 수 있으면 무슨 짓이든 하겠어!</li>
+						<li>thought_needfood_hungry0(INITIATOR_trait==cannibal)->너무 배고파, 내 팔이라도 먹어 버리고 싶을 정도로!</li>
 					<!-- ===ravenously hungry=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==2,tag=ReactToThought_NeedFood)->[thought_needfood_hungry1]</li>
-						<li>thought_needfood_hungry1->These hunger pangs are hard to ignore.</li>
+						<li>thought_needfood_hungry1->배고파서 참기 힘들 정도로 속이 쓰려.</li>
 					<!-- ===malnourished=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==3,tag=ReactToThought_NeedFood)->[thought_needfood_hungry2]</li>
-						<li>thought_needfood_hungry2->It's been so long since I ate. I'm all fuzzy and it's hard to focus.</li>
+						<li>thought_needfood_hungry2->뭘 먹어본지 한참 된 것 같아. 조금 어지럽고 집중하기가 힘들어...</li>
 					<!-- ===badly malnourished=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==4,tag=ReactToThought_NeedFood)->[thought_needfood_hungry3]</li>
-						<li>thought_needfood_hungry3->I can feel my body wasting away... I'd eat almost anything to stop the pain...</li>
+						<li>thought_needfood_hungry3->너무 배고파서 속이 쓰려... 이러다가 쓰러지는 거 아닐까?</li>
 					<!-- ===starving=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==5,tag=ReactToThought_NeedFood)->[thought_needfood_hungry4]</li>
-						<li>thought_needfood_hungry4->I can barely think about anything but food. I need food. Now.</li>
+						<li>thought_needfood_hungry4->너무 배고파... 배고프다는 생각 말고는 아무 생각도 안 나... 음식이 필요해, 당장...</li>
 					<!-- ===advanced starvation=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==6,tag=ReactToThought_NeedFood)->[thought_needfood_hungry5]</li>
-						<li>thought_needfood_hungry5->I can barely move or think about anything but food. I feel so weak...</li>
+						<li>thought_needfood_hungry5->으윽... 움직이는 것도 힘들어... 누가 제발 먹을 것 좀 줘... 이러다 죽을 것 같아...</li>
 					<!-- ===extreme starvation=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==7,tag=ReactToThought_NeedFood)->[thought_needfood_hungry6]</li>
-						<li>thought_needfood_hungry6->Food... food... anything... please...</li>
+						<li>thought_needfood_hungry6->음식... 제발, 뭐라도... 먹을 것 좀 줘...</li>
 				<!-- ===NeedJoy=== -->
 					<!-- ===recreation-starved=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==재미가 결핍됨,tag=ReactToThought_NeedJoy)->[thought_need_joy1]</li>
-						<li>thought_need_joy1->It's been so long since I did anything for fun on my own time.</li>
-						<li>thought_need_joy1->I don't remember what fun feels like.</li>
-						<li>thought_need_joy1->I'm [intensifier]bored. I wonder if life will always feel this bland?</li>
+						<li>thought_need_joy1->무언가를 하며 놀아본지가 너무 오래됐어. 사는 게 너무 지루해...</li>
+						<li>thought_need_joy1->재미있었던 기억이 이제는 생각조차 나질 않아. 재미있다는 건 무슨 기분이었더라..?</li>
+						<li>thought_need_joy1->나 [intensifier]지루해. 인생이란 항상 이렇게 따분한 걸까?</li>
 					<!-- ===recreation-deprived=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==재미가 매우 부족함,tag=ReactToThought_NeedJoy)->[thought_need_joy2]</li>
-						<li>thought_need_joy2->We need more variation in recreation activities, and I need time to enjoy them.</li>
-						<li>thought_need_joy2->I feel [intensifier]unfulfilled... I wish I could enjoy something fun.</li>
+						<li>thought_need_joy2->즐길만한 오락거리가 더 많이 필요해. 물론 그걸 즐길 시간도 필요하지.</li>
+						<li>thought_need_joy2->요새 삶이 [intensifier]공허해... 즐길만한 오락거리가 있으면 좋겠어...</li>
 					<!-- ===recreation unfulfilled=== -->
 						<li>r_logentry(INITIATOR_thoughtLabel==재미가 부족함,tag=ReactToThought_NeedJoy)->[thought_need_joy3]</li>
 						<li>thought_need_joy3->이 곳에는 조금 더 다양한 오락거리가 필요해... 그걸 즐길 시간도 필요하긴 하지만.</li>
