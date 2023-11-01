@@ -6,120 +6,135 @@
 		<value>
 			<rulesStrings>
 			<!-- ===generic=== -->
-				<li>r_logentry(INITIATOR_opinion&lt;=-50,tag=Slight_generic)->I'm not saying I hate you, but I'd unplug your life support to charge my batteries.</li>
-				<li>r_logentry(INITIATOR_opinion>=-25,tag=Slight_generic)->The world would be a better place without you, [RECIPIENT_nameDef].</li>
-				<li>r_logentry(INITIATOR_opinion>=-25,tag=Slight_generic)->You're useless as tits on a bull, [RECIPIENT_nameDef].</li>
+				<li>r_logentry(INITIATOR_opinion&lt;=-50,tag=Slight_generic)->널 미워한다는 건 아니지만, 내 배터리를 충전할 일이 있으면 네 생명유지장치의 플러그를 우선적으로 뽑을 거야.</li>
+				<li>r_logentry(INITIATOR_opinion>=-25,tag=Slight_generic)->[RECIPIENT_nameDef], 너만 없으면 세상은 더 나은 곳이 될 텐데 말이야.</li>
+				<li>r_logentry(INITIATOR_opinion>=-25,tag=Slight_generic)->[RECIPIENT_nameDef], 이 삼복 철 개털 모자같은 자식, 넌 정말 아무 짝에도 쓸모가 없어.</li>
 			
 			<!-- ===romance=== -->
 				<li>r_logentry(INITIATOR_relationship==Lover,INITIATOR_opinion&lt;0)->[hatedlove]</li>
 				<li>r_logentry(INITIATOR_relationship==Fiance,INITIATOR_opinion&lt;0)->[hatedlove]</li>
 				<li>r_logentry(INITIATOR_relationship==Spouse,INITIATOR_opinion&lt;0)->[hatedlove]</li>
-					<li>hatedlove->My Cupid must be a garbage man — he only brings me trash! And you, dear [RECIPIENT_nameDef], are proof of that!</li>
+					<li>hatedlove->내 큐피드는 정말 머저리인가봐 — 자꾸만 쓰레기만 내게 가져다 주네! [RECIPIENT_nameDef], 네 이야기야!</li>
 			<!-- ===initiator's traits=== -->
 				<!-- ===abrasive=== -->
-					<li>r_logentry(INITIATOR_trait==abrasive,tag=Slight_generic)->[initiator_abrasive]</li>
-					<li>initiator_abrasive->Bug off, [RECIPIENT_nameDef]!</li>
-					<li>initiator_abrasive->Get lost, [RECIPIENT_nameDef]!</li>
+					<li>r_logentry(INITIATOR_trait==직설적,tag=Slight_generic)->[initiator_abrasive]</li>
+					<li>initiator_abrasive->꺼져, [RECIPIENT_nameDef]!</li>
+					<li>initiator_abrasive->저리 가, [RECIPIENT_nameDef]!</li>
 				<!-- ===cannibal=== -->
-					<li>r_logentry(INITIATOR_trait==cannibal,tag=Slight_generic)->[initiator_cannibal]</li>
-					<li>initiator_cannibal->I'm feeling quite peckish — and you're about the right size for a meal, [RECIPIENT_nameDef]!</li>
-					<li>initiator_cannibal->The hungrier I get, the tastier you look... [RECIPIENT_nameDef]!</li>
+					<li>r_logentry(INITIATOR_trait==식인종,tag=Slight_generic)->[initiator_cannibal]</li>
+					<li>initiator_cannibal->배가 좀 출출한걸 — 너라면 내게 딱 좋은 식사가 될 것 같은데, 어떻게 생각해, [RECIPIENT_nameDef]!</li>
+					<li>initiator_cannibal->[RECIPIENT_nameDef], 내가 배가 고플 수록, 너는 뭐랄까.... 더 맛있어 보인단 말이지!</li>
 				<!-- ===too smart=== -->
-					<li>r_logentry(tag=Slight_generic,INITIATOR_trait==too smart)->[initiator_toosmart]</li>
-					<li>initiator_toosmart->I'd love to have a fair battle of wits with you, [RECIPIENT_nameDef] — but you seem to be totally unarmed.</li>
+					<li>r_logentry(tag=Slight_generic,INITIATOR_trait==괴짜 천재)->[initiator_toosmart]</li>
+					<li>initiator_toosmart->[RECIPIENT_nameDef], 너와 함께 공정한 두뇌 싸움을 해볼까 생각해보긴 했지만 — 넌 전혀 내 상대가 될 것 같지가 않아.</li>
 
 			<!-- ===recipient's traits=== -->
 				<!-- ===annoying voice=== -->
 					<li>r_logentry(RECIPIENT_trait==annoying voice,tag=Slight_generic)->[recipient_annoyingvoice]</li>
-					<li>recipient_annoyingvoice->Every time I hear your voice, [RECIPIENT_nameDef], I think we're being assaulted by a screeching beast.</li>
-					<li>recipient_annoyingvoice(INITIATOR_medical_level>=5)->Have you considered vocal cord removal, [RECIPIENT_nameDef]? You might end up being more socially accepted.</li>
+					<li>recipient_annoyingvoice->[RECIPIENT_nameDef], 네 목소리를 들을 때마다 난 소름끼치는 비명을 지르는 괴물이 우리를 공격하는 듯 한 기분이 들어.</li>
+					<li>recipient_annoyingvoice(INITIATOR_medical_level>=5)->성대 제거 수술을 해 볼 생각은 없어, [RECIPIENT_nameDef]? 그러면 사람들과 조금 더 친해질 수 있을텐데 말이야.</li>
 				<!-- ===kind=== -->
 					<li>r_logentry(RECIPIENT_trait==kind,tag=Slight_generic)->[recipient_kind]</li>
-					<li>recipient_kind->Wake up, [RECIPIENT_nameDef]! Being nice to everyone won't save you from what's out there!</li>
-					<li>recipient_kind(INITIATOR_trait==depressive)->Life is bleak and empty as it is, [RECIPIENT_nameDef] — your sickening kindness just makes it worse.</li>
-					<li>recipient_kind(INITIATOR_trait==pessimist)->Is that foolish, fake smile of yours supposed to brighten up everyone's day, [RECIPIENT_nameDef]?</li>
-					<li>recipient_kind(INITIATOR_trait==abrasive)->So, [RECIPIENT_nameDef] — did your make-believe world of love, bunnies and happy smiles crumble already?</li>
-					<li>recipient_kind->All that honey you spit from your mouth, [RECIPIENT_nameDef], is just to coat words of venom and envy!</li>
+					<li>recipient_kind->생각 좀 해, [RECIPIENT_nameDef]! 착하게 군다고 저 밖의 것들이 널 살려주기라도 할 것 같아?</li>
+					<li>recipient_kind(INITIATOR_trait==우울증)->인생은 그 자체로 암담하고 공허해, [RECIPIENT_nameDef] — 네가 베푸는 역겨운 위선은 그걸 악화시킬 뿐이야.</li>
+					<li>recipient_kind(INITIATOR_trait==부정적)->[RECIPIENT_nameDef], 너의 그 가식적이고 바보 같은 가짜 미소가 남들에게 힘이 될 거라고 진지하게 믿는 건 아니지?</li>
+					<li>recipient_kind(INITIATOR_trait==직설적)->그래서, [RECIPIENT_nameDef] — 사랑, 토끼, 행복한 미소라는 네 멍청한 가상 세계가 벌써 무너졌나?</li>
+					<li>recipient_kind->[RECIPIENT_nameDef], 네 입에서 나오는 사탕발림만 가득한 말은 독과 질투를 감추기 위한 가식이란 건 잘 알지!</li>
 				<!-- ===lazy and slothful=== -->
-					<li>r_logentry(RECIPIENT_trait==lazy)->[recipient_lazysloth]</li>
-					<li>r_logentry(RECIPIENT_trait==slothful)->[recipient_lazysloth]</li>
-						<li>recipient_lazysloth->Will you ever stop sleeping with the tit in your mouth, [RECIPIENT_nameDef]?</li>
+					<li>r_logentry(RECIPIENT_trait==게으름)->[recipient_lazysloth]</li>
+					<li>r_logentry(RECIPIENT_trait==나태)->[recipient_lazysloth]</li>
+						<li>recipient_lazysloth->애처럼 세상모르고 자는구나, 젖이라도 물려줄까, [RECIPIENT_nameDef]?</li>
 				<!-- ===optimist and sanguine=== -->
-					<li>r_logentry(RECIPIENT_trait==optimist,tag=Slight_generic)->[recipient_upbeat]</li>
-					<li>r_logentry(RECIPIENT_trait==sanguine,tag=Slight_generic)->[recipient_upbeat]</li>
+					<li>r_logentry(RECIPIENT_trait==긍정적,tag=Slight_generic)->[recipient_upbeat]</li>
+					<li>r_logentry(RECIPIENT_trait==낙천적,tag=Slight_generic)->[recipient_upbeat]</li>
 					<li>recipient_upbeat->Mark my words, [RECIPIENT_nameDef] — your hollow optimistic nature will be your doom one day.</li>
 				<!-- ===too smart=== -->
-					<li>r_logentry(RECIPIENT_trait==too smart,tag=Slight_generic)->[recipient_toosmart]</li>
-					<li>recipient_toosmart->If you're about to endlessly flap your mouth about some nerdy stuff, [RECIPIENT_nameDef] — just don't.</li>
+					<li>r_logentry(RECIPIENT_trait==괴짜 천재,tag=Slight_generic)->[recipient_toosmart]</li>
+					<li>recipient_toosmart->[RECIPIENT_nameDef] — 알아듣지도 못할 소리를 옆에서 계속 지껄일 생각이거든 그냥 꺼져.</li>
 				<!-- ===sickly=== -->
-					<li>r_logentry(RECIPIENT_trait==sickly,tag=Slight_generic)->[recipient_sickly]</li>
-					<li>recipient_sickly->[RECIPIENT_nameDef], you sickly parasite — you're wasting all our medicine!</li>
-					<li>recipient_sickly->If only I could fake being sick as well as you do, [RECIPIENT_nameDef]...</li>
+					<li>r_logentry(RECIPIENT_trait==병약 체질,tag=Slight_generic)->[recipient_sickly]</li>
+					<li>recipient_sickly->[RECIPIENT_nameDef], 이 병든 기생충 같은 자식 — 넌 우리 약품을 전부 낭비하고 있어!</li>
+					<li>recipient_sickly->흥, [RECIPIENT_nameDef], 나도 너처럼 아픈 척할 수만 있다면...</li>
 				<!-- ===ugly and staggeringly ugly=== -->
-					<li>r_logentry(RECIPIENT_trait==ugly,tag=Slight_generic)->[recipient_ugly]</li>
-					<li>r_logentry(RECIPIENT_trait==staggering ugly,tag=Slight_generic)->[recipient_ugly]</li>
-					<li>recipient_ugly->There's only one problem with your face, [RECIPIENT_nameDef] — I can see it.</li>				
+					<li>r_logentry(RECIPIENT_trait==못생김,tag=Slight_generic)->[recipient_ugly]</li>
+					<li>r_logentry(RECIPIENT_trait==충격적인 외모,tag=Slight_generic)->[recipient_ugly]</li>
+					<li>recipient_ugly->네 면상의 문제는 딱 하나만 고치면 해결돼, [RECIPIENT_nameDef] — 눈에 보인다는 거 말이야.</li>				
 
 			<!-- ===initiator's traits=== -->
 				<!-- ===intellectual=== -->
-				<li>r_logentry(INITIATOR_intellectual_level>=5,tag=Slight_generic)->Did you know, [RECIPIENT_nameDef]? Pearls are formed by constant irritation — I'm surprised you haven't turned us into a fine necklace by now!</li>
+				<li>r_logentry(INITIATOR_intellectual_level>=5,tag=Slight_generic)->[RECIPIENT_nameDef], 그거 알아? 진주는 끊임없는 자극과 스트레스에 의해 형성돼 — 지금쯤이면 너 때문에 생긴 우리 몸 속의 진주로 목걸이를 만들고도 남겠어!</li>
 
 			<!-- ===low skill=== -->
 				<li>r_logentry(tag=Slight_generic)->[low_skill]</li>
 				<li>low_skill(RECIPIENT_intellectual_level&lt;=5)->[low_int]</li>
-					<li>low_int->Were you dropped on your head as a baby, [RECIPIENT_nameDef], or thrown against a wall?</li>
-					<li>low_int->You're not a complete idiot, [RECIPIENT_nameDef] — some parts are clearly missing!</li>
-					<li>low_int->Your head has a sole purpose, [RECIPIENT_nameDef] — keeping your ears apart!</li>
-					<li>low_int->If ignorance is bliss, [RECIPIENT_nameDef], then why aren't you happier?</li>
-					<li>low_int->I heard the nearby village is in dire need of a fool — why don't you go there? You'd be perfect for the job, [RECIPIENT_nameDef]!</li>
-				<li>low_skill(RECIPIENT_intellectual_level&lt;=5,RECIPIENT_animals_level>=5)->Go climb a [TreeType], [RECIPIENT_nameDef] — you'll feel more at home there.</li>
-				<li>low_skill(RECIPIENT_social_level&lt;=5)->I'm quite sure a drunken skunk has better social skills than you, [RECIPIENT_nameDef].</li>
-				<li>low_skill(RECIPIENT_social_level&lt;=5)->It's incredible how much joy you can bring to a room by simply leaving it, [RECIPIENT_nameDef].</li>
+					<li>low_int->어릴 때 어디다 세게 박은 적 있어, [RECIPIENT_nameDef]? 아니면 높은 곳에서 떨어졌거나?</li>
+					<li>low_int->그래도 네가 완전히 돌대가리는 아니라 다행이야, [RECIPIENT_nameDef] — 그저 덜떨어진 돌대가리일 뿐이니까!</li>
+					<li>low_int->[RECIPIENT_nameDef], 너는 네 머리를 모자 거치대로만 사용하는구나 — 아니면 안경 거치대로 쓰거나!</li>
+					<li>low_int->무식이 상팔자라더니, [RECIPIENT_nameDef], 나는 너처럼 인생을 편하고 행복하게 사는 사람을 못 봤어!</li>
+					<li>low_int->근처 정착지에서 총알받이로 쓸 바보가 절실히 필요하다고 들었어. — 거기로 가보는 건 어때? 너만큼 그 일에 딱 맞는 사람은 없을거야, [RECIPIENT_nameDef]!</li>
+				<li>low_skill(RECIPIENT_intellectual_level&lt;=5,RECIPIENT_animals_level>=5)->[TreeType] 위로 올라가봐, [RECIPIENT_nameDef]  — 네 친구들은 다 거기에 있을껄? 지능도 서로 비슷하겠네!</li>
+				<li>low_skill(RECIPIENT_social_level&lt;=5)->술 취한 머팔로가 너보단 사회성이 뛰어날거야, [RECIPIENT_nameDef].</li>
+				<li>low_skill(RECIPIENT_social_level&lt;=5)->[RECIPIENT_nameDef], 네가 빨리 꺼지는 것만으로도 사람들에게 정말 많은 즐거움을 줄 수 있을텐데 말야.</li>
 			<!-- ===low skill with minor passion=== -->
 				<li>r_logentry(tag=Slight_generic)->[low_skill_minor_passion]</li>
 					<!-- ===low shooting with minor passion=== -->
 						<li>low_skill_minor_passion(RECIPIENT_shooting_level&lt;=10,RECIPIENT_shooting_passion==Minor)->[low_shooting_minor_passion]</li>
-						<li>low_shooting_minor_passion->If our lives depended on your marksmanship, [RECIPIENT_nameDef], we'd all be dead by now.</li>
-						<li>low_shooting_minor_passion->Look, [RECIPIENT_nameDef]... if your markmanship is lousy, don't blame the gun — blame who's holding it!</li>
-				<li>low_skill_minor_passion(RECIPIENT_melee_level&lt;=10,RECIPIENT_melee_passion==Minor)->Hey [RECIPIENT_nameDef]! I'm thinking of getting [a_weak_animal] for you to spar with — I hope it doesn't hurt you too much!</li>
-				<li>low_skill_minor_passion(RECIPIENT_construction_level&lt;=10,RECIPIENT_construction_passion==Minor)->Hey [RECIPIENT_nameDef]! I'm thinking of getting a toy shovel and bucket for you — so you can try to build sturdier sand castles!</li>
-				<li>low_skill_minor_passion(RECIPIENT_mining_level&lt;=10,RECIPIENT_mining_passion==Minor)->Look [RECIPIENT_nameDef], you should stop thinking about mining — it's not your call. Stop wasting your time and our resources!</li>
-				<li>low_skill_minor_passion(RECIPIENT_cooking_level&lt;=10,RECIPIENT_cooking_passion==Minor)->Hey, [RECIPIENT_nameDef]! You're such a lousy cook, I bet you burn cereal!</li>
-				<li>low_skill_minor_passion(RECIPIENT_plants_level&lt;=10,RECIPIENT_plants_passion==Minor)->Stay away from plants, [RECIPIENT_nameDef]! We need them alive and healthy. Thanks!</li>
-				<li>low_skill_minor_passion(RECIPIENT_plants_level&lt;=10,RECIPIENT_medical_passion==Minor)->Hey, [RECIPIENT_nameDef] — why do you strive so much to become a physician, when you're a highly skilled mortician already?</li>
+						<li>low_shooting_minor_passion->[RECIPIENT_nameDef], 우리 목숨이 네 사격 실력에 좌우되었다면, 우린 지금쯤 전부 죽었겠지.</li>
+						<li>low_shooting_minor_passion->이봐, [RECIPIENT_nameDef]... 네 사격 실력이 형편없는게 왜 총의 잘못이지? — 총을 들고 있는 사람이 잘못된거지!</li>
+				<li>low_skill_minor_passion(RECIPIENT_melee_level&lt;=10,RECIPIENT_melee_passion==Minor)->어이, [RECIPIENT_nameDef]! 너랑 스파링 하고싶다는 [a_weak_animal] 가 있던데 — 처참하게 지고 쓰러진 널 옮기기 귀찮으니까 병원 앞에서 싸워!</li>
+				<li>low_skill_minor_passion(RECIPIENT_construction_level&lt;=10,RECIPIENT_construction_passion==Minor)->어이, [RECIPIENT_nameDef]! 나 이번에 장난감 삽이랑 양동이를 구했는데 — 그걸로 지은 모래성이 네가 지은 건물보단 튼튼할 것 같은데?</li>
+				<li>low_skill_minor_passion(RECIPIENT_mining_level&lt;=10,RECIPIENT_mining_passion==Minor)->이봐, [RECIPIENT_nameDef], 무언가를 채굴할 생각은 집어치워 — 네가 그런 걸 할 실력은 돼? 우리의 자원과 시간을 낭비하지 마!</li>
+				<li>low_skill_minor_passion(RECIPIENT_cooking_level&lt;=10,RECIPIENT_cooking_passion==Minor)->이봐, [RECIPIENT_nameDef]! 요리 실력도 형편없는 주제에 뭘 하려고? 너같은 사람은 시리얼도 태워버리지 않을까?</li>
+				<li>low_skill_minor_passion(RECIPIENT_plants_level&lt;=10,RECIPIENT_plants_passion==Minor)->작물에서 손 때, [RECIPIENT_nameDef]! 네가 건드리는 식물은 몽땅 죽어버린다고!</li>
+				<li>low_skill_minor_passion(RECIPIENT_plants_level&lt;=10,RECIPIENT_medical_passion==Minor)->어이, [RECIPIENT_nameDef] — 사람 죽이는 걸 보니 이미 넌 세계 최고의 장의사같은데 왜 굳이 의사가 되려고 하는 거야?</li>
 			<!-- ===low skill with major passion=== -->
 				<li>r_logentry(tag=Slight_generic)->[low_skill_major_passion]</li>
 					<!-- ===low shooting with major passion=== -->
 						<li>low_skill_major_passion(RECIPIENT_shooting_level&lt;=10,RECIPIENT_shooting_passion==Major)->[low_shooting_major_passion]</li>
-						<li>low_shooting_major_passion->Why do you insist on training your markmanship, [RECIPIENT_nameDef], if it's clear you can't hit the broad side of a barn?</li>
-						<li>low_shooting_major_passion->Hey [RECIPIENT_nameDef]! If you really plan training your shooting skills, warn us beforehand — we'll evacuate the whole area before you start!</li>
-				<li>low_skill_major_passion(RECIPIENT_melee_level&lt;=10,RECIPIENT_melee_passion==Major)->Hey [RECIPIENT_nameDef]! I'm thinking of getting [a_weak_animal] for you to spar with — I hope it doesn't hurt you too much!</li>
-				<li>low_skill_major_passion(RECIPIENT_construction_level&lt;=10,RECIPIENT_construction_passion==Major)->Hey [RECIPIENT_nameDef]! I'm thinking of getting a toy shovel and bucket for you — so you can try to build sturdier sand castles!</li>
-				<li>low_skill_major_passion(RECIPIENT_mining_level&lt;=10,RECIPIENT_mining_passion==Major)->Look [RECIPIENT_nameDef], you should stop thinking about mining — it's not your call. Stop wasting your time!</li>
-				<li>low_skill_major_passion(RECIPIENT_cooking_level&lt;=10,RECIPIENT_cooking_passion==Major)->I must say, [RECIPIENT_nameDef] — your cooking skills would make you a [brilliant] assassin!</li>
-				<li>low_skill_major_passion(RECIPIENT_plants_level&lt;=10,RECIPIENT_plants_passion==Major)->Stay away from plants, [RECIPIENT_nameDef]! We need them alive and healthy. Thanks!</li>
-				<li>low_skill_major_passion(RECIPIENT_medical_level&lt;=10,RECIPIENT_medical_passion==Major)->Hey, [RECIPIENT_nameDef] — why do you strive so much to become a physician, when you're a highly skilled mortician already?</li>			
+						<li>low_shooting_major_passion->앞에 보이는 건물조차 맞추기 못하는데 왜 계속 사격 연습을 하는거야, [RECIPIENT_nameDef]? 차라리 네 머리에 대고 당기지 그래? 그건 잘 맞겠네.</li>
+						<li>low_shooting_major_passion->이봐, [RECIPIENT_nameDef]! 사격 훈련을 할 계획이라면 미리 경고를 좀 해줘 — 네가 사격을 하기 전에 모든 사람들이 피난을 가야 할 테니 말이야!</li>
+				<li>low_skill_major_passion(RECIPIENT_melee_level&lt;=10,RECIPIENT_melee_passion==Major)->[RECIPIENT_nameDef]! 너와 [a_weak_animal](와)과 격투를 시켜볼 생각인데, 이길 수는 있겠어? — 그 녀석이 너를 살살 봐 주면서 스파링을 해 주길 바라지!</li>
+				<li>low_skill_major_passion(RECIPIENT_construction_level&lt;=10,RECIPIENT_construction_passion==Major)->어이, [RECIPIENT_nameDef]! 널 위해 장난감 삽이랑 양동이를 구해줄까 하는데 — 가서 모래성이나 지으면 되겠네!</li>
+				<li>low_skill_major_passion(RECIPIENT_mining_level&lt;=10,RECIPIENT_mining_passion==Major)->이봐, [RECIPIENT_nameDef], 무언가를 채굴해낼 생각은 집어치워 — 그건 네가 결정할 일이 아니거든. 우리의 자원과 네 시간을 낭비하지 마!</li>
+				<li>low_skill_major_passion(RECIPIENT_cooking_level&lt;=10,RECIPIENT_cooking_passion==Major)->[RECIPIENT_nameDef], 이 말만은 꼭 해야겠어 — 네 요리 실력이라면 넌 [brilliant] 암살자가 될 수 있겠어!</li>
+				<li>low_skill_major_passion(RECIPIENT_plants_level&lt;=10,RECIPIENT_plants_passion==Major)->작물에서 손 때, [RECIPIENT_nameDef]! 네가 건드리지 말아야 작물이 건강하게 자랄 수 있다고!</li>
+				<li>low_skill_major_passion(RECIPIENT_medical_level&lt;=10,RECIPIENT_medical_passion==Major)->어이, [RECIPIENT_nameDef] — 사람 죽이는 걸 보니 이미 넌 세계 최고의 장의사같은데 왜 굳이 의사가 되려고 하는 거야?</li>			
 		
 		<!-- ===Initiator's job=== -->
 			<!-- ===Telescope (priority 4)=== -->
-				<li>r_logentry(INITIATOR_jobText==using telescope.,INITIATOR_moving==No,priority=4,tag=Slight_generic)->[insult_telescope]</li>
-				<li>insult_telescope->I'm looking through this telescope, [RECIPIENT_nameDef] — and I still can't find your [RECIPIENT_worstSkill] skills!</li>
-				<li>insult_telescope->I'm looking through this telescope, [RECIPIENT_nameDef] — and I still can't see why this community would need you!</li>
+				<li>r_logentry(INITIATOR_jobText==망원경 사용 중,INITIATOR_moving==No,priority=4,tag=Slight_generic)->[insult_telescope]</li>
+				<li>insult_telescope->[RECIPIENT_nameDef], 망원경으로 보다 느낀건데 — 네 [worstSkill]실력은 어디 갔는지 도대체가 찾을 수가 없네!</li>
+				<li>insult_telescope->[RECIPIENT_nameDef], 내가 망원경으로 찾아봤지만 — 우리 정착지가 대체 왜 네가 필요한지 아직도 모르겠어!</li>
 				
 			<!-- ===WILDCARDS=== -->
-				<li>a_weak_animal->a [adj] bunny</li>
-				<li>a_weak_animal->a [adj] squirrel</li>
-				<li>a_weak_animal->a [adj] guinea pig</li>
-				<li>a_weak_animal->a [adj] lamb</li>
-				<li>adj->cute</li>
-				<li>adj->young</li>
-				<li>adj->fluffy</li>
-				<li>adj->elderly</li>
-				<li>adj(INITIATOR_intellectual_level>=5)->juvenile</li>
-				<li>adj(INITIATOR_intellectual_level>=5)->feeble</li>
-				<li>brilliant->brilliant</li>
-				<li>brilliant->great</li>
-				<li>brilliant(INITIATOR_intellectual_level>=5)->virtuoso</li>
+				<li>worstSkill(RECIPIENT_worstSkill==shooting)->사격</li>
+				<li>worstSkill(RECIPIENT_worstSkill==melee)->격투</li>
+				<li>worstSkill(RECIPIENT_worstSkill==construction)->건설</li>
+				<li>worstSkill(RECIPIENT_worstSkill==mining)->채굴</li>
+				<li>worstSkill(RECIPIENT_worstSkill==cooking)->조리</li>
+				<li>worstSkill(RECIPIENT_worstSkill==plants)->원예</li>
+				<li>worstSkill(RECIPIENT_worstSkill==animals)->조련</li>
+				<li>worstSkill(RECIPIENT_worstSkill==crafting)->제작</li>
+				<li>worstSkill(RECIPIENT_worstSkill==artistic)->예술</li>
+				<li>worstSkill(RECIPIENT_worstSkill==medical)->의학</li>
+				<li>worstSkill(RECIPIENT_worstSkill==social)->사교</li>
+				<li>worstSkill(RECIPIENT_worstSkill==intellectual)->연구</li>
+				<li>worstSkill(RECIPIENT_worstSkill==sex)->섹스</li>
+
+				
+				<li>a_weak_animal->[adj] 토끼</li>
+				<li>a_weak_animal->[adj] 다람쥐</li>
+				<li>a_weak_animal->[adj] 기니피그</li>
+				<li>a_weak_animal->[adj] 양</li>
+				<li>adj->귀여운</li>
+				<li>adj->새끼</li>
+				<li>adj->복슬복슬한</li>
+				<li>adj->늙은</li>
+				<li>adj(INITIATOR_intellectual_level>=5)->어린</li>
+				<li>adj(INITIATOR_intellectual_level>=5)->나약한</li>
+				<li>brilliant->대단한</li>
+				<li>brilliant->엄청난</li>
+				<li>brilliant(INITIATOR_intellectual_level>=5)->최고의</li>
 			</rulesStrings>
 		</value>
 	</Operation>

@@ -1101,7 +1101,7 @@
 						<li>tv_show->flick</li>
 		
 					<!-- ===ugly=== -->
-						<li>ugly->형편없어</li>
+						<li>ugly->못생겼어</li>
 						<li>ugly->지저분해</li>
 						<li>ugly->끔찍해</li>
 						<li>ugly->엉망이야</li>
@@ -1110,6 +1110,18 @@
 						<li>ugly(INITIATOR_intellectual_level>=5)->혐오스러워</li>
 						<li>ugly(INITIATOR_intellectual_level>=5)->지저분해</li>
 						<li>ugly(INITIATOR_intellectual_level>=5)->그로테스크해</li>
+					
+					<!-- ===ugly=== -->
+						<li>ugly_ad->못생긴</li>
+						<li>ugly_ad->지저분한</li>
+						<li>ugly_ad->끔찍한</li>
+						<li>ugly_ad->엉망인</li>
+						<li>ugly_ad->소름끼치는</li>
+						<li>ugly_ad->음침한</li>
+						<li>ugly_ad(INITIATOR_intellectual_level>=5)->혐오스러운</li>
+						<li>ugly_ad(INITIATOR_intellectual_level>=5)->지저분한</li>
+						<li>ugly_ad(INITIATOR_intellectual_level>=5)->그로테스크한</li>
+						
 					<!-- ===ugly room=== -->
 						<li>ugly_room->못생겼을지 몰라도</li>
 						<li>ugly_room->지저분할지 몰라도</li>
@@ -1122,20 +1134,32 @@
 						<li>ugly(INITIATOR_intellectual_level>=5)->지저분할지 몰라도</li>
 						<li>ugly(INITIATOR_intellectual_level>=5)->그로테스크할지도 몰라도</li>
 					<!-- ===unsightly=== -->
-						<li>unsightly->unsightly</li>
-						<li>unsightly->messy</li>
-						<li>unsightly->shabby</li>
-						<li>unsightly->sloppy</li>				
-						<li>unsightly->trashy</li>
-						<li>unsightly->trashed</li>
-						<li>unsightly->unkempt</li>
-						<li>unsightly->disheveled</li>
-						<li>unsightly->grubby</li>
-						<li>unsightly(INITIATOR_intellectual_level>=5)->unappealing</li>
-						<li>unsightly(INITIATOR_intellectual_level>=5)->unattractive</li>				
-						<li>unsightly(INITIATOR_intellectual_level>=7)->bedraggled</li>
-						<li>unsightly(INITIATOR_intellectual_level>=7)->slatternly</li>
-						<li>unsightly(INITIATOR_intellectual_level>=7)->slovenly</li>
+						<li>unsightly->보기 흉해</li>
+						<li>unsightly->지저분해</li>
+						<li>unsightly->허름해</li>
+						<li>unsightly->엉성해</li>				
+						<li>unsightly->쓰레기 같아</li>
+						<li>unsightly->형편없어</li>
+						<li>unsightly->엉망이야</li>
+						<li>unsightly->어질러졌어</li>
+						<li>unsightly(INITIATOR_intellectual_level>=5)->매력적이지 않아</li>
+						<li>unsightly(INITIATOR_intellectual_level>=5)->매력없어</li>				
+						<li>unsightly(INITIATOR_intellectual_level>=7)->낡았어</li>
+						<li>unsightly(INITIATOR_intellectual_level>=7)->조잡해</li>
+						
+						<!-- ===unsightly=== -->
+						<li>unsightly_ad->보기 흉한</li>
+						<li>unsightly_ad->지저분한</li>
+						<li>unsightly_ad->허름한</li>
+						<li>unsightly_ad->엉성한</li>				
+						<li>unsightly_ad->쓰레기 같은</li>
+						<li>unsightly_ad->형편없는</li>
+						<li>unsightly_ad->엉망인</li>
+						<li>unsightly_ad->어질러진</li>
+						<li>unsightly_ad(INITIATOR_intellectual_level>=5)->매력적이지 않은</li>
+						<li>unsightly_ad(INITIATOR_intellectual_level>=5)->매력없는</li>
+						<li>unsightly_ad(INITIATOR_intellectual_level>=7)->낡은</li>
+						<li>unsightly_ad(INITIATOR_intellectual_level>=7)->조잡한</li>
 						
 				
 				<!-- ===CHITCHAT WILDCARDS: common sentences=== -->

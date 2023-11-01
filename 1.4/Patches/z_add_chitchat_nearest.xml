@@ -6,18 +6,18 @@
 			<!-- ===PLANTS - TEMPERATE - TREES=== -->
 				<li>r_logentry(OUTDOORS==Yes,INITIATOR_plants_passion!=None)->[nearest_plant_outdoors]</li>
 				<li>nearest_plant_outdoors(tag=NearestPlant)->[nearest_plant_outdoors_tag]</li>
-				<li>nearest_plant_outdoors_tag(NEAREST_plant==birch tree)->What a generous birch we have here!</li>
-				<li>nearest_plant_outdoors_tag(NEAREST_plant==oak tree)->What a proud oak we have here!</li>
-				<li>nearest_plant_outdoors_tag(NEAREST_plant==pine tree)->What a magnificent pine tree we have here!</li>
-				<li>nearest_plant_outdoors_tag(NEAREST_plant==poplar tree)->What a charming poplar we have here!</li>
+				<li>nearest_plant_outdoors_tag(NEAREST_plant==자작나무)->정말 멋진 자작나무인걸!</li>
+				<li>nearest_plant_outdoors_tag(NEAREST_plant==참나무)->이 참나무 정말 엄청난데!</li>
+				<li>nearest_plant_outdoors_tag(NEAREST_plant==소나무)->소나무가 정말 멋지네!</li>
+				<li>nearest_plant_outdoors_tag(NEAREST_plant==미루나무)->이 미루나무 정말 보기 좋은걸!</li>
 			<!-- ===GRASS=== -->
-				<li>nearest_plant_outdoors_tag(NEAREST_plant==grass)->[grasses]</li>
-				<li>nearest_plant_outdoors_tag(NEAREST_plant==tall grass)->[grasses]</li>
-					<li>grasses->Look at this grass — [grass_comment]!</li>
-						<li>grass_comment->I love its smell</li>
-						<li>grass_comment->I love its green color</li>
-						<li>grass_comment->I love how green it is</li>
-						<li>grass_comment(INITIATOR_intellectual_level>=10)->I admire its vibrancy</li>
+				<li>nearest_plant_outdoors_tag(NEAREST_plant==잡초)->[grasses]</li>
+				<li>nearest_plant_outdoors_tag(NEAREST_plant==키 큰 잡초)->[grasses]</li>
+					<li>grasses->저 풀들 좀 봐 — [grass_comment]!</li>
+						<li>grass_comment->향기가 정말 좋아</li>
+						<li>grass_comment->난 자연의 이 푸른 색이 정말 좋더라</li>
+						<li>grass_comment->정말 푸르구나</li>
+						<li>grass_comment(INITIATOR_intellectual_level>=10)->자연의 이 넘치는 활력에 늘 감탄하게 되는군</li>
 			<!-- ===Default=== -->
 				<li>nearest_plant_outdoors->[mood]</li>
 

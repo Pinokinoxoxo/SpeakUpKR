@@ -15,37 +15,30 @@
 				<!-- ===2 line jokes=== -->
 				<li>tell_joke(tag=JokeReaction)->[2line_joke]</li>
 				<li>2line_joke->[joke_fridge]</li>
-					<li>joke_fridge->I got my best friend a fridge for her birthday — can't wait to see her face light up when she opens it!</li>
-					<li>joke_fridge->I got my best friend a fridge for his birthday — can't wait to see his face light up when he opens it!</li>
-				<li>2line_joke->I told a friend of mine she was drawing her eyebrows too high — she looked at me surprised!</li>
-				<li>2line_joke(INITIATOR_intellectual_level>=5,RECIPIENT_intellectual_level>=5)->I poured root beer in a square glass... Now I just have beer!</li>
-				<li>2line_joke->Do you know how much it costs to take care of a warg? Well, it costs an arm and a leg!</li>
-				<li>2line_joke->I asked the librarian if they had any books about paranoia. [he_she] looked up and whispered "Shh! They're right behind you!"</li>
+					<li>joke_fridge->전에 살던 정착지는 술 때문에 불타버렸어 — 폭탄주달랬는데 바텐더가 폭탄쥐로 알아들었거든!</li>
+				<li>2line_joke->저번에 90살 먹은 할머니가 우리 정착지에 잠깐 방문했는데 — 50년전 헤어졌던 전 남편을 만났다는거야, 근데 남편은 이제 26살이라지 뭐야!</li>
+				<li>2line_joke(INITIATOR_intellectual_level>=5,RECIPIENT_intellectual_level>=5)->아기 돼지 삼형제가 모두 죽었어... 엄마 돼지가 하나 더 낳아서 사형제가 됐거든!</li>
+				<li>2line_joke->이전 정착지에서는 죄수들에게 호화로운 식사를 주곤 했어. 걔네가 이 정도는 먹어야 사람 살 맛 난다고 했을 땐 들킨 줄 알았지 뭐야...</li>
+				<li>2line_joke->파티가 열려서 술을 진탕 먹고 반쯤 정신이 날아간 날이었어. 기억은 희미했지만 내 이상형인 그와 멋진 하룻밤을 보냈던 것 같았지! 다음날부터 머팔로가 묘한 눈빛으로 날 따라다니기 전까진 말이야!</li>  
 				
 				<!-- ===4 line jokes=== -->
 				<li>tell_joke(INITIATOR_moving==No,RECIPIENT_moving==No)->[4line_joke]</li>
-				<li>4line_joke(tag=Joke_00)->What did the shark say when he ate the clownfish?</li>
-				<li>4line_joke(tag=Joke_01)->Why can't you explain puns to kleptomaniacs?</li>				
-				<li>4line_joke(INITIATOR_intellectual_level>=5,RECIPIENT_intellectual_level>=10,tag=Joke_02)->Did you hear about the mathematician who's afraid of negative numbers?</li>
-				<li>4line_joke(INITIATOR_intellectual_level>=5,RECIPIENT_intellectual_level>=5,tag=Joke_03)->Why don't scientists trust atoms?</li>
-				<li>4line_joke(tag=Joke_04)->Did you know I had a job circumcising elephants? It made me rich!</li>
-				<li>4line_joke(tag=Joke_05)->What sits at the bottom of the sea and twitches?</li>
-				<li>4line_joke(tag=Joke_06)->Did you hear about the two people who stole a calendar?</li>
-				<li>4line_joke(tag=Joke_07)->Why did the nurse need a red pen at work?</li>
-				<li>4line_joke(tag=Joke_08)->Want to hear a construction joke?</li>
-				<li>4line_joke(tag=Joke_09)->Why are skeletons so calm?</li>
-				<li>4line_joke(tag=Joke_10)->Why couldn't the leopard play hide and seek?</li>
-				<li>4line_joke(tag=Joke_11)->Why should you never use a dull pencil?</li>
-				<li>4line_joke(tag=Joke_12)->What do you call a cow with no legs?</li>
-				<li>4line_joke(tag=Joke_13)->What do thrumbo siblings call each other?</li>
-				<li>4line_joke(tag=Joke_14)->A patient went to [his_her] doctor and said: Doc, help me — I broke my arm in three places!</li>
-				<li>4line_joke(tag=Joke_15)->Did you hear about the psycaster's music performance?</li>
-				
-				<!-- ==Wildcards== -->
-					<li>he_she->he</li>
-					<li>he_she->she</li>
-					<li>his_her->his</li>
-					<li>his_her->her</li>
+				<li>4line_joke(tag=Joke_00)->거대늘보랑 가위바위보 해서 매번 이기는 법이 뭔지 알아?</li>
+				<li>4line_joke(tag=Joke_01)->사자마자 후회하게 되는 의자가 뭐게?</li>				
+				<li>4line_joke(INITIATOR_intellectual_level>=5,RECIPIENT_intellectual_level>=10,tag=Joke_02)->입자 물리 연구소에서 거짓말을 하면 안되는 이유 알아?</li>
+				<li>4line_joke(INITIATOR_intellectual_level>=5,RECIPIENT_intellectual_level>=5,tag=Joke_03)->동물원에 들어가려면 입장료를 얼마 내야하게?</li>
+				<li>4line_joke(tag=Joke_04)->금슬 좋은 부부관계의 비법이 뭔지 알아? 이거만 알면 너도 사랑꾼이 될 수 있다고!</li>
+				<li>4line_joke(tag=Joke_05)->변방계 행성을 뒤지다 보면 동물 귀가 달린 이상한 사람들이 산다는거 알아?</li>
+				<li>4line_joke(tag=Joke_06)->도서관에서 음료를 원샷 떄려야 하는 이유가 뭐게?</li>
+				<li>4line_joke(tag=Joke_07)->세상에서 가장 부정적인 동물이 뭔지 알아?</li>
+				<li>4line_joke(tag=Joke_08)->말 조련사들은 대부분 과묵하대. 왜 그런지 알아?</li>
+				<li>4line_joke(tag=Joke_09)->가장 명중률이 낮은 무기가 뭔지 알아?</li>
+				<li>4line_joke(tag=Joke_10)->정착지에서 가장 행복한 사람이 누군지 알아?</li>
+				<li>4line_joke(tag=Joke_11)->습격 떄문에 기르던 소가 다 죽었을때 뭐라고 하는지 알아?</li>
+				<li>4line_joke(tag=Joke_12)->대머리가 총을 쏠때 몇발씩 쏘는지 알아?</li>
+				<li>4line_joke(tag=Joke_13)->이웃 정착지에 말하는 소가 있는데, 2개 국어를 한다는거야. 걔 이름이 뭔지 알아?</li>
+				<li>4line_joke(tag=Joke_14)->이웃 정착지에서 닭에게 옷을 만들어 줬대. 근데 옷이 좀 작은거야. 그래서 그 닭이 뭐라고 했게?</li>
+				<li>4line_joke(tag=Joke_15)->원예 담당의 농업용 기계손이 고장나면 어떻게 되게?</li>  
 		</value>
 	</Operation>
 	
