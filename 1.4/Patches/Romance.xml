@@ -1,118 +1,115 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
 	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/InteractionDef[defName = &quot;RomanceAttempt&quot;]/logRulesInitiator/rulesStrings</xpath>
+		<xpath>/Defs/InteractionDef[defName = "RomanceAttempt"]/logRulesInitiator/rulesStrings</xpath>
 		<value>
 		  <rulesStrings>
-			<li>r_logentry-&gt;[attempt]</li>
-				<li>attempt(INITIATOR_relationship==Lover,tag=RomanceSuccess)-&gt;[try_romance]</li>
-				<li>attempt(priority=-1,tag=RomanceFail)-&gt;[try_romance]</li>
+			<li>r_logentry->[attempt]</li>
+				<li>attempt(INITIATOR_relationship==Lover,tag=RomanceSuccess)->[try_romance]</li>
+				<li>attempt(priority=-1,tag=RomanceFail)->[try_romance]</li>
 
-				<li>try_romance-&gt;오, 아름다운 그대여! 그대가 내 마음을 녹여줄 유일한 봄이오!</li>
-				<li>try_romance-&gt;네 눈 정말 이쁘네, 마치 별같아 — 내 심장을 마구 괴롭히는걸...</li>
-				<li>try_romance-&gt;[RECIPIENT_nameDef], 내게 넌 [romantic_adj] [romantic_noun]보다 [beautiful]...</li>
-				<li>try_romance-&gt;거울이 되서 하루종일 너만 바라보고 살고싶어...</li>
-				<li>try_romance-&gt;널 만나는건 내 인생에 있어 최고의 기회야...</li>
-				<li>try_romance-&gt;지금 이순간에서 영원히 벗어나고 싶지않아...</li>
-				<li>try_romance-&gt;내꿈에 나와줘, 잠에 들어도 함께이고 싶어...</li>
+				<li>try_romance->널 볼때마다 심장이 미칠 듯이 뛰어 너무 힘들어. 해결책은 너와 만나는거야. 나랑 사귀자!</li>
+				<li>try_romance->내가 가장 갖고 싶은 열쇠가 뭔지 알아? — 바로 네 마음을 여는 열쇠야. 나랑 만날래?</li>
+				<li>try_romance->실은, [RECIPIENT_nameDef], 나는 널 좋아하는 것 같아. 처음 만났을 때부터 지금까지 쭉. 난 네게 어떤 사람이야..?</li>
+				<li>try_romance->하루에도 몇 번씩 널 보면 눈이 멀어. 사랑해, 정말 사랑해, [RECIPIENT_nameDef]!</li>
+				<li>try_romance->내 심장은 한 사람에게만 반응해. 오직 널 볼 때만 말이야. 죽을 때까지 너만 사랑할게...</li>
+				<li>try_romance->내가 숨 쉬는 이유는 [RECIPIENT_nameDef], 바로 너 때문이었어. 넌 하늘이 준 선물이야. 내 모든 걸 네게 주고 싶어...</li>
+				<li>try_romance->[RECIPIENT_nameDef], [romantic_noun]에도 [romantic_noun]에도 네가 보여... 나 이제 너 없이는 못 살아.</li>
 				
-				<li>try_romance(RECIPIENT_trait==annoying voice)-&gt;누가 뭐래도, 나는 네 목소리가 좋아.</li>
-				<li>try_romance(RECIPIENT_trait==bodypurist)-&gt;순수주의자인게 당연해 — 넌 이미 완벽 그자체이니까!</li>
-				<li>try_romance(RECIPIENT_trait==bodymodder)-&gt;생체공학 심장 이식 좀 구해줄래? '널 보니 내 심장이 멎을것 같아서그래!</li>
-				<li>try_romance(RECIPIENT_trait==gourmand)-&gt;할수만 있다면 맛있는 음식이 되서 널 만족시키고 싶어...</li>
+				<li>try_romance(RECIPIENT_trait==거슬리는 목소리)->누가 뭐래도, 나는 네 목소리가 좋아. 너를 좋아하게 되었거든.</li>
+				<li>try_romance(RECIPIENT_trait==신체 순수주의자)->[RECIPIENT_nameDef], 너는 신체 순수주의자인 게 당연해 — 넌 이미 완벽 그 자체니까!</li>
+				<li>try_romance(RECIPIENT_trait==식탐)->[RECIPIENT_nameDef], 네가 가장 좋아하는 술이 뭐야? — 나는 너의 입술. 네 입술을 내게 허락해줄 수 있어?</li>
 		
-				<li>try_romance(RECIPIENT_trait==night owl)-&gt;네가 야행성인 이유는 어두운 밤을 너라는 존재로 밝히기 위해서일거야...</li>
+				<li>try_romance(RECIPIENT_trait==야행성)->네가 야행성인 이유는 어두운 밤을 너라는 존재로 밝히기 위해서일거야...</li>
 				
 				
-				<li>try_romance(RECIPIENT_trait==nervous)-&gt;[nervotile]</li>
-				<li>try_romance(RECIPIENT_trait==volatile)-&gt;[nervotile]</li>
-					<li>nervotile-&gt;놀라지 않았으면 좋겠어, 난 널 좋아해. 넌 어때? 생각할 시간이 필요하면 기다릴게.</li>
+				<li>try_romance(RECIPIENT_trait==신경과민)->[nervotile]</li>
+				<li>try_romance(RECIPIENT_trait==유리정신)->[nervotile]</li>
+					<li>nervotile->놀라지 않았으면 좋겠어, 난 널 좋아해. 넌 어때? 생각할 시간이 필요하면 기다릴게.</li>
 				
-				<li>try_romance(RECIPIENT_trait==beautiful)-&gt;[beautty]</li>
-				<li>try_romance(RECIPIENT_trait==pretty)-&gt;[beautty]</li>
-					<li>beautty-&gt;내사랑 — 신이 널 만들때, 뭘 만들려 했는지 알 것 같아!</li>
-					<li>beautty-&gt;장미는 붉고, 제비꽃은 푸르고, 설탕은 달콤해 — 하지만 너만큼 달콤하진 않을거야!</li>
-					<li>beautty-&gt;그대를 처음 본 그 순간, 난 움직일 수가 없었지...</li>
-					<li>beautty-&gt;세상 그 누구도 너보다 아름다울순 없을거야!</li>
-					<li>beautty-&gt;네 [romantic_adj]  아름다움 때문에 밤에 잠을 못이뤄...</li>
-					<li>beautty(INITIATOR_trait==abrasive)-&gt;네 아름다움때문에 밤만 되면 달아올라서 잠을 잘 수가 없어...</li>
+				<li>try_romance(RECIPIENT_trait==아름다움)->[beautty]</li>
+				<li>try_romance(RECIPIENT_trait==잘생김)->[beautty]</li>
+					<li>beautty->혹시 선글라스 있어? — 너무 눈부셔서 널 바라보지 못하겠어! 정말 좋아해!</li>
+					<li>beautty->[RECIPIENT_nameDef], 여기 뭐가 묻었네? 사랑스러움, 그리고 예쁨 — 네 [beautiful] 모습은 나만 보고 싶어!</li>
+					<li>beautty->넌 여기에 어떻게 왔어? 날개가 없는데 하늘에서 어떻게 내려온거야?</li>
+					<li>beautty->세상 그 누구도 너보다 아름다울 순 없을 거야, 나의 [beautiful] [RECIPIENT_nameDef]!</li>
+					<li>beautty->너의 [beautiful] 아름다움은 매번 내 밤 잠을 설치게 해... 정말 좋아해...</li>
+					<li>beautty(INITIATOR_trait==직설적)->너의 아름다움과 몸에서 나는 기분 좋은 냄새 때문에 나는 밤마다 잠을 잘 수가 없어...</li>	
 					
-				<li>try_romance(RECIPIENT_trait==bloodlust)-&gt;[bloodbrawl]</li>
-				<li>try_romance(RECIPIENT_trait==brawler)-&gt;[bloodbrawl]</li>
-					<li>bloodbrawl-&gt;곰처럼 강하고, 늑대처럼 치명적인... 넌 내 이상형이야!</li>
+				<li>try_romance(RECIPIENT_trait==피의 갈망)->[bloodbrawl]</li>
+				<li>try_romance(RECIPIENT_trait==싸움꾼)->[bloodbrawl]</li>
+					<li>bloodbrawl->곰처럼 강하고, 늑대처럼 치명적인... 넌 내 완벽한 이상형이야! 나랑 만나자!</li>
 					
-				<li>try_romance(RECIPIENT_trait==kind)-&gt;네 따스한 마음이 내 마음의 상처를 어루만져줘...</li>
+				<li>try_romance(RECIPIENT_trait==다정다감)->너의 부드러운 친절은 늘 나의 영혼을 치유해줘. 너의 친절을 독차지하고 싶어...</li>
+				<li>try_romance(RECIPIENT_trait==직설적)->네 강렬한 성격이 날 마치 불꽃처럼 타오르게 만들어! 나와 함께하자!</li>
+				<li>try_romance(RECIPIENT_trait==괴짜 천재)->네가 알고 있는 방대한 지식으로 내가 널 사랑하게 된 이유를 설명해 줄 수 있을까?</li>
+				<li>try_romance(RECIPIENT_trait==재빠름)->너의 부드럽고 우아한 움직임이 내 마음을 흔들어놨어... 좋아해...</li>
+				<li>try_romance(RECIPIENT_trait==못생김)->사랑은 가슴으로 하는거야 — 외모는 어떤 문제도 되지않아... [RECIPIENT_nameDef], 널 좋아해!</li>
 				
-				<li>try_romance(RECIPIENT_trait==abrasive)-&gt;네 강렬한 성격이 날 마치 불꽃처럼 타오르게 만들어!</li>
+				<li>try_romance(RECIPIENT_trait==재빠름)->[fastMovingR]</li>
+				<li>try_romance(RECIPIENT_trait==신속)->[fastMovingR]</li>
+				<li>try_romance(RECIPIENT_trait==가벼운 발)->[fastMovingR]</li>
+				<li>fastMoving->[beautiful] [RECIPIENT_nameDef], 너 안 피곤해? 하루종일 내 머릿속을 돌아다니잖아..!</li>
 				
-				<li>try_romance(RECIPIENT_trait==too smart)-&gt;네가 알고 있는 방대한 지식으로 내가 널 사랑하게 된 이유를 설명할 수 있을까?</li>
+				<li>try_romance(INITIATOR_trait==신체 개조주의자)->아무리 내 몸을 튼튼하게 개조하더라도, 나는 너 없이 못 살겠어. 사귀자, 아니, 결혼하자!</li>
+				<li>try_romance(INITIATOR_trait==식탐)->[RECIPIENT_nameDef], 네가 너무 좋아서 어지럽고 소화도 안 돼 — 평생 너만 바라보며 식사를 하고 싶어...</li>
+				<li>try_romance(INITIATOR_trait==괴짜 천재)->정말 사랑해. 내가 널 사랑하는 만큼 눈이 온다면 봄은 영원히 오지 않을거야.</li>
+				<li>try_romance(INITIATOR_trait==재빠름)->[fastMoving]</li>
+				<li>try_romance(INITIATOR_trait==신속)->[fastMoving]</li>
+				<li>try_romance(INITIATOR_trait==가벼운 발)->[fastMoving]</li>
+				<li>fastMoving->[beautiful] [RECIPIENT_nameDef], 널 보면 심장이 몇 배는 빠르게 뛰는 것 같아!</li>
+				<li>try_romance(INITIATOR_trait==피의 갈망)->[RECIPIENT_nameDef], 네 사랑스러운 미소를 볼 수만 있다면 수천 번의 전투도 싸우고 이겨낼 수 있어.</li>
 				
-				<li>try_romance(RECIPIENT_trait==nimble)-&gt;네 부드럽고 우아한 움직임이 내 눈을 붙잡고 마음을 앗아가...</li>
-				
-				<li>try_romance(RECIPIENT_trait==ugly)-&gt;사랑은 가슴으로 하는거야 — 외모는 어떤 문제도 되지않아... 난 널 사랑해,  [RECIPIENT_nameDef]!</li>
-				
-				<li>try_romance(INITIATOR_TRAIT==nimble)-&gt;[fastMoving]</li>
-				<li>try_romance(INITIATOR_TRAIT==jogger)-&gt;[fastMoving]</li>
-				<li>try_romance(INITIATOR_TRAIT==fastwalker)-&gt;[fastMoving]</li>
-				<li>fastMoving-&gt;널 보면 심장이 몇 배는 빠르게 뛰는 것 같아, [beautiful] [RECIPIENT_nameDef]!</li>
-				
-				<li>try_romance(INITIATOR_TRAIT==bloodlust)-&gt;네 웃음을 볼 수 있다면 몇 백 번이든 싸우고 이겨낼거야, [RECIPIENT_nameDef].</li>
 					
-			<li>beautiful-&gt;아름다운</li>
-			<li>beautiful-&gt;매혹적인</li>
-			<li>beautiful-&gt;사랑스러운</li>
+					
+			<li>beautiful->아름다운</li>
+			<li>beautiful->매혹적인</li>
+			<li>beautiful->사랑스러운</li>
+			<li>beautiful->빛나는</li>
+			<li>beautiful->눈부신</li>
+			<li>beautiful->밝은</li>
+			<li>beautiful->빛나는</li>
+			<li>beautiful->매력적인</li>
+			<li>beautiful->완벽한</li>
 
-			<li>romantic_adj-&gt;빛나는</li>
-			<li>romantic_adj-&gt;눈부신</li>
-			<li>romantic_adj-&gt;천상의</li>
-			<li>romantic_adj-&gt;금빛</li>
-			<li>romantic_adj-&gt;밝은</li>
-			<li>romantic_adj-&gt;숨이 막히게 하는</li>
-			<li>romantic_adj-&gt;눈부신</li>
-			<li>romantic_adj-&gt;빛나는</li>
-			<li>romantic_adj-&gt;매혹적인</li>
-			<li>romantic_adj-&gt;매력적인</li>
-			<li>romantic_adj-&gt;완벽한</li>
-
-			<li>romantic_noun-&gt;꽃</li>
-			<li>romantic_noun-&gt;봄날</li>
-			<li>romantic_noun-&gt;꽃</li>
-			<li>romantic_noun-&gt;별</li>
-			<li>romantic_noun-&gt;달</li>
-			<li>romantic_noun-&gt;태양</li>
-			<li>romantic_noun-&gt;일출</li>
-			<li>romantic_noun-&gt;노을</li>
-			<li>romantic_noun-&gt;오로라</li>
-			<li>romantic_noun-&gt;[TreeType] 나무</li>
-			<li>romantic_noun(p=2)-&gt;[TerrainFeature]</li>
+			<li>romantic_noun->들꽃</li>
+			<li>romantic_noun->산들바람</li>
+			<li>romantic_noun->아침 햇살</li>
+			<li>romantic_noun->밝은 별</li>
+			<li>romantic_noun->달</li>
+			<li>romantic_noun->따사로운 태양</li>
+			<li>romantic_noun->아름다운 노을</li>
+			<li>romantic_noun->신비로운 오로라</li>
+			<li>romantic_noun->예쁜 [TreeType]</li>
+			<li>romantic_noun(p=2)->아름다운 [TerrainFeature]</li>
 
 		  </rulesStrings>
 		</value>
 	</Operation>
 
 	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/InteractionDef[defName = &quot;MarriageProposal&quot;]/logRulesInitiator/rulesStrings</xpath>
+		<xpath>/Defs/InteractionDef[defName = "MarriageProposal"]/logRulesInitiator/rulesStrings</xpath>
 		<value>
 		  <rulesStrings>
-			<li>r_logentry-&gt;[attempt]</li>
-				<li>attempt(INITIATOR_relationship==Fiance,tag=ProposalSuccess)-&gt;[propose]</li>
-				<li>attempt(INITIATOR_relationship==ExLover,tag=ProposalBreakup)-&gt;[propose]</li>
-				<li>attempt(priority=-1,tag=ProposalFail)-&gt;[propose]</li>
+			<li>r_logentry->[attempt]</li>
+				<li>attempt(INITIATOR_relationship==Fiance,tag=ProposalSuccess)->[propose]</li>
+				<li>attempt(INITIATOR_relationship==ExLover,tag=ProposalBreakup)->[propose]</li>
+				<li>attempt(priority=-1,tag=ProposalFail)->[propose]</li>
 
-				<li>propose-&gt;[RECIPIENT_nameFull], 나랑 결혼해줄래?</li>
+				<li>propose->[RECIPIENT_nameFull], 나랑 결혼해줄래?</li>
 
 		  </rulesStrings>
 		</value>
 	</Operation>
 	
 	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/InteractionDef[defName = &quot;Breakup&quot;]/logRulesInitiator/rulesStrings</xpath>
+		<xpath>/Defs/InteractionDef[defName = "Breakup"]/logRulesInitiator/rulesStrings</xpath>
 		<value>
 			 <rulesStrings>
-				<li>r_logentry-&gt;[RECIPIENT_nameDef], 미안해... 여유를 갖고 싶어... 헤어지자...</li>
-				<li>r_logentry-&gt;[RECIPIENT_nameDef], 우리 관계가 잘 풀리지 않는 것 같아... 헤어지는게 나을 것 같아...</li>
-				<li>r_logentry-&gt;[RECIPIENT_nameDef], 우리 둘 별로 맞지 않는 것 같아... 네가 아니라, 내 문제야.</li>
+				<li>r_logentry->[RECIPIENT_nameDef], 우리 잠시 시간을 가졌으면 좋겠어. 혼자만의 시간이 필요해... 미안...</li>
+				<li>r_logentry->[RECIPIENT_nameDef], 우리 사이 관계가 잘 풀리지 않는 것 같아. 이럴 바에는 헤어지는 게 나아.</li>
+				<li>r_logentry->[RECIPIENT_nameDef], 이제 그만하자. 미안해. 네 문제가 아니라 내 문제 때문에 그래.</li>
 			  </rulesStrings>
 		</value>
 	</Operation>
