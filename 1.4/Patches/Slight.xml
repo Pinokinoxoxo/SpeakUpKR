@@ -30,11 +30,11 @@
 
 			<!-- ===recipient's traits=== -->
 				<!-- ===annoying voice=== -->
-					<li>r_logentry(RECIPIENT_trait==annoying voice,tag=Slight_generic)->[recipient_annoyingvoice]</li>
+					<li>r_logentry(RECIPIENT_trait==거슬리는 목소리,tag=Slight_generic)->[recipient_annoyingvoice]</li>
 					<li>recipient_annoyingvoice->[RECIPIENT_nameDef], 네 목소리를 들을 때마다 난 소름끼치는 비명을 지르는 괴물이 우리를 공격하는 듯 한 기분이 들어.</li>
 					<li>recipient_annoyingvoice(INITIATOR_medical_level>=5)->성대 제거 수술을 해 볼 생각은 없어, [RECIPIENT_nameDef]? 그러면 사람들과 조금 더 친해질 수 있을텐데 말이야.</li>
 				<!-- ===kind=== -->
-					<li>r_logentry(RECIPIENT_trait==kind,tag=Slight_generic)->[recipient_kind]</li>
+					<li>r_logentry(RECIPIENT_trait==다정다감,tag=Slight_generic)->[recipient_kind]</li>
 					<li>recipient_kind->생각 좀 해, [RECIPIENT_nameDef]! 착하게 군다고 저 밖의 것들이 널 살려주기라도 할 것 같아?</li>
 					<li>recipient_kind(INITIATOR_trait==우울증)->인생은 그 자체로 암담하고 공허해, [RECIPIENT_nameDef] — 네가 베푸는 역겨운 위선은 그걸 악화시킬 뿐이야.</li>
 					<li>recipient_kind(INITIATOR_trait==부정적)->[RECIPIENT_nameDef], 너의 그 가식적이고 바보 같은 가짜 미소가 남들에게 힘이 될 거라고 진지하게 믿는 건 아니지?</li>
@@ -106,22 +106,7 @@
 				<li>insult_telescope->[RECIPIENT_nameDef], 망원경으로 보다 느낀건데 — 네 [worstSkill]실력은 어디 갔는지 도대체가 찾을 수가 없네!</li>
 				<li>insult_telescope->[RECIPIENT_nameDef], 내가 망원경으로 찾아봤지만 — 우리 정착지가 대체 왜 네가 필요한지 아직도 모르겠어!</li>
 				
-			<!-- ===WILDCARDS=== -->
-				<li>worstSkill(RECIPIENT_worstSkill==shooting)->사격</li>
-				<li>worstSkill(RECIPIENT_worstSkill==melee)->격투</li>
-				<li>worstSkill(RECIPIENT_worstSkill==construction)->건설</li>
-				<li>worstSkill(RECIPIENT_worstSkill==mining)->채굴</li>
-				<li>worstSkill(RECIPIENT_worstSkill==cooking)->조리</li>
-				<li>worstSkill(RECIPIENT_worstSkill==plants)->원예</li>
-				<li>worstSkill(RECIPIENT_worstSkill==animals)->조련</li>
-				<li>worstSkill(RECIPIENT_worstSkill==crafting)->제작</li>
-				<li>worstSkill(RECIPIENT_worstSkill==artistic)->예술</li>
-				<li>worstSkill(RECIPIENT_worstSkill==medical)->의학</li>
-				<li>worstSkill(RECIPIENT_worstSkill==social)->사교</li>
-				<li>worstSkill(RECIPIENT_worstSkill==intellectual)->연구</li>
-				<li>worstSkill(RECIPIENT_worstSkill==sex)->섹스</li>
-
-				
+			<!-- ===WILDCARDS=== -->				
 				<li>a_weak_animal->[adj] 토끼</li>
 				<li>a_weak_animal->[adj] 다람쥐</li>
 				<li>a_weak_animal->[adj] 기니피그</li>

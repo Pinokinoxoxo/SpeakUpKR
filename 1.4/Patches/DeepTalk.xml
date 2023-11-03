@@ -1,54 +1,105 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
     <Operation Class="PatchOperationReplace">
-        <xpath>/Defs/InteractionDef[defName = &quot;DeepTalk&quot;]/logRulesInitiator/rulesStrings</xpath>
+        <xpath>/Defs/InteractionDef[defName = "DeepTalk"]/logRulesInitiator/rulesStrings</xpath>
         <value>
-		<rulesStrings>  <!-- ===Meaning of life=== --> <li>r_logentry(tag=MeaningOfLife)-&gt;[recipient], 난 가끔 말이야 — 삶의 의미가 뭘까 싶을때가 있어.</li>
-				<li>r_logentry(tag=MeaningOfLife)-&gt;우리가 살아가는 이유가 뭐라고 생각해, [recipient]?</li>
-				<li>r_logentry(tag=MeaningOfLife)-&gt;저기, [recipient]... 이게다 뭘 위한 일이라고 생각해? 삶의 목표가 뭐지?</li>
-				<li>r_logentry(tag=MeaningOfLife,INITIATOR_intellectual_level&gt;=8)-&gt;삶의 의미가 아련해지는 것 같아. 넌 어떻게 생각해, [recipient]?</li>  <!-- ===Childhood discussions=== --> <li>r_logentry(tag=ChildhoodDiscussions,INITIATOR_relationship!=Parent)-&gt;[childhood_discussion]</li>
-				<li>childhood_discussion(RECIPIENT_trait==psychopath)-&gt;대체 무엇이 너를 — 음 — 그런 흥미로운 사람으로 만든걸까, [recipient]?</li>
-				<li>childhood_discussion-&gt;어릴때 뭐하고 지냈어, [recipient]?</li>
-				<li>childhood_discussion-&gt;[recipient], 예전에 어떻게 살았어?</li>
-				<li>childhood_discussion-&gt;어이, [recipient], 유년기는 어떻게 보냈어?</li>
-				<li>childhood_discussion-&gt;[recipient], 네 유년기에 대해 말해줄 수 있어? 그냥 너에 대해 좀 궁금해져서.</li> <!-- ===Dreams=== --> <!-- ===Nice=== --> <li>r_logentry(INITIATOR_mood&gt;=0.6,tag=WhatDream)-&gt;아, [recipient]... 정말 좋은 꿈을 꿨는데...</li>
-				<li>r_logentry(INITIATOR_mood&lt;=0.6,tag=WhatDream)-&gt;어젯밤에 정말 생생한 꿈을 꿨어, [recipient].</li>  <!-- ===Random DeepTalk conversation=== --> <li>r_logentry(tag=DeepTalkConvo)-&gt;저기, [recipient]?  [TalkTopicHeavy]에 대해 어떻게 생각해?</li>
-				<li>r_logentry(tag=DeepTalkConvo)-&gt;저기, [recipient], [TalkTopicHeavy]에 대해 생각해본 적 있어?</li>
-				<li>r_logentry(tag=DeepTalkConvo)-&gt;요즘들어서말야, [recipient] —  [TalkTopicHeavy]가 자꾸 머릿속을 맴돌아...</li>  <!-- ===RECIPIENT=== --> <li>recipient(INITIATOR_opinion&lt;0,priority=2)-&gt;[RECIPIENT_nameDef]</li>
+		<rulesStrings>
+            <!-- ===Meaning of life=== -->
+				<li>r_logentry(tag=MeaningOfLife)->[recipient], 계속 생각해봤는데 — 인생의 의미란 무엇일까?</li>
+				<li>r_logentry(tag=MeaningOfLife)->[recipient], 우리가 살아가는 이유가 뭐라고 생각해?</li>
+				<li>r_logentry(tag=MeaningOfLife)->저기, [recipient]... 이게 다 무엇을 위한 일이라고 생각해? 삶이란 무엇을 의미할까?</li>
+				<li>r_logentry(tag=MeaningOfLife,INITIATOR_intellectual_level>=8)->요새 삶의 의미가 점점 희미해지는 것 같아. 넌 어떻게 생각해, [recipient]?</li>
 
-			<li>recipient(p=4,INITIATOR_relationship==Lover)-&gt;[recipient_love]</li>
-			<li>recipient(p=3,INITIATOR_relationship==Fiance)-&gt;[recipient_love]</li>
-			<li>recipient(p=2,INITIATOR_relationship==Spouse)-&gt;[recipient_love]</li>
-				<li>recipient_love-&gt;자기</li>
-				<li>recipient_love-&gt;여보야</li>
-				<li>recipient_love-&gt;내사랑</li>
+			<!-- ===Childhood discussions=== -->
+				<li>r_logentry(tag=ChildhoodDiscussions,INITIATOR_relationship!=Parent)->[childhood_discussion]</li>
+				<li>childhood_discussion(RECIPIENT_trait==사이코패스)->대체 무엇이 너를 — 음 — 그런 흥미로운 사람으로 만든걸까, [recipient]?</li>
+				<li>childhood_discussion->어릴 때 뭐하고 지냈어,  [recipient]?</li>
+				<li>childhood_discussion->[recipient], 예전에는 무슨 일을 하며 지냈어?</li>
+				<li>childhood_discussion->저기, [recipient], 어릴 때 이야기를 해줄 수 있어?</li>
+				<li>childhood_discussion->[recipient], 네 유년기에 대해 말해줄 수 있어? 그냥 너에 대해 좀 궁금해져서.</li>
+				
+			<!-- ===Dreams=== -->
+				<!-- ===Nice=== -->
+				<li>r_logentry(INITIATOR_mood>=0.6,tag=WhatDream)->아, [recipient]... 나, 아까 전에 굉장히 좋은 꿈을 꿨어...</li>
+				<li>r_logentry(INITIATOR_mood&lt;=0.6,tag=WhatDream)->어젯밤에는 정말 생생한 꿈을 꿨어, [recipient].</li>
+				
+			<!-- ===Random DeepTalk conversation=== -->
+				<li>r_logentry(tag=DeepTalkConvo)->저기, [recipient], [TalkTopicHeavy]에 대해 생각해본 적 있어?</li>
+				<li>r_logentry(tag=DeepTalkConvo)->있잖아, [recipient], 너는 [TalkTopicHeavy]에 대해 깊이 고민해 본 적이 있어?</li>
+				<li>r_logentry(tag=DeepTalkConvo)->최근에는 말이야, [recipient] — [TalkTopicHeavy]에 대한 생각을 자주 하고 있어...</li>
+
+			<!-- ===RECIPIENT=== -->		
+			<li>recipient(INITIATOR_opinion&lt;0,priority=2)->[RECIPIENT_nameDef]</li>
+
+			<li>recipient(p=4,INITIATOR_relationship==Lover)->[recipient_love]</li>
+			<li>recipient(p=3,INITIATOR_relationship==Fiance)->[recipient_love]</li>
+			<li>recipient(p=2,INITIATOR_relationship==Spouse)->[recipient_love]</li>
+				<li>recipient_love->자기</li>
+				<li>recipient_love->여보</li>	
+				<li>recipient_love->우리 [RECIPIENT_nameDef]</li>	
+				<li>recipient_love(RECIPIENT_gender==Female, INITIATOR_gender==Male, priority=1)->[recipient_love_1]</li>
+				<li>recipient_love(RECIPIENT_gender==Male, INITIATOR_gender==Female, priority=1)->[recipient_love_2]</li>
+				<li>recipient_love(RECIPIENT_gender==Male, INITIATOR_gender==Male, priority=1)->[recipient_love_3]</li>
+				<li>recipient_love(RECIPIENT_gender==Female, INITIATOR_gender==Female, priority=1)->[recipient_love_4]</li>
 			
-			<li>recipient(INITIATOR_relationship==Sibling)-&gt;[recipient_sibling]</li>
-				<li>recipient_sibling(RECIPIENT_gender==Male)-&gt;[recipient_brother]</li>
-					<li>recipient_brother-&gt;어이</li>
-				<li>recipient_sibling(RECIPIENT_gender==Female)-&gt;[recipient_sister]</li>
-					<li>recipient_sister-&gt;야</li>
+					<!-- === INITIATOR의 나이가 RECIPIENT보다 크면 INITIATOR_AgeBool=1, 작으면 INITIATOR_AgeBool=0 === -->
+					<li>recipient_love_1(INITIATOR_AgeBool==0)->누나</li>
+					<li>recipient_love_2(INITIATOR_AgeBool==0)->오빠</li>
+					<li>recipient_love_2(INITIATOR_AgeBool==0)->오라버니</li>
+					<li>recipient_love_3(INITIATOR_AgeBool==0)->형</li>
+					<li>recipient_love_4(INITIATOR_AgeBool==0)->언니</li>
+			
+			<li>recipient(INITIATOR_relationship==Sibling)->[recipient_sibling]</li>
+				<li>recipient_sibling(RECIPIENT_gender==Female, INITIATOR_gender==Male, priority=1)->[recipient_brother_1]</li>
+				<li>recipient_sibling(RECIPIENT_gender==Male, INITIATOR_gender==Female, priority=1)->[recipient_sister_1]</li>
+				<li>recipient_sibling(RECIPIENT_gender==Male, INITIATOR_gender==Male, priority=1)->[recipient_brother_2]</li>
+				<li>recipient_sibling(RECIPIENT_gender==Female, INITIATOR_gender==Female, priority=1)->[recipient_sister_2]</li>
+				
+				<!-- === INITIATOR의 나이가 RECIPIENT보다 크면 INITIATOR_AgeBool=1, 작으면 INITIATOR_AgeBool=0 === -->
+				<li>recipient_brother_1(INITIATOR_AgeBool==0)->누나</li>
+				<li>recipient_brother_1(INITIATOR_AgeBool==1)->[RECIPIENT_nameDef]</li>
+				<li>recipient_sister_1(INITIATOR_AgeBool==0)->오빠</li>
+				<li>recipient_sister_1(INITIATOR_AgeBool==1)->[RECIPIENT_nameDef]</li>
+				<li>recipient_brother_2(INITIATOR_AgeBool==0)->형</li>
+				<li>recipient_brother_2(INITIATOR_AgeBool==1)->[RECIPIENT_nameDef]</li>
+				<li>recipient_sister_2(INITIATOR_AgeBool==0)->언니</li>
+				<li>recipient_sister_2(INITIATOR_AgeBool==1)->[RECIPIENT_nameDef]</li>
 
-			<li>recipient(RECIPIENT_relationship==Parent,priority=1)-&gt;[recipient_parent]</li>
-				<li>recipient_parent(RECIPIENT_gender==Male)-&gt;[recipient_father]</li>
-					<li>recipient_father-&gt;아버지</li>
-					<li>recipient_father-&gt;아빠</li>
-				<li>recipient_parent(RECIPIENT_gender==Female)-&gt;[recipient_mother]</li>
-					<li>recipient_mother-&gt;어머니</li>
-					<li>recipient_mother-&gt;엄마</li>
+			<li>recipient(RECIPIENT_relationship==Parent,priority=1)->[recipient_parent]</li>
+				<li>recipient_parent(RECIPIENT_gender==Male)->[recipient_father]</li>
+					<li>recipient_father->아버지</li>
+					<li>recipient_father->아빠</li>
+				<li>recipient_parent(RECIPIENT_gender==Female)->[recipient_mother]</li>
+					<li>recipient_mother->어머니</li>
+					<li>recipient_mother->엄마</li>
+						
+			<li>recipient(RECIPIENT_relationship==Grandparent,priority=1)->[recipient_parent]</li>
+				<li>recipient_parent(RECIPIENT_gender==Male)->[recipient_Grandfather]</li>
+					<li>recipient_Grandfather->할아버지</li>
+				<li>recipient_parent(RECIPIENT_gender==Female)->[recipient_Grandmother]</li>
+					<li>recipient_Grandmother->할머니</li>
 
-			<li>recipient(INITIATOR_relationship==Parent)-&gt;[recipient_child]</li>
-				<li>recipient_child-&gt;내새끼</li>
-				<li>recipient_child(INITIATOR_OPINION&gt;=0)-&gt;내 사랑</li>
-				<li>recipient_child(RECIPIENT_gender==Male)-&gt;[recipient_son]</li>
-					<li>recipient_son-&gt;아들</li>
-					<li>recipient_son-&gt;내 아들</li>
-				<li>recipient_child(RECIPIENT_gender==Female)-&gt;[recipient_daughter]</li>
-					<li>recipient_daughter-&gt;딸</li>
-					<li>recipient_daughter-&gt;내 딸</li>
-					
-			<li>recipient-&gt;[RECIPIENT_nameDef]</li>  <!-- ===END RECIPIENT=== --> </rulesStrings>
+			<li>recipient(INITIATOR_relationship==Parent)->[recipient_child]</li>
+				<li>recipient_child->아가</li>
+				<li>recipient_child->[RECIPIENT_nameDef]</li>
+				
+				<li>recipient_child(RECIPIENT_gender==Male)->[recipient_son]</li>
+					<li>recipient_son->아들</li>
+					<li>recipient_son->우리 아들</li>
+				<li>recipient_child(RECIPIENT_gender==Female)->[recipient_daughter]</li>
+					<li>recipient_daughter->딸</li>
+					<li>recipient_daughter->우리 딸</li>
+						
+			<li>recipient(INITIATOR_relationship==Grandparent,priority=1)->[recipient_Grandchild]</li>
+				<li>recipient_Grandchild(RECIPIENT_gender==Male)->[recipient_Grandson]</li>
+					<li>recipient_Grandson->우리 손자</li>
+				<li>recipient_Grandchild(RECIPIENT_gender==Female)->[recipient_Granddaughter]</li>
+					<li>recipient_Granddaughter->우리 손녀</li>
+				
+			<li>recipient->[RECIPIENT_nameDef]</li>						
+			<!-- ===END RECIPIENT=== -->					
+        </rulesStrings>
 		</value>
     </Operation>
 	

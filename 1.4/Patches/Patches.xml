@@ -1161,7 +1161,7 @@
 						<li>unsightly_ad(INITIATOR_intellectual_level>=7)->낡은</li>
 						<li>unsightly_ad(INITIATOR_intellectual_level>=7)->조잡한</li>
 						
-				
+						
 				<!-- ===CHITCHAT WILDCARDS: common sentences=== -->
 					<!-- ===accuses from misandrist/mysoginist=== -->
 						<li>accuse_gender_objective(INITIATOR_trait==misandrist)->him</li>
@@ -1211,7 +1211,35 @@
 						<li>random_A_G->F</li>
 						<li>random_A_G->G</li>
 						<li>random_A_G->H</li>
-					
+						
+					<!-- ===Skill — === -->
+						<li>worstSkill(RECIPIENT_worstSkill==shooting)->사격</li>
+						<li>worstSkill(RECIPIENT_worstSkill==melee)->격투</li>
+						<li>worstSkill(RECIPIENT_worstSkill==construction)->건설</li>
+						<li>worstSkill(RECIPIENT_worstSkill==mining)->채굴</li>
+						<li>worstSkill(RECIPIENT_worstSkill==cooking)->조리</li>
+						<li>worstSkill(RECIPIENT_worstSkill==plants)->원예</li>
+						<li>worstSkill(RECIPIENT_worstSkill==animals)->조련</li>
+						<li>worstSkill(RECIPIENT_worstSkill==crafting)->제작</li>
+						<li>worstSkill(RECIPIENT_worstSkill==artistic)->예술</li>
+						<li>worstSkill(RECIPIENT_worstSkill==medical)->의학</li>
+						<li>worstSkill(RECIPIENT_worstSkill==social)->사교</li>
+						<li>worstSkill(RECIPIENT_worstSkill==intellectual)->연구</li>
+						<li>worstSkill(RECIPIENT_worstSkill==sex)->섹스</li>
+						
+						<li>bestSkill(RECIPIENT_bestSkill==shooting)->사격</li>
+						<li>bestSkill(RECIPIENT_bestSkill==melee)->격투</li>
+						<li>bestSkill(RECIPIENT_bestSkill==construction)->건설</li>
+						<li>bestSkill(RECIPIENT_bestSkill==mining)->채굴</li>
+						<li>bestSkill(RECIPIENT_bestSkill==cooking)->조리</li>
+						<li>bestSkill(RECIPIENT_bestSkill==plants)->원예</li>
+						<li>bestSkill(RECIPIENT_bestSkill==animals)->조련</li>
+						<li>bestSkill(RECIPIENT_bestSkill==crafting)->제작</li>
+						<li>bestSkill(RECIPIENT_bestSkill==artistic)->예술</li>
+						<li>bestSkill(RECIPIENT_bestSkill==medical)->의학</li>
+						<li>worstSkill(RECIPIENT_bestSkill==social)->사교</li>
+						<li>bestSkill(RECIPIENT_bestSkill==intellectual)->연구</li>
+						<li>bestSkill(RECIPIENT_bestSkill==sex)->섹스</li>
 					<!-- ===TV — see it?=== -->
 						<li>tv_seeit->see it</li>
 						<li>tv_seeit->watch their broadcast</li>

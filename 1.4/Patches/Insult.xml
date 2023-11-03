@@ -1,96 +1,118 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Patch>
 
 	<Operation Class="PatchOperationReplace">
-		<xpath>/Defs/InteractionDef[defName = &quot;Insult&quot;]/logRulesInitiator/rulesStrings</xpath>
+		<xpath>/Defs/InteractionDef[defName = "Insult"]/logRulesInitiator/rulesStrings</xpath>
 		<value>
-			<rulesStrings> <!-- == General == --> <!-- ===Ancestors=== --> <li>r_logentry(tag=Insult_Ancestors)-&gt;[insult_ancestors]</li>
-				<li>insult_ancestors-&gt;네 부모는 저주받을 거다!</li>
-				<li>insult_ancestors-&gt;네 부모는 지옥으로 떨어질꺼야!</li>
-				<li>insult_ancestors-&gt;하긴 그집안의 피가 어디 가겠어!</li>
-				<li>insult_ancestors-&gt;네 [bloody] 부모의 영혼은 지옥에서 고통받을거다 !</li>  <!-- ===Miscellaneous=== --> <li>r_logentry(p=5,tag=Insult_generic)-&gt;[generic]</li>
-				<li>generic-&gt;넌 [insult_adj][insult] 야 —그게 딱 네 수준이야, [RECIPIENT_nameDef]!</li>
-				<li>generic-&gt;넌 곱게 뒤지진 못할거다, [RECIPIENT_nameDef]!</li>
-				<li>generic-&gt;길가다 와르그 만나 찣겨죽길 바란다, [RECIPIENT_nameDef]!</li>
-				<li>generic-&gt;와르그가 널 죽이고 니 시체로 포식했으면 좋겠다, [RECIPIENT_nameDef]!</li>
-				<li>generic-&gt;야, [RECIPIENT_nameDef] — 나가 뒤지면 안돼?!</li>
-				<li>generic-&gt;안녕하십니까, [RECIPIENT_nameDef]! 오늘의 긴급 속보입니다 — 당신은 [insult_adj][insult]입니다!</li>
-				<li>generic-&gt;[RECIPIENT_nameDef],네 장례식 맨 앞줄은 내가 예약해놓는다!</li>
-				<li>generic-&gt;진짜 주먹을 부르는 얼굴이다, [RECIPIENT_nameDef]!</li>
-				<li>generic-&gt;빵댕이 한 대 걷어차줄까, [RECIPIENT_nameDef]!</li>
-				<li>generic(p=0.5,INITIATOR_mood&lt;=0.2)-&gt;[i_abrasive]</li>
-				<li>generic(INITIATOR_intellectual_level&gt;=5)-&gt;네 장례식이 정말 기다려지는구나, [RECIPIENT_nameDef].</li>
-				<li>generic(INITIATOR_intellectual_level&gt;=5)-&gt;느검마는 뭐하러 너한테 젖줬대, [RECIPIENT_nameDef]!</li>
-				<li>r_logentry(p=2,tag=Insult_generic)-&gt;[generic_short]</li>
-					<li>generic_short-&gt;이 [bloody] [insult]!</li>
-					<li>generic_short(RECIPIENT_gender==Male)-&gt; [bloody]  [bitch] 밑구녕 뚫고 나온 새끼!</li> <!-- ===Recipient's trait/parameter=== --> <!-- ===Ex-Lover/Spouse=== --> <li>r_logentry(RECIPIENT_relationship==ExLover,tag=Insult_generic)-&gt;[ex]</li>
-				<li>r_logentry(RECIPIENT_relationship==ExSpouse,tag=Insult_generic)-&gt;[ex]</li>
-					<li>ex-&gt;내가 저딴 면상보면서 어떻게 참아왔는지 모르겠네!</li>  <!-- ===Sickly===  --> <li>r_logentry(RECIPIENT_trait==sickly,tag=Insult_generic)-&gt;[trait_sickly]</li>		
-				<li>trait_sickly-&gt;가까이 오지마, [RECIPIENT_nameDef] — 이 [plague_animal]같은 놈아!</li>
-				<li>trait_sickly-&gt;너 같은 [plague_animal]는 말야, [RECIPIENT_nameDef], 죽어버리는게 나아!</li>
-				<li>trait_sickly-&gt;아플꺼면 너 혼자 아픈게 어때, [RECIPIENT_nameDef]? 가까이 오지마!</li>
-				<li>plague_animal-&gt;더러운 쥐새끼</li>
-				<li>plague_animal-&gt;폐렴걸린 바퀴벌레</li>
-				<li>plague_animal-&gt;열병걸린 돼지</li>  <!-- ===Ugly and staggering ugly=== --> <li>r_logentry(RECIPIENT_trait==ugly,tag=Insult_generic)-&gt;야, [RECIPIENT_nameDef]! 너무 좆같이 생겨서 놀랐잖아!</li>
-				<li>r_logentry(RECIPIENT_trait==ugly,tag=Insult_generic)-&gt;만약 역겹게 생긴 것들의 순위를 매긴다면 말야, [RECIPIENT_nameDef], 넌 무조건 메달권이야!</li>
-				<li>r_logentry(RECIPIENT_trait==staggering ugly,tag=Insult_generic)-&gt;네가 죽는다면 말이다, [RECIPIENT_nameDef], 네 썩어가는 면상이 지금보단 훨 보기 좋을거!</li>
-				<li>r_logentry(RECIPIENT_trait==staggering ugly,tag=Insult_generic)-&gt;진짜 뒤지게 못생겼구나, [RECIPIENT_nameDef], 너네 부모는 너 태어났을때 환불안하고 뭐했냐?</li>  <!-- ===Age=== --> <li>r_logentry(RECIPIENT_age&gt;=60,tag=Insult_generic)-&gt;이 틀딱새끼!</li>  <!-- ===Passion=== --> <li>r_logentry(RECIPIENT_plants_passion!=None,tag=Insult_generic)-&gt;[plants_passion]</li>
-				<li>plants_passion-&gt;네가 농지에서 나자빠져 뒤지면 걔네도 정말 즐거워할걸!</li>
-				<li>plants_passion-&gt;꺼져, [bloody] 숲에 가서 뒤져 — 가서 걔네 양분이나 되버려!</li>  <!-- ===Recipient's job=== --> <li>r_logentry(RECIPIENT_jobText==vomiting.,priority=4,tag=Insult_generic)-&gt;네 토에 네가 숨막혀 죽는 꼴 보고싶다, [generic_short]</li> <!-- ===Initiator's trait=== --> <!-- ===Abrasive=== --> <li>r_logentry(INITIATOR_trait==abrasive,tag=Insult_generic)-&gt;[i_abrasive]</li>
-				<li>i_abrasive-&gt;좆까, [RECIPIENT_nameDef]!</li>
-				<li>i_abrasive-&gt;하도 쑤셔대서 헐렁해진 네 [intimate_hole] 다물게 하려면 트럼보 좆만한 마개가 필요할거다!</li>
-					<li>intimate_hole(RECIPIENT_gender==Female,priority=1)-&gt;뷰지를</li>
-					<li>intimate_hole-&gt;뒷구멍</li>  <!-- ===Bloodlust=== --> <li>r_logentry(INITIATOR_trait==bloodlust,tag=Insult_generic)-&gt;[bloodlust]</li>
-				<li>bloodlust-&gt;부활 혈청 남는거 없냐? 저 새끼 두번 죽이고 싶은데!</li>
-				<li>bloodlust-&gt;너도 조만간 내 옷장 신상 컬렉션에 들어갈거야!</li>
-				<li>bloodlust-&gt;네 피부, 요즘 트렌디한 옷 만들기엔 딱이다!</li> <!-- ===Initiator's job=== --> <!-- ===Social fight (priority 5)=== --> <li>r_logentry(INITIATOR_jobDefName==SocialFight,priority=5)-&gt;[social_fight]</li>
-				<li>social_fight-&gt;진짜 내가 존나 패준다 , [generic_short]</li>
-				<li>social_fight-&gt;제대로 한 방 먹여주마, [generic_short]</li>
-				<li>social_fight-&gt;널 죽여버릴거야, [generic_short]</li>
-				<li>social_fight-&gt;덥벼봐, [generic_short] 개패듯 패줄테니까!</li>
-				<li>social_fight-&gt;으억! 닥쳐, [generic_short] 맛 좀 보여야지!</li>
-				<li>social_fight-&gt;너클 샌드위치 맛좀 봐라, [generic_short]</li>
-				<li>social_fight-&gt;죽어라, [generic_short]</li>
-				<li>social_fight-&gt;으으그으응아아아!</li>  <!--===WILDCARDS===--> <li>insult(RECIPIENT_gender==Female)-&gt;[bitch]</li>
-			<li>insult(RECIPIENT_gender==Male)-&gt;[asshole]</li>
-			<li>insult-&gt;창녀</li>
-			<li>insult-&gt;좆같은 새끼</li>
-			<li>insult-&gt;병신</li>
-			<li>insult(INITIATOR_intellectual_level&gt;=5)-&gt;육변기년</li>
-			<li>asshole-&gt;똥휴지같은 새끼</li>
-			<li>asshole-&gt;쓸모없는 새끼</li>
-			<li>asshole-&gt;사생아 새끼</li>
-			<li>asshole-&gt;좆빡대가리</li>
-			<li>bitch-&gt;걸레년</li>
-			<li>bitch-&gt;갈보년</li>
-			<li>bitch-&gt;개보지</li>
-			<li>bitch-&gt;씹걸레년</li>
-			<li>bitch-&gt;버러지 같은년</li>
-			<li>bitch-&gt;걸레</li>
-			<li>bitch(INITIATOR_intellectual_level&gt;=5)-&gt;창부</li>
-			<li>bitch(INITIATOR_intellectual_level&gt;=10)-&gt;기녀</li>
-			<li>bloody-&gt;빌어먹을</li>
-			<li>bloody-&gt;씹창난</li>
-			<li>bloody-&gt;좆같은</li>
-			<li>bloody-&gt;개같은</li>
-			<li>bloody-&gt;대가리 깨진</li>
-			<li>bloody-&gt;림붕이 같은</li>
-			<li>bloody-&gt;버러지같은</li>
-			<li>bloody(p=2,INITIATOR_trait==abrasive)-&gt;애미뒤진</li>
-			<li>bloody(INITIATOR_intellectual_level&gt;=5)-&gt;저주받을</li>
-			<li>bloody(INITIATOR_intellectual_level&gt;=10)-&gt;병신 같은</li>
-			<li>bloody(INITIATOR_intellectual_level&gt;=10)-&gt;비열한</li>
-			<li>bloody(INITIATOR_intellectual_level&gt;=10)-&gt;답이 없는</li>
-			<li>insult_adj-&gt;</li>
-			<li>insult_adj-&gt;좆같은 </li>
-			<li>insult_adj-&gt;엄청난 </li>
-			<li>insult_adj-&gt;세계제일의 </li>			
-			<li>insult_adj-&gt;네 엄마도 인정한 </li>			
-			<li>insult_adj-&gt;이미 인정받은 </li>
-			<li>insult_adj-&gt;초월계도 인정한 </li>
-			<li>insult_adj-&gt;월클급 </li>
-			<li>insult_adj(INITIATOR_intellectual_level&gt;=5)-&gt;학계에서 소문난 </li>
-			<li>insult_adj(INITIATOR_intellectual_level&gt;=10)-&gt;타행성에도 소문난 </li>
+			<rulesStrings>
+		<!-- == General == -->			
+			<!-- ===Ancestors=== -->
+				<li>r_logentry(tag=Insult_Ancestors)->[insult_ancestors]</li>
+				<li>insult_ancestors->네 조상들은 지옥에서 평생 고통받을거야!</li>
+				<li>insult_ancestors->네가 존경하는 네 조상들은 지옥에 있겠지!</li>
+				<li>insult_ancestors->네 뿌리는 글러먹었어. 마치 저주받은 네 조상들처럼 말이야!</li>
+				<li>insult_ancestors->너를 보니 네 [bloody] 조상들도 글러먹은 존재라는 걸 알겠네!</li>
+			<!-- ===Miscellaneous=== -->
+				<li>r_logentry(p=5,tag=Insult_generic)->[generic]</li>
+				<li>generic->[RECIPIENT_nameDef], 넌 [insult_adj][insult](이)야 — 네 수준에 딱 알맞은 표현이지!</li>
+				<li>generic->[RECIPIENT_nameDef], 넌 곱게 뒈지진 못할거야, [RECIPIENT_nameDef]!</li>
+				<li>generic->[RECIPIENT_nameDef], 길 가다 와르그에게 찢겨서 고통스럽게 죽길 바란다!</li>
+				<li>generic->와르그가 꼭 네 몸뚱어리를 찢어발겨 포식을 하면 좋겠군, [RECIPIENT_nameDef]!</li>
+				<li>generic->이봐, [RECIPIENT_nameDef] — 주변에서 얼쩡거리지 말고 빨리 나가 뒈져버려!</li>
+				<li>generic->이봐, [RECIPIENT_nameDef]! 뉴스 좀 보고 살아 — 넌 [insult_adj][insult]라는 뉴스 말이야!</li>
+				<li>generic->[RECIPIENT_nameDef], 네 장례식 맨 앞자리는 내가 예약하지! 네 관짝 위에서 탭댄스를 출거야!</li>
+				<li>generic->네 면상은 주먹을 부르는 얼굴이야 — 알고 있어, [RECIPIENT_nameDef]!</li>
+				<li>generic->네 빌어먹을 엉덩이를 보는 순간 두들겨 패버리고 싶어, [RECIPIENT_nameDef]!</li>
+				<li>generic(p=0.5,INITIATOR_mood&lt;=0.2)->[i_abrasive]</li>
+				<li>generic(INITIATOR_intellectual_level>=5)->네 장례식이 정말 기대가 되는 걸, [RECIPIENT_nameDef].</li>
+				<li>generic(INITIATOR_intellectual_level>=5)->네게 젖을 먹인 여자는 사람이 아닌가봐, [RECIPIENT_nameDef]!</li>
+				<li>r_logentry(p=2,tag=Insult_generic)->[generic_short]</li>
+					<li>generic_short->이 [bloody] [insult] 같으니라고!</li>
+					<li>generic_short(RECIPIENT_gender==Male)->네 어미는 [bitch](이)라지? 이 [bloody] [insult]!</li>
+
+		<!-- ===Recipient's trait/parameter=== -->
+			<!-- ===Ex-Lover/Spouse=== -->
+				<li>r_logentry(RECIPIENT_relationship==ExLover,tag=Insult_generic)->[ex]</li>
+				<li>r_logentry(RECIPIENT_relationship==ExSpouse,tag=Insult_generic)->[ex]</li>
+					<li>ex->If you are going to be two-faced, at least make one of them pretty!</li>
+			<!-- ===Sickly===  -->
+				<li>r_logentry(RECIPIENT_trait==병약 체질,tag=Insult_generic)->[trait_sickly]</li>		
+				<li>trait_sickly->가까이 오지 마, [RECIPIENT_nameDef] — 이 [plague_animal]같은 녀석!</li>
+				<li>trait_sickly->꼴이 [plague_animal]랑 똑같은데, 빨리 죽어버려야 하지 않겠어, [RECIPIENT_nameDef]? </li>
+				<li>trait_sickly->아플거라면 어디 쳐박혀서 혼자 아파하지 그래, [RECIPIENT_nameDef]? 병 옮기지 말고 저리 꺼져!</li>
+				<li>plague_animal->더러운 쥐새끼</li>
+				<li>plague_animal->폐렴걸린 바퀴벌레</li>
+				<li>plague_animal->열병걸린 돼지</li>
+			<!-- ===Ugly and staggering ugly=== -->
+				<li>r_logentry(RECIPIENT_trait==못생김,tag=Insult_generic)->어이, [RECIPIENT_nameDef]! 네 못생긴 얼굴로 사람들 놀래키지 말고 저기 처박혀 있어!</li>
+				<li>r_logentry(RECIPIENT_trait==못생김,tag=Insult_generic)->만약 못생긴 것들의 순위를 메긴다면, [RECIPIENT_nameDef], 네가 아마 선두를 달리고 있지 않을까!</li>
+				<li>r_logentry(RECIPIENT_trait==충격적인 외모,tag=Insult_generic)->[RECIPIENT_nameDef], 죽고 나서 썩어갈 네 얼굴이 지금 얼굴보다는 훨씬 나을 것 같은데!</li>
+				<li>r_logentry(RECIPIENT_trait==충격적인 외모,tag=Insult_generic)->[RECIPIENT_nameDef], 넌 못생긴 걸 넘어서서 정말 역겹게 생겼어. 네 부모는 네가 태어났을 때 어떤 기분이었을까? 굳이 알고 싶진 않네.</li>
+			<!-- ===Age=== -->
+				<li>r_logentry(RECIPIENT_age>=60,tag=Insult_generic)->노친네는 저리 꺼져!</li>
+			<!-- ===Passion=== -->
+				<li>r_logentry(RECIPIENT_plants_passion!=None,tag=Insult_generic)->[plants_passion]</li>
+				<li>plants_passion->작물들은 네 썩어가는 몸뚱어리를 좋아할텐데, 어서 가서 죽지 그래!</li>
+				<li>plants_passion->[bloody] 숲 속으로 들어가서 죽어버리지 그래 — 네가 그렇게 좋아하는 풀떼기들의 비료나 되는게 네 인생에도 도움이 되겠지!</li>
+		<!-- ===Recipient's job=== -->
+				<li>r_logentry(RECIPIENT_jobText==vomiting.,priority=4,tag=Insult_generic)->네 토사물에 네가 숨이 막혀서 죽는 꼴을 보면 참 웃길텐데, [generic_short]</li>
+		<!-- ===Initiator's trait=== -->
+			<!-- ===Abrasive=== -->
+				<li>r_logentry(INITIATOR_trait==직설적,tag=Insult_generic)->[i_abrasive]</li>
+				<li>i_abrasive->저리 꺼져, [RECIPIENT_nameDef]!</li>
+				<li>i_abrasive->남들의 아랫도리로 매일같이 [intimate_hole](을)를 쑤셔댔나? 그 더러운 구멍을 막는 것도 일이겠어!</li>
+					<li>intimate_hole(RECIPIENT_gender==Female,priority=1)->아래</li>
+					<li>intimate_hole->뒷구멍</li>
+			<!-- ===Bloodlust=== -->
+				<li>r_logentry(INITIATOR_trait==피의 갈망,tag=Insult_generic)->[bloodlust]</li>
+				<li>bloodlust->널 두 번 죽여버릴 수 있다면 정말 좋을텐데!</li>
+				<li>bloodlust->네 온 가족들의 가죽을 벗겨서 내 옷장 컬렉션으로 만들어주마!</li>
+				<li>bloodlust->조만간 네 가죽을 산채로 벗겨서 옷을 만들어주마!</li>
+		<!-- ===Initiator's job=== -->
+			<!-- ===Social fight (priority 5)=== -->
+				<li>r_logentry(INITIATOR_jobDefName==SocialFight,priority=5)->[social_fight]</li>
+				<li>social_fight->네 멍청한 엉덩이에 발차기 한 방 먹여주마, [generic_short]</li>
+				<li>social_fight->제대로 한 방 먹여주지, [generic_short]</li>
+				<li>social_fight->죽여버리겠어, [generic_short]</li>
+				<li>social_fight->덤벼, [generic_short] 복날 개 패들 패줄 테니까!</li>
+				<li>social_fight->으억! 닥쳐, [generic_short] 내 실력을 보여주지!</li>
+				<li>social_fight->두 번 다시 그 입 못 열게 만들어주마, [generic_short]</li>
+				<li>social_fight->죽어, [generic_short]</li>
+				<li>social_fight->아아아악!</li>
+		<!--===WILDCARDS===-->
+			<li>insult(RECIPIENT_gender==Female)->[bitch]</li>
+			<li>insult(RECIPIENT_gender==Male)->[asshole]</li>
+			<li>insult->멍청이</li>
+			<li>insult->머저리</li>
+			<li>insult->버러지</li>
+			<li>insult->얼간이</li>
+			<li>insult->등신</li>
+			<li>insult(INITIATOR_intellectual_level>=5)->latrine dweller</li>
+			<li>asshole->잡놈</li>
+			<li>asshole->개자식</li>
+			<li>asshole->쌍놈</li>
+			<li>bitch->쌍년</li>
+			<li>bitch->화냥년</li>
+			<li>bitch->걸레</li>
+			<li>bitch(INITIATOR_intellectual_level>=5)->창부</li>
+			<li>bloody->빌어먹을</li>
+			<li>bloody->젠장할</li>
+			<li>bloody->염병할</li>
+			<li>bloody->젠장맞을</li>
+			<li>bloody->망할</li>
+			<li>bloody(p=2,INITIATOR_trait==abrasive)->개같은</li>
+			<li>bloody(INITIATOR_intellectual_level>=5)->저주받을</li>
+			<li>bloody(INITIATOR_intellectual_level>=10)->역겨운</li>
+			<li>bloody(INITIATOR_intellectual_level>=10)->비열한</li>
+			<li>bloody(INITIATOR_intellectual_level>=10)->저주받을</li>
+			<li>insult_adj-></li>
+			<li>insult_adj->정말 대단한 </li>
+			<li>insult_adj->답 없는 </li>
+			<li>insult_adj->대단한 </li>				
+			<li>insult_adj->세계 제일의 </li>
+			<li>insult_adj->어마어마한 </li>
+			<li>insult_adj(INITIATOR_intellectual_level>=5)->최고의 </li>
+			<li>insult_adj(INITIATOR_intellectual_level>=10)->세계적 수준의 </li>
 			</rulesStrings>
 		</value>
 	</Operation>	
