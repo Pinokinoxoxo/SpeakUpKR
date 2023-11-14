@@ -14,20 +14,20 @@
 							<li>watching_aurora(INITIATOR_artistic_passion!=None)->Auroras are so inspiring — I need to start an art piece before its image fades away from my memory...</li>
 							<li>watching_aurora(INITIATOR_artistic_passion!=None)->Auroras are so inspiring — I need to get its image on paper before it fades away from my memory...</li>
 							<li>watching_aurora->This aurora has got so many vibrant colors, but I'm in love with its [aurora_color] hues...</li>
-								<li>aurora_color->pink</li>
-								<li>aurora_color->green</li>
-								<li>aurora_color->yellow</li>
-								<li>aurora_color->blue</li>
-								<li>aurora_color->violet</li>
-								<li>aurora_color(p=0.2)->orange</li>
-								<li>aurora_color(p=0.2)->white</li>
+								<li>aurora_color->분홍색</li>
+								<li>aurora_color->녹색</li>
+								<li>aurora_color->노란색</li>
+								<li>aurora_color->파란색</li>
+								<li>aurora_color->자주색</li>
+								<li>aurora_color(p=0.2)->주황색</li>
+								<li>aurora_color(p=0.2)->흰색</li>
 								
 					
 					<!-- ===BeatFire (priority 5)=== -->
 						<li>r_logentry(priority=5,INITIATOR_jobDefName==BeatFire,INITIATOR_moving==No,tag=BeatFireStatic)->[job_beatfire_static]</li>
 							<!-- ===BeatFire together=== -->
 							<li>job_beatfire_static(RECIPIENT_jobDefName==BeatFire,RECIPIENT_moving==No)->[job_beatfire_together]</li>
-								<li>job_beatfire_together->*coughs*</li>
+								<li>job_beatfire_together->*콜록*</li>
 								<li>job_beatfire_together->[put_it_out]!</li>
 								<li>job_beatfire_together->Quick, [put_it_out]!</li>
 								<li>job_beatfire_together->Quick, before it spreads out!</li>
@@ -162,7 +162,7 @@
 							<!-- ===Chess Other=== -->
 							<li>r_logentry(INITIATOR_jobDefName==Play_Chess,INITIATOR_seated==Yes,RECIPIENT_jobDefName==Play_Chess,RECIPIENT_seated==Yes,priority=4,tag=Chess_comment)->[chess_comment]</li>
 							<li>chess_comment(INITIATOR_artistic_passion!=None)->I think that while all artists are not chess players, all chess players are artists.</li>
-							<li>chess_comment(INITIATOR_trait==ascetic)->In life, as in chess, one's own pawns block one's way.</li>
+							<li>chess_comment(INITIATOR_trait==검소)->In life, as in chess, one's own pawns block one's way.</li>
 							<li>chess_comment(INITIATOR_intellectual_level&lt;5)->Every chess master was once a beginner.</li>
 							<li>chess_comment->I am convinced that the way one plays chess always reflects the player's personality.</li>
 							<li>chess_comment->Chess doesn't drive people mad, it keeps mad people sane.</li>
@@ -491,7 +491,7 @@
 							<li>watching_sunset(INITIATOR_artistic_passion!=None)->Sunset is the opening music of the night.</li>
 							<li>watching_sunset->What better way to finish off the day than watching the sunset?</li>
 							<li>watching_sunset->How pretty... I'm speechless. Maybe the Rim isn't so bad, after all.</li>
-							<li>watching_sunset(INITIATOR_trait==ascetic)->The blessed Sun is going down. Sleep tight, Mother Nature.</li>
+							<li>watching_sunset(INITIATOR_trait==검소)->The blessed Sun is going down. Sleep tight, Mother Nature.</li>
 							<li>watching_sunset->The sky is simply gorgeous today, and this sunset only makes it prettier.</li>
 							<li>watching_sunset(INITIATOR_trait==pyromaniac)->Goodnight, my favorite fireball. Burn bright!</li>
 							<li>watching_sunset->I feel as if all my suffering washes away when I gaze at the setting sun...</li>
@@ -708,7 +708,7 @@
 					
 				<!-- ===TRAITS=== -->
 					<!-- ===Ascetic=== -->
-						<li>r_logentry(INITIATOR_trait==ascetic,tag=AsceticWisdom)->[trait_ascetic]</li>
+						<li>r_logentry(INITIATOR_trait==검소,tag=AsceticWisdom)->[trait_ascetic]</li>
 						<li>trait_ascetic(INITIATOR_intellectual_level&lt;3,p=2)->[trait_ascetic_unintelligent]</li>
 							<!-- ===Ascetic (low intelligence, common but not exclusive) === -->
 							<li>trait_ascetic_unintelligent->Life's not easy, but we keep living.</li>
@@ -934,12 +934,12 @@
 						<li>damned_intensifier->bloody </li>
 						<li>damned_intensifier->blasted </li>
 						<li>damned_intensifier->sodding </li>
-						<li>damned_intensifier(p=2,INITIATOR_trait==abrasive)->fucking </li>
-						<li>damned_intensifier(INITIATOR_trait==abrasive,INITIATOR_mood&lt;=0.5)->fucking [damned_intensifier]</li>
+						<li>damned_intensifier(p=2,INITIATOR_trait==직설적)->fucking </li>
+						<li>damned_intensifier(INITIATOR_trait==직설적,INITIATOR_mood&lt;=0.5)->fucking [damned_intensifier]</li>
 						<li>damned_intensifier(p=2,INITIATOR_mood&lt;=0.4)->fucking </li>
 						<li>damned_intensifier(p=2,INITIATOR_mood&lt;=0.4)->frigging </li>
 						<li>damned_intensifier(p=2,INITIATOR_mood&lt;=0.4)->goddamned </li>
-						<li>damned_intensifier(p=2,INITIATOR_trait==abrasive,INITIATOR_mood&lt;=0.2)->fucking [damned_intensifier]</li>
+						<li>damned_intensifier(p=2,INITIATOR_trait==직설적,INITIATOR_mood&lt;=0.2)->fucking [damned_intensifier]</li>
 					<!-- ===mist=== -->
 						<li>mist->운무</li>
 						<li>mist->안개</li>				
@@ -1007,7 +1007,7 @@
 						<li>swearword->젠장할 </li>			
 						<li>swearword->지독한 </li>
 						<!-- ===abrasive=== -->
-							<li>swearword(INITIATOR_trait==abrasive)->[swearword_abrasive] </li>
+							<li>swearword(INITIATOR_trait==직설적)->[swearword_abrasive] </li>
 							<li>swearword_abrasive->염병할</li>
 							<li>swearword_abrasive->엿같은</li>
 					<!-- ===swearword (adverb)=== -->
@@ -1018,7 +1018,7 @@
 						<li>swearword_adverb->미치도록 </li>
 						<li>swearword_adverb->미칠 듯이 </li>
 						<!-- ===abrasive=== -->
-							<li>swearword_adverb(INITIATOR_trait==abrasive)->[swearword_adverb_abrasive] </li>
+							<li>swearword_adverb(INITIATOR_trait==직설적)->[swearword_adverb_abrasive] </li>
 							<li>swearword_adverb_abrasive->염병하게</li>
 							<li>swearword_adverb_abrasive->엿같이</li>
 					
@@ -1030,7 +1030,7 @@
 						<li>swearword_ad->짜증나게 </li>
 						<li>swearword_ad->미쳐버리게 </li>
 						<!-- ===abrasive=== -->
-							<li>swearword_ad(INITIATOR_trait==abrasive)->[swearword_ad_abrasive] </li>
+							<li>swearword_ad(INITIATOR_trait==직설적)->[swearword_ad_abrasive] </li>
 							<li>swearword_ad_abrasive->염병할 정도로</li>
 							<li>swearword_ad_abrasive->엿같이도</li>
 					
@@ -1101,7 +1101,7 @@
 						<li>tv_show->flick</li>
 		
 					<!-- ===ugly=== -->
-						<li>ugly->못생겼어</li>
+						<li>ugly->별로야</li>
 						<li>ugly->지저분해</li>
 						<li>ugly->끔찍해</li>
 						<li>ugly->엉망이야</li>
@@ -1112,7 +1112,7 @@
 						<li>ugly(INITIATOR_intellectual_level>=5)->그로테스크해</li>
 					
 					<!-- ===ugly=== -->
-						<li>ugly_ad->못생긴</li>
+						<li>ugly_ad->별로인</li>
 						<li>ugly_ad->지저분한</li>
 						<li>ugly_ad->끔찍한</li>
 						<li>ugly_ad->엉망인</li>
@@ -1164,14 +1164,14 @@
 						
 				<!-- ===CHITCHAT WILDCARDS: common sentences=== -->
 					<!-- ===accuses from misandrist/mysoginist=== -->
-						<li>accuse_gender_objective(INITIATOR_trait==misandrist)->him</li>
-						<li>accuse_gender_objective(INITIATOR_trait==misogynist)->her</li>
+						<li>accuse_gender_objective(INITIATOR_trait==남성혐오)->him</li>
+						<li>accuse_gender_objective(INITIATOR_trait==여성혐오)->her</li>
 						<li>accuse_gender_objective->him</li>
-						<li>accuse_gender_who(INITIATOR_trait==misandrist)->the [stupid] guy that</li>
-						<li>accuse_gender_who(INITIATOR_trait==misogynist)->the [stupid] bitch that</li>
+						<li>accuse_gender_who(INITIATOR_trait==남성혐오)->the [stupid] guy that</li>
+						<li>accuse_gender_who(INITIATOR_trait==여성혐오)->the [stupid] bitch that</li>
 						<li>accuse_gender_who->who</li>						
-						<li>accuse_gender_someone(INITIATOR_trait==misandrist)->[stupid] 놈</li>
-						<li>accuse_gender_someone(INITIATOR_trait==misogynist)->[stupid] 년</li>
+						<li>accuse_gender_someone(INITIATOR_trait==남성혐오)->[stupid] 놈</li>
+						<li>accuse_gender_someone(INITIATOR_trait==여성혐오)->[stupid] 년</li>
 						<li>accuse_gender_someone->자식</li>
 					<!-- ===chess pieces=== -->
 						<li>chess_piece->king</li>
@@ -1188,7 +1188,7 @@
 						<li>damn_it->제기랄</li>
 						<li>damn_it->젠장 맞을</li>
 							<!-- ===Abrasive=== -->
-								<li>damn_it(INITIATOR_trait==abrasive)->염병할</li>
+								<li>damn_it(INITIATOR_trait==직설적)->염병할</li>
 							<!-- ===Low mood=== -->
 								<li>damn_it(INITIATOR_mood&lt;0.4)->이런 빌어먹을</li>
 					<!-- ===Out here or out there=== -->

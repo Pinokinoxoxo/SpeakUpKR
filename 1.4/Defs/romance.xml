@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
-
-	
 	<InteractionDef ParentName="SpeakUpReply"><!-- ===RomanceSuccess=== -->
 		<defName>RomanceSuccess</defName>
 		<label>romance — success</label>

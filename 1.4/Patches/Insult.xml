@@ -28,7 +28,7 @@
 				<li>generic(INITIATOR_intellectual_level>=5)->네게 젖을 먹인 여자는 사람이 아닌가봐, [RECIPIENT_nameDef]!</li>
 				<li>r_logentry(p=2,tag=Insult_generic)->[generic_short]</li>
 					<li>generic_short->이 [bloody] [insult] 같으니라고!</li>
-					<li>generic_short(RECIPIENT_gender==Male)->네 어미는 [bitch](이)라지? 이 [bloody] [insult]!</li>
+					<li>generic_short(RECIPIENT_gender==Male)->네 어미는 [bitch](이)라지? 이 [bloody] [insult] 같은 놈!</li>
 
 		<!-- ===Recipient's trait/parameter=== -->
 			<!-- ===Ex-Lover/Spouse=== -->
@@ -87,7 +87,6 @@
 			<li>insult->버러지</li>
 			<li>insult->얼간이</li>
 			<li>insult->등신</li>
-			<li>insult(INITIATOR_intellectual_level>=5)->latrine dweller</li>
 			<li>asshole->잡놈</li>
 			<li>asshole->개자식</li>
 			<li>asshole->쌍놈</li>
@@ -96,7 +95,7 @@
 			<li>bitch->걸레</li>
 			<li>bitch(INITIATOR_intellectual_level>=5)->창부</li>
 			<li>bloody->빌어먹을</li>
-			<li>bloody->젠장할</li>
+			<li>bloody->더러운</li>
 			<li>bloody->염병할</li>
 			<li>bloody->젠장맞을</li>
 			<li>bloody->망할</li>

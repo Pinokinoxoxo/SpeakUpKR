@@ -58,7 +58,7 @@
 						<li>r_logentry(INITIATOR_childhood==동굴의 아이)->[cave_child]</li>
 						<li>r_logentry(INITIATOR_childhood==유일한 생존자)->[sole_survivor]</li>
 						<li>r_logentry(INITIATOR_childhood==어린 복수자)->[vengeful_child]</li>
-						<li>r_logentry(INITIATOR_childhood==FireKepper44)->[fire_keeper]</li>
+						<li>r_logentry(INITIATOR_childhood==불 파수꾼)->[fire_keeper]</li>
 						<li>r_logentry(INITIATOR_childhood==숨겨진 아이)->[hideaway]</li>
 						<li>r_logentry(INITIATOR_childhood==추락한 아기)->[crash_baby]</li>
 						<li>r_logentry(INITIATOR_childhood==신진 예술가)->[budding_artist]</li>
@@ -69,14 +69,14 @@
 						<li>r_logentry(INITIATOR_childhood==실험체)->[test_subject]</li>
 						<li>r_logentry(INITIATOR_childhood==잔해 탐험가)->[wreckage_explorer]</li>
 						<li>r_logentry(INITIATOR_childhood==종말의 생존자)->[apocalypse_survivor]</li>
-						<li>r_logentry(INITIATOR_childhood==CaveworldTender20)->[caveworld_tender]</li>
+						<li>r_logentry(INITIATOR_childhood==동굴의 아이)->[caveworld_tender]</li>
 						<li>r_logentry(INITIATOR_childhood==동굴계 땅굴쟁이)->[caveworld_tunneler]</li>
 						<li>r_logentry(INITIATOR_childhood==정찰병)->[scout]</li>
 						<li>r_logentry(INITIATOR_childhood==대피소 아이)->[shelter_child]</li>
 						<li>r_logentry(INITIATOR_childhood==인공배양 군인)->[vatgrown_soldier]</li>
 						<li>r_logentry(INITIATOR_childhood==병약한 아이)->[sickly_child]</li>
 						<li>r_logentry(INITIATOR_childhood==겁먹은 아이)->[frightened_child]</li>
-						<li>r_logentry(INITIATOR_childhood==ComaChild57)->[coma_child]</li>
+						<li>r_logentry(INITIATOR_childhood==혼수상태의 아이)->[coma_child]</li>
 						<li>r_logentry(INITIATOR_childhood==방화광)->[pyromaniac]</li>
 						<li>r_logentry(INITIATOR_childhood==벙어리)->[mute]</li>
 						<li>r_logentry(INITIATOR_childhood==전쟁 난민)->[war_refugee]</li>
@@ -92,7 +92,7 @@
 						<li>r_logentry(INITIATOR_childhood==중세 소지주)->[medieval_lord]</li>
 						<li>r_logentry(INITIATOR_childhood==중세 아가씨)->[medieval_lord]</li>
 						<li>r_logentry(INITIATOR_childhood==수도원의 아이)->[convent_child]</li>
-						<li>r_logentry(INITIATOR_childhood==CountryLordling92)->[country_person]</li>
+						<li>r_logentry(INITIATOR_childhood==중세 소지주)->[country_person]</li>
 						<li>r_logentry(INITIATOR_childhood==UrbanLordling82)->[urban_person]</li>
 						<li>r_logentry(INITIATOR_childhood==ShipboundLordling12)->[shipbound_person]</li>
 						<li>r_logentry(INITIATOR_childhood==PamperedLordling37)->[pampered_person]</li>

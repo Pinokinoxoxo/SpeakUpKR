@@ -7,45 +7,45 @@
 		<label>prisoner — rapport</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
-					<li>bad_opinion(INITIATOR_trait==kind,priority=1)->[good_opinion]</li>
+					<li>bad_opinion(INITIATOR_trait==다정다감,priority=1)->[good_opinion]</li>
 					<li>bad_opinion(INITIATOR_trait==abrasive)->[abrasive]</li>
 					<li>bad_opinion(INITIATOR_trait==brawler)->[brawler]</li>
 			<!-- ===Good opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
 					<li>good_opinion(p=2,INITIATOR_trait==abrasive)->[bad_opinion]</li>
-					<li>good_opinion->I might consider it...</li>
-					<li>good_opinion->I'll consider it... but give me more time to think, okay?</li>
-					<li>good_opinion->I need more time to recollect my thoughts...</li>
-					<li>good_opinion->Please, just let me leave...</li>
-					<li>good_opinion->I... I don't know...</li>
+					<li>good_opinion->조금 생각해 봐야겠어...</li>
+					<li>good_opinion->고려해 보지... 생각할 시간을 좀 줘, 알겠지?</li>
+					<li>good_opinion->생각을 정리하려면 시간이 더 필요해...</li>
+					<li>good_opinion->제발, 지금은 날 좀 내버려둬...</li>
+					<li>good_opinion->난... 난 잘 모르겠어...</li>
 			</rulesStrings>
 			<rulesFiles>
 				<li>bad_opinion->Prisoners/BadOpinion</li>
@@ -63,31 +63,31 @@
 		<label>prisoner — passion</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -96,26 +96,26 @@
 					<li>bad_opinion(INITIATOR_trait==brawler)->[brawler]</li>
 			<!-- ===Good opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion(INITIATOR_higherPassion==shooting)->During a fight, I enjoy shooting from a distance.</li>
-					<li>good_opinion(INITIATOR_higherPassion==melee,INITIATOR_trait==brawler,priority=1)->During a fight, I enjoy using punches and kicks.</li>
-					<li>good_opinion(INITIATOR_higherPassion==melee)->During a fight, I enjoy using melee weapons.</li>
-					<li>good_opinion(INITIATOR_higherPassion==construction)->I love masonry!</li>
-					<li>good_opinion(INITIATOR_higherPassion==construction)->I love carpentry!</li>
-					<li>good_opinion(INITIATOR_higherPassion==mining)->I love mining!</li>
-					<li>good_opinion(INITIATOR_higherPassion==cooking)->I love cooking!</li>
-					<li>good_opinion(INITIATOR_higherPassion==plants)->I love plants in general.</li>
-					<li>good_opinion(INITIATOR_higherPassion==plants)->I love farming!</li>
-					<li>good_opinion(INITIATOR_higherPassion==animals)->I love taking care of animals!</li>
-					<li>good_opinion(INITIATOR_higherPassion==animals)->I love animals!</li>
-					<li>good_opinion(INITIATOR_higherPassion==crafting)->I love crafting!</li>
-					<li>good_opinion(INITIATOR_higherPassion==artistic)->I love arts!</li>
-					<li>good_opinion(INITIATOR_higherPassion==medical)->I love taking care of other people!</li>
-					<li>good_opinion(INITIATOR_higherPassion==medical)->I love medicine!</li>
-					<li>good_opinion(INITIATOR_higherPassion==social)->I love being around people!</li>
-					<li>good_opinion(INITIATOR_higherPassion==social)->I love negotiating!</li>
-					<li>good_opinion(INITIATOR_higherPassion==intellectual)->I love logic and reasoning!</li>
-					<li>good_opinion(INITIATOR_higherPassion==intellectual)->I love conducting research projects!</li>
-					<li>good_opinion(priority=-1)->I have no preferred activities...</li>
+					<li>good_opinion(INITIATOR_higherPassion==shooting)->나는 전투 중에 원거리에서 사격하는 것을 더 선호해.</li>
+					<li>good_opinion(INITIATOR_higherPassion==melee,INITIATOR_trait==brawler,priority=1)->전투를 할 때는 몸을 써야지! 격투는 신성한 거라고!</li>
+					<li>good_opinion(INITIATOR_higherPassion==melee)->나는 전투 중에 근접에서 무기를 들고 싸우는 걸 선호해.</li>
+					<li>good_opinion(INITIATOR_higherPassion==construction)->나는 벽돌 쌓는 일이 좋아!</li>
+					<li>good_opinion(INITIATOR_higherPassion==construction)->나는 목수 일을 좋아해!</li>
+					<li>good_opinion(INITIATOR_higherPassion==mining)->나는 광산에서 광물을 캐는 걸 좋아해!</li>
+					<li>good_opinion(INITIATOR_higherPassion==cooking)->나는 요리를 좋아해!</li>
+					<li>good_opinion(INITIATOR_higherPassion==plants)->나는 식물을 가꾸는 걸 좋아해.</li>
+					<li>good_opinion(INITIATOR_higherPassion==plants)->나는 농사를 하는 게 좋아!</li>
+					<li>good_opinion(INITIATOR_higherPassion==animals)->나는 동물들을 보살피는 일을 좋아해!</li>
+					<li>good_opinion(INITIATOR_higherPassion==animals)->난 동물과 함께 있는 게 좋아!</li>
+					<li>good_opinion(INITIATOR_higherPassion==crafting)->나는 무언가를 만드는 게 좋아!</li>
+					<li>good_opinion(INITIATOR_higherPassion==artistic)->나는 예술을 사랑하지!</li>
+					<li>good_opinion(INITIATOR_higherPassion==medical)->나는 다른 사람들의 병을 고치는 게 좋아!</li>
+					<li>good_opinion(INITIATOR_higherPassion==medical)->나는 의학을 좋아해!</li>
+					<li>good_opinion(INITIATOR_higherPassion==social)->난 사람들에게 둘러싸여서 함께 지내는 게 좋아!</li>
+					<li>good_opinion(INITIATOR_higherPassion==social)->나는 누군가와 협상하는 걸 좋아해!</li>
+					<li>good_opinion(INITIATOR_higherPassion==intellectual)->나는 논리와 추리를 다루는 게 좋아!</li>
+					<li>good_opinion(INITIATOR_higherPassion==intellectual)->나는 연구 프로젝트를 진행하는걸 좋아해!</li>
+					<li>good_opinion(priority=-1)->선호하는 일 같은 건 별로 없어...</li>
 			</rulesStrings>
 			<rulesFiles>
 				<li>bad_opinion->Prisoners/BadOpinion</li>
@@ -133,31 +133,31 @@
 		<label>prisoner — best skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -166,16 +166,16 @@
 					<li>bad_opinion(INITIATOR_trait==brawler)->[brawler]</li>
 			<!-- ===Good opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion(INITIATOR_bestSkill==animals)->I'm best skilled at taking care of animals.</li>
-					<li>good_opinion(INITIATOR_bestSkill==plants)->I'm best skilled at farming.</li>
-					<li>good_opinion(INITIATOR_bestSkill==artistic)->I'm best skilled at arts.</li>
-					<li>good_opinion(INITIATOR_bestSkill==medical)->I'm best skilled at taking care of other people.</li>
-					<li>good_opinion(INITIATOR_bestSkill==medical)->I'm best skilled at medicine.</li>
-					<li>good_opinion(INITIATOR_bestSkill==social)->I'm best skilled at negotiating.</li>
-					<li>good_opinion(INITIATOR_bestSkill==social)->I'm best skilled at being around people.</li>
-					<li>good_opinion(INITIATOR_bestSkill==intellectual)->I'm best skilled at logic and reasoning.</li>
-					<li>good_opinion(INITIATOR_bestSkill==intellectual)->I'm best skilled at researching.</li>
-					<li>good_opinion(priority=-1)->I'm best skilled at [INITIATOR_bestSkill].</li>
+					<li>good_opinion(INITIATOR_bestSkill==animals)-&gt;난 동물을 조련하는걸 제일 잘해.</li>
+					<li>good_opinion(INITIATOR_bestSkill==plants)-&gt;난 원예작업이 제일 잘 맞아.</li>
+					<li>good_opinion(INITIATOR_bestSkill==artistic)-&gt;나는 예술가야.</li>
+					<li>good_opinion(INITIATOR_bestSkill==medical)-&gt;나는 다른 사람을 보살피는걸 제일 잘해.</li>
+					<li>good_opinion(INITIATOR_bestSkill==medical)-&gt;나는 의학에 조예가 깊은 편이야.</li>
+					<li>good_opinion(INITIATOR_bestSkill==social)-&gt;나는 협상을 잘 하는 편이야.</li>
+					<li>good_opinion(INITIATOR_bestSkill==social)-&gt;나는 사람들과 엮이는 일에 뛰어나.</li>
+					<li>good_opinion(INITIATOR_bestSkill==intellectual)-&gt;나는 논리와 추리에 강한 편이지.</li>
+					<li>good_opinion(INITIATOR_bestSkill==intellectual)-&gt;나는 연구 작업을 제일 잘해.</li>
+					<li>good_opinion(priority=-1)-&gt;나는 [INITIATOR_bestSkill] 작업을 제일 잘해.</li>
 					
 			</rulesStrings>
 			<rulesFiles>
@@ -215,16 +215,16 @@
 				<li>bad_opinion->I hate to say this, but... you finally convinced me to join your filthy community.</li>
 			<!-- ===Good opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion>=0)->[good_opinion]</li>
-					<li>good_opinion->I'm ready to be part of [RECIPIENT_factionName].</li>
-					<li>good_opinion->You finally convinced me, [recipient].</li>
-					<li>good_opinion->Your arguments finally won me over, [recipient].</li>
-					<li>good_opinion->I finally understood [RECIPIENT_factionName] is a better choice for me.</li>
-					<li>good_opinion->I finally understood [RECIPIENT_factionName] can guarantee a better future for me.</li>
-					<li>good_opinion->You know what? Maybe youre not so bad after all — I'm ready to join [RECIPIENT_factionName].</li>
-					<li>good_opinion->Hmm... Okay, whatever. I'm in.</li>
-					<li>good_opinion->If joining [RECIPIENT_factionName] is what it takes to get out of this cell, then I might as well join.</li>
-					<li>good_opinion->I've thought about it, and I think I'm up for joining [RECIPIENT_factionName].</li>
-					<li>good_opinion->The food alone is worth staying — I'll join [RECIPIENT_factionName]!</li>
+					<li>good_opinion-&gt;난 [RECIPIENT_factionName]의 일원이 될 준비가 됐어.</li>
+					<li>good_opinion-&gt;결국 날 설득하는데 성공하는군, [recipient].</li>
+					<li>good_opinion-&gt;네가 이겼어, [recipient].</li>
+					<li>good_opinion-&gt;그래, [RECIPIENT_factionName]의 일원이 되는게 더 나은 선택이라는 건 이제 알겠어.</li>
+					<li>good_opinion-&gt;[RECIPIENT_factionName]이 내게 더나은 미래를 보장할 수 있다는걸 이젠 알겠어.</li>
+					<li>good_opinion-&gt;그거 알아? 어쩌면 너네가 그렇게 나쁜 놈들은 아닌 것 같아 — [RECIPIENT_factionName]에 합류할 준비됐어.</li>
+					<li>good_opinion-&gt;흐음... 좋아, 뭐 어쩌겠어. 합류하지.</li>
+					<li>good_opinion-&gt;[RECIPIENT_factionName]에 합류하는 걸로 이 감방에서 나갈 수 있다면, 당연히 합류해야겠지.</li>
+					<li>good_opinion-&gt;생각해봤는데, 나 [RECIPIENT_factionName]에 합류할래.</li>
+					<li>good_opinion-&gt;음식만봐도 합류할 가치는 있어보여 — [RECIPIENT_factionName]에 합류하지!</li>
 			</rulesStrings>
 		</logRulesInitiator>
 	</InteractionDef>
@@ -317,31 +317,31 @@
 		<label>prisoner — need anything</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please [bring_me] me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please [bring_me] me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -432,31 +432,31 @@
 		<label>prisoner — cv</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 					
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
@@ -523,31 +523,31 @@
 		<label>prisoner — clothes</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -581,31 +581,31 @@
 		<label>prisoner — fighting skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -724,31 +724,31 @@
 		<label>prisoner — construction skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -816,31 +816,31 @@
 		<label>prisoner — mining skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -904,31 +904,31 @@
 		<label>prisoner — cooking skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -996,31 +996,31 @@
 		<label>prisoner — plants skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -1100,31 +1100,31 @@
 		<label>prisoner — animals skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -1189,31 +1189,31 @@
 		<label>prisoner — crafting skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -1271,31 +1271,31 @@
 		<label>prisoner — artistic skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -1358,31 +1358,31 @@
 		<label>prisoner — medical skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -1451,31 +1451,31 @@
 		<label>prisoner — social skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
@@ -1544,31 +1544,31 @@
 		<label>prisoner — intellectual skill</label>
 		<logRulesInitiator>
 			<rulesStrings>
-				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName] sent a rescue party already, I'm sure of it — [optimist_comment]</li>
-				<li>r_logentry(INITIATOR_trait==optimist)->I'm quite sure [INITIATOR_factionName] sent a rescue party already — [optimist_comment]</li>
-					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->it will be glorious watching your people being butchered and tortured!</li>
-					<li>optimist_comment->so I need you to release me. This way, we can avoid unnecessary bloodshed among your people.</li>
+				<li>r_logentry(INITIATOR_trait==sanguine)->[INITIATOR_factionName]에선 이미 구조대를 보냈을거야, 내가 장담하지 — [optimist_comment]</li>
+				<li>r_logentry(INITIATOR_trait==optimist)->[INITIATOR_factionName]에서 아마 구조대를 보냈을텐데 말이야 — [optimist_comment]</li>
+					<li>optimist_comment(INITIATOR_trait==bloodlust,priority=1)->네 녀석들이 도살당하고 고문당하는 모습을 반드시 지켜보겠어. 아주 영광스러운 일이 되겠지!</li>
+					<li>optimist_comment->그러니 날 풀어줘. 그래야 불필요한 피를 볼 일이 없지.</li>
 				<li>r_logentry(INITIATOR_trait==depressive)->[depressive]</li>
 				<li>r_logentry(INITIATOR_trait==pessimist)->[pessimist]</li>
 				<li>r_logentry(INITIATOR_trait==psychopath)->[psychopath]</li>
-				<li>r_logentry(INITIATOR_trait==creepy breathing)->*breathes heavily*</li>
+				<li>r_logentry(INITIATOR_trait==creepy breathing)->*후욱... 후욱...*</li>
 				<li>r_logentry(INITIATOR_trait==chemical fascination)->[chemical1]</li>
 				<li>r_logentry(INITIATOR_trait==chemical interest)->[chemical0]</li>
-					<li>chemical1->I'll be willing to cooperate more if you [bring_me] me some [drug1]...</li>
-					<li>chemical1->Please give me some [drug1]; I'll promise to cooperate more... I just need a fix, that's all.</li>
-					<li>chemical0->I'll be willing to cooperate more if you [bring_me] me some [drug0]...</li>
-					<li>chemical0->Please give me some [drug0]; I'll promise to cooperate more.</li>
-					<li>drug0->beer</li>
-					<li>drug0->smokeleaf</li>
-					<li>drug0->ambrosia</li>
-					<li>drug0->psychite tea</li>
-					<li>drug1->yayo</li>
-					<li>drug1->flake</li>
-					<li>drug1->go-juice</li>
-					<li>drug1->wake-up</li>					
-					<li>bring_me->bring</li>
-					<li>bring_me->hand</li>
-					<li>bring_me->pass</li>
+					<li>chemical1->약간의 [drug1]만 [bring_me], 협력을 할 수도 있겠지..?</li>
+					<li>chemical1->제발 [drug1] 조금만 줘, 더 많은 협력을 약속하지... 한 번만 할 정도면 충분해.</li>
+					<li>chemical0->내게 [drug0](을)를 [bring_me] 협력할 마음이 생길 것 같은데 말이야...</li>
+					<li>chemical0->제발, 제발 내게 [drug0]를 줘... 원하는 대로 협력을 할테니까...</li>
+					<li>drug0->맥주</li>
+					<li>drug0->연초</li>
+					<li>drug0->암브로시아</li>
+					<li>drug0->광이차</li>
+					<li>drug1->야요</li>
+					<li>drug1->플레이크</li>
+					<li>drug1->고주스</li>
+					<li>drug1->웨이크 업</li>					
+					<li>bring_me->가져다준다면</li>
+					<li>bring_me->제공해준다면</li>
+					<li>bring_me->준다면</li>
 			<!-- ===Bad opinion of recipient=== -->
 				<li>r_logentry(INITIATOR_opinion&lt;0)->[bad_opinion]</li>
 				<li>r_logentry(INITIATOR_mood&lt;0.4,priority=1)->[bad_opinion]</li>
